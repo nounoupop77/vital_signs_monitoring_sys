@@ -1,0 +1,2 @@
+source D:/vital_signs_monitoring_sys/build/gdbinit/symbols
+source D:/vital_signs_monitoring_sys/build/gdbinit/connect

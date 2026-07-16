@@ -1,0 +1,457 @@
+0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_F�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d53ch (120124) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=0002d564 vaddr=3ffb0000 size=02ab4h ( 10932) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9765ch (620124) map[0m
+[0;32mI (364) esp_image: segment 3: paddr=000c7684 vaddr=3ffb2ab4 size=012a4h (  4772) load[0m
+[0;32mI (366) esp_image: segment 4: paddr=000c8930 vaddr=40080000 size=171f0h ( 94704) load[0m
+[0;32mI (418) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (418) boot: Disabling RNG early entropy source...[0m
+[0;32mI (430) cpu_start: Multicore app[0m
+[0;32mI (439) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (439) cpu_start: Application information:[0m
+[0;32mI (442) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (449) cpu_start: App version:      1[0m
+[0;32mI (453) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (459) cpu_start: ELF file SHA256:  f6e21996d...[0m
+[0;32mI (465) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (469) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (474) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (479) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (491) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (497) heap_init: At 3FFB8278 len 00027D88 (159 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (510) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 400971F0 len 00008E10 (35 KiB): IRAM[0m
+[0;32mI (524) spi_flash: detected chip: generic[0m
+[0;32mI (527) spi_flash: flash io: dio[0m
+[0;33mW (531) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (545) main_task: Started on CPU0[0m
+[0;32mI (555) main_task: Calling app_main()[0m
+[0;32mI (585) wifi:wifi driver task: 3ffc0344, prio:23, stack:6656, core=0[0m
+[0;32mI (595) wifi:wifi firmware version: e851349[0m
+[0;32mI (595) wifi:wifi certification version: v7.0[0m
+[0;32mI (595) wifi:config NVS flash: enabled[0m
+[0;32mI (595) wifi:config nano formating: disabled[0m
+[0;32mI (595) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (605) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (605) wifi:Init management short buffer num: 32[0m
+[0;32mI (615) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (615) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (625) wifi:Init static rx buffer num: 10[0m
+[0;32mI (625) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (625) wifi_init: rx ba win: 6[0m
+[0;32mI (635) wifi_init: tcpip mbox: 32[0m
+[0;32mI (635) wifi_init: udp mbox: 6[0m
+[0;32mI (635) wifi_init: tcp mbox: 6[0m
+[0;32mI (645) wifi_init: tcp tx win: 5760[0m
+[0;32mI (645) wifi_init: tcp rx win: 5760[0m
+[0;32mI (655) wifi_init: tcp mss: 1440[0m
+[0;32mI (655) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (665) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (665) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (675) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (675) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (765) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (775) wifi:enable tsf[0m
+[0;32mI (775) PROBE: EVENT: STA_START[0m
+[0;32mI (775) main_task: Returned from app_main()[0m
+[0;32mI (1995) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (1995) wifi:state: init -> auth (b0)[0m
+[0;32mI (2025) wifi:state: auth -> assoc (0)[0m
+[0;32mI (2035) wifi:state: assoc -> run (10)[0m
+[0;32mI (2075) wifi:connected with LANCER-LAPTOP-O 7448, aid = 4, channel 11, BW20, bssid = 4e:77:cb:90:a6:cd[0m
+[0;32mI (2075) wifi:security: WPA2-PSK, phy: bgn, rssi: -48[0m
+[0;32mI (2085) wifi:pm start, type: 0[0m
+
+[0;32mI (2085) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2095) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (3095) esp_netif_handlers: sta ip: 192.168.137.29, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (3095) PROBE: EVENT: GOT_IP[0m
+[0;32mI (3095) WIFI: got ip:192.168.137.29[0m
+[0;32mI (3095) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (3105) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (3105) MQTT: MQTT client started (after IP)[0m
+[0;32mI (3635) PROBE: CSI callback ENTERED #1, len=256, rssi=-47[0m
+[0;31mE (13125) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (13125) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (13125) mqtt_client: Error transport connect[0m
+[0;32mI (13125) PROBE: publish #1 => 47552 (ok)[0m
+[0;32mI (13135) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (13145) PROBE: CSI callback ENTERED #2, len=128, rssi=-47[0m
+[0;32mI (13145) PROBE: publish #2 => 33162 (ok)[0m
+[0;32mI (13145) PROBE: CSI callback ENTERED #3, len=128, rssi=-47[0m
+[0;32mI (13155) PROBE: publish #3 => 39865 (ok)[0m
+[0;32mI (13165) PROBE: CSI callback ENTERED #4, len=128, rssi=-47[0m
+[0;32mI (13165) PROBE: publish #4 => 1379 (ok)[0m
+[0;32mI (13245) PROBE: CSI callback ENTERED #5, len=256, rssi=-48[0m
+[0;32mI (13245) PROBE: publish #5 => 49454 (ok)[0m
+[0;32mI (13245) PROBE: CSI callback ENTERED #6, len=256, rssi=-48[0m
+[0;32mI (13255) PROBE: publish #6 => 29813 (ok)[0m
+[0;32mI (13255) PROBE: CSI callback ENTERED #7, len=256, rssi=-47[0m
+[0;32mI (13265) PROBE: publish #7 => 64691 (ok)[0m
+[0;32mI (13475) PROBE: CSI callback ENTERED #8, len=256, rssi=-48[0m
+[0;32mI (13475) PROBE: publish #8 => 13112 (ok)[0m
+[0;32mI (13475) PROBE: CSI callback ENTERED #9, len=256, rssi=-48[0m
+[0;32mI (13475) PROBE: publish #9 => 59438 (ok)[0m
+[0;32mI (13485) PROBE: CSI callback ENTERED #10, len=256, rssi=-48[0m
+[0;32mI (13485) PROBE: publish #10 => 585 (ok)[0m
+[0;32mI (13495) PROBE: CSI callback ENTERED #11, len=256, rssi=-48[0m
+[0;32mI (13505) PROBE: publish #11 => 45863 (ok)[0m
+[0;32mI (13505) PROBE: CSI callback ENTERED #12, len=256, rssi=-48[0m
+[0;32mI (13515) PROBE: publish #12 => 14298 (ok)[0m
+[0;32mI (13515) PROBE: CSI callback ENTERED #13, len=256, rssi=-48[0m
+[0;32mI (13525) PROBE: publish #13 => 45436 (ok)[0m
+[0;32mI (13525) PROBE: CSI callback ENTERED #14, len=256, rssi=-48[0m
+[0;32mI (13535) PROBE: publish #14 => 35881 (ok)[0m
+[0;32mI (13535) PROBE: CSI callback ENTERED #15, len=256, rssi=-48[0m
+[0;32mI (13545) PROBE: publish #15 => 55586 (ok)[0m
+[0;32mI (13545) PROBE: CSI callback ENTERED #16, len=256, rssi=-48[0m
+[0;32mI (13555) PROBE: publish #16 => 64678 (ok)[0m
+[0;32mI (15065) PROBE: CSI callback ENTERED #17, len=128, rssi=-47[0m
+[0;32mI (15065) PROBE: publish #17 => 35768 (ok)[0m
+[0;32mI (15065) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:15, winSize:64[0m
+[0;32mI (15305) PROBE: CSI callback ENTERED #18, len=128, rssi=-47[0m
+[0;32mI (15305) PROBE: publish #18 => 26729 (ok)[0m
+[0;32mI (15305) PROBE: CSI callback ENTERED #19, len=128, rssi=-47[0m
+[0;32mI (15315) PROBE: publish #19 => 59528 (ok)[0m
+[0;32mI (15315) PROBE: CSI callback ENTERED #20, len=128, rssi=-47[0m
+[0;32mI (15325) PROBE: publish #20 => 45516 (ok)[0m
+[0;32mI (15325) PROBE: CSI callback ENTERED #21, len=128, rssi=-47[0m
+[0;32mI (15335) PROBE: publish #21 => 6849 (ok)[0m
+[0;32mI (15335) PROBE: CSI callback ENTERED #22, len=128, rssi=-47[0m
+[0;32mI (15345) PROBE: publish #22 => 29991 (ok)[0m
+[0;32mI (15345) PROBE: CSI callback ENTERED #23, len=128, rssi=-47[0m
+[0;32mI (15355) PROBE: publish #23 => 50862 (ok)[0m
+[0;32mI (18345) PROBE: CSI callback ENTERED #24, len=256, rssi=-49[0m
+[0;32mI (18345) PROBE: publish #24 => 21641 (ok)[0m
+[0;32mI (23295) PROBE: CSI callback ENTERED #25, len=128, rssi=-49[0m
+[0;32mI (23295) PROBE: publish #25 => 1503 (ok)[0m
+[0;32mI (23295) PROBE: CSI callback ENTERED #26, len=128, rssi=-49[0m
+[0;32mI (23305) PROBE: publish #26 => 1732 (ok)[0m
+[0;32mI (23305) PROBE: CSI callback ENTERED #27, len=128, rssi=-48[0m
+[0;32mI (23315) PROBE: publish #27 => 55992 (ok)[0m
+[0;32mI (23315) PROBE: CSI callback ENTERED #28, len=128, rssi=-48[0m
+[0;32mI (23325) PROBE: publish #28 => 47199 (ok)[0m
+[0;32mI (23325) PROBE: CSI callback ENTERED #29, len=128, rssi=-48[0m
+[0;32mI (23335) PROBE: publish #29 => 25829 (ok)[0m
+[0;32mI (23345) PROBE: CSI callback ENTERED #30, len=128, rssi=-48[0m
+[0;32mI (23345) PROBE: publish #30 => 55736 (ok)[0m
+[0;32mI (23355) PROBE: CSI callback ENTERED #31, len=128, rssi=-49[0m
+[0;32mI (23355) PROBE: publish #31 => 25446 (ok)[0m
+[0;32mI (24215) PROBE: CSI callback ENTERED #32, len=128, rssi=-49[0m
+[0;32mI (24215) PROBE: publish #32 => 64758 (ok)[0m
+[0;32mI (24215) PROBE: CSI callback ENTERED #33, len=128, rssi=-49[0m
+[0;32mI (24225) PROBE: publish #33 => 29771 (ok)[0m
+[0;32mI (24225) PROBE: CSI callback ENTERED #34, len=128, rssi=-49[0m
+[0;32mI (24235) PROBE: publish #34 => 57350 (ok)[0m
+[0;32mI (24525) PROBE: CSI callback ENTERED #35, len=128, rssi=-49[0m
+[0;32mI (24525) PROBE: publish #35 => 38307 (ok)[0m
+[0;32mI (24525) PROBE: CSI callback ENTERED #36, len=128, rssi=-49[0m
+[0;32mI (24525) PROBE: publish #36 => 20315 (ok)[0m
+[0;32mI (24535) PROBE: CSI callback ENTERED #37, len=128, rssi=-49[0m
+[0;32mI (24545) PROBE: publish #37 => 23085 (ok)[0m
+[0;32mI (26365) PROBE: CSI callback ENTERED #38, len=128, rssi=-49[0m
+[0;32mI (26365) PROBE: publish #38 => 7095 (ok)[0m
+[0;32mI (26365) PROBE: CSI callback ENTERED #39, len=128, rssi=-49[0m
+[0;32mI (26375) PROBE: publish #39 => 64337 (ok)[0m
+[0;32mI (26375) PROBE: CSI callback ENTERED #40, len=128, rssi=-49[0m
+[0;32mI (26385) PROBE: publish #40 => 28314 (ok)[0m
+[0;32mI (26385) PROBE: CSI callback ENTERED #41, len=128, rssi=-49[0m
+[0;32mI (26395) PROBE: publish #41 => 63842 (ok)[0m
+[0;32mI (26395) PROBE: CSI callback ENTERED #42, len=128, rssi=-49[0m
+[0;32mI (26405) PROBE: publish #42 => 8281 (ok)[0m
+[0;32mI (26405) PROBE: CSI callback ENTERED #43, len=128, rssi=-49[0m
+[0;32mI (26415) PROBE: publish #43 => 49042 (ok)[0m
+[0;32mI (26415) PROBE: CSI callback ENTERED #44, len=128, rssi=-49[0m
+[0;32mI (26425) PROBE: publish #44 => 49619 (ok)[0m
+[0;32mI (26435) PROBE: CSI callback ENTERED #45, len=128, rssi=-49[0m
+[0;32mI (26435) PROBE: publish #45 => 14648 (ok)[0m
+[0;32mI (28275) PROBE: CSI callback ENTERED #46, len=256, rssi=-49[0m
+[0;31mE (38135) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (38135) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (38135) mqtt_client: Error transport connect[0m
+[0;32mI (38135) PROBE: publish #46 => 49547 (ok)[0m
+[0;32mI (38145) PROBE: CSI callback ENTERED #47, len=128, rssi=-49[0m
+[0;32mI (38145) PROBE: publish #47 => 9856 (ok)[0m
+[0;32mI (38345) PROBE: CSI callback ENTERED #48, len=128, rssi=-47[0m
+[0;32mI (38345) PROBE: publish #48 => 40591 (ok)[0m
+[0;32mI (38345) PROBE: CSI callback ENTERED #49, len=128, rssi=-47[0m
+[0;32mI (38355) PROBE: publish #49 => 44705 (ok)[0m
+[0;32mI (38355) PROBE: CSI callback ENTERED #50, len=128, rssi=-47[0m
+[0;32mI (38365) CSI: cb fired 50 times, len=128, rssi=-47[0m
+[0;32mI (38375) PROBE: publish #50 => 29508 (ok)[0m
+[0;32mI (38375) PROBE: CSI callback ENTERED #51, len=128, rssi=-46[0m
+[0;32mI (38385) PROBE: publish #51 => 53058 (ok)[0m
+[0;32mI (38385) PROBE: CSI callback ENTERED #52, len=128, rssi=-47[0m
+[0;32mI (38395) PROBE: publish #52 => 63616 (ok)[0m
+[0;32mI (38395) PROBE: CSI callback ENTERED #53, len=128, rssi=-46[0m
+[0;32mI (38405) PROBE: publish #53 => 8479 (ok)[0m
+[0;32mI (38405) PROBE: CSI callback ENTERED #54, len=128, rssi=-46[0m
+[0;32mI (38415) PROBE: publish #54 => 23984 (ok)[0m
+[0;32mI (38415) PROBE: CSI callback ENTERED #55, len=128, rssi=-47[0m
+[0;32mI (38425) PROBE: publish #55 => 48328 (ok)[0m
+[0;32mI (39265) PROBE: CSI callback ENTERED #56, len=128, rssi=-47[0m
+[0;32mI (39265) PROBE: publish #56 => 57911 (ok)[0m
+[0;32mI (39265) PROBE: CSI callback ENTERED #57, len=128, rssi=-43[0m
+[0;32mI (39275) PROBE: publish #57 => 62492 (ok)[0m
+[0;32mI (39275) PROBE: CSI callback ENTERED #58, len=128, rssi=-47[0m
+[0;32mI (39285) PROBE: publish #58 => 32551 (ok)[0m
+[0;32mI (39285) PROBE: CSI callback ENTERED #59, len=128, rssi=-47[0m
+[0;32mI (39295) PROBE: publish #59 => 18813 (ok)[0m
+[0;32mI (39295) PROBE: CSI callback ENTERED #60, len=128, rssi=-47[0m
+[0;32mI (39305) PROBE: publish #60 => 35225 (ok)[0m
+[0;32mI (39315) PROBE: CSI callback ENTERED #61, len=128, rssi=-47[0m
+[0;32mI (39315) PROBE: publish #61 => 33826 (ok)[0m
+[0;32mI (39325) PROBE: CSI callback ENTERED #62, len=128, rssi=-47[0m
+[0;32mI (39325) PROBE: publish #62 => 39496 (ok)[0m
+[0;32mI (41115) PROBE: CSI callback ENTERED #63, len=128, rssi=-47[0m
+[0;32mI (41115) PROBE: publish #63 => 59511 (ok)[0m
+[0;32mI (41115) PROBE: CSI callback ENTERED #64, len=128, rssi=-47[0m
+[0;32mI (41115) PROBE: publish #64 => 47470 (ok)[0m
+[0;32mI (41125) PROBE: CSI callback ENTERED #65, len=128, rssi=-47[0m
+[0;32mI (41125) PROBE: publish #65 => 28355 (ok)[0m
+[0;32mI (41415) PROBE: CSI callback ENTERED #66, len=128, rssi=-46[0m
+[0;32mI (41425) PROBE: publish #66 => 53938 (ok)[0m
+[0;32mI (41425) PROBE: CSI callback ENTERED #67, len=128, rssi=-46[0m
+[0;32mI (41425) PROBE: publish #67 => 44225 (ok)[0m
+[0;32mI (41425) PROBE: CSI callback ENTERED #68, len=128, rssi=-46[0m
+[0;32mI (41435) PROBE: publish #68 => 33628 (ok)[0m
+[0;32mI (43225) PROBE: CSI callback ENTERED #69, len=128, rssi=-47[0m
+[0;32mI (43235) PROBE: publish #69 => 50177 (ok)[0m
+[0;32mI (44485) PROBE: CSI callback ENTERED #70, len=128, rssi=-47[0m
+[0;32mI (44495) PROBE: publish #70 => 15495 (ok)[0m
+[0;32mI (44495) PROBE: CSI callback ENTERED #71, len=128, rssi=-47[0m
+[0;32mI (44495) PROBE: publish #71 => 22052 (ok)[0m
+[0;32mI (44505) PROBE: CSI callback ENTERED #72, len=128, rssi=-47[0m
+[0;32mI (44505) PROBE: publish #72 => 4658 (ok)[0m
+[0;32mI (44705) PROBE: CSI callback ENTERED #73, len=128, rssi=-47[0m
+[0;32mI (44715) PROBE: publish #73 => 43300 (ok)[0m
+[0;32mI (45415) PROBE: CSI callback ENTERED #74, len=128, rssi=-47[0m
+[0;32mI (45415) PROBE: publish #74 => 29221 (ok)[0m
+[0;32mI (45415) PROBE: CSI callback ENTERED #75, len=128, rssi=-46[0m
+[0;32mI (45415) PROBE: publish #75 => 17939 (ok)[0m
+[0;32mI (45425) PROBE: CSI callback ENTERED #76, len=128, rssi=-46[0m
+[0;32mI (45435) PROBE: publish #76 => 47752 (ok)[0m
+[0;32mI (45435) PROBE: CSI callback ENTERED #77, len=128, rssi=-46[0m
+[0;32mI (45445) PROBE: publish #77 => 34461 (ok)[0m
+[0;32mI (45445) PROBE: CSI callback ENTERED #78, len=128, rssi=-47[0m
+[0;32mI (45455) PROBE: publish #78 => 63627 (ok)[0m
+[0;32mI (45455) PROBE: CSI callback ENTERED #79, len=128, rssi=-47[0m
+[0;32mI (45465) PROBE: publish #79 => 12842 (ok)[0m
+[0;32mI (45465) PROBE: CSI callback ENTERED #80, len=128, rssi=-47[0m
+[0;32mI (45475) PROBE: publish #80 => 31561 (ok)[0m
+[0;32mI (46025) PROBE: CSI callback ENTERED #81, len=128, rssi=-46[0m
+[0;32mI (46025) PROBE: publish #81 => 47572 (ok)[0m
+[0;32mI (46025) PROBE: CSI callback ENTERED #82, len=128, rssi=-46[0m
+[0;32mI (46035) PROBE: publish #82 => 16638 (ok)[0m
+[0;32mI (46945) PROBE: CSI callback ENTERED #83, len=128, rssi=-50[0m
+[0;32mI (46945) PROBE: publish #83 => 9015 (ok)[0m
+[0;32mI (47375) PROBE: CSI callback ENTERED #84, len=128, rssi=-48[0m
+[0;32mI (47375) PROBE: publish #84 => 55436 (ok)[0m
+[0;32mI (50945) PROBE: CSI callback ENTERED #85, len=128, rssi=-47[0m
+[0;32mI (50945) PROBE: publish #85 => 42366 (ok)[0m
+[0;32mI (53165) PROBE: CSI callback ENTERED #86, len=256, rssi=-48[0m
+[0;31mE (63145) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (63145) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (63145) mqtt_client: Error transport connect[0m
+[0;32mI (63145) PROBE: publish #86 => 50294 (ok)[0m
+[0;32mI (63155) PROBE: CSI callback ENTERED #87, len=128, rssi=-48[0m
+[0;32mI (63155) PROBE: publish #87 => 42144 (ok)[0m
+[0;32mI (63165) PROBE: CSI callback ENTERED #88, len=128, rssi=-48[0m
+[0;32mI (63165) PROBE: publish #88 => 45678 (ok)[0m
+[0;32mI (63175) PROBE: CSI callback ENTERED #89, len=128, rssi=-48[0m
+[0;32mI (63185) PROBE: publish #89 => 51648 (ok)[0m
+[0;32mI (63185) PROBE: CSI callback ENTERED #90, len=128, rssi=-48[0m
+[0;32mI (63195) PROBE: publish #90 => 2455 (ok)[0m
+[0;32mI (63195) PROBE: CSI callback ENTERED #91, len=128, rssi=-48[0m
+[0;32mI (63205) PROBE: publish #91 => 7745 (ok)[0m
+[0;32mI (63205) PROBE: CSI callback ENTERED #92, len=128, rssi=-48[0m
+[0;32mI (63215) PROBE: publish #92 => 22966 (ok)[0m
+[0;32mI (63215) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (63255) PROBE: CSI callback ENTERED #93, len=128, rssi=-47[0m
+[0;32mI (63255) PROBE: publish #93 => 47170 (ok)[0m
+[0;32mI (63255) PROBE: CSI callback ENTERED #94, len=128, rssi=-47[0m
+[0;32mI (63255) PROBE: publish #94 => 21313 (ok)[0m
+[0;32mI (68145) PROBE: CSI callback ENTERED #95, len=128, rssi=-47[0m
+[0;32mI (68145) PROBE: publish #95 => 754 (ok)[0m
+[0;32mI (68145) PROBE: CSI callback ENTERED #96, len=128, rssi=-47[0m
+[0;32mI (68145) PROBE: publish #96 => 3218 (ok)[0m
+[0;32mI (68155) PROBE: CSI callback ENTERED #97, len=128, rssi=-47[0m
+[0;32mI (68165) PROBE: publish #97 => 40223 (ok)[0m
+[0;32mI (68445) PROBE: CSI callback ENTERED #98, len=128, rssi=-47[0m
+[0;32mI (68455) PROBE: publish #98 => 30876 (ok)[0m
+[0;32mI (68455) PROBE: CSI callback ENTERED #99, len=128, rssi=-47[0m
+[0;32mI (68455) PROBE: publish #99 => 11480 (ok)[0m
+[0;32mI (68465) PROBE: CSI callback ENTERED #100, len=128, rssi=-47[0m
+[0;32mI (68465) CSI: cb fired 100 times, len=128, rssi=-47[0m
+[0;32mI (68475) PROBE: publish #100 => 54184 (ok)[0m
+[0;32mI (68475) PROBE: CSI callback ENTERED #101, len=128, rssi=-47[0m
+[0;32mI (68485) PROBE: publish #101 => 55634 (ok)[0m
+[0;32mI (69375) PROBE: CSI callback ENTERED #102, len=128, rssi=-46[0m
+[0;32mI (69375) PROBE: publish #102 => 15497 (ok)[0m
+[0;32mI (69375) PROBE: CSI callback ENTERED #103, len=128, rssi=-47[0m
+[0;32mI (69385) PROBE: publish #103 => 55285 (ok)[0m
+[0;32mI (69385) PROBE: CSI callback ENTERED #104, len=128, rssi=-47[0m
+[0;32mI (69395) PROBE: publish #104 => 62849 (ok)[0m
+[0;32mI (69395) PROBE: CSI callback ENTERED #105, len=128, rssi=-47[0m
+[0;32mI (69405) PROBE: publish #105 => 10113 (ok)[0m
+[0;32mI (69405) PROBE: CSI callback ENTERED #106, len=128, rssi=-47[0m
+[0;32mI (69415) PROBE: publish #106 => 33717 (ok)[0m
+[0;32mI (69415) PROBE: CSI callback ENTERED #107, len=128, rssi=-47[0m
+[0;32mI (69425) PROBE: publish #107 => 58019 (ok)[0m
+[0;32mI (69435) PROBE: CSI callback ENTERED #108, len=128, rssi=-47[0m
+[0;32mI (69435) PROBE: publish #108 => 30909 (ok)[0m
+[0;32mI (71215) PROBE: CSI callback ENTERED #109, len=128, rssi=-47[0m
+[0;32mI (71215) PROBE: publish #109 => 46039 (ok)[0m
+[0;32mI (71215) PROBE: CSI callback ENTERED #110, len=128, rssi=-47[0m
+[0;32mI (71225) PROBE: publish #110 => 17309 (ok)[0m
+[0;32mI (71225) PROBE: CSI callback ENTERED #111, len=128, rssi=-47[0m
+[0;32mI (71235) PROBE: publish #111 => 9175 (ok)[0m
+[0;32mI (71525) PROBE: CSI callback ENTERED #112, len=128, rssi=-47[0m
+[0;32mI (71525) PROBE: publish #112 => 53203 (ok)[0m
+[0;32mI (71525) PROBE: CSI callback ENTERED #113, len=128, rssi=-47[0m
+[0;32mI (71535) PROBE: publish #113 => 24834 (ok)[0m
+[0;32mI (71535) PROBE: CSI callback ENTERED #114, len=128, rssi=-47[0m
+[0;32mI (71545) PROBE: publish #114 => 15388 (ok)[0m
+[0;32mI (71545) PROBE: CSI callback ENTERED #115, len=128, rssi=-47[0m
+[0;32mI (71555) PROBE: publish #115 => 7905 (ok)[0m
+[0;32mI (73985) PROBE: CSI callback ENTERED #116, len=128, rssi=-47[0m
+[0;32mI (73985) PROBE: publish #116 => 51513 (ok)[0m
+[0;32mI (73985) PROBE: CSI callback ENTERED #117, len=128, rssi=-47[0m
+[0;32mI (73995) PROBE: publish #117 => 5283 (ok)[0m
+[0;32mI (75215) PROBE: CSI callback ENTERED #118, len=128, rssi=-47[0m
+[0;32mI (75215) PROBE: publish #118 => 36519 (ok)[0m
+[0;32mI (75215) PROBE: CSI callback ENTERED #119, len=128, rssi=-47[0m
+[0;32mI (75215) PROBE: publish #119 => 41311 (ok)[0m
+[0;32mI (75225) PROBE: CSI callback ENTERED #120, len=128, rssi=-47[0m
+[0;32mI (75235) PROBE: publish #120 => 51372 (ok)[0m
+[0;32mI (75515) PROBE: CSI callback ENTERED #121, len=128, rssi=-47[0m
+[0;32mI (75525) PROBE: publish #121 => 54990 (ok)[0m
+[0;32mI (75525) PROBE: CSI callback ENTERED #122, len=128, rssi=-47[0m
+[0;32mI (75525) PROBE: publish #122 => 3668 (ok)[0m
+[0;32mI (78595) PROBE: CSI callback ENTERED #123, len=128, rssi=-47[0m
+[0;31mE (88155) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (88155) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (88155) mqtt_client: Error transport connect[0m
+[0;32mI (88155) PROBE: publish #123 => 1825 (ok)[0m
+[0;32mI (88165) PROBE: CSI callback ENTERED #124, len=128, rssi=-47[0m
+[0;32mI (88165) PROBE: publish #124 => 31541 (ok)[0m
+[0;32mI (88295) PROBE: CSI callback ENTERED #125, len=256, rssi=-47[0m
+[0;32mI (88305) PROBE: publish #125 => 32558 (ok)[0m
+[0;32mI (90265) PROBE: CSI callback ENTERED #126, len=128, rssi=-44[0m
+[0;32mI (90265) PROBE: publish #126 => 36342 (ok)[0m
+[0;32mI (90265) PROBE: CSI callback ENTERED #127, len=128, rssi=-47[0m
+[0;32mI (90275) PROBE: publish #127 => 17507 (ok)[0m
+[0;32mI (90275) PROBE: CSI callback ENTERED #128, len=128, rssi=-44[0m
+[0;32mI (90285) PROBE: publish #128 => 16936 (ok)[0m
+[0;32mI (90565) PROBE: CSI callback ENTERED #129, len=128, rssi=-47[0m
+[0;32mI (90575) PROBE: publish #129 => 22207 (ok)[0m
+[0;32mI (90575) PROBE: CSI callback ENTERED #130, len=128, rssi=-47[0m
+[0;32mI (90575) PROBE: publish #130 => 11834 (ok)[0m
+[0;32mI (90585) PROBE: CSI callback ENTERED #131, len=128, rssi=-47[0m
+[0;32mI (90585) PROBE: publish #131 => 59375 (ok)[0m
+[0;32mI (90595) PROBE: CSI callback ENTERED #132, len=128, rssi=-47[0m
+[0;32mI (90595) PROBE: publish #132 => 26870 (ok)[0m
+[0;32mI (96715) PROBE: CSI callback ENTERED #133, len=128, rssi=-47[0m
+[0;32mI (96715) PROBE: publish #133 => 49199 (ok)[0m
+[0;32mI (96715) PROBE: CSI callback ENTERED #134, len=128, rssi=-47[0m
+[0;32mI (96725) PROBE: publish #134 => 5171 (ok)[0m
+[0;32mI (98255) PROBE: CSI callback ENTERED #135, len=128, rssi=-47[0m
+[0;32mI (98255) PROBE: publish #135 => 24114 (ok)[0m
+[0;32mI (98555) PROBE: CSI callback ENTERED #136, len=128, rssi=-47[0m
+[0;32mI (98565) PROBE: publish #136 => 39971 (ok)[0m
+[0;32mI (98565) PROBE: CSI callback ENTERED #137, len=128, rssi=-47[0m
+[0;32mI (98565) PROBE: publish #137 => 60713 (ok)[0m
+[0;32mI (98575) PROBE: CSI callback ENTERED #138, len=128, rssi=-47[0m
+[0;32mI (98575) PROBE: publish #138 => 7458 (ok)[0m
+[0;32mI (98585) PROBE: CSI callback ENTERED #139, len=128, rssi=-46[0m
+[0;32mI (98585) PROBE: publish #139 => 246 (ok)[0m
+[0;32mI (99145) PROBE: CSI callback ENTERED #140, len=128, rssi=-47[0m
+[0;32mI (99145) PROBE: publish #140 => 21340 (ok)[0m
+[0;32mI (99145) PROBE: CSI callback ENTERED #141, len=128, rssi=-47[0m
+[0;32mI (99145) PROBE: publish #141 => 23727 (ok)[0m
+[0;32mI (99155) PROBE: CSI callback ENTERED #142, len=128, rssi=-47[0m
+[0;32mI (99155) PROBE: publish #142 => 13333 (ok)[0m
+[0;32mI (99375) PROBE: CSI callback ENTERED #143, len=128, rssi=-47[0m
+[0;32mI (99375) PROBE: publish #143 => 62903 (ok)[0m
+[0;32mI (99385) PROBE: CSI callback ENTERED #144, len=128, rssi=-47[0m
+[0;32mI (99385) PROBE: publish #144 => 49912 (ok)[0m
+[0;32mI (99385) PROBE: CSI callback ENTERED #145, len=128, rssi=-47[0m
+[0;32mI (99395) PROBE: publish #145 => 61140 (ok)[0m
+[0;32mI (99405) PROBE: CSI callback ENTERED #146, len=128, rssi=-47[0m
+[0;32mI (99405) PROBE: publish #146 => 46996 (ok)[0m
+[0;32mI (101315) PROBE: CSI callback ENTERED #147, len=128, rssi=-48[0m
+[0;32mI (101325) PROBE: publish #147 => 30674 (ok)[0m
+[0;32mI (101325) PROBE: CSI callback ENTERED #148, len=128, rssi=-48[0m
+[0;32mI (101325) PROBE: publish #148 => 57780 (ok)[0m
+[0;32mI (101335) PROBE: CSI callback ENTERED #149, len=128, rssi=-47[0m
+[0;32mI (101335) PROBE: publish #149 => 9435 (ok)[0m
+[0;32mI (101345) PROBE: CSI callback ENTERED #150, len=128, rssi=-47[0m
+[0;32mI (101345) CSI: cb fired 150 times, len=128, rssi=-47[0m
+[0;32mI (101355) PROBE: publish #150 => 27250 (ok)[0m
+[0;32mI (101365) PROBE: CSI callback ENTERED #151, len=128, rssi=-47[0m
+[0;32mI (101365) PROBE: publish #151 => 1473 (ok)[0m
+[0;32mI (101375) PROBE: CSI callback ENTERED #152, len=128, rssi=-48[0m
+[0;32mI (101375) PROBE: publish #152 => 45726 (ok)[0m
+[0;32mI (101385) PROBE: CSI callback ENTERED #153, len=128, rssi=-48[0m
+[0;32mI (101395) PROBE: publish #153 => 16484 (ok)[0m
+[0;32mI (103785) PROBE: CSI callback ENTERED #154, len=256, rssi=-49[0m
+[0;31mE (113165) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (113165) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (113165) mqtt_client: Error transport connect[0m
+[0;32mI (113165) PROBE: publish #154 => 47877 (ok)[0m
+[0;32mI (113175) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (113185) PROBE: CSI callback ENTERED #155, len=128, rssi=-49[0m
+[0;32mI (113185) PROBE: publish #155 => 5415 (ok)[0m
+[0;32mI (113185) PROBE: CSI callback ENTERED #156, len=128, rssi=-49[0m
+[0;32mI (113195) PROBE: publish #156 => 45651 (ok)[0m
+[0;32mI (113195) PROBE: CSI callback ENTERED #157, len=128, rssi=-49[0m
+[0;32mI (113205) PROBE: publish #157 => 11187 (ok)[0m
+[0;32mI (113215) PROBE: CSI callback ENTERED #158, len=128, rssi=-49[0m
+[0;32mI (113215) PROBE: publish #158 => 33939 (ok)[0m
+[0;32mI (113275) PROBE: CSI callback ENTERED #159, len=128, rssi=-49[0m
+[0;32mI (113275) PROBE: publish #159 => 57322 (ok)[0m
+[0;32mI (113305) PROBE: CSI callback ENTERED #160, len=128, rssi=-49[0m
+[0;32mI (113305) PROBE: publish #160 => 45324 (ok)[0m
+[0;32mI (113305) PROBE: CSI callback ENTERED #161, len=128, rssi=-49[0m
+[0;32mI (113315) PROBE: publish #161 => 11822 (ok)[0m
+[0;32mI (113315) PROBE: CSI callback ENTERED #162, len=128, rssi=-49[0m
+[0;32mI (113325) PROBE: publish #162 => 2126 (ok)[0m
+[0;32mI (113325) PROBE: CSI callback ENTERED #163, len=128, rssi=-49[0m
+[0;32mI (113335) PROBE: publish #163 => 22719 (ok)[0m
+[0;32mI (113335) PROBE: CSI callback ENTERED #164, len=128, rssi=-49[0m
+[0;32mI (113345) PROBE: publish #164 => 42601 (ok)[0m
+[0;32mI (113355) PROBE: CSI callback ENTERED #165, len=128, rssi=-49[0m
+[0;32mI (113355) PROBE: publish #165 => 20814 (ok)[0m
+[0;32mI (114225) PROBE: CSI callback ENTERED #166, len=128, rssi=-48[0m
+[0;32mI (114225) PROBE: publish #166 => 59806 (ok)[0m
+[0;32mI (114225) PROBE: CSI callback ENTERED #167, len=128, rssi=-49[0m
+[0;32mI (114235) PROBE: publish #167 => 18749 (ok)[0m
