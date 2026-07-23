@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pAb6BfwQgoE=",
+  "dgSpecHash": "TcVoRuNXWS0=",
   "success": true,
-  "projectFilePath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+  "projectFilePath": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp\\7.3.0.3\\harfbuzzsharp.7.3.0.3.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0.3\\harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",
@@ -38,13 +38,11 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "VitalSignsMonitor 依賴 MQTTnet (>= 4.3.7)，但找不到 MQTTnet 4.3.7。已改為解析 MQTTnet 4.3.7.1207。",
-      "projectPath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+      "message": "VitalSignsMonitor 依赖于 MQTTnet (>= 4.3.7)，但找不到 MQTTnet 4.3.7。 已解决 MQTTnet 4.3.7.1207 的近似最佳匹配。 ",
       "libraryId": "MQTTnet",
       "targetGraphs": [
-        "net8.0-windows"
+        "net8.0-windows7.0"
       ]
     }
   ]

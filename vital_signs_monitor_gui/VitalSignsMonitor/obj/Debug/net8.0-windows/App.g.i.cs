@@ -44,7 +44,7 @@ namespace VitalSignsMonitor {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.29.0")]
         public void InitializeComponent() {
             
             #line 4 "..\..\..\App.xaml"
@@ -59,7 +59,7 @@ namespace VitalSignsMonitor {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "10.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.29.0")]
         public static void Main() {
             VitalSignsMonitor.App app = new VitalSignsMonitor.App();
             app.InitializeComponent();

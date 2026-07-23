@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\gui_test\vital_signs_monitor\VitalSignsMonitor\obj\Debug\net8.0-windows\
-VitalSignsMonitor
+D:\vital_signs_monitoring_sys\vital_signs_monitor_gui\VitalSignsMonitor\obj\Debug\net8.0-windows\
+VitalSignsMonitor_pshsjpjw_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-D:\gui_test\vital_signs_monitor\VitalSignsMonitor\App.xaml
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+D:\vital_signs_monitoring_sys\vital_signs_monitor_gui\VitalSignsMonitor\App.xaml
 11407045341
 
-41010812083
-217752580878
+6-102233981
+4341505161756
 MainWindow.xaml;
 
 False

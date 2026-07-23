@@ -82,6 +82,12 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/3.1.9": {},
+      "Microsoft.Win32.SystemEvents/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.9"
+        }
+      },
       "MQTTnet/4.3.7.1207": {
         "runtime": {
           "lib/net7.0/MQTTnet.dll": {
@@ -341,7 +347,8 @@
       },
       "SkiaSharp.Views.Desktop.Common/2.88.9": {
         "dependencies": {
-          "SkiaSharp": "2.88.9"
+          "SkiaSharp": "2.88.9",
+          "System.Drawing.Common": "4.7.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
@@ -360,6 +367,12 @@
             "assemblyVersion": "2.88.0.0",
             "fileVersion": "2.88.9.0"
           }
+        }
+      },
+      "System.Drawing.Common/4.7.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.9",
+          "Microsoft.Win32.SystemEvents": "4.7.0"
         }
       }
     }
@@ -397,6 +410,20 @@
       "sha512": "sha512-RPxRXD16KtSs8Yxr2RK9Qs7AwyN9MlpqZIYs0AvfaJwl7RAtVhC0+u2f2SKwX0uMYYd3O98Z+OBA1sj6aWVKQA==",
       "path": "harfbuzzsharp.nativeassets.win32/7.3.0.3",
       "hashPath": "harfbuzzsharp.nativeassets.win32.7.3.0.3.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/3.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e+/BrhryHoMojWlbcPJAFcShpk3JYvsMfrmoM26dnvHARWR6vtmGbfHppZcANVqf7DUBDIRxlZXcWg7v/9e1TQ==",
+      "path": "microsoft.netcore.platforms/3.1.9",
+      "hashPath": "microsoft.netcore.platforms.3.1.9.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
+      "path": "microsoft.win32.systemevents/4.7.0",
+      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
     "MQTTnet/4.3.7.1207": {
       "type": "package",
@@ -551,6 +578,13 @@
       "sha512": "sha512-80fEK0dYEJpi36Ko9WylN2rCf4w/hzzHEe+nyEL79dTHvUVfuXLZONmIwrDJ+pL5JSi8YmktQVxbYZexS+NZCw==",
       "path": "skiasharp.views.wpf/2.88.9",
       "hashPath": "skiasharp.views.wpf.2.88.9.nupkg.sha512"
+    },
+    "System.Drawing.Common/4.7.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B3+wwhAeoUQ6KeshWSq3IRLQiMoqPEzSHzyVyxTI/EbYuqIp90lXrRISlip2AF+5tj74ycIVPpnRY4M424HahA==",
+      "path": "system.drawing.common/4.7.3",
+      "hashPath": "system.drawing.common.4.7.3.nupkg.sha512"
     }
   }
 }

@@ -1,255 +1,231 @@
-﻿<Window x:Class="VitalSignsMonitor.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:sp="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
-        xmlns:res="clr-namespace:VitalSignsMonitor.Resources"
-        Title="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=AppTitle}"
-        Width="1000" Height="650" MinHeight="500"
-        Background="White"
-        WindowStartupLocation="CenterScreen">
+<Window x:Class="VitalSignsMonitor.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:sp="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+		xmlns:res="clr-namespace:VitalSignsMonitor.Resources"
+		Title="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=AppTitle}"
+		Width="1000" Height="650" MinHeight="500"
+		Background="White"
+		WindowStartupLocation="CenterScreen">
 
-    <Window.Resources>
-        <Style x:Key="PanelBorder" TargetType="Border">
-            <Setter Property="BorderBrush" Value="#D1D5DB"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
-        </Style>
-        <Style x:Key="ChartLabel" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
-            <Setter Property="Foreground" Value="#374151"/>
-            <Setter Property="Margin" Value="0,0,0,4"/>
-        </Style>
-        <Style x:Key="InputLabel" TargetType="Label">
-            <Setter Property="Foreground" Value="#374151"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style>
-        <Style x:Key="SecondaryText" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="#6B7280"/>
-            <Setter Property="FontSize" Value="11"/>
-        </Style>
-    </Window.Resources>
+	<Window.Resources>
+		<Style x:Key="PanelBorder" TargetType="Border">
+			<Setter Property="BorderBrush" Value="#D1D5DB"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Background" Value="White"/>
+		</Style>
+		<Style x:Key="ChartLabel" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="13"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="Foreground" Value="#374151"/>
+			<Setter Property="Margin" Value="0,0,0,4"/>
+		</Style>
+		<Style x:Key="InputLabel" TargetType="Label">
+			<Setter Property="Foreground" Value="#374151"/>
+			<Setter Property="FontSize" Value="12"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
+		<Style x:Key="SecondaryText" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="#6B7280"/>
+			<Setter Property="FontSize" Value="11"/>
+		</Style>
+		<Style TargetType="TextBox">
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+		<Style TargetType="PasswordBox">
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+	</Window.Resources>
 
-    <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+	<Grid Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
 
-        <!-- ROW 0: language menu -->
-        <Menu Grid.Row="0" Background="White" Margin="0">
-            <MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Language}"
-                      Foreground="#374151" FontSize="12" Padding="8,3">
-                <MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Chinese}"
-                          Click="CN_Click" Foreground="#374151"/>
-                <MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=English}"
-                          Click="EN_Click" Foreground="#374151"/>
-            </MenuItem>
-        </Menu>
+		<!-- language menu -->
+		<Menu Grid.Row="0" Background="White" Margin="0">
+			<MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Language}"
+					  Foreground="#374151" FontSize="12" Padding="8,3">
+				<MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Chinese}"
+						  Click="CN_Click" Foreground="#374151"/>
+				<MenuItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=English}"
+						  Click="EN_Click" Foreground="#374151"/>
+			</MenuItem>
+		</Menu>
 
-        <!-- ROW 1: header -->
-        <Border Grid.Row="1" Style="{StaticResource PanelBorder}" Margin="6,0,6,3" Padding="20,10">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=AppTitle}"
-                           FontSize="20" FontWeight="SemiBold"
-                           Foreground="#111827" VerticalAlignment="Center"/>
-                <Ellipse x:Name="StatusDot" Width="10" Height="10" Margin="16,0,6,0"
-                         Fill="#EF4444" VerticalAlignment="Center"/>
-                <TextBlock x:Name="StatusText"
-                           Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=StatusNotConnected}"
-                           Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
-            </StackPanel>
-        </Border>
+		<!-- header -->
+		<Border Grid.Row="1" Style="{StaticResource PanelBorder}" Margin="6,0,6,3" Padding="20,10">
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=AppTitle}"
+						   FontSize="20" FontWeight="SemiBold"
+						   Foreground="#111827" VerticalAlignment="Center"/>
+				<Ellipse x:Name="StatusDot" Width="10" Height="10" Margin="16,0,6,0"
+						 Fill="#EF4444" VerticalAlignment="Center"/>
+				<TextBlock x:Name="StatusText"
+						   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=StatusNotConnected}"
+						   Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
+			</StackPanel>
+		</Border>
 
-        <!-- ROW 2: main content -->
-        <Grid Grid.Row="2" Margin="6,3,6,3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
+		<!-- main content -->
+		<Grid Grid.Row="2" Margin="6,3,6,3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="3*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
 
-            <!-- LEFT: 2x2 charts -->
-            <UniformGrid Grid.Column="0" Rows="2" Columns="2" Margin="0,0,3,0">
+			<!-- 2x2 charts -->
+			<UniformGrid Grid.Column="0" Rows="2" Columns="2" Margin="0,0,3,0">
+				<Border Style="{StaticResource PanelBorder}" Margin="0,0,3,3">
+					<DockPanel Margin="10">
+						<TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
+								   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=TimeDomain}"/>
+						<sp:WpfPlot x:Name="TimeDomainPlot"/>
+					</DockPanel>
+				</Border>
+				<Border Style="{StaticResource PanelBorder}" Margin="3,0,0,3">
+					<DockPanel Margin="10">
+						<TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
+								   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=FftSpectrum}"/>
+						<sp:WpfPlot x:Name="FftPlot"/>
+					</DockPanel>
+				</Border>
+				<Border Style="{StaticResource PanelBorder}" Margin="0,3,3,0">
+					<DockPanel Margin="10">
+						<TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
+								   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=RespRate}"/>
+						<sp:WpfPlot x:Name="RespTrendPlot"/>
+					</DockPanel>
+				</Border>
+				<Border Style="{StaticResource PanelBorder}" Margin="3,3,0,0">
+					<DockPanel Margin="10">
+						<TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
+								   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=HrRate}"/>
+						<sp:WpfPlot x:Name="HrTrendPlot"/>
+					</DockPanel>
+				</Border>
+			</UniformGrid>
 
-                <Border Style="{StaticResource PanelBorder}" Margin="0,0,3,3">
-                    <DockPanel Margin="10">
-                        <TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
-                                   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=TimeDomain}"/>
-                        <sp:WpfPlot x:Name="TimeDomainPlot"/>
-                    </DockPanel>
-                </Border>
+			<!-- control panel -->
+			<Border Grid.Column="1" Style="{StaticResource PanelBorder}" Margin="3,0,0,0">
+				<Grid Margin="10">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
 
-                <Border Style="{StaticResource PanelBorder}" Margin="3,0,0,3">
-                    <DockPanel Margin="10">
-                        <TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
-                                   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=FftSpectrum}"/>
-                        <sp:WpfPlot x:Name="FftPlot"/>
-                    </DockPanel>
-                </Border>
+					<UniformGrid Grid.Row="0" Columns="2" Margin="0,0,0,8">
+						<Border BorderBrush="#D1D5DB" BorderThickness="1" Margin="0,0,4,0" Padding="10,8">
+							<StackPanel HorizontalAlignment="Center">
+								<TextBlock Style="{StaticResource SecondaryText}" HorizontalAlignment="Center"
+										   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=RespLabel}"/>
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+									<TextBlock x:Name="RespValue" Text="--" FontSize="28" FontWeight="Bold" Foreground="#0EA5E9"/>
+									<TextBlock Style="{StaticResource SecondaryText}" VerticalAlignment="Bottom" Margin="0,0,0,4"
+											   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=UnitRpm}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+						<Border BorderBrush="#D1D5DB" BorderThickness="1" Margin="4,0,0,0" Padding="10,8">
+							<StackPanel HorizontalAlignment="Center">
+								<TextBlock Style="{StaticResource SecondaryText}" HorizontalAlignment="Center"
+										   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=HrLabel}"/>
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+									<TextBlock x:Name="HrValue" Text="--" FontSize="28" FontWeight="Bold" Foreground="#EC4899"/>
+									<TextBlock Style="{StaticResource SecondaryText}" VerticalAlignment="Bottom" Margin="0,0,0,4"
+											   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=UnitBpm}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</UniformGrid>
 
-                <Border Style="{StaticResource PanelBorder}" Margin="0,3,3,0">
-                    <DockPanel Margin="10">
-                        <TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
-                                   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=RespRate}"/>
-                        <sp:WpfPlot x:Name="RespTrendPlot"/>
-                    </DockPanel>
-                </Border>
+					<TabControl Grid.Row="1" Background="White" BorderBrush="#D1D5DB" BorderThickness="1" Padding="0">
+						<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiTab}" Foreground="#374151">
+							<Grid Margin="6">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="36"/>
+									<RowDefinition Height="36"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="38"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
+									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiName}"/>
+								<TextBox x:Name="WifiSsidInput" Margin="4" Grid.Row="0" Grid.Column="1"/>
+								<Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
+									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiPwd}"/>
+								<PasswordBox x:Name="WifiPwdInput" Margin="4" Grid.Row="1" Grid.Column="1"/>
+								<Button x:Name="ApplyWifiBtn"
+										Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ApplyWifi}"
+										Grid.Row="3" Grid.ColumnSpan="2" Margin="4" Click="WifiSet_Click"/>
+							</Grid>
+						</TabItem>
+						<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=MqttTab}" Foreground="#374151">
+							<Grid Margin="6">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="36"/>
+									<RowDefinition Height="36"/>
+									<RowDefinition Height="36"/>
+									<RowDefinition Height="*"/>
+									<RowDefinition Height="38"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								<Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
+									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Broker}"/>
+								<TextBox x:Name="BrokerInput" Text="192.168.110.68" Margin="4" Grid.Row="0" Grid.Column="1"/>
+								<Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
+									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Port}"/>
+								<TextBox x:Name="PortInput" Text="1883" Margin="4" Grid.Row="1" Grid.Column="1"/>
+								<Label Style="{StaticResource InputLabel}" Grid.Row="2" Grid.Column="0"
+									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Topic}"/>
+								<TextBox x:Name="TopicInput" Text="me41004/vitals" Margin="4" Grid.Row="2" Grid.Column="1"/>
+								<Button x:Name="ApplyMqttBtn"
+										Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ApplyMqtt}"
+										Grid.Row="4" Grid.ColumnSpan="2" Margin="4" Click="ApplyMqtt_Click"/>
+							</Grid>
+						</TabItem>
+						<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=DataTab}" Foreground="#374151">
+							<Grid Margin="6">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="38"/>
+									<RowDefinition Height="38"/>
+									<RowDefinition Height="38"/>
+									<RowDefinition Height="*"/>
+								</Grid.RowDefinitions>
+								<Button Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ClearTrend}"
+										Grid.Row="0" Margin="4" Click="ClearData_Click"/>
+								<Button Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ExportScreenshot}"
+										Grid.Row="1" Margin="4" Click="ExportScreenshot_Click"/>
+								<Button Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=SaveDataLog}"
+										Grid.Row="2" Margin="4" Click="ExportLog_Click"/>
+							</Grid>
+						</TabItem>
+					</TabControl>
 
-                <Border Style="{StaticResource PanelBorder}" Margin="3,3,0,0">
-                    <DockPanel Margin="10">
-                        <TextBlock DockPanel.Dock="Top" Style="{StaticResource ChartLabel}"
-                                   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=HrRate}"/>
-                        <sp:WpfPlot x:Name="HrTrendPlot"/>
-                    </DockPanel>
-                </Border>
+					<Button x:Name="ConnectBtn"
+							Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ConnectMqtt}"
+							Grid.Row="2" Margin="0,8,0,0" Padding="0,12"
+							FontSize="14" FontWeight="Bold"
+							Background="#6B7280" Foreground="White"
+							Click="ConnectBtn_Click"/>
+				</Grid>
+			</Border>
+		</Grid>
 
-            </UniformGrid>
-
-            <!-- RIGHT: control panel -->
-            <Border Grid.Column="1" Style="{StaticResource PanelBorder}" Margin="3,0,0,0">
-                <Grid Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- HR / RR big numbers -->
-                    <UniformGrid Grid.Row="0" Columns="2" Margin="0,0,0,8">
-                        <Border BorderBrush="#D1D5DB" BorderThickness="1" Margin="0,0,4,0" Padding="10,8">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock Style="{StaticResource SecondaryText}" HorizontalAlignment="Center"
-                                           Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=RespLabel}"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock x:Name="RespValue" Text="--" FontSize="28" FontWeight="Bold" Foreground="#0EA5E9"/>
-                                    <TextBlock Style="{StaticResource SecondaryText}" VerticalAlignment="Bottom" Margin="0,0,0,4"
-                                               Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=UnitRpm}"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Border>
-                        <Border BorderBrush="#D1D5DB" BorderThickness="1" Margin="4,0,0,0" Padding="10,8">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock Style="{StaticResource SecondaryText}" HorizontalAlignment="Center"
-                                           Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=HrLabel}"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock x:Name="HrValue" Text="--" FontSize="28" FontWeight="Bold" Foreground="#EC4899"/>
-                                    <TextBlock Style="{StaticResource SecondaryText}" VerticalAlignment="Bottom" Margin="0,0,0,4"
-                                               Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=UnitBpm}"/>
-                                </StackPanel>
-                            </StackPanel>
-                        </Border>
-                    </UniformGrid>
-
-                    <!-- TabControl -->
-                    <TabControl Grid.Row="1" Background="White" BorderBrush="#D1D5DB" BorderThickness="1" Padding="0">
-
-                        <!-- Tab 0: WiFi Settings -->
-                        <TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiTab}" Foreground="#374151">
-                            <Grid Margin="6">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="36"/>
-                                    <RowDefinition Height="36"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="38"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
-                                       Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiName}"/>
-                                <TextBox x:Name="WifiSsidInput" Margin="4" Grid.Row="0" Grid.Column="1"/>
-
-                                <Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
-                                       Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiPwd}"/>
-                                <PasswordBox x:Name="WifiPwdInput" Margin="4" Grid.Row="1" Grid.Column="1"/>
-
-                                <Button x:Name="ApplyWifiBtn"
-                                        Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ApplyWifi}"
-                                        Grid.Row="3" Grid.ColumnSpan="2" Margin="4"
-                                        Click="WifiSet_Click"/>
-                            </Grid>
-                        </TabItem>
-
-                        <!-- Tab 1: MQTT -->
-                        <TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=MqttTab}" Foreground="#374151">
-                            <Grid Margin="6">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="36"/>
-                                    <RowDefinition Height="36"/>
-                                    <RowDefinition Height="36"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="38"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
-                                       Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Broker}"/>
-                                <TextBox x:Name="BrokerInput" Text="xg-6.frp.one" Margin="4"
-                                         Grid.Row="0" Grid.Column="1"/>
-
-                                <Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
-                                       Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Port}"/>
-                                <TextBox x:Name="PortInput" Text="63992" Margin="4"
-                                         Grid.Row="1" Grid.Column="1"/>
-
-                                <Label Style="{StaticResource InputLabel}" Grid.Row="2" Grid.Column="0"
-                                       Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Topic}"/>
-                                <TextBox x:Name="TopicInput" Text="me41004/vitals" Margin="4"
-                                         Grid.Row="2" Grid.Column="1"/>
-
-                                <Button x:Name="ApplyMqttBtn"
-                                        Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ApplyMqtt}"
-                                        Grid.Row="4" Grid.ColumnSpan="2" Margin="4"
-                                        Click="ApplyMqtt_Click"/>
-                            </Grid>
-                        </TabItem>
-
-                        <!-- Tab 2: Data -->
-                        <TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=DataTab}" Foreground="#374151">
-                            <Grid Margin="6">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="38"/>
-                                    <RowDefinition Height="38"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
-
-                                <Button Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ExportScreenshot}"
-                                        Grid.Row="0" Margin="4" Click="ExportScreenshot_Click"/>
-                                <Button Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=SaveDataLog}"
-                                        Grid.Row="1" Margin="4" Click="ExportLog_Click"/>
-                            </Grid>
-                        </TabItem>
-
-                    </TabControl>
-
-                    <!-- Connect / Disconnect -->
-                    <Button x:Name="ConnectBtn"
-                            Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ConnectMqtt}"
-                            Grid.Row="2"
-                            Margin="0,8,0,0"
-                            Padding="0,12"
-                            FontSize="14" FontWeight="Bold"
-                            Background="#6B7280"
-                            Foreground="White"
-                            Click="ConnectBtn_Click"/>
-
-                </Grid>
-            </Border>
-        </Grid>
-
-        <!-- ROW 3: footer -->
-        <Border Grid.Row="3" Style="{StaticResource PanelBorder}" Margin="6,3,6,6" Padding="20,6">
-            <TextBlock x:Name="FooterText" Style="{StaticResource SecondaryText}"
-                       Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=StatusWaiting}"/>
-        </Border>
-
-    </Grid>
+		<!-- footer -->
+		<Border Grid.Row="3" Style="{StaticResource PanelBorder}" Margin="6,3,6,6" Padding="20,6">
+			<TextBlock x:Name="FooterText" Style="{StaticResource SecondaryText}"
+					   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=StatusWaiting}"/>
+		</Border>
+	</Grid>
 </Window>

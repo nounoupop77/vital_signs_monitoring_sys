@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\bin",
-    "\\obj"
+    "\\obj",
+    "\\Resources"
   ],
-  "SelectedNode": "\\MainWindow.xaml.cs",
+  "SelectedNode": "\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false
 }

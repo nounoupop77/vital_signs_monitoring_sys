@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
-    "net8.0-windows": {
+    "net8.0-windows7.0": {
       "HarfBuzzSharp/7.3.0.3": {
         "type": "package",
         "dependencies": {
@@ -1210,7 +1210,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0-windows": [
+    "net8.0-windows7.0": [
       "MQTTnet >= 4.3.7",
       "ScottPlot.WPF >= 5.0.46"
     ]
@@ -1222,17 +1222,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+      "projectUniqueName": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
       "projectName": "VitalSignsMonitor",
-      "projectPath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+      "projectPath": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\obj\\",
+      "outputPath": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\NuGet.Config",
+        "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\NuGet.Config",
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -1242,11 +1242,10 @@
       ],
       "sources": {
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Users\\HP\\.nuget\\packages": {}
       },
       "frameworks": {
-        "net8.0-windows": {
-          "framework": "net8.0-windows7.0",
+        "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {}
         }
@@ -1260,12 +1259,10 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "10.0.300"
+      }
     },
     "frameworks": {
-      "net8.0-windows": {
-        "framework": "net8.0-windows7.0",
+      "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
           "MQTTnet": {
@@ -1296,7 +1293,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.423/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -1305,10 +1302,10 @@
       "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "VitalSignsMonitor 依賴 MQTTnet (>= 4.3.7)，但找不到 MQTTnet 4.3.7。已改為解析 MQTTnet 4.3.7.1207。",
+      "message": "VitalSignsMonitor 依赖于 MQTTnet (>= 4.3.7)，但找不到 MQTTnet 4.3.7。 已解决 MQTTnet 4.3.7.1207 的近似最佳匹配。 ",
       "libraryId": "MQTTnet",
       "targetGraphs": [
-        "net8.0-windows"
+        "net8.0-windows7.0"
       ]
     }
   ]

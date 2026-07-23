@@ -1,5 +1,5 @@
-﻿// ============================================================
-// MainWindow.xaml.cs -- white-theme + i18n + WiFi config via MQTT
+// ============================================================
+// MainWindow.xaml.cs -- white-theme + i18n + WiFi config + monitor scrolling
 // ============================================================
 
 using System.IO;
@@ -25,21 +25,26 @@ public partial class MainWindow : Window
     private int _messageCount;
     private bool _isConnected;
 
-    private readonly List<double> _hrHistory = new();
-    private readonly List<double> _respHistory = new();
-    private const int MaxTrendPoints = 60;
+   // ---- history buffers ----
+   private readonly List<double> _hrHistory = new();
+   private readonly List<double> _respHistory = new();
+   private const int TrendLivePoints = 30;       // fixed-resolution live band (HR / RR)
+
+   // Time Domain scrolling waveform
+   private readonly List<double> _waveHistory = new();
+   private const int WaveLivePoints = 200;       // fixed-resolution live band (time domain)
 
     // ---- ScottPlot colors (white theme) ----
-    private static readonly ScottPlot.Color BgColor   = ScottPlot.Color.FromHex("#FFFFFF");
-    private static readonly ScottPlot.Color FgColor   = ScottPlot.Color.FromHex("#6B7280");
+    private static readonly ScottPlot.Color BgColor = ScottPlot.Color.FromHex("#FFFFFF");
+    private static readonly ScottPlot.Color FgColor = ScottPlot.Color.FromHex("#6B7280");
     private static readonly ScottPlot.Color GridColor = ScottPlot.Color.FromHex("#E5E7EB");
     private static readonly ScottPlot.Color RespColor = ScottPlot.Color.FromHex("#0EA5E9");
-    private static readonly ScottPlot.Color HrColor   = ScottPlot.Color.FromHex("#EC4899");
+    private static readonly ScottPlot.Color HrColor = ScottPlot.Color.FromHex("#EC4899");
     private static readonly ScottPlot.Color TimeColor = ScottPlot.Color.FromHex("#3B82F6");
-    private static readonly ScottPlot.Color FftColor  = ScottPlot.Color.FromHex("#8B5CF6");
+    private static readonly ScottPlot.Color FftColor = ScottPlot.Color.FromHex("#8B5CF6");
 
-    private double _hrUpper = 120;
-    private double _rrUpper = 30;
+    private double _hrUpper = 135;
+    private double _rrUpper = 35;
 
     private static ResourceExtension T => ResourceExtension.Instance;
 
@@ -52,20 +57,36 @@ public partial class MainWindow : Window
 
 
     // ============================================================
-    // Chart initialization (white theme)
+    // Chart initialization
     // ============================================================
-    private void InitPlots()
-    {
-        ConfigurePlotStyle(TimeDomainPlot.Plot,  T["TimeDomain"],  "Time (s)",       "Amplitude");
-        ConfigurePlotStyle(FftPlot.Plot,         T["FftSpectrum"], "Frequency (Hz)", "Magnitude");
-        ConfigurePlotStyle(RespTrendPlot.Plot,   T["RespRate"],    "Measurement",    "Rate (rpm)");
-        ConfigurePlotStyle(HrTrendPlot.Plot,     T["HrRate"],      "Measurement",    "Rate (bpm)");
+   private void InitPlots()
+   {
+       ConfigurePlotStyle(TimeDomainPlot.Plot, T["TimeDomain"], "Time (s)", "Amplitude");
+       ConfigurePlotStyle(FftPlot.Plot, T["FftSpectrum"], "Frequency (Hz)", "Magnitude");
+       ConfigurePlotStyle(RespTrendPlot.Plot, T["RespRate"], "Sample #", "Rate (rpm)");
+       ConfigurePlotStyle(HrTrendPlot.Plot, T["HrRate"], "Sample #", "Rate (bpm)");
 
-        TimeDomainPlot.Refresh();
-        FftPlot.Refresh();
-        RespTrendPlot.Refresh();
-        HrTrendPlot.Refresh();
-    }
+       // X axis initial limits
+       TimeDomainPlot.Plot.Axes.SetLimitsX(0, 1);
+       FftPlot.Plot.Axes.SetLimitsX(0, 3);
+       RespTrendPlot.Plot.Axes.SetLimitsX(0, 1);
+       HrTrendPlot.Plot.Axes.SetLimitsX(0, 1);
+
+       // Y axis initial limits
+       TimeDomainPlot.Plot.Axes.SetLimitsY(-1, 1);
+       FftPlot.Plot.Axes.SetLimitsY(0, 1);
+       RespTrendPlot.Plot.Axes.SetLimitsY(0, _rrUpper);
+       HrTrendPlot.Plot.Axes.SetLimitsY(40, _hrUpper);
+
+       // History/Live views are position-based (0..1), so numeric ticks carry no meaning.
+       foreach (var wp in new[] { TimeDomainPlot, RespTrendPlot, HrTrendPlot })
+           wp.Plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.EmptyTickGenerator();
+
+       TimeDomainPlot.Refresh();
+       FftPlot.Refresh();
+       RespTrendPlot.Refresh();
+       HrTrendPlot.Refresh();
+   }
 
     private void ConfigurePlotStyle(Plot plt, string title, string xLabel, string yLabel)
     {
@@ -75,11 +96,60 @@ public partial class MainWindow : Window
 
         var style = plt.GetStyle();
         style.FigureBackgroundColor = BgColor;
-        style.DataBackgroundColor   = BgColor;
-        style.AxisColor             = FgColor;
-        style.GridMajorLineColor    = GridColor;
+        style.DataBackgroundColor = BgColor;
+        style.AxisColor = FgColor;
+        style.GridMajorLineColor = GridColor;
         plt.SetStyle(style);
     }
+
+   /// <summary>
+   /// History/Live split on a single normalized axis [0, 1]:
+   ///   - left  HistoryRatio band = full history, evenly compressed into the band
+   ///   - right (1 - HistoryRatio) band = most recent `liveCount` points, full resolution
+   ///   - the boundary point is shared by both segments, so the line stays continuous
+   ///   - no data is ever dropped: the history band simply gets denser as it grows,
+   ///     while the live band keeps a fixed, uncompressed window.
+   /// </summary>
+   private const double HistoryRatio = 0.7;
+
+   private static void DrawHistoryLiveSplit(Plot plt, List<double> history,
+                                            ScottPlot.Color color, float lineWidth,
+                                            int liveCount)
+   {
+       int m = history.Count;
+       if (m < 2) return;
+
+       int n = Math.Min(liveCount, m);
+       int splitIndex = m - n;                 // history [0..splitIndex], live [splitIndex..m-1]
+
+       // History zone [0, HistoryRatio]: uniform spacing -> compresses as it grows.
+       if (splitIndex >= 1)
+       {
+           int hc = splitIndex + 1;            // include the boundary point for a seamless join
+           double[] hx = new double[hc];
+           double[] hy = new double[hc];
+           double hStep = HistoryRatio / splitIndex;
+           for (int i = 0; i <= splitIndex; i++) { hx[i] = i * hStep; hy[i] = history[i]; }
+           var sigH = plt.Add.SignalXY(hx, hy);
+           sigH.Color = color.WithAlpha(0.30);
+           sigH.LineWidth = lineWidth;
+       }
+
+       // Live zone [HistoryRatio, 1]: fixed resolution, always the most recent points.
+       {
+           int lc = m - splitIndex;
+           double[] lx = new double[lc];
+           double[] ly = new double[lc];
+           double lSpan = 1.0 - HistoryRatio;
+           double lStep = lc > 1 ? lSpan / (lc - 1) : 0;
+           for (int k = 0; k < lc; k++) { lx[k] = HistoryRatio + k * lStep; ly[k] = history[splitIndex + k]; }
+           var sigL = plt.Add.SignalXY(lx, ly);
+           sigL.Color = color;
+           sigL.LineWidth = lineWidth;
+       }
+
+       plt.Axes.SetLimitsX(0, 1);
+   }
 
 
     // ============================================================
@@ -97,34 +167,34 @@ public partial class MainWindow : Window
         RefreshPlotLabels();
     }
 
-    private void RefreshPlotLabels()
-    {
-        TimeDomainPlot.Plot.Title(T["TimeDomain"]);
-        TimeDomainPlot.Plot.XLabel("Time (s)");
-        TimeDomainPlot.Plot.YLabel("Amplitude");
+   private void RefreshPlotLabels()
+   {
+       TimeDomainPlot.Plot.Title(T["TimeDomain"]);
+       TimeDomainPlot.Plot.XLabel("");
+       TimeDomainPlot.Plot.YLabel("Amplitude");
 
-        FftPlot.Plot.Title(T["FftSpectrum"]);
-        FftPlot.Plot.XLabel("Frequency (Hz)");
-        FftPlot.Plot.YLabel("Magnitude");
+       FftPlot.Plot.Title(T["FftSpectrum"]);
+       FftPlot.Plot.XLabel("Frequency (Hz)");
+       FftPlot.Plot.YLabel("Magnitude");
 
-        RespTrendPlot.Plot.Title(T["RespRate"]);
-        RespTrendPlot.Plot.XLabel("Measurement");
-        RespTrendPlot.Plot.YLabel("Rate (rpm)");
+       RespTrendPlot.Plot.Title(T["RespRate"]);
+       RespTrendPlot.Plot.XLabel("");
+       RespTrendPlot.Plot.YLabel("Rate (rpm)");
 
-        HrTrendPlot.Plot.Title(T["HrRate"]);
-        HrTrendPlot.Plot.XLabel("Measurement");
-        HrTrendPlot.Plot.YLabel("Rate (bpm)");
+       HrTrendPlot.Plot.Title(T["HrRate"]);
+       HrTrendPlot.Plot.XLabel("");
+       HrTrendPlot.Plot.YLabel("Rate (bpm)");
 
-        TimeDomainPlot.Refresh();
-        FftPlot.Refresh();
-        RespTrendPlot.Refresh();
-        HrTrendPlot.Refresh();
+       TimeDomainPlot.Refresh();
+       FftPlot.Refresh();
+       RespTrendPlot.Refresh();
+       HrTrendPlot.Refresh();
 
-        UpdateConnectButton();
+       UpdateConnectButton();
 
-        if (!_isConnected)
-            StatusText.Text = T["StatusNotConnected"];
-    }
+       if (!_isConnected)
+           StatusText.Text = T["StatusNotConnected"];
+   }
 
 
     // ============================================================
@@ -141,7 +211,7 @@ public partial class MainWindow : Window
         }
 
         string ssid = WifiSsidInput.Text.Trim();
-        string pwd  = WifiPwdInput.Password;
+        string pwd = WifiPwdInput.Password;
 
         if (string.IsNullOrEmpty(ssid))
         {
@@ -267,17 +337,22 @@ public partial class MainWindow : Window
             $"RSSI: {data.Rssi} dBm  |  HR: {data.Hr:F1} bpm  |  RR: {data.Rr:F1} rpm  |  " +
             $"Msg #{_messageCount}  |  {data.Ts}";
 
-        if (data.TimeAxis is { Length: > 1 } && data.TimeWave is { Length: > 1 })
+        // ============ Time Domain (history/Live split, no data discarded) ============
+        if (data.TimeWave is { Length: > 1 })
         {
+            _waveHistory.Add(data.TimeWave[^1]);
+
             var plt = TimeDomainPlot.Plot;
             plt.Clear();
-            var sig = plt.Add.SignalXY(data.TimeAxis, data.TimeWave);
-            sig.Color = TimeColor;
-            sig.LineWidth = 1.5f;
-            plt.Axes.AutoScale();
+            if (_waveHistory.Count > 1)
+            {
+                DrawHistoryLiveSplit(plt, _waveHistory, TimeColor, 1.5f, WaveLivePoints);
+                plt.Axes.AutoScaleY();
+            }
             TimeDomainPlot.Refresh();
         }
 
+        // ============ FFT (latest snapshot, not time-series) ============
         if (data.FftFreq is { Length: > 1 } && data.FftMag is { Length: > 1 })
         {
             var plt = FftPlot.Plot;
@@ -287,41 +362,34 @@ public partial class MainWindow : Window
             sig.LineWidth = 1.5f;
             plt.Add.VerticalLine(0.3, color: RespColor.WithAlpha(0.4));
             plt.Add.VerticalLine(1.2, color: HrColor.WithAlpha(0.4));
-            plt.Axes.AutoScale();
+            plt.Axes.SetLimitsX(0, data.FftFreq[^1]);
+            plt.Axes.SetLimitsY(0, data.FftMag.Max() * 1.1);
             FftPlot.Refresh();
         }
 
+        // ============ Respiration trend (history/Live split, no data discarded) ============
         _respHistory.Add(data.Rr);
-        if (_respHistory.Count > MaxTrendPoints) _respHistory.RemoveAt(0);
 
         {
             var plt = RespTrendPlot.Plot;
             plt.Clear();
             if (_respHistory.Count > 1)
             {
-                double[] xs = Enumerable.Range(0, _respHistory.Count)
-                    .Select(i => (double)i).ToArray();
-                var sig = plt.Add.SignalXY(xs, _respHistory.ToArray());
-                sig.Color = RespColor;
-                sig.LineWidth = 2;
+                DrawHistoryLiveSplit(plt, _respHistory, RespColor, 2f, TrendLivePoints);
                 plt.Axes.SetLimitsY(0, _rrUpper);
             }
             RespTrendPlot.Refresh();
         }
 
+        // ============ Heart rate trend (history/Live split, no data discarded) ============
         _hrHistory.Add(data.Hr);
-        if (_hrHistory.Count > MaxTrendPoints) _hrHistory.RemoveAt(0);
 
         {
             var plt = HrTrendPlot.Plot;
             plt.Clear();
             if (_hrHistory.Count > 1)
             {
-                double[] xs = Enumerable.Range(0, _hrHistory.Count)
-                    .Select(i => (double)i).ToArray();
-                var sig = plt.Add.SignalXY(xs, _hrHistory.ToArray());
-                sig.Color = HrColor;
-                sig.LineWidth = 2;
+                DrawHistoryLiveSplit(plt, _hrHistory, HrColor, 2f, TrendLivePoints);
                 plt.Axes.SetLimitsY(40, _hrUpper);
             }
             HrTrendPlot.Refresh();
@@ -350,10 +418,23 @@ public partial class MainWindow : Window
     {
         _hrHistory.Clear();
         _respHistory.Clear();
+        _waveHistory.Clear();
+
+        TimeDomainPlot.Plot.Clear();
+        FftPlot.Plot.Clear();
         RespTrendPlot.Plot.Clear();
         HrTrendPlot.Plot.Clear();
+
+        TimeDomainPlot.Refresh();
+        FftPlot.Refresh();
         RespTrendPlot.Refresh();
         HrTrendPlot.Refresh();
+
+        // Reset the top-right value readouts and footer back to their waiting state.
+        RespValue.Text = "--";
+        HrValue.Text = "--";
+        FooterText.Text = T["StatusWaiting"];
+
         StatusText.Text = T["StatusTrendCleared"];
     }
 
@@ -388,9 +469,6 @@ public partial class MainWindow : Window
     }
 
 
-    // ============================================================
-    // Button anti-spam
-    // ============================================================
     private async void Button_Disable(Button target, int timeMs)
     {
         target.IsEnabled = false;
@@ -399,9 +477,6 @@ public partial class MainWindow : Window
     }
 
 
-    // ============================================================
-    // Cleanup
-    // ============================================================
     protected override void OnClosed(EventArgs e)
     {
         if (_mqtt != null)
@@ -417,12 +492,12 @@ public partial class MainWindow : Window
 // ---- JSON data model ----
 public class VitalsData
 {
-    [JsonPropertyName("ts")]        public string Ts { get; set; } = "";
-    [JsonPropertyName("hr")]        public double Hr { get; set; }
-    [JsonPropertyName("rr")]        public double Rr { get; set; }
-    [JsonPropertyName("rssi")]      public int Rssi { get; set; }
+    [JsonPropertyName("ts")] public string Ts { get; set; } = "";
+    [JsonPropertyName("hr")] public double Hr { get; set; }
+    [JsonPropertyName("rr")] public double Rr { get; set; }
+    [JsonPropertyName("rssi")] public int Rssi { get; set; }
     [JsonPropertyName("time_axis")] public double[]? TimeAxis { get; set; }
     [JsonPropertyName("time_wave")] public double[]? TimeWave { get; set; }
-    [JsonPropertyName("fft_freq")]  public double[]? FftFreq { get; set; }
-    [JsonPropertyName("fft_mag")]   public double[]? FftMag { get; set; }
+    [JsonPropertyName("fft_freq")] public double[]? FftFreq { get; set; }
+    [JsonPropertyName("fft_mag")] public double[]? FftMag { get; set; }
 }

@@ -1,13 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\",
+  "WorkspaceRootPath": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindow.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\Resources\\ResourceExtension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Resources\\ResourceExtension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:VitalSignsMonitor.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -18,37 +26,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VitalSignsMonitor.csproj",
+              "DocumentMoniker": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+              "RelativeDocumentMoniker": "VitalSignsMonitor.csproj",
+              "ToolTip": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+              "RelativeToolTip": "VitalSignsMonitor.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-23T18:50:43.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResourceExtension.cs",
+              "DocumentMoniker": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\Resources\\ResourceExtension.cs",
+              "RelativeDocumentMoniker": "Resources\\ResourceExtension.cs",
+              "ToolTip": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\Resources\\ResourceExtension.cs",
+              "RelativeToolTip": "Resources\\ResourceExtension.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-20T08:08:16.292Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml",
+              "DocumentMoniker": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml",
+              "ToolTip": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAkwD8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-07-15T08:22:14.352Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\gui_test\\vital_signs_monitor\\VitalSignsMonitor\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKYBAAAAAAAAAAAUwLIBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-15T09:04:31.207Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-15T09:04:31.207Z"
             }
           ]
         }
