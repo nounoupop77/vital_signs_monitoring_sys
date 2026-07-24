@@ -1,0 +1,1489 @@
+PI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d2f0h (119536) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=0002d318 vaddr=3ffb0000 size=02d00h ( 11520) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=973e4h (619492) map[0m
+[0;32mI (363) esp_image: segment 3: paddr=000c740c vaddr=3ffb2d00 size=01048h (  4168) load[0m
+[0;32mI (365) esp_image: segment 4: paddr=000c845c vaddr=40080000 size=171f0h ( 94704) load[0m
+[0;32mI (418) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (418) boot: Disabling RNG early entropy source...[0m
+[0;32mI (429) cpu_start: Multicore app[0m
+[0;32mI (439) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (439) cpu_start: Application information:[0m
+[0;32mI (442) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (448) cpu_start: App version:      1[0m
+[0;32mI (453) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (459) cpu_start: ELF file SHA256:  bf0bf1ab9...[0m
+[0;32mI (464) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (469) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (474) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (479) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (491) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (497) heap_init: At 3FFB8260 len 00027DA0 (159 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (509) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 400971F0 len 00008E10 (35 KiB): IRAM[0m
+[0;32mI (523) spi_flash: detected chip: generic[0m
+[0;32mI (526) spi_flash: flash io: dio[0m
+[0;33mW (530) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (544) main_task: Started on CPU0[0m
+[0;32mI (554) main_task: Calling app_main()[0m
+[0;32mI (584) wifi:wifi driver task: 3ffc02a8, prio:23, stack:6656, core=0[0m
+[0;32mI (594) wifi:wifi firmware version: e851349[0m
+[0;32mI (594) wifi:wifi certification version: v7.0[0m
+[0;32mI (594) wifi:config NVS flash: enabled[0m
+[0;32mI (594) wifi:config nano formating: disabled[0m
+[0;32mI (594) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (604) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (604) wifi:Init management short buffer num: 32[0m
+[0;32mI (614) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (614) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (624) wifi:Init static rx buffer num: 10[0m
+[0;32mI (624) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (624) wifi_init: rx ba win: 6[0m
+[0;32mI (634) wifi_init: tcpip mbox: 32[0m
+[0;32mI (634) wifi_init: udp mbox: 6[0m
+[0;32mI (634) wifi_init: tcp mbox: 6[0m
+[0;32mI (644) wifi_init: tcp tx win: 5760[0m
+[0;32mI (644) wifi_init: tcp rx win: 5760[0m
+[0;32mI (654) wifi_init: tcp mss: 1440[0m
+[0;32mI (654) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (654) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (664) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (674) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (764) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (764) wifi:enable tsf[0m
+[0;31mE (774) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (774) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (774) mqtt_client: Error transport connect[0m
+[0;32mI (784) main_task: Returned from app_main()[0m
+[0;32mI (814) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+[0;32mI (814) wifi:state: init -> auth (b0)[0m
+[0;32mI (1814) wifi:state: auth -> init (200)[0m
+[0;32mI (1834) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+[0;32mI (4294) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+[0;32mI (4294) wifi:state: init -> auth (b0)[0m
+[0;32mI (4304) wifi:state: auth -> assoc (0)[0m
+[0;32mI (4314) wifi:state: assoc -> run (10)[0m
+[0;32mI (4324) wifi:connected with LANCER-LAPTOP-O 7448, aid = 6, channel 1, BW20, bssid = 4e:77:cb:90:a6:cd[0m
+[0;32mI (4324) wifi:security: WPA2-PSK, phy: bgn, rssi: -48[0m
+[0;32mI (4334) wifi:pm start, type: 1[0m
+
+[0;32mI (4334) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (4394) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (5844) esp_netif_handlers: sta ip: 192.168.137.141, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (5844) WIFI: got ip:192.168.137.141[0m
+[0;32mI (16794) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:8, winSize:64[0m
+[0;32mI (682714) wifi:state: run -> init (c0)[0m
+[0;32mI (682734) wifi:pm stop, total sleep time: 653132357 us / 678399432 us[0m
+
+[0;32mI (682734) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (682734) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+[0;31mE (682744) transport_base: tcp_read error, errno=Software caused connection abort[0m
+[0;31mE (682744) mqtt_client: esp_mqtt_handle_transport_read_error: transport_read() error: errno=113[0m
+[0;31mE (682754) mqtt_client: mqtt_process_receive: mqtt_message_receive() returned -2[0m
+[0;31mE (697764) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (697764) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (697764) mqtt_client: Error transport connect[0m
+[0;31mE (712774) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (712774) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (712774) mqtt_client: Error transport connect[0m
+[0;31mE (727774) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (727774) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (727774) mqtt_client: Error transport connect[0m
+[0;31mE (742784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (742784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (742784) mqtt_client: Error transport connect[0m
+[0;31mE (757784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (757784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (757784) mqtt_client: Error transport connect[0m
+[0;31mE (772784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (772784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (772784) mqtt_client: Error transport connect[0m
+[0;31mE (787784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (787784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (787784) mqtt_client: Error transport connect[0m
+[0;31mE (802784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (802784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (802784) mqtt_client: Error transport connect[0m
+[0;31mE (817784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (817784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (817784) mqtt_client: Error transport connect[0m
+[0;31mE (832784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (832784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (832784) mqtt_client: Error transport connect[0m
+[0;31mE (847784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (847784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (847784) mqtt_client: Error transport connect[0m
+[0;31mE (862784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (862784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (862784) mqtt_client: Error transport connect[0m
+[0;31mE (877784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (877784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (877784) mqtt_client: Error transport connect[0m
+[0;31mE (892784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (892784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (892784) mqtt_client: Error transport connect[0m
+[0;31mE (907784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (907784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (907784) mqtt_client: Error transport connect[0m
+[0;31mE (922784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (922784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (922784) mqtt_client: Error transport connect[0m
+[0;31mE (937784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (937784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (937784) mqtt_client: Error transport connect[0m
+[0;31mE (952784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (952784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (952784) mqtt_client: Error transport connect[0m
+[0;31mE (967784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (967784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (967784) mqtt_client: Error transport connect[0m
+[0;31mE (982784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (982784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (982784) mqtt_client: Error transport connect[0m
+[0;31mE (997784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (997784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (997784) mqtt_client: Error transport connect[0m
+[0;31mE (1012784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1012784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1012784) mqtt_client: Error transport connect[0m
+[0;31mE (1027784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1027784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1027784) mqtt_client: Error transport connect[0m
+[0;31mE (1042784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1042784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1042784) mqtt_client: Error transport connect[0m
+[0;31mE (1057784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1057784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1057784) mqtt_client: Error transport connect[0m
+[0;31mE (1072784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1072784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1072784) mqtt_client: Error transport connect[0m
+[0;31mE (1087784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1087784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1087784) mqtt_client: Error transport connect[0m
+[0;31mE (1102784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1102784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1102784) mqtt_client: Error transport connect[0m
+[0;31mE (1117784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1117784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1117784) mqtt_client: Error transport connect[0m
+[0;31mE (1132784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1132784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1132784) mqtt_client: Error transport connect[0m
+[0;31mE (1147784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1147784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1147784) mqtt_client: Error transport connect[0m
+[0;31mE (1162784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1162784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1162784) mqtt_client: Error transport connect[0m
+[0;31mE (1177784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1177784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1177784) mqtt_client: Error transport connect[0m
+[0;31mE (1192784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1192784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1192784) mqtt_client: Error transport connect[0m
+[0;31mE (1207784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1207784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1207784) mqtt_client: Error transport connect[0m
+[0;31mE (1222784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1222784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1222784) mqtt_client: Error transport connect[0m
+[0;31mE (1237784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1237784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1237784) mqtt_client: Error transport connect[0m
+[0;31mE (1252784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1252784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1252784) mqtt_client: Error transport connect[0m
+[0;31mE (1267784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1267784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1267784) mqtt_client: Error transport connect[0m
+[0;31mE (1282784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1282784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1282784) mqtt_client: Error transport connect[0m
+[0;31mE (1297784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1297784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1297784) mqtt_client: Error transport connect[0m
+[0;31mE (1312784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1312784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1312784) mqtt_client: Error transport connect[0m
+[0;31mE (1327784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1327784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1327784) mqtt_client: Error transport connect[0m
+[0;31mE (1342784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1342784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1342784) mqtt_client: Error transport connect[0m
+[0;31mE (1357784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1357784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1357784) mqtt_client: Error transport connect[0m
+[0;31mE (1372784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1372784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1372784) mqtt_client: Error transport connect[0m
+[0;31mE (1387784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1387784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1387784) mqtt_client: Error transport connect[0m
+[0;31mE (1402784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1402784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1402784) mqtt_client: Error transport connect[0m
+[0;31mE (1417784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1417784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1417784) mqtt_client: Error transport connect[0m
+[0;31mE (1432784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1432784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1432784) mqtt_client: Error transport connect[0m
+[0;31mE (1447784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1447784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1447784) mqtt_client: Error transport connect[0m
+[0;31mE (1462784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1462784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1462784) mqtt_client: Error transport connect[0m
+[0;31mE (1477784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1477784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1477784) mqtt_client: Error transport connect[0m
+[0;31mE (1492784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1492784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1492784) mqtt_client: Error transport connect[0m
+[0;31mE (1507784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1507784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1507784) mqtt_client: Error transport connect[0m
+[0;31mE (1522784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1522784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1522784) mqtt_client: Error transport connect[0m
+[0;31mE (1537784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1537784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1537784) mqtt_client: Error transport connect[0m
+[0;31mE (1552784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1552784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1552784) mqtt_client: Error transport connect[0m
+[0;31mE (1567784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1567784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1567784) mqtt_client: Error transport connect[0m
+[0;31mE (1582784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1582784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1582784) mqtt_client: Error transport connect[0m
+[0;31mE (1597784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1597784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1597784) mqtt_client: Error transport connect[0m
+[0;31mE (1612784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1612784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1612784) mqtt_client: Error transport connect[0m
+[0;31mE (1627784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1627784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1627784) mqtt_client: Error transport connect[0m
+[0;31mE (1642784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1642784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1642784) mqtt_client: Error transport connect[0m
+[0;31mE (1657784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1657784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1657784) mqtt_client: Error transport connect[0m
+[0;31mE (1672784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1672784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1672784) mqtt_client: Error transport connect[0m
+[0;31mE (1687784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1687784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1687784) mqtt_client: Error transport connect[0m
+[0;31mE (1702784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1702784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1702784) mqtt_client: Error transport connect[0m
+[0;31mE (1717784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1717784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1717784) mqtt_client: Error transport connect[0m
+[0;31mE (1732784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1732784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1732784) mqtt_client: Error transport connect[0m
+[0;31mE (1747784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1747784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1747784) mqtt_client: Error transport connect[0m
+[0;31mE (1762784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1762784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1762784) mqtt_client: Error transport connect[0m
+[0;31mE (1777784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1777784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1777784) mqtt_client: Error transport connect[0m
+[0;31mE (1792784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1792784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1792784) mqtt_client: Error transport connect[0m
+[0;31mE (1807784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1807784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1807784) mqtt_client: Error transport connect[0m
+[0;31mE (1822784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1822784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1822784) mqtt_client: Error transport connect[0m
+[0;31mE (1837784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1837784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1837784) mqtt_client: Error transport connect[0m
+[0;31mE (1852784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1852784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1852784) mqtt_client: Error transport connect[0m
+[0;31mE (1867784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1867784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1867784) mqtt_client: Error transport connect[0m
+[0;31mE (1882784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1882784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1882784) mqtt_client: Error transport connect[0m
+[0;31mE (1897784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1897784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1897784) mqtt_client: Error transport connect[0m
+[0;31mE (1912784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1912784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1912784) mqtt_client: Error transport connect[0m
+[0;31mE (1927784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1927784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1927784) mqtt_client: Error transport connect[0m
+[0;31mE (1942784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1942784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1942784) mqtt_client: Error transport connect[0m
+[0;31mE (1957784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1957784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1957784) mqtt_client: Error transport connect[0m
+[0;31mE (1972784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1972784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1972784) mqtt_client: Error transport connect[0m
+[0;31mE (1987784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (1987784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (1987784) mqtt_client: Error transport connect[0m
+[0;31mE (2002784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2002784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2002784) mqtt_client: Error transport connect[0m
+[0;31mE (2017784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2017784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2017784) mqtt_client: Error transport connect[0m
+[0;31mE (2032784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2032784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2032784) mqtt_client: Error transport connect[0m
+[0;31mE (2047784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2047784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2047784) mqtt_client: Error transport connect[0m
+[0;31mE (2062784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2062784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2062784) mqtt_client: Error transport connect[0m
+[0;31mE (2077784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2077784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2077784) mqtt_client: Error transport connect[0m
+[0;31mE (2092784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2092784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2092784) mqtt_client: Error transport connect[0m
+[0;31mE (2107784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2107784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2107784) mqtt_client: Error transport connect[0m
+[0;31mE (2122784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2122784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2122784) mqtt_client: Error transport connect[0m
+[0;31mE (2137784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2137784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2137784) mqtt_client: Error transport connect[0m
+[0;31mE (2152784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2152784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2152784) mqtt_client: Error transport connect[0m
+[0;31mE (2167784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2167784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2167784) mqtt_client: Error transport connect[0m
+[0;31mE (2182784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2182784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2182784) mqtt_client: Error transport connect[0m
+[0;31mE (2197784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2197784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2197784) mqtt_client: Error transport connect[0m
+[0;31mE (2212784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2212784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2212784) mqtt_client: Error transport connect[0m
+[0;31mE (2227784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2227784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2227784) mqtt_client: Error transport connect[0m
+[0;31mE (2242784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2242784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2242784) mqtt_client: Error transport connect[0m
+[0;31mE (2257784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2257784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2257784) mqtt_client: Error transport connect[0m
+[0;31mE (2272784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2272784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2272784) mqtt_client: Error transport connect[0m
+[0;31mE (2287784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2287784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2287784) mqtt_client: Error transport connect[0m
+[0;31mE (2302784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2302784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2302784) mqtt_client: Error transport connect[0m
+[0;31mE (2317784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2317784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2317784) mqtt_client: Error transport connect[0m
+[0;31mE (2332784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2332784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2332784) mqtt_client: Error transport connect[0m
+[0;31mE (2347784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2347784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2347784) mqtt_client: Error transport connect[0m
+[0;31mE (2362784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2362784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2362784) mqtt_client: Error transport connect[0m
+[0;31mE (2377784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2377784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2377784) mqtt_client: Error transport connect[0m
+[0;31mE (2392784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2392784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2392784) mqtt_client: Error transport connect[0m
+[0;31mE (2407784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2407784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2407784) mqtt_client: Error transport connect[0m
+[0;31mE (2422784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2422784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2422784) mqtt_client: Error transport connect[0m
+[0;31mE (2437784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2437784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2437784) mqtt_client: Error transport connect[0m
+[0;31mE (2452784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2452784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2452784) mqtt_client: Error transport connect[0m
+[0;31mE (2467784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2467784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2467784) mqtt_client: Error transport connect[0m
+[0;31mE (2482784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2482784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2482784) mqtt_client: Error transport connect[0m
+[0;31mE (2497784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2497784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2497784) mqtt_client: Error transport connect[0m
+[0;31mE (2512784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2512784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2512784) mqtt_client: Error transport connect[0m
+[0;31mE (2527784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2527784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2527784) mqtt_client: Error transport connect[0m
+[0;31mE (2542784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2542784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2542784) mqtt_client: Error transport connect[0m
+[0;31mE (2557784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2557784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2557784) mqtt_client: Error transport connect[0m
+[0;31mE (2572784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2572784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2572784) mqtt_client: Error transport connect[0m
+[0;31mE (2587784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2587784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2587784) mqtt_client: Error transport connect[0m
+[0;31mE (2602784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2602784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2602784) mqtt_client: Error transport connect[0m
+[0;31mE (2617784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2617784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2617784) mqtt_client: Error transport connect[0m
+[0;31mE (2632784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2632784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2632784) mqtt_client: Error transport connect[0m
+[0;31mE (2647784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2647784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2647784) mqtt_client: Error transport connect[0m
+[0;31mE (2662784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2662784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2662784) mqtt_client: Error transport connect[0m
+[0;31mE (2677784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2677784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2677784) mqtt_client: Error transport connect[0m
+[0;31mE (2692784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2692784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2692784) mqtt_client: Error transport connect[0m
+[0;31mE (2707784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2707784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2707784) mqtt_client: Error transport connect[0m
+[0;31mE (2722784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2722784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2722784) mqtt_client: Error transport connect[0m
+[0;31mE (2737784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2737784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2737784) mqtt_client: Error transport connect[0m
+[0;31mE (2752784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2752784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2752784) mqtt_client: Error transport connect[0m
+[0;31mE (2767784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2767784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2767784) mqtt_client: Error transport connect[0m
+[0;31mE (2782784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2782784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2782784) mqtt_client: Error transport connect[0m
+[0;31mE (2797784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2797784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2797784) mqtt_client: Error transport connect[0m
+[0;31mE (2812784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2812784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2812784) mqtt_client: Error transport connect[0m
+[0;31mE (2827784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2827784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2827784) mqtt_client: Error transport connect[0m
+[0;31mE (2842784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2842784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2842784) mqtt_client: Error transport connect[0m
+[0;31mE (2857784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2857784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2857784) mqtt_client: Error transport connect[0m
+[0;31mE (2872784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2872784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2872784) mqtt_client: Error transport connect[0m
+[0;31mE (2887784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2887784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2887784) mqtt_client: Error transport connect[0m
+[0;31mE (2902784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2902784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2902784) mqtt_client: Error transport connect[0m
+[0;31mE (2917784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2917784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2917784) mqtt_client: Error transport connect[0m
+[0;31mE (2932784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2932784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2932784) mqtt_client: Error transport connect[0m
+[0;31mE (2947784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2947784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2947784) mqtt_client: Error transport connect[0m
+[0;31mE (2962784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2962784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2962784) mqtt_client: Error transport connect[0m
+[0;31mE (2977784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2977784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2977784) mqtt_client: Error transport connect[0m
+[0;31mE (2992784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (2992784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (2992784) mqtt_client: Error transport connect[0m
+[0;31mE (3007784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3007784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3007784) mqtt_client: Error transport connect[0m
+[0;31mE (3022784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3022784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3022784) mqtt_client: Error transport connect[0m
+[0;31mE (3037784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3037784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3037784) mqtt_client: Error transport connect[0m
+[0;31mE (3052784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3052784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3052784) mqtt_client: Error transport connect[0m
+[0;31mE (3067784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3067784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3067784) mqtt_client: Error transport connect[0m
+[0;31mE (3082784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3082784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3082784) mqtt_client: Error transport connect[0m
+[0;31mE (3097784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3097784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3097784) mqtt_client: Error transport connect[0m
+[0;31mE (3112784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3112784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3112784) mqtt_client: Error transport connect[0m
+[0;31mE (3127784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3127784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3127784) mqtt_client: Error transport connect[0m
+[0;31mE (3142784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3142784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3142784) mqtt_client: Error transport connect[0m
+[0;31mE (3157784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3157784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3157784) mqtt_client: Error transport connect[0m
+[0;31mE (3172784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3172784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3172784) mqtt_client: Error transport connect[0m
+[0;31mE (3187784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3187784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3187784) mqtt_client: Error transport connect[0m
+[0;31mE (3202784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3202784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3202784) mqtt_client: Error transport connect[0m
+[0;31mE (3217784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3217784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3217784) mqtt_client: Error transport connect[0m
+[0;31mE (3232784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3232784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3232784) mqtt_client: Error transport connect[0m
+[0;31mE (3247784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3247784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3247784) mqtt_client: Error transport connect[0m
+[0;31mE (3262784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3262784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3262784) mqtt_client: Error transport connect[0m
+[0;31mE (3277784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3277784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3277784) mqtt_client: Error transport connect[0m
+[0;31mE (3292784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3292784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3292784) mqtt_client: Error transport connect[0m
+[0;31mE (3307784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3307784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3307784) mqtt_client: Error transport connect[0m
+[0;31mE (3322784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3322784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3322784) mqtt_client: Error transport connect[0m
+[0;31mE (3337784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3337784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3337784) mqtt_client: Error transport connect[0m
+[0;31mE (3352784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3352784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3352784) mqtt_client: Error transport connect[0m
+[0;31mE (3367784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3367784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3367784) mqtt_client: Error transport connect[0m
+[0;31mE (3382784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3382784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3382784) mqtt_client: Error transport connect[0m
+[0;31mE (3397784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3397784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3397784) mqtt_client: Error transport connect[0m
+[0;31mE (3412784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3412784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3412784) mqtt_client: Error transport connect[0m
+[0;31mE (3427784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3427784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3427784) mqtt_client: Error transport connect[0m
+[0;31mE (3442784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3442784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3442784) mqtt_client: Error transport connect[0m
+[0;31mE (3457784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3457784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3457784) mqtt_client: Error transport connect[0m
+[0;31mE (3472784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3472784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3472784) mqtt_client: Error transport connect[0m
+[0;31mE (3487784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3487784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3487784) mqtt_client: Error transport connect[0m
+[0;31mE (3502784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3502784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3502784) mqtt_client: Error transport connect[0m
+[0;31mE (3517784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3517784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3517784) mqtt_client: Error transport connect[0m
+[0;31mE (3532784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3532784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3532784) mqtt_client: Error transport connect[0m
+[0;31mE (3547784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3547784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3547784) mqtt_client: Error transport connect[0m
+[0;31mE (3562784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3562784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3562784) mqtt_client: Error transport connect[0m
+[0;31mE (3577784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3577784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3577784) mqtt_client: Error transport connect[0m
+[0;31mE (3592784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3592784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3592784) mqtt_client: Error transport connect[0m
+[0;31mE (3607784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3607784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3607784) mqtt_client: Error transport connect[0m
+[0;31mE (3622784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3622784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3622784) mqtt_client: Error transport connect[0m
+[0;31mE (3637784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3637784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3637784) mqtt_client: Error transport connect[0m
+[0;31mE (3652784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3652784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3652784) mqtt_client: Error transport connect[0m
+[0;31mE (3667784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3667784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3667784) mqtt_client: Error transport connect[0m
+[0;31mE (3682784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3682784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3682784) mqtt_client: Error transport connect[0m
+[0;31mE (3697784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3697784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3697784) mqtt_client: Error transport connect[0m
+[0;31mE (3712784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3712784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3712784) mqtt_client: Error transport connect[0m
+[0;31mE (3727784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3727784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3727784) mqtt_client: Error transport connect[0m
+[0;31mE (3742784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3742784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3742784) mqtt_client: Error transport connect[0m
+[0;31mE (3757784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3757784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3757784) mqtt_client: Error transport connect[0m
+[0;31mE (3772784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3772784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3772784) mqtt_client: Error transport connect[0m
+[0;31mE (3787784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3787784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3787784) mqtt_client: Error transport connect[0m
+[0;31mE (3802784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3802784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3802784) mqtt_client: Error transport connect[0m
+[0;31mE (3817784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3817784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3817784) mqtt_client: Error transport connect[0m
+[0;31mE (3832784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3832784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3832784) mqtt_client: Error transport connect[0m
+[0;31mE (3847784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3847784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3847784) mqtt_client: Error transport connect[0m
+[0;31mE (3862784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3862784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3862784) mqtt_client: Error transport connect[0m
+[0;31mE (3877784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3877784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3877784) mqtt_client: Error transport connect[0m
+[0;31mE (3892784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3892784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3892784) mqtt_client: Error transport connect[0m
+[0;31mE (3907784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3907784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3907784) mqtt_client: Error transport connect[0m
+[0;31mE (3922784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3922784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3922784) mqtt_client: Error transport connect[0m
+[0;31mE (3937784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3937784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3937784) mqtt_client: Error transport connect[0m
+[0;31mE (3952784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3952784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3952784) mqtt_client: Error transport connect[0m
+[0;31mE (3967784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3967784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3967784) mqtt_client: Error transport connect[0m
+[0;31mE (3982784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3982784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3982784) mqtt_client: Error transport connect[0m
+[0;31mE (3997784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (3997784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3997784) mqtt_client: Error transport connect[0m
+[0;31mE (4012784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4012784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4012784) mqtt_client: Error transport connect[0m
+[0;31mE (4027784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4027784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4027784) mqtt_client: Error transport connect[0m
+[0;31mE (4042784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4042784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4042784) mqtt_client: Error transport connect[0m
+[0;31mE (4057784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4057784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4057784) mqtt_client: Error transport connect[0m
+[0;31mE (4072784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4072784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4072784) mqtt_client: Error transport connect[0m
+[0;31mE (4087784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4087784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4087784) mqtt_client: Error transport connect[0m
+[0;31mE (4102784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4102784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4102784) mqtt_client: Error transport connect[0m
+[0;31mE (4117784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4117784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4117784) mqtt_client: Error transport connect[0m
+[0;31mE (4132784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4132784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4132784) mqtt_client: Error transport connect[0m
+[0;31mE (4147784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4147784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4147784) mqtt_client: Error transport connect[0m
+[0;31mE (4162784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4162784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4162784) mqtt_client: Error transport connect[0m
+[0;31mE (4177784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4177784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4177784) mqtt_client: Error transport connect[0m
+[0;31mE (4192784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4192784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4192784) mqtt_client: Error transport connect[0m
+[0;31mE (4207784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4207784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4207784) mqtt_client: Error transport connect[0m
+[0;31mE (4222784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4222784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4222784) mqtt_client: Error transport connect[0m
+[0;31mE (4237784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4237784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4237784) mqtt_client: Error transport connect[0m
+[0;31mE (4252784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4252784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4252784) mqtt_client: Error transport connect[0m
+[0;31mE (4267784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4267784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4267784) mqtt_client: Error transport connect[0m
+[0;31mE (4282784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4282784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4282784) mqtt_client: Error transport connect[0m
+[0;31mE (4297784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4297784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4297784) mqtt_client: Error transport connect[0m
+[0;31mE (4312784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4312784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4312784) mqtt_client: Error transport connect[0m
+[0;31mE (4327784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4327784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4327784) mqtt_client: Error transport connect[0m
+[0;31mE (4342784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4342784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4342784) mqtt_client: Error transport connect[0m
+[0;31mE (4357784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4357784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4357784) mqtt_client: Error transport connect[0m
+[0;31mE (4372784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4372784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4372784) mqtt_client: Error transport connect[0m
+[0;31mE (4387784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4387784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4387784) mqtt_client: Error transport connect[0m
+[0;31mE (4402784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4402784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4402784) mqtt_client: Error transport connect[0m
+[0;31mE (4417784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4417784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4417784) mqtt_client: Error transport connect[0m
+[0;31mE (4432784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4432784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4432784) mqtt_client: Error transport connect[0m
+[0;31mE (4447784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4447784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4447784) mqtt_client: Error transport connect[0m
+[0;31mE (4462784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4462784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4462784) mqtt_client: Error transport connect[0m
+[0;31mE (4477784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4477784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4477784) mqtt_client: Error transport connect[0m
+[0;31mE (4492784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4492784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4492784) mqtt_client: Error transport connect[0m
+[0;31mE (4507784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4507784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4507784) mqtt_client: Error transport connect[0m
+[0;31mE (4522784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4522784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4522784) mqtt_client: Error transport connect[0m
+[0;31mE (4537784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4537784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4537784) mqtt_client: Error transport connect[0m
+[0;31mE (4552784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4552784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4552784) mqtt_client: Error transport connect[0m
+[0;31mE (4567784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4567784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4567784) mqtt_client: Error transport connect[0m
+[0;31mE (4582784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4582784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4582784) mqtt_client: Error transport connect[0m
+[0;31mE (4597784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4597784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4597784) mqtt_client: Error transport connect[0m
+[0;31mE (4612784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4612784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4612784) mqtt_client: Error transport connect[0m
+[0;31mE (4627784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4627784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4627784) mqtt_client: Error transport connect[0m
+[0;31mE (4642784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4642784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4642784) mqtt_client: Error transport connect[0m
+[0;31mE (4657784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4657784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4657784) mqtt_client: Error transport connect[0m
+[0;31mE (4672784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4672784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4672784) mqtt_client: Error transport connect[0m
+[0;31mE (4687784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4687784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4687784) mqtt_client: Error transport connect[0m
+[0;31mE (4702784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4702784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4702784) mqtt_client: Error transport connect[0m
+[0;31mE (4717784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4717784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4717784) mqtt_client: Error transport connect[0m
+[0;31mE (4732784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4732784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4732784) mqtt_client: Error transport connect[0m
+[0;31mE (4747784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4747784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4747784) mqtt_client: Error transport connect[0m
+[0;31mE (4762784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4762784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4762784) mqtt_client: Error transport connect[0m
+[0;31mE (4777784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4777784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4777784) mqtt_client: Error transport connect[0m
+[0;31mE (4792784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4792784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4792784) mqtt_client: Error transport connect[0m
+[0;31mE (4807784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4807784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4807784) mqtt_client: Error transport connect[0m
+[0;31mE (4822784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4822784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4822784) mqtt_client: Error transport connect[0m
+[0;31mE (4837784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4837784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4837784) mqtt_client: Error transport connect[0m
+[0;31mE (4852784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4852784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4852784) mqtt_client: Error transport connect[0m
+[0;31mE (4867784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4867784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4867784) mqtt_client: Error transport connect[0m
+[0;31mE (4882784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4882784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4882784) mqtt_client: Error transport connect[0m
+[0;31mE (4897784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4897784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4897784) mqtt_client: Error transport connect[0m
+[0;31mE (4912784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4912784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4912784) mqtt_client: Error transport connect[0m
+[0;31mE (4927784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4927784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4927784) mqtt_client: Error transport connect[0m
+[0;31mE (4942784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4942784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4942784) mqtt_client: Error transport connect[0m
+[0;31mE (4957784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4957784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4957784) mqtt_client: Error transport connect[0m
+[0;31mE (4972784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4972784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4972784) mqtt_client: Error transport connect[0m
+[0;31mE (4987784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (4987784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4987784) mqtt_client: Error transport connect[0m
+[0;31mE (5002784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5002784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5002784) mqtt_client: Error transport connect[0m
+[0;31mE (5017784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5017784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5017784) mqtt_client: Error transport connect[0m
+[0;31mE (5032784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5032784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5032784) mqtt_client: Error transport connect[0m
+[0;31mE (5047784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5047784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5047784) mqtt_client: Error transport connect[0m
+[0;31mE (5062784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5062784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5062784) mqtt_client: Error transport connect[0m
+[0;31mE (5077784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5077784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5077784) mqtt_client: Error transport connect[0m
+[0;31mE (5092784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5092784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5092784) mqtt_client: Error transport connect[0m
+[0;31mE (5107784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5107784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5107784) mqtt_client: Error transport connect[0m
+[0;31mE (5122784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5122784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5122784) mqtt_client: Error transport connect[0m
+[0;31mE (5137784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5137784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5137784) mqtt_client: Error transport connect[0m
+[0;31mE (5152784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5152784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5152784) mqtt_client: Error transport connect[0m
+[0;31mE (5167784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5167784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5167784) mqtt_client: Error transport connect[0m
+[0;31mE (5182784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5182784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5182784) mqtt_client: Error transport connect[0m
+[0;31mE (5197784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5197784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5197784) mqtt_client: Error transport connect[0m
+[0;31mE (5212784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5212784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5212784) mqtt_client: Error transport connect[0m
+[0;31mE (5227784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5227784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5227784) mqtt_client: Error transport connect[0m
+[0;31mE (5242784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5242784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5242784) mqtt_client: Error transport connect[0m
+[0;31mE (5257784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5257784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5257784) mqtt_client: Error transport connect[0m
+[0;31mE (5272784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5272784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5272784) mqtt_client: Error transport connect[0m
+[0;31mE (5287784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5287784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5287784) mqtt_client: Error transport connect[0m
+[0;31mE (5302784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5302784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5302784) mqtt_client: Error transport connect[0m
+[0;31mE (5317784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5317784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5317784) mqtt_client: Error transport connect[0m
+[0;31mE (5332784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5332784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5332784) mqtt_client: Error transport connect[0m
+[0;31mE (5347784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5347784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5347784) mqtt_client: Error transport connect[0m
+[0;31mE (5362784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5362784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5362784) mqtt_client: Error transport connect[0m
+[0;31mE (5377784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5377784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5377784) mqtt_client: Error transport connect[0m
+[0;31mE (5392784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5392784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5392784) mqtt_client: Error transport connect[0m
+[0;31mE (5407784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5407784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5407784) mqtt_client: Error transport connect[0m
+[0;31mE (5422784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5422784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5422784) mqtt_client: Error transport connect[0m
+[0;31mE (5437784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5437784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5437784) mqtt_client: Error transport connect[0m
+[0;31mE (5452784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5452784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5452784) mqtt_client: Error transport connect[0m
+[0;31mE (5467784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5467784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5467784) mqtt_client: Error transport connect[0m
+[0;31mE (5482784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5482784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5482784) mqtt_client: Error transport connect[0m
+[0;31mE (5497784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5497784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5497784) mqtt_client: Error transport connect[0m
+[0;31mE (5512784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5512784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5512784) mqtt_client: Error transport connect[0m
+[0;31mE (5527784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5527784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5527784) mqtt_client: Error transport connect[0m
+[0;31mE (5542784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5542784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5542784) mqtt_client: Error transport connect[0m
+[0;31mE (5557784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5557784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5557784) mqtt_client: Error transport connect[0m
+[0;31mE (5572784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5572784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5572784) mqtt_client: Error transport connect[0m
+[0;31mE (5587784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5587784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5587784) mqtt_client: Error transport connect[0m
+[0;31mE (5602784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5602784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5602784) mqtt_client: Error transport connect[0m
+[0;31mE (5617784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5617784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5617784) mqtt_client: Error transport connect[0m
+[0;31mE (5632784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5632784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5632784) mqtt_client: Error transport connect[0m
+[0;31mE (5647784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5647784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5647784) mqtt_client: Error transport connect[0m
+[0;31mE (5662784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5662784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5662784) mqtt_client: Error transport connect[0m
+[0;31mE (5677784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5677784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5677784) mqtt_client: Error transport connect[0m
+[0;31mE (5692784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5692784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5692784) mqtt_client: Error transport connect[0m
+[0;31mE (5707784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5707784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5707784) mqtt_client: Error transport connect[0m
+[0;31mE (5722784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5722784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5722784) mqtt_client: Error transport connect[0m
+[0;31mE (5737784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5737784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5737784) mqtt_client: Error transport connect[0m
+[0;31mE (5752784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5752784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5752784) mqtt_client: Error transport connect[0m
+[0;31mE (5767784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5767784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5767784) mqtt_client: Error transport connect[0m
+[0;31mE (5782784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5782784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5782784) mqtt_client: Error transport connect[0m
+[0;31mE (5797784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5797784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5797784) mqtt_client: Error transport connect[0m
+[0;31mE (5812784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5812784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5812784) mqtt_client: Error transport connect[0m
+[0;31mE (5827784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5827784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5827784) mqtt_client: Error transport connect[0m
+[0;31mE (5842784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5842784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5842784) mqtt_client: Error transport connect[0m
+[0;31mE (5857784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5857784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5857784) mqtt_client: Error transport connect[0m
+[0;31mE (5872784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5872784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5872784) mqtt_client: Error transport connect[0m
+[0;31mE (5887784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5887784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5887784) mqtt_client: Error transport connect[0m
+[0;31mE (5902784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5902784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5902784) mqtt_client: Error transport connect[0m
+[0;31mE (5917784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5917784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5917784) mqtt_client: Error transport connect[0m
+[0;31mE (5932784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5932784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5932784) mqtt_client: Error transport connect[0m
+[0;31mE (5947784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5947784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5947784) mqtt_client: Error transport connect[0m
+[0;31mE (5962784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5962784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5962784) mqtt_client: Error transport connect[0m
+[0;31mE (5977784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5977784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5977784) mqtt_client: Error transport connect[0m
+[0;31mE (5992784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (5992784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (5992784) mqtt_client: Error transport connect[0m
+[0;31mE (6007784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6007784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6007784) mqtt_client: Error transport connect[0m
+[0;31mE (6022784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6022784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6022784) mqtt_client: Error transport connect[0m
+[0;31mE (6037784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6037784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6037784) mqtt_client: Error transport connect[0m
+[0;31mE (6052784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6052784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6052784) mqtt_client: Error transport connect[0m
+[0;31mE (6067784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6067784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6067784) mqtt_client: Error transport connect[0m
+[0;31mE (6082784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6082784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6082784) mqtt_client: Error transport connect[0m
+[0;31mE (6097784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6097784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6097784) mqtt_client: Error transport connect[0m
+[0;31mE (6112784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6112784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6112784) mqtt_client: Error transport connect[0m
+[0;31mE (6127784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6127784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6127784) mqtt_client: Error transport connect[0m
+[0;31mE (6142784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6142784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6142784) mqtt_client: Error transport connect[0m
+[0;31mE (6157784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6157784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6157784) mqtt_client: Error transport connect[0m
+[0;31mE (6172784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6172784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6172784) mqtt_client: Error transport connect[0m
+[0;31mE (6187784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6187784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6187784) mqtt_client: Error transport connect[0m
+[0;31mE (6202784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6202784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6202784) mqtt_client: Error transport connect[0m
+[0;31mE (6217784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6217784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6217784) mqtt_client: Error transport connect[0m
+[0;31mE (6232784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6232784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6232784) mqtt_client: Error transport connect[0m
+[0;31mE (6247784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6247784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6247784) mqtt_client: Error transport connect[0m
+[0;31mE (6262784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6262784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6262784) mqtt_client: Error transport connect[0m
+[0;31mE (6277784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6277784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6277784) mqtt_client: Error transport connect[0m
+[0;31mE (6292784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6292784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6292784) mqtt_client: Error transport connect[0m
+[0;31mE (6307784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6307784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6307784) mqtt_client: Error transport connect[0m
+[0;31mE (6322784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6322784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6322784) mqtt_client: Error transport connect[0m
+[0;31mE (6337784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6337784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6337784) mqtt_client: Error transport connect[0m
+[0;31mE (6352784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6352784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6352784) mqtt_client: Error transport connect[0m
+[0;31mE (6367784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6367784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6367784) mqtt_client: Error transport connect[0m
+[0;31mE (6382784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6382784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6382784) mqtt_client: Error transport connect[0m
+[0;31mE (6397784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6397784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6397784) mqtt_client: Error transport connect[0m
+[0;31mE (6412784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6412784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6412784) mqtt_client: Error transport connect[0m
+[0;31mE (6427784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6427784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6427784) mqtt_client: Error transport connect[0m
+[0;31mE (6442784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6442784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6442784) mqtt_client: Error transport connect[0m
+[0;31mE (6457784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6457784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6457784) mqtt_client: Error transport connect[0m
+[0;31mE (6472784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6472784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6472784) mqtt_client: Error transport connect[0m
+[0;31mE (6487784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6487784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6487784) mqtt_client: Error transport connect[0m
+[0;31mE (6502784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6502784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6502784) mqtt_client: Error transport connect[0m
+[0;31mE (6517784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6517784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6517784) mqtt_client: Error transport connect[0m
+[0;31mE (6532784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6532784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6532784) mqtt_client: Error transport connect[0m
+[0;31mE (6547784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6547784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6547784) mqtt_client: Error transport connect[0m
+[0;31mE (6562784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6562784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6562784) mqtt_client: Error transport connect[0m
+[0;31mE (6577784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6577784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6577784) mqtt_client: Error transport connect[0m
+[0;31mE (6592784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6592784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6592784) mqtt_client: Error transport connect[0m
+[0;31mE (6607784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6607784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6607784) mqtt_client: Error transport connect[0m
+[0;31mE (6622784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6622784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6622784) mqtt_client: Error transport connect[0m
+[0;31mE (6637784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6637784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6637784) mqtt_client: Error transport connect[0m
+[0;31mE (6652784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6652784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6652784) mqtt_client: Error transport connect[0m
+[0;31mE (6667784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6667784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6667784) mqtt_client: Error transport connect[0m
+[0;31mE (6682784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6682784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6682784) mqtt_client: Error transport connect[0m
+[0;31mE (6697784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6697784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6697784) mqtt_client: Error transport connect[0m
+[0;31mE (6712784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6712784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6712784) mqtt_client: Error transport connect[0m
+[0;31mE (6727784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6727784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6727784) mqtt_client: Error transport connect[0m
+[0;31mE (6742784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6742784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6742784) mqtt_client: Error transport connect[0m
+[0;31mE (6757784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6757784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6757784) mqtt_client: Error transport connect[0m
+[0;31mE (6772784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6772784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6772784) mqtt_client: Error transport connect[0m
+[0;31mE (6787784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6787784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6787784) mqtt_client: Error transport connect[0m
+[0;31mE (6802784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6802784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6802784) mqtt_client: Error transport connect[0m
+[0;31mE (6817784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6817784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6817784) mqtt_client: Error transport connect[0m
+[0;31mE (6832784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6832784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6832784) mqtt_client: Error transport connect[0m
+[0;31mE (6847784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6847784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6847784) mqtt_client: Error transport connect[0m
+[0;31mE (6862784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6862784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6862784) mqtt_client: Error transport connect[0m
+[0;31mE (6877784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6877784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6877784) mqtt_client: Error transport connect[0m
+[0;31mE (6892784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6892784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6892784) mqtt_client: Error transport connect[0m
+[0;31mE (6907784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6907784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6907784) mqtt_client: Error transport connect[0m
+[0;31mE (6922784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6922784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6922784) mqtt_client: Error transport connect[0m
+[0;31mE (6937784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6937784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6937784) mqtt_client: Error transport connect[0m
+[0;31mE (6952784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6952784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6952784) mqtt_client: Error transport connect[0m
+[0;31mE (6967784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6967784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6967784) mqtt_client: Error transport connect[0m
+[0;31mE (6982784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6982784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6982784) mqtt_client: Error transport connect[0m
+[0;31mE (6997784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (6997784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (6997784) mqtt_client: Error transport connect[0m
+[0;31mE (7012784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7012784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7012784) mqtt_client: Error transport connect[0m
+[0;31mE (7027784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7027784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7027784) mqtt_client: Error transport connect[0m
+[0;31mE (7042784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7042784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7042784) mqtt_client: Error transport connect[0m
+[0;31mE (7057784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7057784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7057784) mqtt_client: Error transport connect[0m
+[0;31mE (7072784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7072784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7072784) mqtt_client: Error transport connect[0m
+[0;31mE (7087784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7087784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7087784) mqtt_client: Error transport connect[0m
+[0;31mE (7102784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7102784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7102784) mqtt_client: Error transport connect[0m
+[0;31mE (7117784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7117784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7117784) mqtt_client: Error transport connect[0m
+[0;31mE (7132784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7132784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7132784) mqtt_client: Error transport connect[0m
+[0;31mE (7147784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7147784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7147784) mqtt_client: Error transport connect[0m
+[0;31mE (7162784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7162784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7162784) mqtt_client: Error transport connect[0m
+[0;31mE (7177784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7177784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7177784) mqtt_client: Error transport connect[0m
+[0;31mE (7192784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7192784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7192784) mqtt_client: Error transport connect[0m
+[0;31mE (7207784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7207784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7207784) mqtt_client: Error transport connect[0m
+[0;31mE (7222784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7222784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7222784) mqtt_client: Error transport connect[0m
+[0;31mE (7237784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7237784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7237784) mqtt_client: Error transport connect[0m
+[0;31mE (7252784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7252784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7252784) mqtt_client: Error transport connect[0m
+[0;31mE (7267784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7267784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7267784) mqtt_client: Error transport connect[0m
+[0;31mE (7282784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7282784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7282784) mqtt_client: Error transport connect[0m
+[0;31mE (7297784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7297784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7297784) mqtt_client: Error transport connect[0m
+[0;31mE (7312784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7312784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7312784) mqtt_client: Error transport connect[0m
+[0;31mE (7327784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7327784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7327784) mqtt_client: Error transport connect[0m
+[0;31mE (7342784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7342784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7342784) mqtt_client: Error transport connect[0m
+[0;31mE (7357784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7357784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7357784) mqtt_client: Error transport connect[0m
+[0;31mE (7372784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7372784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7372784) mqtt_client: Error transport connect[0m
+[0;31mE (7387784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7387784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7387784) mqtt_client: Error transport connect[0m
+[0;31mE (7402784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7402784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7402784) mqtt_client: Error transport connect[0m
+[0;31mE (7417784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7417784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7417784) mqtt_client: Error transport connect[0m
+[0;31mE (7432784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7432784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7432784) mqtt_client: Error transport connect[0m
+[0;31mE (7447784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7447784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7447784) mqtt_client: Error transport connect[0m
+[0;31mE (7462784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7462784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7462784) mqtt_client: Error transport connect[0m
+[0;31mE (7477784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7477784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7477784) mqtt_client: Error transport connect[0m
+[0;31mE (7492784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7492784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7492784) mqtt_client: Error transport connect[0m
+[0;31mE (7507784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7507784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7507784) mqtt_client: Error transport connect[0m
+[0;31mE (7522784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7522784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7522784) mqtt_client: Error transport connect[0m
+[0;31mE (7537784) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (7537784) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (7537784) mqtt_client: Error transport connect[0m
+[0;32mI (764) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (764) wifi:enable tsf[0m
+[0;31mE (774) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;31mE (774) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (774) mqtt_client: Error transport connect[0m
+[0;32mI (784) main_task: Returned from app_main()[0m

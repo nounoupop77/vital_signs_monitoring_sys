@@ -1,0 +1,206 @@
+0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d844h (120900) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=0002d86c vaddr=3ffb0000 size=027ach ( 10156) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=97d6ch (621932) map[0m
+[0;32mI (365) esp_image: segment 3: paddr=000c7d94 vaddr=3ffb27ac size=015ach (  5548) load[0m
+[0;32mI (367) esp_image: segment 4: paddr=000c9348 vaddr=40080000 size=1729ch ( 94876) load[0m
+[0;32mI (419) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (419) boot: Disabling RNG early entropy source...[0m
+[0;32mI (431) cpu_start: Multicore app[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (440) cpu_start: Application information:[0m
+[0;32mI (443) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (450) cpu_start: App version:      1[0m
+[0;32mI (454) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (460) cpu_start: ELF file SHA256:  b05cadeb2...[0m
+[0;32mI (466) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (470) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (475) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (480) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (485) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (492) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (498) heap_init: At 3FFB8278 len 00027D88 (159 KiB): DRAM[0m
+[0;32mI (504) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (510) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (517) heap_init: At 4009729C len 00008D64 (35 KiB): IRAM[0m
+[0;32mI (525) spi_flash: detected chip: generic[0m
+[0;32mI (528) spi_flash: flash io: dio[0m
+[0;33mW (532) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (556) main_task: Calling app_main()[0m
+[0;32mI (586) wifi:wifi driver task: 3ffc02c0, prio:23, stack:6656, core=0[0m
+[0;32mI (596) wifi:wifi firmware version: e851349[0m
+[0;32mI (596) wifi:wifi certification version: v7.0[0m
+[0;32mI (596) wifi:config NVS flash: enabled[0m
+[0;32mI (596) wifi:config nano formating: disabled[0m
+[0;32mI (596) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (606) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (606) wifi:Init management short buffer num: 32[0m
+[0;32mI (616) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (616) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (626) wifi:Init static rx buffer num: 10[0m
+[0;32mI (626) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (626) wifi_init: rx ba win: 6[0m
+[0;32mI (636) wifi_init: tcpip mbox: 32[0m
+[0;32mI (636) wifi_init: udp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp tx win: 5760[0m
+[0;32mI (646) wifi_init: tcp rx win: 5760[0m
+[0;32mI (656) wifi_init: tcp mss: 1440[0m
+[0;32mI (656) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (666) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (666) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (676) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (676) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (796) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (796) wifi:enable tsf[0m
+[0;32mI (796) PROBE: EVENT: STA_START[0m
+[0;32mI (806) main_task: Returned from app_main()[0m
+[0;32mI (826) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1[0m
+[0;32mI (826) wifi:state: init -> auth (b0)[0m
+[0;32mI (846) wifi:state: auth -> assoc (0)[0m
+[0;32mI (856) wifi:state: assoc -> run (10)[0m
+[0;32mI (926) wifi:connected with 5G-tkshb_dhh, aid = 13, channel 6, BW20, bssid = 36:42:ca:be:9e:ca[0m
+[0;32mI (926) wifi:security: WPA2-PSK, phy: bgn, rssi: -41[0m
+[0;32mI (936) wifi:pm start, type: 0[0m
+
+[0;32mI (936) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (946) wifi:<ba-add>idx:0 (ifx:0, 36:42:ca:be:9e:ca), tid:0, ssn:303, winSize:64[0m
+[0;32mI (956) wifi:<ba-add>idx:1 (ifx:0, 36:42:ca:be:9e:ca), tid:2, ssn:828, winSize:64[0m
+[0;32mI (996) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1946) esp_netif_handlers: sta ip: 172.20.10.10, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (1946) PROBE: EVENT: GOT_IP[0m
+[0;32mI (1946) WIFI: got ip:172.20.10.10[0m
+[0;32mI (1946) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (1956) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (1956) MQTT: MQTT client started (after IP)[0m
+[0;32mI (1976) PROBE: CSI callback ENTERED #1, len=256, rssi=-32[0m
+[0;31mE (6976) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (6976) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (6976) mqtt_client: Error transport connect[0m
+[0;31mE (6976) MQTT: ERROR type=1[0m
+[0;33mW (6976) MQTT: DISCONNECTED from broker[0m
+[0;33mW (6986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (6996) PROBE: publish #1 => -1 (FAILED)[0m
+[0;32mI (7046) PROBE: CSI callback ENTERED #2, len=256, rssi=-34[0m
+[0;33mW (7056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7056) PROBE: publish #2 => -1 (FAILED)[0m
+[0;32mI (7596) PROBE: CSI callback ENTERED #3, len=256, rssi=-33[0m
+[0;33mW (7596) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7596) PROBE: publish #3 => -1 (FAILED)[0m
+[0;32mI (7626) PROBE: CSI callback ENTERED #4, len=128, rssi=-37[0m
+[0;33mW (7626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7626) PROBE: publish #4 => -1 (FAILED)[0m
+[0;32mI (7646) PROBE: CSI callback ENTERED #5, len=256, rssi=-43[0m
+[0;33mW (7646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7646) PROBE: publish #5 => -1 (FAILED)[0m
+[0;32mI (7986) PROBE: CSI callback ENTERED #6, len=128, rssi=-33[0m
+[0;33mW (7986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7986) PROBE: publish #6 => -1 (FAILED)[0m
+[0;32mI (7986) PROBE: CSI callback ENTERED #7, len=128, rssi=-34[0m
+[0;33mW (7996) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8006) PROBE: publish #7 => -1 (FAILED)[0m
+[0;32mI (9016) PROBE: CSI callback ENTERED #8, len=128, rssi=-33[0m
+[0;33mW (9016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9016) PROBE: publish #8 => -1 (FAILED)[0m
+[0;32mI (9026) PROBE: CSI callback ENTERED #9, len=128, rssi=-33[0m
+[0;33mW (9026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9036) PROBE: publish #9 => -1 (FAILED)[0m
+[0;32mI (10056) PROBE: CSI callback ENTERED #10, len=128, rssi=-32[0m
+[0;31mE (15006) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (15006) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (15006) mqtt_client: Error transport connect[0m
+[0;31mE (15006) MQTT: ERROR type=1[0m
+[0;33mW (15006) MQTT: DISCONNECTED from broker[0m
+[0;33mW (15016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15026) PROBE: publish #10 => -1 (FAILED)[0m
+[0;32mI (15026) PROBE: CSI callback ENTERED #11, len=128, rssi=-32[0m
+[0;33mW (15036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15046) PROBE: publish #11 => -1 (FAILED)[0m
+[0;32mI (15046) PROBE: CSI callback ENTERED #12, len=256, rssi=-34[0m
+[0;33mW (15056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15056) PROBE: publish #12 => -1 (FAILED)[0m
+[0;32mI (15086) PROBE: CSI callback ENTERED #13, len=256, rssi=-43[0m
+[0;33mW (15086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15086) PROBE: publish #13 => -1 (FAILED)[0m
+[0;32mI (16466) PROBE: CSI callback ENTERED #14, len=128, rssi=-41[0m
+[0;33mW (16476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16476) PROBE: publish #14 => -1 (FAILED)[0m
+[0;32mI (16486) PROBE: CSI callback ENTERED #15, len=128, rssi=-41[0m
+[0;33mW (16486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16496) PROBE: publish #15 => -1 (FAILED)[0m
+[0;32mI (16496) PROBE: CSI callback ENTERED #16, len=128, rssi=-38[0m
+[0;33mW (16506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16516) PROBE: publish #16 => -1 (FAILED)[0m
+[0;32mI (17216) PROBE: CSI callback ENTERED #17, len=128, rssi=-33[0m
+[0;33mW (17216) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17216) PROBE: publish #17 => -1 (FAILED)[0m
+[0;32mI (17496) PROBE: CSI callback ENTERED #18, len=128, rssi=-31[0m
+[0;33mW (17506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17506) PROBE: publish #18 => -1 (FAILED)[0m
+[0;32mI (17506) PROBE: CSI callback ENTERED #19, len=128, rssi=-25[0m
+[0;33mW (17516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17526) PROBE: publish #19 => -1 (FAILED)[0m
+[0;32mI (18136) PROBE: CSI callback ENTERED #20, len=128, rssi=-39[0m
+[0;31mE (23036) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (23036) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (23036) mqtt_client: Error transport connect[0m
+[0;31mE (23036) MQTT: ERROR type=1[0m
+[0;33mW (23036) MQTT: DISCONNECTED from broker[0m
+[0;33mW (23046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23056) PROBE: publish #20 => -1 (FAILED)[0m
+[0;32mI (23056) PROBE: CSI callback ENTERED #21, len=128, rssi=-43[0m
+[0;33mW (23066) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23076) PROBE: publish #21 => -1 (FAILED)[0m
+[0;32mI (23076) PROBE: CSI callback ENTERED #22, len=128, rssi=-41[0m
+[0;33mW (23086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23086) PROBE: publish #22 => -1 (FAILED)[0m
+[0;32mI (23096) PROBE: CSI callback ENTERED #23, len=128, rssi=-41[0m
+[0;33mW (23106) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23106) PROBE: publish #23 => -1 (FAILED)[0m
+[0;32mI (23136) PROBE: CSI callback ENTERED #24, len=256, rssi=-22[0m
+[0;33mW (23146) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23146) PROBE: publish #24 => -1 (FAILED)[0m
+[0;32mI (23256) PROBE: CSI callback ENTERED #25, len=256, rssi=-29[0m
+[0;33mW (23266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23266) PROBE: publish #25 => -1 (FAILED)[0m
+[0;32mI (24976) PROBE: CSI callback ENTERED #26, len=128, rssi=-29[0m
+[0;33mW (24986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24986) PROBE: publish #26 => -1 (FAILED)[0m
+[0;32mI (24986) PROBE: CSI callback ENTERED #27, len=128, rssi=-29[0m
+[0;33mW (24996) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25006) PROBE: publish #27 => -1 (FAILED)[0m
+[0;32mI (26016) PROBE: CSI callback ENTERED #28, len=128, rssi=-22[0m
+[0;33mW (26016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (26016) PROBE: publish #28 => -1 (FAILED)[0m
+[0;32mI (26016) PROBE: CSI callback ENTERED #29, len=128, rssi=-22[0m
+[0;33mW (26026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (26036) PROBE: publish #29 => -1 (FAILED)[0m
+[0;32mI (26116) PROBE: CSI callback ENTERED #30, len=256, rssi=-35[0m

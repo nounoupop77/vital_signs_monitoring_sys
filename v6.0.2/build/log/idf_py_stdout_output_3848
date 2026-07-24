@@ -1,0 +1,287 @@
+0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d3cch (119756) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=0002d3f4 vaddr=3ffb0000 size=02c24h ( 11300) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9753ch (619836) map[0m
+[0;32mI (363) esp_image: segment 3: paddr=000c7564 vaddr=3ffb2c24 size=01134h (  4404) load[0m
+[0;32mI (365) esp_image: segment 4: paddr=000c86a0 vaddr=40080000 size=171f0h ( 94704) load[0m
+[0;32mI (418) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (418) boot: Disabling RNG early entropy source...[0m
+[0;32mI (429) cpu_start: Multicore app[0m
+[0;32mI (439) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (439) cpu_start: Application information:[0m
+[0;32mI (442) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (448) cpu_start: App version:      1[0m
+[0;32mI (453) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (459) cpu_start: ELF file SHA256:  b0269f191...[0m
+[0;32mI (464) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (469) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (474) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (479) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (491) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (497) heap_init: At 3FFB8270 len 00027D90 (159 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (509) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 400971F0 len 00008E10 (35 KiB): IRAM[0m
+[0;32mI (523) spi_flash: detected chip: generic[0m
+[0;32mI (527) spi_flash: flash io: dio[0m
+[0;33mW (530) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (545) main_task: Started on CPU0[0m
+[0;32mI (555) main_task: Calling app_main()[0m
+[0;32mI (585) wifi:wifi driver task: 3ffc02b8, prio:23, stack:6656, core=0[0m
+[0;32mI (595) wifi:wifi firmware version: e851349[0m
+[0;32mI (595) wifi:wifi certification version: v7.0[0m
+[0;32mI (595) wifi:config NVS flash: enabled[0m
+[0;32mI (595) wifi:config nano formating: disabled[0m
+[0;32mI (595) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (605) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (605) wifi:Init management short buffer num: 32[0m
+[0;32mI (615) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (615) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (625) wifi:Init static rx buffer num: 10[0m
+[0;32mI (625) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (625) wifi_init: rx ba win: 6[0m
+[0;32mI (635) wifi_init: tcpip mbox: 32[0m
+[0;32mI (635) wifi_init: udp mbox: 6[0m
+[0;32mI (635) wifi_init: tcp mbox: 6[0m
+[0;32mI (645) wifi_init: tcp tx win: 5760[0m
+[0;32mI (645) wifi_init: tcp rx win: 5760[0m
+[0;32mI (655) wifi_init: tcp mss: 1440[0m
+[0;32mI (655) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (655) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (665) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (675) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (675) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (775) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (775) wifi:enable tsf[0m
+[0;31mE (785) esp-tls: [sock=54] connect() error: Host is unreachable[0m
+[0;32mI (785) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+[0;31mE (785) transport_base: Failed to open a new connection: 32772[0m
+[0;32mI (785) wifi:[0;31mE (795) mqtt_client: Error transport connect[0m[0m
+state: init -> auth (b0)
+[0;32mI (785) main_task: Returned from app_main()[0m
+[0;32mI (805) wifi:state: auth -> assoc (0)[0m
+[0;32mI (815) wifi:state: assoc -> run (10)[0m
+[0;32mI (875) wifi:connected with LANCER-LAPTOP-O 7448, aid = 10, channel 1, BW20, bssid = 4e:77:cb:90:a6:cd[0m
+[0;32mI (875) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
+[0;32mI (885) wifi:pm start, type: 0[0m
+
+[0;32mI (885) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (885) wifi:AP's beacon interval = 102400 us, DTIM period = 3[0m
+[0;32mI (1895) esp_netif_handlers: sta ip: 192.168.137.109, mask: 255.255.255.0, gw: 192.168.137.1[0m
+[0;32mI (1895) WIFI: got ip:192.168.137.109[0m
+[0;32mI (1895) CSI: CSI capture enabled after connection[0m
+[0;31mE (25805) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (25805) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (25805) mqtt_client: Error transport connect[0m
+[0;32mI (25815) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (25895) CSI: cb fired 50 times, len=256, rssi=-58[0m
+[0;32mI (26185) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:13, winSize:64[0m
+[0;31mE (50815) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (50815) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (50815) mqtt_client: Error transport connect[0m
+[0;33mW (50815) wifi:token mismatch, expect=2(rx:1), status=0[0m
+[0;32mI (51755) CSI: cb fired 100 times, len=128, rssi=-60[0m
+[0;31mE (75825) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (75825) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (75825) mqtt_client: Error transport connect[0m
+[0;32mI (75835) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (81455) CSI: cb fired 150 times, len=128, rssi=-50[0m
+[0;31mE (100835) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (100835) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (100835) mqtt_client: Error transport connect[0m
+[0;32mI (109515) CSI: cb fired 200 times, len=128, rssi=-60[0m
+[0;31mE (125845) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (125845) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (125845) mqtt_client: Error transport connect[0m
+[0;32mI (125855) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;31mE (150855) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (150855) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (150855) mqtt_client: Error transport connect[0m
+[0;32mI (150855) CSI: cb fired 250 times, len=128, rssi=-48[0m
+[0;31mE (175865) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (175865) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (175865) mqtt_client: Error transport connect[0m
+[0;32mI (175865) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (184485) CSI: cb fired 300 times, len=128, rssi=-47[0m
+[0;32mI (193095) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (193095) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:47, winSize:64[0m
+[0;33mW (208625) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (208625) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (216555) CSI: cb fired 350 times, len=128, rssi=-54[0m
+[0;32mI (224255) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (224255) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:103, winSize:64[0m
+[0;33mW (238635) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (238635) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (238645) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (243605) CSI: cb fired 400 times, len=128, rssi=-47[0m
+[0;32mI (244645) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (255685) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (255685) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:168, winSize:64[0m
+[0;33mW (268555) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (268555) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (268565) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (273625) CSI: cb fired 450 times, len=128, rssi=-53[0m
+[0;32mI (274565) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (285545) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (285555) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:209, winSize:64[0m
+[0;33mW (299665) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (299665) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (299665) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (299685) CSI: cb fired 500 times, len=128, rssi=-56[0m
+[0;32mI (317195) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (317195) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:271, winSize:64[0m
+[0;33mW (328665) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (328665) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (333775) CSI: cb fired 550 times, len=128, rssi=-52[0m
+[0;32mI (345565) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (345565) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:336, winSize:64[0m
+[0;33mW (359765) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (359765) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (359775) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (359795) CSI: cb fired 600 times, len=128, rssi=-50[0m
+[0;32mI (365775) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (376715) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (376725) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:400, winSize:64[0m
+[0;32mI (378635) CSI: cb fired 650 times, len=128, rssi=-67[0m
+[0;33mW (388655) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (388655) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (388665) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (394665) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (404875) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (404875) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:418, winSize:64[0m
+[0;33mW (418765) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (418765) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (418775) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (418835) CSI: cb fired 700 times, len=128, rssi=-53[0m
+[0;32mI (424775) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;33mW (448775) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (448775) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (448785) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (453795) CSI: cb fired 750 times, len=128, rssi=-53[0m
+[0;33mW (476235) transport_base: Poll timeout or error, errno=Connection already in progress, fd=54, timeout_ms=10000[0m
+[0;31mE (476235) mqtt_client: Writing didn't complete in specified timeout: errno=119[0m
+[0;31mE (476235) mqtt_client: Error to resend data [0m
+[0;32mI (484835) CSI: cb fired 800 times, len=128, rssi=-53[0m
+[0;31mE (501255) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (501255) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (501255) mqtt_client: Error transport connect[0m
+[0;32mI (501265) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (514745) CSI: cb fired 850 times, len=128, rssi=-52[0m
+[0;33mW (526885) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (526885) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (535845) CSI: cb fired 900 times, len=128, rssi=-53[0m
+[0;33mW (553825) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (553825) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (553835) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (565765) CSI: cb fired 950 times, len=128, rssi=-53[0m
+[0;31mE (578835) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (578835) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (578835) mqtt_client: Error transport connect[0m
+[0;31mE (603845) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (603845) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (603845) mqtt_client: Error transport connect[0m
+[0;32mI (603855) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (603875) CSI: cb fired 1000 times, len=128, rssi=-52[0m
+[0;31mE (628855) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (628855) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (628855) mqtt_client: Error transport connect[0m
+[0;32mI (633925) CSI: cb fired 1050 times, len=128, rssi=-52[0m
+[0;32mI (648065) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (648065) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:592, winSize:64[0m
+[0;33mW (658905) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (658905) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (658915) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (664865) CSI: cb fired 1100 times, len=128, rssi=-53[0m
+[0;32mI (676835) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (676835) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:636, winSize:64[0m
+[0;33mW (688895) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (688895) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (696955) CSI: cb fired 1150 times, len=128, rssi=-52[0m
+[0;32mI (706485) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (706525) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:679, winSize:64[0m
+[0;33mW (716655) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (716655) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (716665) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (726965) CSI: cb fired 1200 times, len=128, rssi=-53[0m
+[0;32mI (732805) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (732825) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:693, winSize:64[0m
+[0;33mW (733005) wifi:[ADDBA]rx delba, code:37, delete tid:0[0m
+[0;32mI (733005) wifi:<ba-del>idx:0, tid:0[0m
+[0;33mW (733005) wifi:[ADDBA]rx delba, code:37, delete tid:0[0m
+[0;33mW (745465) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (745465) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (760935) CSI: cb fired 1250 times, len=128, rssi=-50[0m
+[0;33mW (771125) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (771125) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (771135) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (771165) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:720, winSize:64[0m
+[0;32mI (773035) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (773035) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:733, winSize:64[0m
+[0;32mI (777135) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;33mW (797235) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (797235) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (797245) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (797265) CSI: cb fired 1300 times, len=128, rssi=-52[0m
+[0;32mI (803245) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;33mW (824065) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (824065) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (824065) CSI: cb fired 1350 times, len=128, rssi=-54[0m
+[0;32mI (824075) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (824135) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (824135) wifi:<ba-add>idx:0 (ifx:0, 4e:77:cb:90:a6:cd), tid:0, ssn:757, winSize:64[0m
+[0;32mI (844065) CSI: cb fired 1400 times, len=128, rssi=-52[0m
+[0;33mW (854075) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (854075) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;31mE (879085) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (879085) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (879085) mqtt_client: Error transport connect[0m
+[0;32mI (879085) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (881025) CSI: cb fired 1450 times, len=128, rssi=-54[0m
+[0;32mI (892275) CSI: cb fired 1500 times, len=128, rssi=-59[0m
+[0;31mE (904095) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (904095) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (904095) mqtt_client: Error transport connect[0m
+[0;31mE (929105) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (929105) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (929105) mqtt_client: Error transport connect[0m
+[0;32mI (929115) wifi:bcn_timeout,ap_probe_send_start[0m
+[0;32mI (934175) CSI: cb fired 1550 times, len=128, rssi=-50[0m
+[0;33mW (959175) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=10000[0m
+[0;31mE (959175) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;32mI (959185) wifi:<ba-del>idx:0, tid:0[0m
+[0;33mW (959185) wifi:[ADDBA]rx delba, code:37, delete tid:0[0m
+[0;32mI (959185) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (965195) CSI: cb fired 1600 times, len=128, rssi=-51[0m
+[0;31mE (984185) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (984185) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (984185) mqtt_client: Error transport connect[0m
+[0;32mI (984185) wifi:bcn_timeout,ap_probe_send_start[0m

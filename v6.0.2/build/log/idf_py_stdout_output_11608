@@ -1,0 +1,2370 @@
+0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d53ch (120124) map[0m
+[0;32mI (145) esp_image: segment 1: paddr=0002d564 vaddr=3ffb0000 size=02ab4h ( 10932) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=97674h (620148) map[0m
+[0;32mI (364) esp_image: segment 3: paddr=000c769c vaddr=3ffb2ab4 size=012a4h (  4772) load[0m
+[0;32mI (366) esp_image: segment 4: paddr=000c8948 vaddr=40080000 size=171f0h ( 94704) load[0m
+[0;32mI (418) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (418) boot: Disabling RNG early entropy source...[0m
+[0;32mI (430) cpu_start: Multicore app[0m
+[0;32mI (439) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (439) cpu_start: Application information:[0m
+[0;32mI (442) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (449) cpu_start: App version:      1[0m
+[0;32mI (453) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (459) cpu_start: ELF file SHA256:  cb15fa43a...[0m
+[0;32mI (465) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (469) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (474) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (479) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (484) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (491) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (497) heap_init: At 3FFB8278 len 00027D88 (159 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (510) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 400971F0 len 00008E10 (35 KiB): IRAM[0m
+[0;32mI (524) spi_flash: detected chip: generic[0m
+[0;32mI (527) spi_flash: flash io: dio[0m
+[0;33mW (531) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (545) main_task: Started on CPU0[0m
+[0;32mI (555) main_task: Calling app_main()[0m
+[0;32mI (585) wifi:wifi driver task: 3ffc02c0, prio:23, stack:6656, core=0[0m
+[0;32mI (595) wifi:wifi firmware version: e851349[0m
+[0;32mI (595) wifi:wifi certification version: v7.0[0m
+[0;32mI (595) wifi:config NVS flash: enabled[0m
+[0;32mI (595) wifi:config nano formating: disabled[0m
+[0;32mI (595) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (605) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (605) wifi:Init management short buffer num: 32[0m
+[0;32mI (615) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (615) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (625) wifi:Init static rx buffer num: 10[0m
+[0;32mI (625) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (625) wifi_init: rx ba win: 6[0m
+[0;32mI (635) wifi_init: tcpip mbox: 32[0m
+[0;32mI (635) wifi_init: udp mbox: 6[0m
+[0;32mI (645) wifi_init: tcp mbox: 6[0m
+[0;32mI (645) wifi_init: tcp tx win: 5760[0m
+[0;32mI (645) wifi_init: tcp rx win: 5760[0m
+[0;32mI (655) wifi_init: tcp mss: 1440[0m
+[0;32mI (655) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (665) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (665) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (675) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (675) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (775) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (775) wifi:enable tsf[0m
+[0;32mI (775) PROBE: EVENT: STA_START[0m
+[0;32mI (785) main_task: Returned from app_main()[0m
+[0;32mI (795) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (795) wifi:state: init -> auth (b0)[0m
+[0;32mI (805) wifi:state: auth -> assoc (0)[0m
+[0;32mI (815) wifi:state: assoc -> run (10)[0m
+[0;32mI (845) wifi:connected with 4223PSTS, aid = 16, channel 11, BW20, bssid = 4c:49:68:d0:9b:0c[0m
+[0;32mI (845) wifi:security: WPA2-PSK, phy: bgn, rssi: -55[0m
+[0;32mI (855) wifi:pm start, type: 0[0m
+
+[0;32mI (855) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (875) wifi:<ba-add>idx:0 (ifx:0, 4c:49:68:d0:9b:0c), tid:0, ssn:0, winSize:64[0m
+[0;32mI (885) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1865) esp_netif_handlers: sta ip: 192.168.110.51, mask: 255.255.255.0, gw: 192.168.110.1[0m
+[0;32mI (1865) PROBE: EVENT: GOT_IP[0m
+[0;32mI (1865) WIFI: got ip:192.168.110.51[0m
+[0;32mI (1865) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (1875) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (1875) MQTT: MQTT client started (after IP)[0m
+[0;32mI (1895) wifi:<ba-add>idx:1 (ifx:0, 4c:49:68:d0:9b:0c), tid:7, ssn:6, winSize:64[0m
+[0;32mI (1915) PROBE: CSI callback ENTERED #1, len=256, rssi=-54[0m
+[0;31mE (6895) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (6895) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (6895) mqtt_client: Error transport connect[0m
+[0;33mW (6895) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (6905) PROBE: publish #1 => -1 (FAILED)[0m
+[0;32mI (6905) PROBE: CSI callback ENTERED #2, len=256, rssi=-53[0m
+[0;33mW (6915) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (6925) PROBE: publish #2 => -1 (FAILED)[0m
+[0;32mI (71025) PROBE: CSI callback ENTERED #3, len=128, rssi=-49[0m
+[0;32mI (71025) PROBE: publish #3 => 0 (ok)[0m
+[0;32mI (71085) PROBE: CSI callback ENTERED #4, len=128, rssi=-50[0m
+[0;32mI (71085) PROBE: publish #4 => 0 (ok)[0m
+[0;32mI (71135) PROBE: CSI callback ENTERED #5, len=256, rssi=-50[0m
+[0;32mI (71135) PROBE: publish #5 => 0 (ok)[0m
+[0;32mI (71195) PROBE: CSI callback ENTERED #6, len=256, rssi=-50[0m
+[0;32mI (71205) PROBE: publish #6 => 0 (ok)[0m
+[0;32mI (71255) PROBE: CSI callback ENTERED #7, len=256, rssi=-51[0m
+[0;32mI (71265) PROBE: publish #7 => 0 (ok)[0m
+[0;32mI (71325) PROBE: CSI callback ENTERED #8, len=256, rssi=-52[0m
+[0;32mI (71325) PROBE: publish #8 => 0 (ok)[0m
+[0;32mI (71375) PROBE: CSI callback ENTERED #9, len=256, rssi=-52[0m
+[0;32mI (71385) PROBE: publish #9 => 0 (ok)[0m
+[0;32mI (71435) PROBE: CSI callback ENTERED #10, len=256, rssi=-51[0m
+[0;32mI (71445) PROBE: publish #10 => 0 (ok)[0m
+[0;32mI (71525) PROBE: CSI callback ENTERED #11, len=256, rssi=-51[0m
+[0;32mI (71525) PROBE: publish #11 => 0 (ok)[0m
+[0;32mI (71575) PROBE: CSI callback ENTERED #12, len=256, rssi=-51[0m
+[0;32mI (71585) PROBE: publish #12 => 0 (ok)[0m
+[0;32mI (71645) PROBE: CSI callback ENTERED #13, len=256, rssi=-52[0m
+[0;32mI (71645) PROBE: publish #13 => 0 (ok)[0m
+[0;32mI (71715) PROBE: CSI callback ENTERED #14, len=256, rssi=-51[0m
+[0;32mI (71715) PROBE: publish #14 => 0 (ok)[0m
+[0;32mI (71765) PROBE: CSI callback ENTERED #15, len=256, rssi=-51[0m
+[0;32mI (71775) PROBE: publish #15 => 0 (ok)[0m
+[0;32mI (72965) PROBE: CSI callback ENTERED #16, len=256, rssi=-51[0m
+[0;32mI (72965) PROBE: publish #16 => 0 (ok)[0m
+[0;32mI (73045) PROBE: CSI callback ENTERED #17, len=256, rssi=-51[0m
+[0;32mI (73055) PROBE: publish #17 => 0 (ok)[0m
+[0;32mI (73135) PROBE: CSI callback ENTERED #18, len=256, rssi=-51[0m
+[0;32mI (73135) PROBE: publish #18 => 0 (ok)[0m
+[0;32mI (73195) PROBE: CSI callback ENTERED #19, len=256, rssi=-51[0m
+[0;32mI (73195) PROBE: publish #19 => 0 (ok)[0m
+[0;32mI (73255) PROBE: CSI callback ENTERED #20, len=256, rssi=-51[0m
+[0;32mI (73255) PROBE: publish #20 => 0 (ok)[0m
+[0;32mI (73325) PROBE: CSI callback ENTERED #21, len=256, rssi=-51[0m
+[0;32mI (73325) PROBE: publish #21 => 0 (ok)[0m
+[0;32mI (73385) PROBE: CSI callback ENTERED #22, len=256, rssi=-51[0m
+[0;32mI (73395) PROBE: publish #22 => 0 (ok)[0m
+[0;32mI (73445) PROBE: CSI callback ENTERED #23, len=256, rssi=-51[0m
+[0;32mI (73445) PROBE: publish #23 => 0 (ok)[0m
+[0;32mI (73505) PROBE: CSI callback ENTERED #24, len=256, rssi=-51[0m
+[0;32mI (73505) PROBE: publish #24 => 0 (ok)[0m
+[0;32mI (73565) PROBE: CSI callback ENTERED #25, len=256, rssi=-51[0m
+[0;32mI (73565) PROBE: publish #25 => 0 (ok)[0m
+[0;32mI (73625) PROBE: CSI callback ENTERED #26, len=256, rssi=-51[0m
+[0;32mI (73635) PROBE: publish #26 => 0 (ok)[0m
+[0;32mI (73685) PROBE: CSI callback ENTERED #27, len=256, rssi=-51[0m
+[0;32mI (73695) PROBE: publish #27 => 0 (ok)[0m
+[0;32mI (73765) PROBE: CSI callback ENTERED #28, len=256, rssi=-51[0m
+[0;32mI (73765) PROBE: publish #28 => 0 (ok)[0m
+[0;32mI (73825) PROBE: CSI callback ENTERED #29, len=256, rssi=-51[0m
+[0;32mI (73835) PROBE: publish #29 => 0 (ok)[0m
+[0;32mI (73875) PROBE: CSI callback ENTERED #30, len=256, rssi=-50[0m
+[0;32mI (73885) PROBE: publish #30 => 0 (ok)[0m
+[0;32mI (73935) PROBE: CSI callback ENTERED #31, len=256, rssi=-51[0m
+[0;32mI (73935) PROBE: publish #31 => 0 (ok)[0m
+[0;32mI (73995) PROBE: CSI callback ENTERED #32, len=256, rssi=-51[0m
+[0;32mI (73995) PROBE: publish #32 => 0 (ok)[0m
+[0;32mI (74045) PROBE: CSI callback ENTERED #33, len=256, rssi=-51[0m
+[0;32mI (74045) PROBE: publish #33 => 0 (ok)[0m
+[0;32mI (74115) PROBE: CSI callback ENTERED #34, len=256, rssi=-51[0m
+[0;32mI (74115) PROBE: publish #34 => 0 (ok)[0m
+[0;32mI (74165) PROBE: CSI callback ENTERED #35, len=256, rssi=-51[0m
+[0;32mI (74175) PROBE: publish #35 => 0 (ok)[0m
+[0;32mI (74225) PROBE: CSI callback ENTERED #36, len=256, rssi=-51[0m
+[0;32mI (74235) PROBE: publish #36 => 0 (ok)[0m
+[0;32mI (74285) PROBE: CSI callback ENTERED #37, len=256, rssi=-51[0m
+[0;32mI (74285) PROBE: publish #37 => 0 (ok)[0m
+[0;32mI (74345) PROBE: CSI callback ENTERED #38, len=256, rssi=-51[0m
+[0;32mI (74345) PROBE: publish #38 => 0 (ok)[0m
+[0;32mI (74405) PROBE: CSI callback ENTERED #39, len=256, rssi=-51[0m
+[0;32mI (74405) PROBE: publish #39 => 0 (ok)[0m
+[0;32mI (74455) PROBE: CSI callback ENTERED #40, len=256, rssi=-51[0m
+[0;32mI (74465) PROBE: publish #40 => 0 (ok)[0m
+[0;32mI (74535) PROBE: CSI callback ENTERED #41, len=256, rssi=-51[0m
+[0;32mI (74535) PROBE: publish #41 => 0 (ok)[0m
+[0;32mI (74595) PROBE: CSI callback ENTERED #42, len=256, rssi=-51[0m
+[0;32mI (74605) PROBE: publish #42 => 0 (ok)[0m
+[0;32mI (74655) PROBE: CSI callback ENTERED #43, len=256, rssi=-51[0m
+[0;32mI (74655) PROBE: publish #43 => 0 (ok)[0m
+[0;32mI (74725) PROBE: CSI callback ENTERED #44, len=256, rssi=-51[0m
+[0;32mI (74735) PROBE: publish #44 => 0 (ok)[0m
+[0;32mI (74785) PROBE: CSI callback ENTERED #45, len=256, rssi=-51[0m
+[0;32mI (74785) PROBE: publish #45 => 0 (ok)[0m
+[0;32mI (74845) PROBE: CSI callback ENTERED #46, len=256, rssi=-51[0m
+[0;32mI (74845) PROBE: publish #46 => 0 (ok)[0m
+[0;32mI (74895) PROBE: CSI callback ENTERED #47, len=256, rssi=-51[0m
+[0;32mI (74905) PROBE: publish #47 => 0 (ok)[0m
+[0;32mI (74965) PROBE: CSI callback ENTERED #48, len=256, rssi=-51[0m
+[0;32mI (74965) PROBE: publish #48 => 0 (ok)[0m
+[0;32mI (75035) PROBE: CSI callback ENTERED #49, len=256, rssi=-51[0m
+[0;32mI (75045) PROBE: publish #49 => 0 (ok)[0m
+[0;32mI (75105) PROBE: CSI callback ENTERED #50, len=256, rssi=-51[0m
+[0;32mI (75105) CSI: cb fired 50 times, len=256, rssi=-51[0m
+[0;32mI (75105) PROBE: publish #50 => 0 (ok)[0m
+[0;32mI (75155) PROBE: CSI callback ENTERED #51, len=256, rssi=-51[0m
+[0;32mI (75165) PROBE: publish #51 => 0 (ok)[0m
+[0;32mI (75215) PROBE: CSI callback ENTERED #52, len=256, rssi=-51[0m
+[0;32mI (75225) PROBE: publish #52 => 0 (ok)[0m
+[0;32mI (75285) PROBE: CSI callback ENTERED #53, len=256, rssi=-51[0m
+[0;32mI (75285) PROBE: publish #53 => 0 (ok)[0m
+[0;32mI (75355) PROBE: CSI callback ENTERED #54, len=256, rssi=-51[0m
+[0;32mI (75365) PROBE: publish #54 => 0 (ok)[0m
+[0;32mI (75425) PROBE: CSI callback ENTERED #55, len=256, rssi=-51[0m
+[0;32mI (75425) PROBE: publish #55 => 0 (ok)[0m
+[0;32mI (75475) PROBE: CSI callback ENTERED #56, len=256, rssi=-51[0m
+[0;32mI (75485) PROBE: publish #56 => 0 (ok)[0m
+[0;32mI (75545) PROBE: CSI callback ENTERED #57, len=256, rssi=-51[0m
+[0;32mI (75555) PROBE: publish #57 => 0 (ok)[0m
+[0;32mI (75595) PROBE: CSI callback ENTERED #58, len=256, rssi=-51[0m
+[0;32mI (75605) PROBE: publish #58 => 0 (ok)[0m
+[0;32mI (75675) PROBE: CSI callback ENTERED #59, len=256, rssi=-51[0m
+[0;32mI (75685) PROBE: publish #59 => 0 (ok)[0m
+[0;32mI (75735) PROBE: CSI callback ENTERED #60, len=256, rssi=-51[0m
+[0;32mI (75735) PROBE: publish #60 => 0 (ok)[0m
+[0;32mI (75805) PROBE: CSI callback ENTERED #61, len=256, rssi=-51[0m
+[0;32mI (75805) PROBE: publish #61 => 0 (ok)[0m
+[0;32mI (75875) PROBE: CSI callback ENTERED #62, len=256, rssi=-51[0m
+[0;32mI (75875) PROBE: publish #62 => 0 (ok)[0m
+[0;32mI (75935) PROBE: CSI callback ENTERED #63, len=256, rssi=-51[0m
+[0;32mI (75935) PROBE: publish #63 => 0 (ok)[0m
+[0;32mI (75985) PROBE: CSI callback ENTERED #64, len=256, rssi=-51[0m
+[0;32mI (75995) PROBE: publish #64 => 0 (ok)[0m
+[0;32mI (76045) PROBE: CSI callback ENTERED #65, len=256, rssi=-51[0m
+[0;32mI (76045) PROBE: publish #65 => 0 (ok)[0m
+[0;32mI (76105) PROBE: CSI callback ENTERED #66, len=256, rssi=-51[0m
+[0;32mI (76105) PROBE: publish #66 => 0 (ok)[0m
+[0;32mI (76165) PROBE: CSI callback ENTERED #67, len=256, rssi=-52[0m
+[0;32mI (76165) PROBE: publish #67 => 0 (ok)[0m
+[0;32mI (76245) PROBE: CSI callback ENTERED #68, len=256, rssi=-51[0m
+[0;32mI (76245) PROBE: publish #68 => 0 (ok)[0m
+[0;32mI (76325) PROBE: CSI callback ENTERED #69, len=256, rssi=-51[0m
+[0;32mI (76325) PROBE: publish #69 => 0 (ok)[0m
+[0;32mI (76385) PROBE: CSI callback ENTERED #70, len=256, rssi=-51[0m
+[0;32mI (76395) PROBE: publish #70 => 0 (ok)[0m
+[0;32mI (76455) PROBE: CSI callback ENTERED #71, len=256, rssi=-51[0m
+[0;32mI (76465) PROBE: publish #71 => 0 (ok)[0m
+[0;32mI (76535) PROBE: CSI callback ENTERED #72, len=256, rssi=-51[0m
+[0;32mI (76545) PROBE: publish #72 => 0 (ok)[0m
+[0;32mI (76595) PROBE: CSI callback ENTERED #73, len=256, rssi=-51[0m
+[0;32mI (76605) PROBE: publish #73 => 0 (ok)[0m
+[0;32mI (76655) PROBE: CSI callback ENTERED #74, len=256, rssi=-51[0m
+[0;32mI (76665) PROBE: publish #74 => 0 (ok)[0m
+[0;32mI (76725) PROBE: CSI callback ENTERED #75, len=256, rssi=-51[0m
+[0;32mI (76725) PROBE: publish #75 => 0 (ok)[0m
+[0;32mI (76795) PROBE: CSI callback ENTERED #76, len=256, rssi=-51[0m
+[0;32mI (76805) PROBE: publish #76 => 0 (ok)[0m
+[0;32mI (76855) PROBE: CSI callback ENTERED #77, len=256, rssi=-51[0m
+[0;32mI (76855) PROBE: publish #77 => 0 (ok)[0m
+[0;32mI (76925) PROBE: CSI callback ENTERED #78, len=256, rssi=-51[0m
+[0;32mI (76925) PROBE: publish #78 => 0 (ok)[0m
+[0;32mI (76965) PROBE: CSI callback ENTERED #79, len=256, rssi=-51[0m
+[0;32mI (76975) PROBE: publish #79 => 0 (ok)[0m
+[0;32mI (77045) PROBE: CSI callback ENTERED #80, len=256, rssi=-51[0m
+[0;32mI (77045) PROBE: publish #80 => 0 (ok)[0m
+[0;32mI (77095) PROBE: CSI callback ENTERED #81, len=256, rssi=-51[0m
+[0;32mI (77105) PROBE: publish #81 => 0 (ok)[0m
+[0;32mI (77165) PROBE: CSI callback ENTERED #82, len=256, rssi=-52[0m
+[0;32mI (77165) PROBE: publish #82 => 0 (ok)[0m
+[0;32mI (77225) PROBE: CSI callback ENTERED #83, len=256, rssi=-51[0m
+[0;32mI (77235) PROBE: publish #83 => 0 (ok)[0m
+[0;32mI (77295) PROBE: CSI callback ENTERED #84, len=256, rssi=-51[0m
+[0;32mI (77295) PROBE: publish #84 => 0 (ok)[0m
+[0;32mI (77375) PROBE: CSI callback ENTERED #85, len=256, rssi=-51[0m
+[0;32mI (77375) PROBE: publish #85 => 0 (ok)[0m
+[0;32mI (77455) PROBE: CSI callback ENTERED #86, len=256, rssi=-51[0m
+[0;32mI (77455) PROBE: publish #86 => 0 (ok)[0m
+[0;32mI (77525) PROBE: CSI callback ENTERED #87, len=256, rssi=-51[0m
+[0;32mI (77525) PROBE: publish #87 => 0 (ok)[0m
+[0;32mI (77575) PROBE: CSI callback ENTERED #88, len=256, rssi=-51[0m
+[0;32mI (77585) PROBE: publish #88 => 0 (ok)[0m
+[0;32mI (77655) PROBE: CSI callback ENTERED #89, len=256, rssi=-51[0m
+[0;32mI (77655) PROBE: publish #89 => 0 (ok)[0m
+[0;32mI (77725) PROBE: CSI callback ENTERED #90, len=256, rssi=-51[0m
+[0;32mI (77725) PROBE: publish #90 => 0 (ok)[0m
+[0;32mI (77785) PROBE: CSI callback ENTERED #91, len=256, rssi=-51[0m
+[0;32mI (77785) PROBE: publish #91 => 0 (ok)[0m
+[0;32mI (77845) PROBE: CSI callback ENTERED #92, len=256, rssi=-51[0m
+[0;32mI (77855) PROBE: publish #92 => 0 (ok)[0m
+[0;32mI (77915) PROBE: CSI callback ENTERED #93, len=256, rssi=-51[0m
+[0;32mI (77925) PROBE: publish #93 => 0 (ok)[0m
+[0;32mI (77965) PROBE: CSI callback ENTERED #94, len=256, rssi=-51[0m
+[0;32mI (77975) PROBE: publish #94 => 0 (ok)[0m
+[0;32mI (78045) PROBE: CSI callback ENTERED #95, len=256, rssi=-51[0m
+[0;32mI (78055) PROBE: publish #95 => 0 (ok)[0m
+[0;32mI (78115) PROBE: CSI callback ENTERED #96, len=256, rssi=-51[0m
+[0;32mI (78125) PROBE: publish #96 => 0 (ok)[0m
+[0;32mI (78175) PROBE: CSI callback ENTERED #97, len=256, rssi=-51[0m
+[0;32mI (78175) PROBE: publish #97 => 0 (ok)[0m
+[0;32mI (78235) PROBE: CSI callback ENTERED #98, len=256, rssi=-52[0m
+[0;32mI (78235) PROBE: publish #98 => 0 (ok)[0m
+[0;32mI (78295) PROBE: CSI callback ENTERED #99, len=256, rssi=-52[0m
+[0;32mI (78295) PROBE: publish #99 => 0 (ok)[0m
+[0;32mI (78365) PROBE: CSI callback ENTERED #100, len=256, rssi=-51[0m
+[0;32mI (78365) CSI: cb fired 100 times, len=256, rssi=-51[0m
+[0;32mI (78365) PROBE: publish #100 => 0 (ok)[0m
+[0;32mI (78445) PROBE: CSI callback ENTERED #101, len=256, rssi=-52[0m
+[0;32mI (78445) PROBE: publish #101 => 0 (ok)[0m
+[0;32mI (78505) PROBE: CSI callback ENTERED #102, len=256, rssi=-52[0m
+[0;32mI (78505) PROBE: publish #102 => 0 (ok)[0m
+[0;32mI (78565) PROBE: CSI callback ENTERED #103, len=256, rssi=-52[0m
+[0;32mI (78575) PROBE: publish #103 => 0 (ok)[0m
+[0;32mI (78645) PROBE: CSI callback ENTERED #104, len=256, rssi=-51[0m
+[0;32mI (78645) PROBE: publish #104 => 0 (ok)[0m
+[0;32mI (78725) PROBE: CSI callback ENTERED #105, len=256, rssi=-52[0m
+[0;32mI (78725) PROBE: publish #105 => 0 (ok)[0m
+[0;32mI (78785) PROBE: CSI callback ENTERED #106, len=256, rssi=-52[0m
+[0;32mI (78785) PROBE: publish #106 => 0 (ok)[0m
+[0;32mI (78835) PROBE: CSI callback ENTERED #107, len=256, rssi=-52[0m
+[0;32mI (78835) PROBE: publish #107 => 0 (ok)[0m
+[0;32mI (78885) PROBE: CSI callback ENTERED #108, len=256, rssi=-51[0m
+[0;32mI (78895) PROBE: publish #108 => 0 (ok)[0m
+[0;32mI (78965) PROBE: CSI callback ENTERED #109, len=256, rssi=-51[0m
+[0;32mI (78975) PROBE: publish #109 => 0 (ok)[0m
+[0;32mI (79015) PROBE: CSI callback ENTERED #110, len=256, rssi=-53[0m
+[0;32mI (79025) PROBE: publish #110 => 0 (ok)[0m
+[0;32mI (79085) PROBE: CSI callback ENTERED #111, len=256, rssi=-53[0m
+[0;32mI (79085) PROBE: publish #111 => 0 (ok)[0m
+[0;32mI (79145) PROBE: CSI callback ENTERED #112, len=256, rssi=-51[0m
+[0;32mI (79145) PROBE: publish #112 => 0 (ok)[0m
+[0;32mI (79195) PROBE: CSI callback ENTERED #113, len=256, rssi=-51[0m
+[0;32mI (79205) PROBE: publish #113 => 0 (ok)[0m
+[0;32mI (79265) PROBE: CSI callback ENTERED #114, len=256, rssi=-52[0m
+[0;32mI (79265) PROBE: publish #114 => 0 (ok)[0m
+[0;32mI (79315) PROBE: CSI callback ENTERED #115, len=256, rssi=-52[0m
+[0;32mI (79315) PROBE: publish #115 => 0 (ok)[0m
+[0;32mI (79375) PROBE: CSI callback ENTERED #116, len=256, rssi=-51[0m
+[0;32mI (79375) PROBE: publish #116 => 0 (ok)[0m
+[0;32mI (79445) PROBE: CSI callback ENTERED #117, len=256, rssi=-51[0m
+[0;32mI (79445) PROBE: publish #117 => 0 (ok)[0m
+[0;32mI (79495) PROBE: CSI callback ENTERED #118, len=256, rssi=-51[0m
+[0;32mI (79505) PROBE: publish #118 => 0 (ok)[0m
+[0;32mI (79555) PROBE: CSI callback ENTERED #119, len=256, rssi=-52[0m
+[0;32mI (79565) PROBE: publish #119 => 0 (ok)[0m
+[0;32mI (79615) PROBE: CSI callback ENTERED #120, len=256, rssi=-50[0m
+[0;32mI (79625) PROBE: publish #120 => 0 (ok)[0m
+[0;32mI (79685) PROBE: CSI callback ENTERED #121, len=256, rssi=-50[0m
+[0;32mI (79685) PROBE: publish #121 => 0 (ok)[0m
+[0;32mI (79755) PROBE: CSI callback ENTERED #122, len=256, rssi=-52[0m
+[0;32mI (79765) PROBE: publish #122 => 0 (ok)[0m
+[0;32mI (79815) PROBE: CSI callback ENTERED #123, len=256, rssi=-52[0m
+[0;32mI (79815) PROBE: publish #123 => 0 (ok)[0m
+[0;32mI (79865) PROBE: CSI callback ENTERED #124, len=256, rssi=-52[0m
+[0;32mI (79875) PROBE: publish #124 => 0 (ok)[0m
+[0;32mI (79935) PROBE: CSI callback ENTERED #125, len=256, rssi=-52[0m
+[0;32mI (79935) PROBE: publish #125 => 0 (ok)[0m
+[0;32mI (79995) PROBE: CSI callback ENTERED #126, len=256, rssi=-52[0m
+[0;32mI (79995) PROBE: publish #126 => 0 (ok)[0m
+[0;32mI (80045) PROBE: CSI callback ENTERED #127, len=256, rssi=-52[0m
+[0;32mI (80055) PROBE: publish #127 => 0 (ok)[0m
+[0;32mI (80115) PROBE: CSI callback ENTERED #128, len=256, rssi=-54[0m
+[0;32mI (80125) PROBE: publish #128 => 0 (ok)[0m
+[0;32mI (80165) PROBE: CSI callback ENTERED #129, len=256, rssi=-54[0m
+[0;32mI (80175) PROBE: publish #129 => 0 (ok)[0m
+[0;32mI (80235) PROBE: CSI callback ENTERED #130, len=256, rssi=-53[0m
+[0;32mI (80235) PROBE: publish #130 => 0 (ok)[0m
+[0;32mI (80315) PROBE: CSI callback ENTERED #131, len=256, rssi=-54[0m
+[0;32mI (80325) PROBE: publish #131 => 0 (ok)[0m
+[0;32mI (80375) PROBE: CSI callback ENTERED #132, len=256, rssi=-54[0m
+[0;32mI (80375) PROBE: publish #132 => 0 (ok)[0m
+[0;32mI (80435) PROBE: CSI callback ENTERED #133, len=256, rssi=-53[0m
+[0;32mI (80445) PROBE: publish #133 => 0 (ok)[0m
+[0;32mI (80495) PROBE: CSI callback ENTERED #134, len=256, rssi=-54[0m
+[0;32mI (80505) PROBE: publish #134 => 0 (ok)[0m
+[0;32mI (80505) PROBE: CSI callback ENTERED #135, len=128, rssi=-56[0m
+[0;32mI (80515) PROBE: publish #135 => 0 (ok)[0m
+[0;32mI (80565) PROBE: CSI callback ENTERED #136, len=256, rssi=-51[0m
+[0;32mI (80575) PROBE: publish #136 => 0 (ok)[0m
+[0;32mI (80655) PROBE: CSI callback ENTERED #137, len=256, rssi=-51[0m
+[0;32mI (80665) PROBE: publish #137 => 0 (ok)[0m
+[0;32mI (80715) PROBE: CSI callback ENTERED #138, len=128, rssi=-50[0m
+[0;32mI (80725) PROBE: publish #138 => 0 (ok)[0m
+[0;32mI (80775) PROBE: CSI callback ENTERED #139, len=256, rssi=-51[0m
+[0;32mI (80785) PROBE: publish #139 => 0 (ok)[0m
+[0;32mI (80835) PROBE: CSI callback ENTERED #140, len=256, rssi=-51[0m
+[0;32mI (80845) PROBE: publish #140 => 0 (ok)[0m
+[0;32mI (80895) PROBE: CSI callback ENTERED #141, len=256, rssi=-54[0m
+[0;32mI (80895) PROBE: publish #141 => 0 (ok)[0m
+[0;32mI (80945) PROBE: CSI callback ENTERED #142, len=256, rssi=-53[0m
+[0;32mI (80955) PROBE: publish #142 => 0 (ok)[0m
+[0;32mI (81005) PROBE: CSI callback ENTERED #143, len=256, rssi=-53[0m
+[0;32mI (81015) PROBE: publish #143 => 0 (ok)[0m
+[0;32mI (81065) PROBE: CSI callback ENTERED #144, len=256, rssi=-53[0m
+[0;32mI (81075) PROBE: publish #144 => 0 (ok)[0m
+[0;32mI (81125) PROBE: CSI callback ENTERED #145, len=256, rssi=-52[0m
+[0;32mI (81125) PROBE: publish #145 => 0 (ok)[0m
+[0;32mI (81185) PROBE: CSI callback ENTERED #146, len=256, rssi=-53[0m
+[0;32mI (81195) PROBE: publish #146 => 0 (ok)[0m
+[0;32mI (81235) PROBE: CSI callback ENTERED #147, len=256, rssi=-53[0m
+[0;32mI (81245) PROBE: publish #147 => 0 (ok)[0m
+[0;32mI (81295) PROBE: CSI callback ENTERED #148, len=256, rssi=-53[0m
+[0;32mI (81305) PROBE: publish #148 => 0 (ok)[0m
+[0;32mI (81355) PROBE: CSI callback ENTERED #149, len=256, rssi=-53[0m
+[0;32mI (81365) PROBE: publish #149 => 0 (ok)[0m
+[0;32mI (81415) PROBE: CSI callback ENTERED #150, len=256, rssi=-54[0m
+[0;32mI (81415) CSI: cb fired 150 times, len=256, rssi=-54[0m
+[0;32mI (81425) PROBE: publish #150 => 0 (ok)[0m
+[0;32mI (81475) PROBE: CSI callback ENTERED #151, len=256, rssi=-54[0m
+[0;32mI (81485) PROBE: publish #151 => 0 (ok)[0m
+[0;32mI (81545) PROBE: CSI callback ENTERED #152, len=256, rssi=-53[0m
+[0;32mI (81555) PROBE: publish #152 => 0 (ok)[0m
+[0;32mI (81595) PROBE: CSI callback ENTERED #153, len=256, rssi=-53[0m
+[0;32mI (81605) PROBE: publish #153 => 0 (ok)[0m
+[0;32mI (81655) PROBE: CSI callback ENTERED #154, len=256, rssi=-53[0m
+[0;32mI (81655) PROBE: publish #154 => 0 (ok)[0m
+[0;32mI (81725) PROBE: CSI callback ENTERED #155, len=256, rssi=-53[0m
+[0;32mI (81725) PROBE: publish #155 => 0 (ok)[0m
+[0;32mI (81795) PROBE: CSI callback ENTERED #156, len=256, rssi=-54[0m
+[0;32mI (81795) PROBE: publish #156 => 0 (ok)[0m
+[0;32mI (81845) PROBE: CSI callback ENTERED #157, len=256, rssi=-53[0m
+[0;32mI (81855) PROBE: publish #157 => 0 (ok)[0m
+[0;32mI (81925) PROBE: CSI callback ENTERED #158, len=256, rssi=-53[0m
+[0;32mI (81925) PROBE: publish #158 => 0 (ok)[0m
+[0;32mI (81975) PROBE: CSI callback ENTERED #159, len=256, rssi=-53[0m
+[0;32mI (81985) PROBE: publish #159 => 0 (ok)[0m
+[0;32mI (82045) PROBE: CSI callback ENTERED #160, len=256, rssi=-53[0m
+[0;32mI (82055) PROBE: publish #160 => 0 (ok)[0m
+[0;32mI (82105) PROBE: CSI callback ENTERED #161, len=256, rssi=-53[0m
+[0;32mI (82105) PROBE: publish #161 => 0 (ok)[0m
+[0;32mI (82165) PROBE: CSI callback ENTERED #162, len=256, rssi=-53[0m
+[0;32mI (82165) PROBE: publish #162 => 0 (ok)[0m
+[0;32mI (82255) PROBE: CSI callback ENTERED #163, len=256, rssi=-53[0m
+[0;32mI (82255) PROBE: publish #163 => 0 (ok)[0m
+[0;32mI (82325) PROBE: CSI callback ENTERED #164, len=256, rssi=-53[0m
+[0;32mI (82325) PROBE: publish #164 => 0 (ok)[0m
+[0;32mI (82385) PROBE: CSI callback ENTERED #165, len=256, rssi=-53[0m
+[0;32mI (82395) PROBE: publish #165 => 0 (ok)[0m
+[0;32mI (82465) PROBE: CSI callback ENTERED #166, len=256, rssi=-53[0m
+[0;32mI (82475) PROBE: publish #166 => 0 (ok)[0m
+[0;32mI (82545) PROBE: CSI callback ENTERED #167, len=256, rssi=-53[0m
+[0;32mI (82545) PROBE: publish #167 => 0 (ok)[0m
+[0;32mI (82615) PROBE: CSI callback ENTERED #168, len=256, rssi=-53[0m
+[0;32mI (82615) PROBE: publish #168 => 0 (ok)[0m
+[0;32mI (82695) PROBE: CSI callback ENTERED #169, len=256, rssi=-53[0m
+[0;32mI (82695) PROBE: publish #169 => 0 (ok)[0m
+[0;32mI (82775) PROBE: CSI callback ENTERED #170, len=256, rssi=-53[0m
+[0;32mI (82775) PROBE: publish #170 => 0 (ok)[0m
+[0;32mI (82835) PROBE: CSI callback ENTERED #171, len=256, rssi=-53[0m
+[0;32mI (82835) PROBE: publish #171 => 0 (ok)[0m
+[0;32mI (82885) PROBE: CSI callback ENTERED #172, len=256, rssi=-53[0m
+[0;32mI (82895) PROBE: publish #172 => 0 (ok)[0m
+[0;32mI (82975) PROBE: CSI callback ENTERED #173, len=256, rssi=-53[0m
+[0;32mI (82975) PROBE: publish #173 => 0 (ok)[0m
+[0;32mI (83055) PROBE: CSI callback ENTERED #174, len=256, rssi=-53[0m
+[0;32mI (83065) PROBE: publish #174 => 0 (ok)[0m
+[0;32mI (83135) PROBE: CSI callback ENTERED #175, len=256, rssi=-53[0m
+[0;32mI (83135) PROBE: publish #175 => 0 (ok)[0m
+[0;32mI (83185) PROBE: CSI callback ENTERED #176, len=256, rssi=-52[0m
+[0;32mI (83195) PROBE: publish #176 => 0 (ok)[0m
+[0;32mI (83245) PROBE: CSI callback ENTERED #177, len=256, rssi=-53[0m
+[0;32mI (83255) PROBE: publish #177 => 0 (ok)[0m
+[0;32mI (83325) PROBE: CSI callback ENTERED #178, len=256, rssi=-53[0m
+[0;32mI (83325) PROBE: publish #178 => 0 (ok)[0m
+[0;32mI (83375) PROBE: CSI callback ENTERED #179, len=256, rssi=-54[0m
+[0;32mI (83385) PROBE: publish #179 => 0 (ok)[0m
+[0;32mI (83455) PROBE: CSI callback ENTERED #180, len=256, rssi=-53[0m
+[0;32mI (83455) PROBE: publish #180 => 0 (ok)[0m
+[0;32mI (83505) PROBE: CSI callback ENTERED #181, len=256, rssi=-53[0m
+[0;32mI (83515) PROBE: publish #181 => 0 (ok)[0m
+[0;32mI (83585) PROBE: CSI callback ENTERED #182, len=256, rssi=-53[0m
+[0;32mI (83585) PROBE: publish #182 => 0 (ok)[0m
+[0;32mI (83635) PROBE: CSI callback ENTERED #183, len=256, rssi=-53[0m
+[0;32mI (83645) PROBE: publish #183 => 0 (ok)[0m
+[0;32mI (83705) PROBE: CSI callback ENTERED #184, len=256, rssi=-53[0m
+[0;32mI (83705) PROBE: publish #184 => 0 (ok)[0m
+[0;32mI (83755) PROBE: CSI callback ENTERED #185, len=256, rssi=-53[0m
+[0;32mI (83755) PROBE: publish #185 => 0 (ok)[0m
+[0;32mI (83815) PROBE: CSI callback ENTERED #186, len=256, rssi=-53[0m
+[0;32mI (83825) PROBE: publish #186 => 0 (ok)[0m
+[0;32mI (83875) PROBE: CSI callback ENTERED #187, len=256, rssi=-53[0m
+[0;32mI (83875) PROBE: publish #187 => 0 (ok)[0m
+[0;32mI (83935) PROBE: CSI callback ENTERED #188, len=256, rssi=-53[0m
+[0;32mI (83945) PROBE: publish #188 => 0 (ok)[0m
+[0;32mI (83995) PROBE: CSI callback ENTERED #189, len=256, rssi=-53[0m
+[0;32mI (83995) PROBE: publish #189 => 0 (ok)[0m
+[0;32mI (84045) PROBE: CSI callback ENTERED #190, len=256, rssi=-53[0m
+[0;32mI (84055) PROBE: publish #190 => 0 (ok)[0m
+[0;32mI (84135) PROBE: CSI callback ENTERED #191, len=256, rssi=-53[0m
+[0;32mI (84145) PROBE: publish #191 => 0 (ok)[0m
+[0;32mI (84205) PROBE: CSI callback ENTERED #192, len=256, rssi=-53[0m
+[0;32mI (84205) PROBE: publish #192 => 0 (ok)[0m
+[0;32mI (84265) PROBE: CSI callback ENTERED #193, len=256, rssi=-53[0m
+[0;32mI (84265) PROBE: publish #193 => 0 (ok)[0m
+[0;32mI (84325) PROBE: CSI callback ENTERED #194, len=256, rssi=-53[0m
+[0;32mI (84335) PROBE: publish #194 => 0 (ok)[0m
+[0;32mI (84395) PROBE: CSI callback ENTERED #195, len=256, rssi=-53[0m
+[0;32mI (84405) PROBE: publish #195 => 0 (ok)[0m
+[0;32mI (84455) PROBE: CSI callback ENTERED #196, len=256, rssi=-52[0m
+[0;32mI (84465) PROBE: publish #196 => 0 (ok)[0m
+[0;32mI (84535) PROBE: CSI callback ENTERED #197, len=256, rssi=-54[0m
+[0;32mI (84535) PROBE: publish #197 => 0 (ok)[0m
+[0;32mI (84615) PROBE: CSI callback ENTERED #198, len=256, rssi=-54[0m
+[0;32mI (84625) PROBE: publish #198 => 0 (ok)[0m
+[0;32mI (84725) PROBE: CSI callback ENTERED #199, len=256, rssi=-54[0m
+[0;32mI (84725) PROBE: publish #199 => 0 (ok)[0m
+[0;32mI (84795) PROBE: CSI callback ENTERED #200, len=256, rssi=-54[0m
+[0;32mI (84795) CSI: cb fired 200 times, len=256, rssi=-54[0m
+[0;32mI (84795) PROBE: publish #200 => 0 (ok)[0m
+[0;32mI (84865) PROBE: CSI callback ENTERED #201, len=256, rssi=-54[0m
+[0;32mI (84875) PROBE: publish #201 => 0 (ok)[0m
+[0;32mI (84945) PROBE: CSI callback ENTERED #202, len=256, rssi=-54[0m
+[0;32mI (84945) PROBE: publish #202 => 0 (ok)[0m
+[0;32mI (85005) PROBE: CSI callback ENTERED #203, len=256, rssi=-54[0m
+[0;32mI (85015) PROBE: publish #203 => 0 (ok)[0m
+[0;32mI (85075) PROBE: CSI callback ENTERED #204, len=256, rssi=-53[0m
+[0;32mI (85075) PROBE: publish #204 => 0 (ok)[0m
+[0;32mI (85135) PROBE: CSI callback ENTERED #205, len=256, rssi=-52[0m
+[0;32mI (85135) PROBE: publish #205 => 0 (ok)[0m
+[0;32mI (85185) PROBE: CSI callback ENTERED #206, len=256, rssi=-53[0m
+[0;32mI (85185) PROBE: publish #206 => 0 (ok)[0m
+[0;32mI (85275) PROBE: CSI callback ENTERED #207, len=256, rssi=-52[0m
+[0;32mI (85275) PROBE: publish #207 => 0 (ok)[0m
+[0;32mI (85355) PROBE: CSI callback ENTERED #208, len=256, rssi=-53[0m
+[0;32mI (85355) PROBE: publish #208 => 0 (ok)[0m
+[0;32mI (85415) PROBE: CSI callback ENTERED #209, len=256, rssi=-52[0m
+[0;32mI (85415) PROBE: publish #209 => 0 (ok)[0m
+[0;32mI (85475) PROBE: CSI callback ENTERED #210, len=256, rssi=-53[0m
+[0;32mI (85475) PROBE: publish #210 => 0 (ok)[0m
+[0;32mI (85535) PROBE: CSI callback ENTERED #211, len=256, rssi=-53[0m
+[0;32mI (85545) PROBE: publish #211 => 0 (ok)[0m
+[0;32mI (85595) PROBE: CSI callback ENTERED #212, len=256, rssi=-53[0m
+[0;32mI (85605) PROBE: publish #212 => 0 (ok)[0m
+[0;32mI (85655) PROBE: CSI callback ENTERED #213, len=256, rssi=-53[0m
+[0;32mI (85655) PROBE: publish #213 => 0 (ok)[0m
+[0;32mI (85665) PROBE: CSI callback ENTERED #214, len=128, rssi=-57[0m
+[0;32mI (85665) PROBE: publish #214 => 0 (ok)[0m
+[0;32mI (85725) PROBE: CSI callback ENTERED #215, len=256, rssi=-53[0m
+[0;32mI (85725) PROBE: publish #215 => 0 (ok)[0m
+[0;32mI (85775) PROBE: CSI callback ENTERED #216, len=256, rssi=-53[0m
+[0;32mI (85785) PROBE: publish #216 => 0 (ok)[0m
+[0;32mI (85835) PROBE: CSI callback ENTERED #217, len=256, rssi=-53[0m
+[0;32mI (85835) PROBE: publish #217 => 0 (ok)[0m
+[0;32mI (85885) PROBE: CSI callback ENTERED #218, len=256, rssi=-53[0m
+[0;32mI (85895) PROBE: publish #218 => 0 (ok)[0m
+[0;32mI (85965) PROBE: CSI callback ENTERED #219, len=256, rssi=-53[0m
+[0;32mI (85965) PROBE: publish #219 => 0 (ok)[0m
+[0;32mI (86055) PROBE: CSI callback ENTERED #220, len=256, rssi=-54[0m
+[0;32mI (86055) PROBE: publish #220 => 0 (ok)[0m
+[0;32mI (86105) PROBE: CSI callback ENTERED #221, len=256, rssi=-53[0m
+[0;32mI (86115) PROBE: publish #221 => 0 (ok)[0m
+[0;32mI (86165) PROBE: CSI callback ENTERED #222, len=256, rssi=-53[0m
+[0;32mI (86165) PROBE: publish #222 => 0 (ok)[0m
+[0;32mI (86255) PROBE: CSI callback ENTERED #223, len=256, rssi=-53[0m
+[0;32mI (86255) PROBE: publish #223 => 0 (ok)[0m
+[0;32mI (86315) PROBE: CSI callback ENTERED #224, len=256, rssi=-53[0m
+[0;32mI (86315) PROBE: publish #224 => 0 (ok)[0m
+[0;32mI (86375) PROBE: CSI callback ENTERED #225, len=256, rssi=-53[0m
+[0;32mI (86375) PROBE: publish #225 => 0 (ok)[0m
+[0;32mI (86435) PROBE: CSI callback ENTERED #226, len=256, rssi=-53[0m
+[0;32mI (86435) PROBE: publish #226 => 0 (ok)[0m
+[0;32mI (86505) PROBE: CSI callback ENTERED #227, len=256, rssi=-54[0m
+[0;32mI (86515) PROBE: publish #227 => 0 (ok)[0m
+[0;32mI (86555) PROBE: CSI callback ENTERED #228, len=256, rssi=-53[0m
+[0;32mI (86565) PROBE: publish #228 => 0 (ok)[0m
+[0;32mI (86615) PROBE: CSI callback ENTERED #229, len=256, rssi=-53[0m
+[0;32mI (86625) PROBE: publish #229 => 0 (ok)[0m
+[0;32mI (86675) PROBE: CSI callback ENTERED #230, len=256, rssi=-53[0m
+[0;32mI (86685) PROBE: publish #230 => 0 (ok)[0m
+[0;32mI (86735) PROBE: CSI callback ENTERED #231, len=256, rssi=-53[0m
+[0;32mI (86735) PROBE: publish #231 => 0 (ok)[0m
+[0;32mI (86795) PROBE: CSI callback ENTERED #232, len=256, rssi=-53[0m
+[0;32mI (86795) PROBE: publish #232 => 0 (ok)[0m
+[0;32mI (86855) PROBE: CSI callback ENTERED #233, len=256, rssi=-53[0m
+[0;32mI (86855) PROBE: publish #233 => 0 (ok)[0m
+[0;32mI (86925) PROBE: CSI callback ENTERED #234, len=256, rssi=-54[0m
+[0;32mI (86925) PROBE: publish #234 => 0 (ok)[0m
+[0;32mI (86975) PROBE: CSI callback ENTERED #235, len=256, rssi=-53[0m
+[0;32mI (86985) PROBE: publish #235 => 0 (ok)[0m
+[0;32mI (87035) PROBE: CSI callback ENTERED #236, len=256, rssi=-53[0m
+[0;32mI (87045) PROBE: publish #236 => 0 (ok)[0m
+[0;32mI (87115) PROBE: CSI callback ENTERED #237, len=256, rssi=-53[0m
+[0;32mI (87115) PROBE: publish #237 => 0 (ok)[0m
+[0;32mI (87165) PROBE: CSI callback ENTERED #238, len=256, rssi=-53[0m
+[0;32mI (87175) PROBE: publish #238 => 0 (ok)[0m
+[0;32mI (87235) PROBE: CSI callback ENTERED #239, len=256, rssi=-53[0m
+[0;32mI (87235) PROBE: publish #239 => 0 (ok)[0m
+[0;32mI (87305) PROBE: CSI callback ENTERED #240, len=256, rssi=-53[0m
+[0;32mI (87305) PROBE: publish #240 => 0 (ok)[0m
+[0;32mI (87365) PROBE: CSI callback ENTERED #241, len=256, rssi=-54[0m
+[0;32mI (87365) PROBE: publish #241 => 0 (ok)[0m
+[0;32mI (87435) PROBE: CSI callback ENTERED #242, len=256, rssi=-53[0m
+[0;32mI (87445) PROBE: publish #242 => 0 (ok)[0m
+[0;32mI (87495) PROBE: CSI callback ENTERED #243, len=256, rssi=-53[0m
+[0;32mI (87495) PROBE: publish #243 => 0 (ok)[0m
+[0;32mI (87555) PROBE: CSI callback ENTERED #244, len=256, rssi=-53[0m
+[0;32mI (87555) PROBE: publish #244 => 0 (ok)[0m
+[0;32mI (87615) PROBE: CSI callback ENTERED #245, len=256, rssi=-53[0m
+[0;32mI (87615) PROBE: publish #245 => 0 (ok)[0m
+[0;32mI (87665) PROBE: CSI callback ENTERED #246, len=256, rssi=-53[0m
+[0;32mI (87665) PROBE: publish #246 => 0 (ok)[0m
+[0;32mI (87725) PROBE: CSI callback ENTERED #247, len=256, rssi=-53[0m
+[0;32mI (87725) PROBE: publish #247 => 0 (ok)[0m
+[0;32mI (87775) PROBE: CSI callback ENTERED #248, len=256, rssi=-53[0m
+[0;32mI (87785) PROBE: publish #248 => 0 (ok)[0m
+[0;32mI (87835) PROBE: CSI callback ENTERED #249, len=256, rssi=-53[0m
+[0;32mI (87845) PROBE: publish #249 => 0 (ok)[0m
+[0;32mI (87905) PROBE: CSI callback ENTERED #250, len=256, rssi=-53[0m
+[0;32mI (87905) CSI: cb fired 250 times, len=256, rssi=-53[0m
+[0;32mI (87905) PROBE: publish #250 => 0 (ok)[0m
+[0;32mI (87965) PROBE: CSI callback ENTERED #251, len=256, rssi=-53[0m
+[0;32mI (87965) PROBE: publish #251 => 0 (ok)[0m
+[0;32mI (88045) PROBE: CSI callback ENTERED #252, len=256, rssi=-54[0m
+[0;32mI (88045) PROBE: publish #252 => 0 (ok)[0m
+[0;32mI (88125) PROBE: CSI callback ENTERED #253, len=256, rssi=-54[0m
+[0;32mI (88125) PROBE: publish #253 => 0 (ok)[0m
+[0;32mI (88175) PROBE: CSI callback ENTERED #254, len=256, rssi=-53[0m
+[0;32mI (88185) PROBE: publish #254 => 0 (ok)[0m
+[0;32mI (88235) PROBE: CSI callback ENTERED #255, len=256, rssi=-53[0m
+[0;32mI (88235) PROBE: publish #255 => 0 (ok)[0m
+[0;32mI (88295) PROBE: CSI callback ENTERED #256, len=256, rssi=-53[0m
+[0;32mI (88295) PROBE: publish #256 => 0 (ok)[0m
+[0;32mI (88355) PROBE: CSI callback ENTERED #257, len=256, rssi=-54[0m
+[0;32mI (88355) PROBE: publish #257 => 0 (ok)[0m
+[0;32mI (88405) PROBE: CSI callback ENTERED #258, len=256, rssi=-54[0m
+[0;32mI (88415) PROBE: publish #258 => 0 (ok)[0m
+[0;32mI (88465) PROBE: CSI callback ENTERED #259, len=256, rssi=-53[0m
+[0;32mI (88475) PROBE: publish #259 => 0 (ok)[0m
+[0;32mI (88525) PROBE: CSI callback ENTERED #260, len=256, rssi=-53[0m
+[0;32mI (88535) PROBE: publish #260 => 0 (ok)[0m
+[0;32mI (88605) PROBE: CSI callback ENTERED #261, len=256, rssi=-53[0m
+[0;32mI (88615) PROBE: publish #261 => 0 (ok)[0m
+[0;32mI (88685) PROBE: CSI callback ENTERED #262, len=256, rssi=-53[0m
+[0;32mI (88695) PROBE: publish #262 => 0 (ok)[0m
+[0;32mI (88755) PROBE: CSI callback ENTERED #263, len=256, rssi=-54[0m
+[0;32mI (88765) PROBE: publish #263 => 0 (ok)[0m
+[0;32mI (88835) PROBE: CSI callback ENTERED #264, len=256, rssi=-53[0m
+[0;32mI (88845) PROBE: publish #264 => 0 (ok)[0m
+[0;32mI (88895) PROBE: CSI callback ENTERED #265, len=256, rssi=-53[0m
+[0;32mI (88895) PROBE: publish #265 => 0 (ok)[0m
+[0;32mI (88955) PROBE: CSI callback ENTERED #266, len=256, rssi=-53[0m
+[0;32mI (88955) PROBE: publish #266 => 0 (ok)[0m
+[0;32mI (89015) PROBE: CSI callback ENTERED #267, len=256, rssi=-53[0m
+[0;32mI (89015) PROBE: publish #267 => 0 (ok)[0m
+[0;32mI (89065) PROBE: CSI callback ENTERED #268, len=256, rssi=-53[0m
+[0;32mI (89075) PROBE: publish #268 => 0 (ok)[0m
+[0;32mI (89125) PROBE: CSI callback ENTERED #269, len=256, rssi=-53[0m
+[0;32mI (89135) PROBE: publish #269 => 0 (ok)[0m
+[0;32mI (89175) PROBE: CSI callback ENTERED #270, len=256, rssi=-53[0m
+[0;32mI (89185) PROBE: publish #270 => 0 (ok)[0m
+[0;32mI (89225) PROBE: CSI callback ENTERED #271, len=256, rssi=-53[0m
+[0;32mI (89235) PROBE: publish #271 => 0 (ok)[0m
+[0;32mI (89285) PROBE: CSI callback ENTERED #272, len=256, rssi=-53[0m
+[0;32mI (89285) PROBE: publish #272 => 0 (ok)[0m
+[0;32mI (89365) PROBE: CSI callback ENTERED #273, len=256, rssi=-52[0m
+[0;32mI (89365) PROBE: publish #273 => 0 (ok)[0m
+[0;32mI (89445) PROBE: CSI callback ENTERED #274, len=256, rssi=-52[0m
+[0;32mI (89445) PROBE: publish #274 => 0 (ok)[0m
+[0;32mI (89525) PROBE: CSI callback ENTERED #275, len=256, rssi=-53[0m
+[0;32mI (89535) PROBE: publish #275 => 0 (ok)[0m
+[0;32mI (89585) PROBE: CSI callback ENTERED #276, len=256, rssi=-53[0m
+[0;32mI (89585) PROBE: publish #276 => 0 (ok)[0m
+[0;32mI (89645) PROBE: CSI callback ENTERED #277, len=256, rssi=-52[0m
+[0;32mI (89655) PROBE: publish #277 => 0 (ok)[0m
+[0;32mI (89715) PROBE: CSI callback ENTERED #278, len=256, rssi=-52[0m
+[0;32mI (89725) PROBE: publish #278 => 0 (ok)[0m
+[0;32mI (89785) PROBE: CSI callback ENTERED #279, len=256, rssi=-52[0m
+[0;32mI (89785) PROBE: publish #279 => 0 (ok)[0m
+[0;32mI (89845) PROBE: CSI callback ENTERED #280, len=256, rssi=-53[0m
+[0;32mI (89845) PROBE: publish #280 => 0 (ok)[0m
+[0;32mI (89935) PROBE: CSI callback ENTERED #281, len=256, rssi=-52[0m
+[0;32mI (89935) PROBE: publish #281 => 0 (ok)[0m
+[0;32mI (89985) PROBE: CSI callback ENTERED #282, len=256, rssi=-53[0m
+[0;32mI (89985) PROBE: publish #282 => 0 (ok)[0m
+[0;32mI (90045) PROBE: CSI callback ENTERED #283, len=256, rssi=-52[0m
+[0;32mI (90045) PROBE: publish #283 => 0 (ok)[0m
+[0;32mI (90115) PROBE: CSI callback ENTERED #284, len=256, rssi=-53[0m
+[0;32mI (90125) PROBE: publish #284 => 0 (ok)[0m
+[0;32mI (90165) PROBE: CSI callback ENTERED #285, len=256, rssi=-52[0m
+[0;32mI (90175) PROBE: publish #285 => 0 (ok)[0m
+[0;32mI (90255) PROBE: CSI callback ENTERED #286, len=256, rssi=-53[0m
+[0;32mI (90255) PROBE: publish #286 => 0 (ok)[0m
+[0;32mI (90315) PROBE: CSI callback ENTERED #287, len=256, rssi=-53[0m
+[0;32mI (90325) PROBE: publish #287 => 0 (ok)[0m
+[0;32mI (90375) PROBE: CSI callback ENTERED #288, len=256, rssi=-53[0m
+[0;32mI (90375) PROBE: publish #288 => 0 (ok)[0m
+[0;32mI (90375) PROBE: CSI callback ENTERED #289, len=128, rssi=-56[0m
+[0;32mI (90375) PROBE: publish #289 => 0 (ok)[0m
+[0;32mI (90465) PROBE: CSI callback ENTERED #290, len=256, rssi=-54[0m
+[0;32mI (90475) PROBE: publish #290 => 0 (ok)[0m
+[0;32mI (90525) PROBE: CSI callback ENTERED #291, len=256, rssi=-53[0m
+[0;32mI (90535) PROBE: publish #291 => 0 (ok)[0m
+[0;32mI (90585) PROBE: CSI callback ENTERED #292, len=256, rssi=-53[0m
+[0;32mI (90595) PROBE: publish #292 => 0 (ok)[0m
+[0;32mI (90645) PROBE: CSI callback ENTERED #293, len=256, rssi=-53[0m
+[0;32mI (90655) PROBE: publish #293 => 0 (ok)[0m
+[0;32mI (90715) PROBE: CSI callback ENTERED #294, len=256, rssi=-54[0m
+[0;32mI (90715) PROBE: publish #294 => 0 (ok)[0m
+[0;32mI (90765) PROBE: CSI callback ENTERED #295, len=256, rssi=-53[0m
+[0;32mI (90775) PROBE: publish #295 => 0 (ok)[0m
+[0;32mI (90835) PROBE: CSI callback ENTERED #296, len=256, rssi=-53[0m
+[0;32mI (90835) PROBE: publish #296 => 0 (ok)[0m
+[0;32mI (90885) PROBE: CSI callback ENTERED #297, len=256, rssi=-53[0m
+[0;32mI (90885) PROBE: publish #297 => 0 (ok)[0m
+[0;32mI (90955) PROBE: CSI callback ENTERED #298, len=256, rssi=-53[0m
+[0;32mI (90955) PROBE: publish #298 => 0 (ok)[0m
+[0;32mI (91015) PROBE: CSI callback ENTERED #299, len=256, rssi=-53[0m
+[0;32mI (91025) PROBE: publish #299 => 0 (ok)[0m
+[0;32mI (91075) PROBE: CSI callback ENTERED #300, len=256, rssi=-53[0m
+[0;32mI (91075) CSI: cb fired 300 times, len=256, rssi=-53[0m
+[0;32mI (91075) PROBE: publish #300 => 0 (ok)[0m
+[0;32mI (91135) PROBE: CSI callback ENTERED #301, len=256, rssi=-53[0m
+[0;32mI (91135) PROBE: publish #301 => 0 (ok)[0m
+[0;32mI (91195) PROBE: CSI callback ENTERED #302, len=256, rssi=-53[0m
+[0;32mI (91195) PROBE: publish #302 => 0 (ok)[0m
+[0;32mI (91255) PROBE: CSI callback ENTERED #303, len=256, rssi=-53[0m
+[0;32mI (91255) PROBE: publish #303 => 0 (ok)[0m
+[0;32mI (91325) PROBE: CSI callback ENTERED #304, len=256, rssi=-53[0m
+[0;32mI (91335) PROBE: publish #304 => 0 (ok)[0m
+[0;32mI (91395) PROBE: CSI callback ENTERED #305, len=256, rssi=-53[0m
+[0;32mI (91405) PROBE: publish #305 => 0 (ok)[0m
+[0;32mI (91455) PROBE: CSI callback ENTERED #306, len=256, rssi=-53[0m
+[0;32mI (91465) PROBE: publish #306 => 0 (ok)[0m
+[0;32mI (91515) PROBE: CSI callback ENTERED #307, len=256, rssi=-53[0m
+[0;32mI (91525) PROBE: publish #307 => 0 (ok)[0m
+[0;32mI (91565) PROBE: CSI callback ENTERED #308, len=256, rssi=-53[0m
+[0;32mI (91575) PROBE: publish #308 => 0 (ok)[0m
+[0;32mI (91635) PROBE: CSI callback ENTERED #309, len=256, rssi=-53[0m
+[0;32mI (91635) PROBE: publish #309 => 0 (ok)[0m
+[0;32mI (91685) PROBE: CSI callback ENTERED #310, len=256, rssi=-53[0m
+[0;32mI (91685) PROBE: publish #310 => 0 (ok)[0m
+[0;32mI (91765) PROBE: CSI callback ENTERED #311, len=256, rssi=-52[0m
+[0;32mI (91775) PROBE: publish #311 => 0 (ok)[0m
+[0;32mI (91835) PROBE: CSI callback ENTERED #312, len=256, rssi=-53[0m
+[0;32mI (91845) PROBE: publish #312 => 0 (ok)[0m
+[0;32mI (91895) PROBE: CSI callback ENTERED #313, len=256, rssi=-53[0m
+[0;32mI (91895) PROBE: publish #313 => 0 (ok)[0m
+[0;32mI (91965) PROBE: CSI callback ENTERED #314, len=256, rssi=-53[0m
+[0;32mI (91975) PROBE: publish #314 => 0 (ok)[0m
+[0;32mI (91985) PROBE: CSI callback ENTERED #315, len=128, rssi=-56[0m
+[0;32mI (91985) PROBE: publish #315 => 0 (ok)[0m
+[0;32mI (92035) PROBE: CSI callback ENTERED #316, len=256, rssi=-53[0m
+[0;32mI (92045) PROBE: publish #316 => 0 (ok)[0m
+[0;32mI (92135) PROBE: CSI callback ENTERED #317, len=256, rssi=-53[0m
+[0;32mI (92145) PROBE: publish #317 => 0 (ok)[0m
+[0;32mI (92195) PROBE: CSI callback ENTERED #318, len=256, rssi=-53[0m
+[0;32mI (92195) PROBE: publish #318 => 0 (ok)[0m
+[0;32mI (92255) PROBE: CSI callback ENTERED #319, len=256, rssi=-53[0m
+[0;32mI (92255) PROBE: publish #319 => 0 (ok)[0m
+[0;32mI (92305) PROBE: CSI callback ENTERED #320, len=256, rssi=-53[0m
+[0;32mI (92315) PROBE: publish #320 => 0 (ok)[0m
+[0;32mI (92365) PROBE: CSI callback ENTERED #321, len=256, rssi=-53[0m
+[0;32mI (92375) PROBE: publish #321 => 0 (ok)[0m
+[0;32mI (92455) PROBE: CSI callback ENTERED #322, len=256, rssi=-53[0m
+[0;32mI (92455) PROBE: publish #322 => 0 (ok)[0m
+[0;32mI (92515) PROBE: CSI callback ENTERED #323, len=256, rssi=-53[0m
+[0;32mI (92525) PROBE: publish #323 => 0 (ok)[0m
+[0;32mI (92585) PROBE: CSI callback ENTERED #324, len=256, rssi=-53[0m
+[0;32mI (92585) PROBE: publish #324 => 0 (ok)[0m
+[0;32mI (92645) PROBE: CSI callback ENTERED #325, len=256, rssi=-53[0m
+[0;32mI (92645) PROBE: publish #325 => 0 (ok)[0m
+[0;32mI (92735) PROBE: CSI callback ENTERED #326, len=256, rssi=-53[0m
+[0;32mI (92735) PROBE: publish #326 => 0 (ok)[0m
+[0;32mI (92815) PROBE: CSI callback ENTERED #327, len=256, rssi=-53[0m
+[0;32mI (92825) PROBE: publish #327 => 0 (ok)[0m
+[0;32mI (92885) PROBE: CSI callback ENTERED #328, len=256, rssi=-53[0m
+[0;32mI (92885) PROBE: publish #328 => 0 (ok)[0m
+[0;32mI (92965) PROBE: CSI callback ENTERED #329, len=256, rssi=-53[0m
+[0;32mI (92975) PROBE: publish #329 => 0 (ok)[0m
+[0;32mI (93035) PROBE: CSI callback ENTERED #330, len=256, rssi=-53[0m
+[0;32mI (93035) PROBE: publish #330 => 0 (ok)[0m
+[0;32mI (93105) PROBE: CSI callback ENTERED #331, len=256, rssi=-53[0m
+[0;32mI (93105) PROBE: publish #331 => 0 (ok)[0m
+[0;32mI (93165) PROBE: CSI callback ENTERED #332, len=256, rssi=-53[0m
+[0;32mI (93165) PROBE: publish #332 => 0 (ok)[0m
+[0;32mI (93245) PROBE: CSI callback ENTERED #333, len=256, rssi=-52[0m
+[0;32mI (93245) PROBE: publish #333 => 0 (ok)[0m
+[0;32mI (93315) PROBE: CSI callback ENTERED #334, len=256, rssi=-52[0m
+[0;32mI (93325) PROBE: publish #334 => 0 (ok)[0m
+[0;32mI (93375) PROBE: CSI callback ENTERED #335, len=256, rssi=-52[0m
+[0;32mI (93385) PROBE: publish #335 => 0 (ok)[0m
+[0;32mI (93445) PROBE: CSI callback ENTERED #336, len=256, rssi=-53[0m
+[0;32mI (93445) PROBE: publish #336 => 0 (ok)[0m
+[0;32mI (93515) PROBE: CSI callback ENTERED #337, len=256, rssi=-52[0m
+[0;32mI (93515) PROBE: publish #337 => 0 (ok)[0m
+[0;32mI (93575) PROBE: CSI callback ENTERED #338, len=256, rssi=-53[0m
+[0;32mI (93575) PROBE: publish #338 => 0 (ok)[0m
+[0;32mI (93635) PROBE: CSI callback ENTERED #339, len=256, rssi=-53[0m
+[0;32mI (93635) PROBE: publish #339 => 0 (ok)[0m
+[0;32mI (93695) PROBE: CSI callback ENTERED #340, len=256, rssi=-53[0m
+[0;32mI (93705) PROBE: publish #340 => 0 (ok)[0m
+[0;32mI (93765) PROBE: CSI callback ENTERED #341, len=256, rssi=-53[0m
+[0;32mI (93765) PROBE: publish #341 => 0 (ok)[0m
+[0;32mI (93855) PROBE: CSI callback ENTERED #342, len=256, rssi=-53[0m
+[0;32mI (93855) PROBE: publish #342 => 0 (ok)[0m
+[0;32mI (93855) PROBE: CSI callback ENTERED #343, len=128, rssi=-56[0m
+[0;32mI (93865) PROBE: publish #343 => 0 (ok)[0m
+[0;32mI (93925) PROBE: CSI callback ENTERED #344, len=256, rssi=-53[0m
+[0;32mI (93925) PROBE: publish #344 => 0 (ok)[0m
+[0;32mI (93985) PROBE: CSI callback ENTERED #345, len=256, rssi=-52[0m
+[0;32mI (93985) PROBE: publish #345 => 0 (ok)[0m
+[0;32mI (94045) PROBE: CSI callback ENTERED #346, len=256, rssi=-53[0m
+[0;32mI (94045) PROBE: publish #346 => 0 (ok)[0m
+[0;32mI (94115) PROBE: CSI callback ENTERED #347, len=256, rssi=-53[0m
+[0;32mI (94125) PROBE: publish #347 => 0 (ok)[0m
+[0;32mI (94175) PROBE: CSI callback ENTERED #348, len=256, rssi=-53[0m
+[0;32mI (94175) PROBE: publish #348 => 0 (ok)[0m
+[0;32mI (94245) PROBE: CSI callback ENTERED #349, len=256, rssi=-52[0m
+[0;32mI (94245) PROBE: publish #349 => 0 (ok)[0m
+[0;32mI (94365) PROBE: CSI callback ENTERED #350, len=256, rssi=-52[0m
+[0;32mI (94365) CSI: cb fired 350 times, len=256, rssi=-52[0m
+[0;32mI (94375) PROBE: publish #350 => 0 (ok)[0m
+[0;32mI (94445) PROBE: CSI callback ENTERED #351, len=256, rssi=-52[0m
+[0;32mI (94445) PROBE: publish #351 => 0 (ok)[0m
+[0;32mI (94515) PROBE: CSI callback ENTERED #352, len=256, rssi=-53[0m
+[0;32mI (94525) PROBE: publish #352 => 0 (ok)[0m
+[0;32mI (94575) PROBE: CSI callback ENTERED #353, len=256, rssi=-53[0m
+[0;32mI (94585) PROBE: publish #353 => 0 (ok)[0m
+[0;32mI (94645) PROBE: CSI callback ENTERED #354, len=256, rssi=-53[0m
+[0;32mI (94655) PROBE: publish #354 => 0 (ok)[0m
+[0;32mI (94655) PROBE: CSI callback ENTERED #355, len=128, rssi=-56[0m
+[0;32mI (94665) PROBE: publish #355 => 0 (ok)[0m
+[0;32mI (94715) PROBE: CSI callback ENTERED #356, len=256, rssi=-53[0m
+[0;32mI (94715) PROBE: publish #356 => 0 (ok)[0m
+[0;32mI (94775) PROBE: CSI callback ENTERED #357, len=256, rssi=-52[0m
+[0;32mI (94775) PROBE: publish #357 => 0 (ok)[0m
+[0;32mI (94835) PROBE: CSI callback ENTERED #358, len=256, rssi=-53[0m
+[0;32mI (94835) PROBE: publish #358 => 0 (ok)[0m
+[0;32mI (94925) PROBE: CSI callback ENTERED #359, len=256, rssi=-53[0m
+[0;32mI (94925) PROBE: publish #359 => 0 (ok)[0m
+[0;32mI (94985) PROBE: CSI callback ENTERED #360, len=256, rssi=-53[0m
+[0;32mI (94985) PROBE: publish #360 => 0 (ok)[0m
+[0;32mI (95035) PROBE: CSI callback ENTERED #361, len=256, rssi=-53[0m
+[0;32mI (95045) PROBE: publish #361 => 0 (ok)[0m
+[0;32mI (95165) PROBE: CSI callback ENTERED #362, len=256, rssi=-52[0m
+[0;32mI (95165) PROBE: publish #362 => 0 (ok)[0m
+[0;32mI (95265) PROBE: CSI callback ENTERED #363, len=256, rssi=-53[0m
+[0;32mI (95265) PROBE: publish #363 => 0 (ok)[0m
+[0;32mI (95325) PROBE: CSI callback ENTERED #364, len=256, rssi=-53[0m
+[0;32mI (95325) PROBE: publish #364 => 0 (ok)[0m
+[0;32mI (95375) PROBE: CSI callback ENTERED #365, len=256, rssi=-53[0m
+[0;32mI (95385) PROBE: publish #365 => 0 (ok)[0m
+[0;32mI (95435) PROBE: CSI callback ENTERED #366, len=256, rssi=-53[0m
+[0;32mI (95435) PROBE: publish #366 => 0 (ok)[0m
+[0;32mI (95495) PROBE: CSI callback ENTERED #367, len=256, rssi=-53[0m
+[0;32mI (95495) PROBE: publish #367 => 0 (ok)[0m
+[0;32mI (95555) PROBE: CSI callback ENTERED #368, len=256, rssi=-53[0m
+[0;32mI (95565) PROBE: publish #368 => 0 (ok)[0m
+[0;32mI (95615) PROBE: CSI callback ENTERED #369, len=256, rssi=-53[0m
+[0;32mI (95625) PROBE: publish #369 => 0 (ok)[0m
+[0;32mI (95685) PROBE: CSI callback ENTERED #370, len=256, rssi=-53[0m
+[0;32mI (95685) PROBE: publish #370 => 0 (ok)[0m
+[0;32mI (95755) PROBE: CSI callback ENTERED #371, len=256, rssi=-53[0m
+[0;32mI (95755) PROBE: publish #371 => 0 (ok)[0m
+[0;32mI (95815) PROBE: CSI callback ENTERED #372, len=256, rssi=-53[0m
+[0;32mI (95815) PROBE: publish #372 => 0 (ok)[0m
+[0;32mI (95875) PROBE: CSI callback ENTERED #373, len=256, rssi=-53[0m
+[0;32mI (95885) PROBE: publish #373 => 0 (ok)[0m
+[0;32mI (95955) PROBE: CSI callback ENTERED #374, len=256, rssi=-52[0m
+[0;32mI (95965) PROBE: publish #374 => 0 (ok)[0m
+[0;32mI (96035) PROBE: CSI callback ENTERED #375, len=256, rssi=-53[0m
+[0;32mI (96045) PROBE: publish #375 => 0 (ok)[0m
+[0;32mI (96125) PROBE: CSI callback ENTERED #376, len=256, rssi=-53[0m
+[0;32mI (96135) PROBE: publish #376 => 0 (ok)[0m
+[0;32mI (96185) PROBE: CSI callback ENTERED #377, len=256, rssi=-53[0m
+[0;32mI (96185) PROBE: publish #377 => 0 (ok)[0m
+[0;32mI (96245) PROBE: CSI callback ENTERED #378, len=256, rssi=-53[0m
+[0;32mI (96255) PROBE: publish #378 => 0 (ok)[0m
+[0;32mI (96335) PROBE: CSI callback ENTERED #379, len=256, rssi=-53[0m
+[0;32mI (96335) PROBE: publish #379 => 0 (ok)[0m
+[0;32mI (96395) PROBE: CSI callback ENTERED #380, len=256, rssi=-53[0m
+[0;32mI (96395) PROBE: publish #380 => 0 (ok)[0m
+[0;32mI (96455) PROBE: CSI callback ENTERED #381, len=256, rssi=-53[0m
+[0;32mI (96455) PROBE: publish #381 => 0 (ok)[0m
+[0;32mI (96455) PROBE: CSI callback ENTERED #382, len=128, rssi=-56[0m
+[0;32mI (96465) PROBE: publish #382 => 0 (ok)[0m
+[0;32mI (96515) PROBE: CSI callback ENTERED #383, len=256, rssi=-53[0m
+[0;32mI (96515) PROBE: publish #383 => 0 (ok)[0m
+[0;32mI (96575) PROBE: CSI callback ENTERED #384, len=256, rssi=-53[0m
+[0;32mI (96575) PROBE: publish #384 => 0 (ok)[0m
+[0;32mI (96645) PROBE: CSI callback ENTERED #385, len=256, rssi=-53[0m
+[0;32mI (96645) PROBE: publish #385 => 0 (ok)[0m
+[0;32mI (96715) PROBE: CSI callback ENTERED #386, len=256, rssi=-53[0m
+[0;32mI (96725) PROBE: publish #386 => 0 (ok)[0m
+[0;32mI (96785) PROBE: CSI callback ENTERED #387, len=256, rssi=-53[0m
+[0;32mI (96785) PROBE: publish #387 => 0 (ok)[0m
+[0;32mI (96845) PROBE: CSI callback ENTERED #388, len=256, rssi=-53[0m
+[0;32mI (96845) PROBE: publish #388 => 0 (ok)[0m
+[0;32mI (96865) PROBE: CSI callback ENTERED #389, len=128, rssi=-55[0m
+[0;32mI (96865) PROBE: publish #389 => 0 (ok)[0m
+[0;32mI (96915) PROBE: CSI callback ENTERED #390, len=256, rssi=-53[0m
+[0;32mI (96915) PROBE: publish #390 => 0 (ok)[0m
+[0;32mI (96975) PROBE: CSI callback ENTERED #391, len=256, rssi=-53[0m
+[0;32mI (96975) PROBE: publish #391 => 0 (ok)[0m
+[0;32mI (97025) PROBE: CSI callback ENTERED #392, len=256, rssi=-53[0m
+[0;32mI (97035) PROBE: publish #392 => 0 (ok)[0m
+[0;32mI (97085) PROBE: CSI callback ENTERED #393, len=256, rssi=-53[0m
+[0;32mI (97085) PROBE: publish #393 => 0 (ok)[0m
+[0;32mI (97165) PROBE: CSI callback ENTERED #394, len=256, rssi=-53[0m
+[0;32mI (97165) PROBE: publish #394 => 0 (ok)[0m
+[0;32mI (97235) PROBE: CSI callback ENTERED #395, len=256, rssi=-53[0m
+[0;32mI (97235) PROBE: publish #395 => 0 (ok)[0m
+[0;32mI (97295) PROBE: CSI callback ENTERED #396, len=256, rssi=-53[0m
+[0;32mI (97295) PROBE: publish #396 => 0 (ok)[0m
+[0;32mI (97305) PROBE: CSI callback ENTERED #397, len=128, rssi=-56[0m
+[0;32mI (97305) PROBE: publish #397 => 0 (ok)[0m
+[0;32mI (97355) PROBE: CSI callback ENTERED #398, len=256, rssi=-54[0m
+[0;32mI (97365) PROBE: publish #398 => 0 (ok)[0m
+[0;32mI (97445) PROBE: CSI callback ENTERED #399, len=256, rssi=-53[0m
+[0;32mI (97445) PROBE: publish #399 => 0 (ok)[0m
+[0;32mI (97515) PROBE: CSI callback ENTERED #400, len=256, rssi=-53[0m
+[0;32mI (97515) CSI: cb fired 400 times, len=256, rssi=-53[0m
+[0;32mI (97525) PROBE: publish #400 => 0 (ok)[0m
+[0;32mI (97565) PROBE: CSI callback ENTERED #401, len=256, rssi=-53[0m
+[0;32mI (97565) PROBE: publish #401 => 0 (ok)[0m
+[0;32mI (97635) PROBE: CSI callback ENTERED #402, len=256, rssi=-53[0m
+[0;32mI (97635) PROBE: publish #402 => 0 (ok)[0m
+[0;32mI (97715) PROBE: CSI callback ENTERED #403, len=256, rssi=-54[0m
+[0;32mI (97715) PROBE: publish #403 => 0 (ok)[0m
+[0;32mI (97775) PROBE: CSI callback ENTERED #404, len=256, rssi=-54[0m
+[0;32mI (97785) PROBE: publish #404 => 0 (ok)[0m
+[0;32mI (97835) PROBE: CSI callback ENTERED #405, len=256, rssi=-52[0m
+[0;32mI (97845) PROBE: publish #405 => 0 (ok)[0m
+[0;32mI (97925) PROBE: CSI callback ENTERED #406, len=256, rssi=-52[0m
+[0;32mI (97925) PROBE: publish #406 => 0 (ok)[0m
+[0;32mI (97985) PROBE: CSI callback ENTERED #407, len=256, rssi=-53[0m
+[0;32mI (97985) PROBE: publish #407 => 0 (ok)[0m
+[0;32mI (98045) PROBE: CSI callback ENTERED #408, len=256, rssi=-53[0m
+[0;32mI (98055) PROBE: publish #408 => 0 (ok)[0m
+[0;32mI (98125) PROBE: CSI callback ENTERED #409, len=256, rssi=-53[0m
+[0;32mI (98135) PROBE: publish #409 => 0 (ok)[0m
+[0;32mI (98185) PROBE: CSI callback ENTERED #410, len=256, rssi=-54[0m
+[0;32mI (98185) PROBE: publish #410 => 0 (ok)[0m
+[0;32mI (98245) PROBE: CSI callback ENTERED #411, len=256, rssi=-53[0m
+[0;32mI (98245) PROBE: publish #411 => 0 (ok)[0m
+[0;32mI (98325) PROBE: CSI callback ENTERED #412, len=256, rssi=-53[0m
+[0;32mI (98335) PROBE: publish #412 => 0 (ok)[0m
+[0;32mI (98385) PROBE: CSI callback ENTERED #413, len=256, rssi=-53[0m
+[0;32mI (98395) PROBE: publish #413 => 0 (ok)[0m
+[0;32mI (98445) PROBE: CSI callback ENTERED #414, len=256, rssi=-53[0m
+[0;32mI (98445) PROBE: publish #414 => 0 (ok)[0m
+[0;32mI (98525) PROBE: CSI callback ENTERED #415, len=256, rssi=-54[0m
+[0;32mI (98525) PROBE: publish #415 => 0 (ok)[0m
+[0;32mI (98585) PROBE: CSI callback ENTERED #416, len=256, rssi=-54[0m
+[0;32mI (98595) PROBE: publish #416 => 0 (ok)[0m
+[0;32mI (98645) PROBE: CSI callback ENTERED #417, len=256, rssi=-53[0m
+[0;32mI (98655) PROBE: publish #417 => 0 (ok)[0m
+[0;32mI (98655) PROBE: CSI callback ENTERED #418, len=128, rssi=-55[0m
+[0;32mI (98655) PROBE: publish #418 => 0 (ok)[0m
+[0;32mI (98715) PROBE: CSI callback ENTERED #419, len=256, rssi=-54[0m
+[0;32mI (98715) PROBE: publish #419 => 0 (ok)[0m
+[0;32mI (98795) PROBE: CSI callback ENTERED #420, len=256, rssi=-54[0m
+[0;32mI (98795) PROBE: publish #420 => 0 (ok)[0m
+[0;32mI (98855) PROBE: CSI callback ENTERED #421, len=256, rssi=-54[0m
+[0;32mI (98865) PROBE: publish #421 => 0 (ok)[0m
+[0;32mI (98925) PROBE: CSI callback ENTERED #422, len=256, rssi=-54[0m
+[0;32mI (98935) PROBE: publish #422 => 0 (ok)[0m
+[0;32mI (98995) PROBE: CSI callback ENTERED #423, len=256, rssi=-53[0m
+[0;32mI (99005) PROBE: publish #423 => 0 (ok)[0m
+[0;32mI (99065) PROBE: CSI callback ENTERED #424, len=256, rssi=-53[0m
+[0;32mI (99075) PROBE: publish #424 => 0 (ok)[0m
+[0;32mI (99125) PROBE: CSI callback ENTERED #425, len=256, rssi=-53[0m
+[0;32mI (99135) PROBE: publish #425 => 0 (ok)[0m
+[0;32mI (99205) PROBE: CSI callback ENTERED #426, len=256, rssi=-53[0m
+[0;32mI (99205) PROBE: publish #426 => 0 (ok)[0m
+[0;32mI (99265) PROBE: CSI callback ENTERED #427, len=256, rssi=-53[0m
+[0;32mI (99275) PROBE: publish #427 => 0 (ok)[0m
+[0;32mI (99335) PROBE: CSI callback ENTERED #428, len=256, rssi=-53[0m
+[0;32mI (99345) PROBE: publish #428 => 0 (ok)[0m
+[0;32mI (99395) PROBE: CSI callback ENTERED #429, len=256, rssi=-54[0m
+[0;32mI (99405) PROBE: publish #429 => 0 (ok)[0m
+[0;32mI (99455) PROBE: CSI callback ENTERED #430, len=256, rssi=-53[0m
+[0;32mI (99465) PROBE: publish #430 => 0 (ok)[0m
+[0;32mI (99525) PROBE: CSI callback ENTERED #431, len=256, rssi=-53[0m
+[0;32mI (99525) PROBE: publish #431 => 0 (ok)[0m
+[0;32mI (99575) PROBE: CSI callback ENTERED #432, len=256, rssi=-53[0m
+[0;32mI (99585) PROBE: publish #432 => 0 (ok)[0m
+[0;32mI (99645) PROBE: CSI callback ENTERED #433, len=256, rssi=-53[0m
+[0;32mI (99655) PROBE: publish #433 => 0 (ok)[0m
+[0;32mI (99725) PROBE: CSI callback ENTERED #434, len=256, rssi=-53[0m
+[0;32mI (99725) PROBE: publish #434 => 0 (ok)[0m
+[0;32mI (99785) PROBE: CSI callback ENTERED #435, len=256, rssi=-53[0m
+[0;32mI (99795) PROBE: publish #435 => 0 (ok)[0m
+[0;32mI (99845) PROBE: CSI callback ENTERED #436, len=256, rssi=-53[0m
+[0;32mI (99845) PROBE: publish #436 => 0 (ok)[0m
+[0;32mI (99925) PROBE: CSI callback ENTERED #437, len=256, rssi=-53[0m
+[0;32mI (99935) PROBE: publish #437 => 0 (ok)[0m
+[0;32mI (99975) PROBE: CSI callback ENTERED #438, len=256, rssi=-53[0m
+[0;32mI (99985) PROBE: publish #438 => 0 (ok)[0m
+[0;32mI (100035) PROBE: CSI callback ENTERED #439, len=256, rssi=-53[0m
+[0;32mI (100035) PROBE: publish #439 => 0 (ok)[0m
+[0;32mI (100085) PROBE: CSI callback ENTERED #440, len=256, rssi=-52[0m
+[0;32mI (100095) PROBE: publish #440 => 0 (ok)[0m
+[0;32mI (100155) PROBE: CSI callback ENTERED #441, len=256, rssi=-52[0m
+[0;32mI (100155) PROBE: publish #441 => 0 (ok)[0m
+[0;32mI (100225) PROBE: CSI callback ENTERED #442, len=256, rssi=-53[0m
+[0;32mI (100225) PROBE: publish #442 => 0 (ok)[0m
+[0;32mI (100285) PROBE: CSI callback ENTERED #443, len=256, rssi=-53[0m
+[0;32mI (100285) PROBE: publish #443 => 0 (ok)[0m
+[0;32mI (100355) PROBE: CSI callback ENTERED #444, len=256, rssi=-53[0m
+[0;32mI (100365) PROBE: publish #444 => 0 (ok)[0m
+[0;32mI (100435) PROBE: CSI callback ENTERED #445, len=256, rssi=-52[0m
+[0;32mI (100435) PROBE: publish #445 => 0 (ok)[0m
+[0;32mI (100495) PROBE: CSI callback ENTERED #446, len=256, rssi=-52[0m
+[0;32mI (100495) PROBE: publish #446 => 0 (ok)[0m
+[0;32mI (100545) PROBE: CSI callback ENTERED #447, len=256, rssi=-52[0m
+[0;32mI (100545) PROBE: publish #447 => 0 (ok)[0m
+[0;32mI (100605) PROBE: CSI callback ENTERED #448, len=256, rssi=-52[0m
+[0;32mI (100605) PROBE: publish #448 => 0 (ok)[0m
+[0;32mI (100665) PROBE: CSI callback ENTERED #449, len=256, rssi=-52[0m
+[0;32mI (100665) PROBE: publish #449 => 0 (ok)[0m
+[0;32mI (100745) PROBE: CSI callback ENTERED #450, len=256, rssi=-53[0m
+[0;32mI (100745) CSI: cb fired 450 times, len=256, rssi=-53[0m
+[0;32mI (100755) PROBE: publish #450 => 0 (ok)[0m
+[0;32mI (100815) PROBE: CSI callback ENTERED #451, len=256, rssi=-52[0m
+[0;32mI (100815) PROBE: publish #451 => 0 (ok)[0m
+[0;32mI (100895) PROBE: CSI callback ENTERED #452, len=256, rssi=-53[0m
+[0;32mI (100895) PROBE: publish #452 => 0 (ok)[0m
+[0;32mI (100895) PROBE: CSI callback ENTERED #453, len=128, rssi=-55[0m
+[0;32mI (100905) PROBE: publish #453 => 0 (ok)[0m
+[0;32mI (100955) PROBE: CSI callback ENTERED #454, len=256, rssi=-53[0m
+[0;32mI (100955) PROBE: publish #454 => 0 (ok)[0m
+[0;32mI (101045) PROBE: CSI callback ENTERED #455, len=256, rssi=-52[0m
+[0;32mI (101045) PROBE: publish #455 => 0 (ok)[0m
+[0;32mI (101125) PROBE: CSI callback ENTERED #456, len=256, rssi=-52[0m
+[0;32mI (101125) PROBE: publish #456 => 0 (ok)[0m
+[0;32mI (101185) PROBE: CSI callback ENTERED #457, len=256, rssi=-53[0m
+[0;32mI (101185) PROBE: publish #457 => 0 (ok)[0m
+[0;32mI (101265) PROBE: CSI callback ENTERED #458, len=256, rssi=-52[0m
+[0;32mI (101265) PROBE: publish #458 => 0 (ok)[0m
+[0;32mI (101315) PROBE: CSI callback ENTERED #459, len=256, rssi=-52[0m
+[0;32mI (101325) PROBE: publish #459 => 0 (ok)[0m
+[0;32mI (101385) PROBE: CSI callback ENTERED #460, len=256, rssi=-53[0m
+[0;32mI (101395) PROBE: publish #460 => 0 (ok)[0m
+[0;32mI (101445) PROBE: CSI callback ENTERED #461, len=256, rssi=-53[0m
+[0;32mI (101455) PROBE: publish #461 => 0 (ok)[0m
+[0;32mI (101515) PROBE: CSI callback ENTERED #462, len=256, rssi=-53[0m
+[0;32mI (101515) PROBE: publish #462 => 0 (ok)[0m
+[0;32mI (101565) PROBE: CSI callback ENTERED #463, len=256, rssi=-53[0m
+[0;32mI (101565) PROBE: publish #463 => 0 (ok)[0m
+[0;32mI (101625) PROBE: CSI callback ENTERED #464, len=256, rssi=-53[0m
+[0;32mI (101635) PROBE: publish #464 => 0 (ok)[0m
+[0;32mI (101685) PROBE: CSI callback ENTERED #465, len=256, rssi=-53[0m
+[0;32mI (101695) PROBE: publish #465 => 0 (ok)[0m
+[0;32mI (101705) PROBE: CSI callback ENTERED #466, len=128, rssi=-55[0m
+[0;32mI (101705) PROBE: publish #466 => 0 (ok)[0m
+[0;32mI (101765) PROBE: CSI callback ENTERED #467, len=256, rssi=-53[0m
+[0;32mI (101765) PROBE: publish #467 => 0 (ok)[0m
+[0;32mI (101835) PROBE: CSI callback ENTERED #468, len=256, rssi=-53[0m
+[0;32mI (101835) PROBE: publish #468 => 0 (ok)[0m
+[0;32mI (101925) PROBE: CSI callback ENTERED #469, len=256, rssi=-53[0m
+[0;32mI (101935) PROBE: publish #469 => 0 (ok)[0m
+[0;32mI (101985) PROBE: CSI callback ENTERED #470, len=256, rssi=-52[0m
+[0;32mI (101995) PROBE: publish #470 => 0 (ok)[0m
+[0;32mI (102045) PROBE: CSI callback ENTERED #471, len=256, rssi=-52[0m
+[0;32mI (102045) PROBE: publish #471 => 0 (ok)[0m
+[0;32mI (102125) PROBE: CSI callback ENTERED #472, len=256, rssi=-53[0m
+[0;32mI (102125) PROBE: publish #472 => 0 (ok)[0m
+[0;32mI (102185) PROBE: CSI callback ENTERED #473, len=256, rssi=-53[0m
+[0;32mI (102195) PROBE: publish #473 => 0 (ok)[0m
+[0;32mI (102245) PROBE: CSI callback ENTERED #474, len=256, rssi=-53[0m
+[0;32mI (102245) PROBE: publish #474 => 0 (ok)[0m
+[0;32mI (102305) PROBE: CSI callback ENTERED #475, len=256, rssi=-53[0m
+[0;32mI (102315) PROBE: publish #475 => 0 (ok)[0m
+[0;32mI (102375) PROBE: CSI callback ENTERED #476, len=256, rssi=-53[0m
+[0;32mI (102385) PROBE: publish #476 => 0 (ok)[0m
+[0;32mI (102435) PROBE: CSI callback ENTERED #477, len=256, rssi=-53[0m
+[0;32mI (102445) PROBE: publish #477 => 0 (ok)[0m
+[0;32mI (102515) PROBE: CSI callback ENTERED #478, len=256, rssi=-53[0m
+[0;32mI (102515) PROBE: publish #478 => 0 (ok)[0m
+[0;32mI (102575) PROBE: CSI callback ENTERED #479, len=256, rssi=-53[0m
+[0;32mI (102575) PROBE: publish #479 => 0 (ok)[0m
+[0;32mI (102625) PROBE: CSI callback ENTERED #480, len=256, rssi=-53[0m
+[0;32mI (102635) PROBE: publish #480 => 0 (ok)[0m
+[0;32mI (102715) PROBE: CSI callback ENTERED #481, len=256, rssi=-53[0m
+[0;32mI (102715) PROBE: publish #481 => 0 (ok)[0m
+[0;32mI (102785) PROBE: CSI callback ENTERED #482, len=256, rssi=-53[0m
+[0;32mI (102795) PROBE: publish #482 => 0 (ok)[0m
+[0;32mI (102855) PROBE: CSI callback ENTERED #483, len=256, rssi=-53[0m
+[0;32mI (102855) PROBE: publish #483 => 0 (ok)[0m
+[0;32mI (102925) PROBE: CSI callback ENTERED #484, len=256, rssi=-53[0m
+[0;32mI (102925) PROBE: publish #484 => 0 (ok)[0m
+[0;32mI (102985) PROBE: CSI callback ENTERED #485, len=256, rssi=-53[0m
+[0;32mI (102985) PROBE: publish #485 => 0 (ok)[0m
+[0;32mI (103035) PROBE: CSI callback ENTERED #486, len=256, rssi=-53[0m
+[0;32mI (103045) PROBE: publish #486 => 0 (ok)[0m
+[0;32mI (103105) PROBE: CSI callback ENTERED #487, len=256, rssi=-53[0m
+[0;32mI (103115) PROBE: publish #487 => 0 (ok)[0m
+[0;32mI (103165) PROBE: CSI callback ENTERED #488, len=256, rssi=-53[0m
+[0;32mI (103175) PROBE: publish #488 => 0 (ok)[0m
+[0;32mI (103235) PROBE: CSI callback ENTERED #489, len=256, rssi=-53[0m
+[0;32mI (103235) PROBE: publish #489 => 0 (ok)[0m
+[0;32mI (103285) PROBE: CSI callback ENTERED #490, len=256, rssi=-53[0m
+[0;32mI (103295) PROBE: publish #490 => 0 (ok)[0m
+[0;32mI (103355) PROBE: CSI callback ENTERED #491, len=256, rssi=-53[0m
+[0;32mI (103355) PROBE: publish #491 => 0 (ok)[0m
+[0;32mI (103405) PROBE: CSI callback ENTERED #492, len=256, rssi=-53[0m
+[0;32mI (103405) PROBE: publish #492 => 0 (ok)[0m
+[0;32mI (103455) PROBE: CSI callback ENTERED #493, len=256, rssi=-53[0m
+[0;32mI (103465) PROBE: publish #493 => 0 (ok)[0m
+[0;32mI (103515) PROBE: CSI callback ENTERED #494, len=256, rssi=-53[0m
+[0;32mI (103515) PROBE: publish #494 => 0 (ok)[0m
+[0;32mI (103565) PROBE: CSI callback ENTERED #495, len=256, rssi=-53[0m
+[0;32mI (103575) PROBE: publish #495 => 0 (ok)[0m
+[0;32mI (103625) PROBE: CSI callback ENTERED #496, len=256, rssi=-53[0m
+[0;32mI (103635) PROBE: publish #496 => 0 (ok)[0m
+[0;32mI (103685) PROBE: CSI callback ENTERED #497, len=256, rssi=-53[0m
+[0;32mI (103695) PROBE: publish #497 => 0 (ok)[0m
+[0;32mI (103745) PROBE: CSI callback ENTERED #498, len=256, rssi=-53[0m
+[0;32mI (103755) PROBE: publish #498 => 0 (ok)[0m
+[0;32mI (103825) PROBE: CSI callback ENTERED #499, len=256, rssi=-53[0m
+[0;32mI (103835) PROBE: publish #499 => 0 (ok)[0m
+[0;32mI (103895) PROBE: CSI callback ENTERED #500, len=256, rssi=-52[0m
+[0;32mI (103895) CSI: cb fired 500 times, len=256, rssi=-52[0m
+[0;32mI (103895) PROBE: publish #500 => 0 (ok)[0m
+[0;32mI (103945) PROBE: CSI callback ENTERED #501, len=256, rssi=-53[0m
+[0;32mI (103955) PROBE: publish #501 => 0 (ok)[0m
+[0;32mI (104005) PROBE: CSI callback ENTERED #502, len=256, rssi=-52[0m
+[0;32mI (104015) PROBE: publish #502 => 0 (ok)[0m
+[0;32mI (104075) PROBE: CSI callback ENTERED #503, len=256, rssi=-53[0m
+[0;32mI (104075) PROBE: publish #503 => 0 (ok)[0m
+[0;32mI (104155) PROBE: CSI callback ENTERED #504, len=256, rssi=-53[0m
+[0;32mI (104155) PROBE: publish #504 => 0 (ok)[0m
+[0;32mI (104235) PROBE: CSI callback ENTERED #505, len=256, rssi=-53[0m
+[0;32mI (104235) PROBE: publish #505 => 0 (ok)[0m
+[0;32mI (104315) PROBE: CSI callback ENTERED #506, len=256, rssi=-53[0m
+[0;32mI (104315) PROBE: publish #506 => 0 (ok)[0m
+[0;32mI (104375) PROBE: CSI callback ENTERED #507, len=256, rssi=-53[0m
+[0;32mI (104375) PROBE: publish #507 => 0 (ok)[0m
+[0;32mI (104445) PROBE: CSI callback ENTERED #508, len=256, rssi=-53[0m
+[0;32mI (104445) PROBE: publish #508 => 0 (ok)[0m
+[0;32mI (104505) PROBE: CSI callback ENTERED #509, len=256, rssi=-53[0m
+[0;32mI (104515) PROBE: publish #509 => 0 (ok)[0m
+[0;32mI (104585) PROBE: CSI callback ENTERED #510, len=256, rssi=-54[0m
+[0;32mI (104595) PROBE: publish #510 => 0 (ok)[0m
+[0;32mI (104645) PROBE: CSI callback ENTERED #511, len=256, rssi=-53[0m
+[0;32mI (104655) PROBE: publish #511 => 0 (ok)[0m
+[0;32mI (104725) PROBE: CSI callback ENTERED #512, len=256, rssi=-54[0m
+[0;32mI (104725) PROBE: publish #512 => 0 (ok)[0m
+[0;32mI (104795) PROBE: CSI callback ENTERED #513, len=256, rssi=-54[0m
+[0;32mI (104795) PROBE: publish #513 => 0 (ok)[0m
+[0;32mI (104865) PROBE: CSI callback ENTERED #514, len=256, rssi=-54[0m
+[0;32mI (104865) PROBE: publish #514 => 0 (ok)[0m
+[0;32mI (104885) PROBE: CSI callback ENTERED #515, len=128, rssi=-57[0m
+[0;32mI (104885) PROBE: publish #515 => 0 (ok)[0m
+[0;32mI (104965) PROBE: CSI callback ENTERED #516, len=256, rssi=-54[0m
+[0;32mI (104965) PROBE: publish #516 => 0 (ok)[0m
+[0;32mI (105035) PROBE: CSI callback ENTERED #517, len=256, rssi=-54[0m
+[0;32mI (105045) PROBE: publish #517 => 0 (ok)[0m
+[0;32mI (105105) PROBE: CSI callback ENTERED #518, len=256, rssi=-54[0m
+[0;32mI (105115) PROBE: publish #518 => 0 (ok)[0m
+[0;32mI (105175) PROBE: CSI callback ENTERED #519, len=256, rssi=-53[0m
+[0;32mI (105185) PROBE: publish #519 => 0 (ok)[0m
+[0;32mI (105245) PROBE: CSI callback ENTERED #520, len=256, rssi=-54[0m
+[0;32mI (105245) PROBE: publish #520 => 0 (ok)[0m
+[0;32mI (105315) PROBE: CSI callback ENTERED #521, len=256, rssi=-54[0m
+[0;32mI (105315) PROBE: publish #521 => 0 (ok)[0m
+[0;32mI (105385) PROBE: CSI callback ENTERED #522, len=256, rssi=-54[0m
+[0;32mI (105385) PROBE: publish #522 => 0 (ok)[0m
+[0;32mI (105445) PROBE: CSI callback ENTERED #523, len=256, rssi=-54[0m
+[0;32mI (105445) PROBE: publish #523 => 0 (ok)[0m
+[0;32mI (105525) PROBE: CSI callback ENTERED #524, len=256, rssi=-54[0m
+[0;32mI (105525) PROBE: publish #524 => 0 (ok)[0m
+[0;32mI (105575) PROBE: CSI callback ENTERED #525, len=256, rssi=-54[0m
+[0;32mI (105585) PROBE: publish #525 => 0 (ok)[0m
+[0;32mI (105645) PROBE: CSI callback ENTERED #526, len=256, rssi=-53[0m
+[0;32mI (105645) PROBE: publish #526 => 0 (ok)[0m
+[0;32mI (105715) PROBE: CSI callback ENTERED #527, len=256, rssi=-53[0m
+[0;32mI (105725) PROBE: publish #527 => 0 (ok)[0m
+[0;32mI (105785) PROBE: CSI callback ENTERED #528, len=256, rssi=-53[0m
+[0;32mI (105785) PROBE: publish #528 => 0 (ok)[0m
+[0;32mI (105855) PROBE: CSI callback ENTERED #529, len=256, rssi=-53[0m
+[0;32mI (105865) PROBE: publish #529 => 0 (ok)[0m
+[0;32mI (105905) PROBE: CSI callback ENTERED #530, len=256, rssi=-54[0m
+[0;32mI (105915) PROBE: publish #530 => 0 (ok)[0m
+[0;32mI (105975) PROBE: CSI callback ENTERED #531, len=256, rssi=-53[0m
+[0;32mI (105975) PROBE: publish #531 => 0 (ok)[0m
+[0;32mI (106035) PROBE: CSI callback ENTERED #532, len=256, rssi=-53[0m
+[0;32mI (106035) PROBE: publish #532 => 0 (ok)[0m
+[0;32mI (106125) PROBE: CSI callback ENTERED #533, len=256, rssi=-53[0m
+[0;32mI (106135) PROBE: publish #533 => 0 (ok)[0m
+[0;32mI (106205) PROBE: CSI callback ENTERED #534, len=256, rssi=-53[0m
+[0;32mI (106205) PROBE: publish #534 => 0 (ok)[0m
+[0;32mI (106255) PROBE: CSI callback ENTERED #535, len=256, rssi=-53[0m
+[0;32mI (106265) PROBE: publish #535 => 0 (ok)[0m
+[0;32mI (106325) PROBE: CSI callback ENTERED #536, len=256, rssi=-53[0m
+[0;32mI (106325) PROBE: publish #536 => 0 (ok)[0m
+[0;32mI (106385) PROBE: CSI callback ENTERED #537, len=256, rssi=-53[0m
+[0;32mI (106385) PROBE: publish #537 => 0 (ok)[0m
+[0;32mI (106445) PROBE: CSI callback ENTERED #538, len=256, rssi=-52[0m
+[0;32mI (106455) PROBE: publish #538 => 0 (ok)[0m
+[0;32mI (106515) PROBE: CSI callback ENTERED #539, len=256, rssi=-53[0m
+[0;32mI (106515) PROBE: publish #539 => 0 (ok)[0m
+[0;32mI (106565) PROBE: CSI callback ENTERED #540, len=256, rssi=-53[0m
+[0;32mI (106575) PROBE: publish #540 => 0 (ok)[0m
+[0;32mI (106635) PROBE: CSI callback ENTERED #541, len=256, rssi=-52[0m
+[0;32mI (106645) PROBE: publish #541 => 0 (ok)[0m
+[0;32mI (106715) PROBE: CSI callback ENTERED #542, len=256, rssi=-53[0m
+[0;32mI (106715) PROBE: publish #542 => 0 (ok)[0m
+[0;32mI (106775) PROBE: CSI callback ENTERED #543, len=256, rssi=-53[0m
+[0;32mI (106785) PROBE: publish #543 => 0 (ok)[0m
+[0;32mI (106845) PROBE: CSI callback ENTERED #544, len=256, rssi=-52[0m
+[0;32mI (106845) PROBE: publish #544 => 0 (ok)[0m
+[0;32mI (106905) PROBE: CSI callback ENTERED #545, len=256, rssi=-53[0m
+[0;32mI (106915) PROBE: publish #545 => 0 (ok)[0m
+[0;32mI (106975) PROBE: CSI callback ENTERED #546, len=256, rssi=-53[0m
+[0;32mI (106985) PROBE: publish #546 => 0 (ok)[0m
+[0;32mI (107045) PROBE: CSI callback ENTERED #547, len=256, rssi=-53[0m
+[0;32mI (107045) PROBE: publish #547 => 0 (ok)[0m
+[0;32mI (107155) PROBE: CSI callback ENTERED #548, len=256, rssi=-52[0m
+[0;32mI (107165) PROBE: publish #548 => 0 (ok)[0m
+[0;32mI (107245) PROBE: CSI callback ENTERED #549, len=256, rssi=-52[0m
+[0;32mI (107245) PROBE: publish #549 => 0 (ok)[0m
+[0;32mI (107305) PROBE: CSI callback ENTERED #550, len=256, rssi=-53[0m
+[0;32mI (107305) CSI: cb fired 550 times, len=256, rssi=-53[0m
+[0;32mI (107315) PROBE: publish #550 => 0 (ok)[0m
+[0;32mI (107365) PROBE: CSI callback ENTERED #551, len=256, rssi=-53[0m
+[0;32mI (107365) PROBE: publish #551 => 0 (ok)[0m
+[0;32mI (107375) PROBE: CSI callback ENTERED #552, len=128, rssi=-55[0m
+[0;32mI (107375) PROBE: publish #552 => 0 (ok)[0m
+[0;32mI (107435) PROBE: CSI callback ENTERED #553, len=256, rssi=-53[0m
+[0;32mI (107445) PROBE: publish #553 => 0 (ok)[0m
+[0;32mI (107505) PROBE: CSI callback ENTERED #554, len=256, rssi=-53[0m
+[0;32mI (107515) PROBE: publish #554 => 0 (ok)[0m
+[0;32mI (107575) PROBE: CSI callback ENTERED #555, len=256, rssi=-53[0m
+[0;32mI (107575) PROBE: publish #555 => 0 (ok)[0m
+[0;32mI (107635) PROBE: CSI callback ENTERED #556, len=256, rssi=-53[0m
+[0;32mI (107635) PROBE: publish #556 => 0 (ok)[0m
+[0;32mI (107715) PROBE: CSI callback ENTERED #557, len=256, rssi=-52[0m
+[0;32mI (107725) PROBE: publish #557 => 0 (ok)[0m
+[0;32mI (107785) PROBE: CSI callback ENTERED #558, len=256, rssi=-52[0m
+[0;32mI (107785) PROBE: publish #558 => 0 (ok)[0m
+[0;32mI (107845) PROBE: CSI callback ENTERED #559, len=256, rssi=-53[0m
+[0;32mI (107845) PROBE: publish #559 => 0 (ok)[0m
+[0;32mI (107905) PROBE: CSI callback ENTERED #560, len=256, rssi=-53[0m
+[0;32mI (107915) PROBE: publish #560 => 0 (ok)[0m
+[0;32mI (107975) PROBE: CSI callback ENTERED #561, len=256, rssi=-53[0m
+[0;32mI (107975) PROBE: publish #561 => 0 (ok)[0m
+[0;32mI (108035) PROBE: CSI callback ENTERED #562, len=256, rssi=-53[0m
+[0;32mI (108035) PROBE: publish #562 => 0 (ok)[0m
+[0;32mI (108115) PROBE: CSI callback ENTERED #563, len=256, rssi=-53[0m
+[0;32mI (108115) PROBE: publish #563 => 0 (ok)[0m
+[0;32mI (108175) PROBE: CSI callback ENTERED #564, len=256, rssi=-53[0m
+[0;32mI (108175) PROBE: publish #564 => 0 (ok)[0m
+[0;32mI (108245) PROBE: CSI callback ENTERED #565, len=256, rssi=-53[0m
+[0;32mI (108255) PROBE: publish #565 => 0 (ok)[0m
+[0;32mI (108305) PROBE: CSI callback ENTERED #566, len=256, rssi=-53[0m
+[0;32mI (108315) PROBE: publish #566 => 0 (ok)[0m
+[0;32mI (108365) PROBE: CSI callback ENTERED #567, len=256, rssi=-53[0m
+[0;32mI (108365) PROBE: publish #567 => 0 (ok)[0m
+[0;32mI (108445) PROBE: CSI callback ENTERED #568, len=256, rssi=-53[0m
+[0;32mI (108445) PROBE: publish #568 => 0 (ok)[0m
+[0;32mI (108515) PROBE: CSI callback ENTERED #569, len=256, rssi=-53[0m
+[0;32mI (108515) PROBE: publish #569 => 0 (ok)[0m
+[0;32mI (108565) PROBE: CSI callback ENTERED #570, len=256, rssi=-53[0m
+[0;32mI (108575) PROBE: publish #570 => 0 (ok)[0m
+[0;32mI (108625) PROBE: CSI callback ENTERED #571, len=256, rssi=-53[0m
+[0;32mI (108635) PROBE: publish #571 => 0 (ok)[0m
+[0;32mI (108685) PROBE: CSI callback ENTERED #572, len=256, rssi=-53[0m
+[0;32mI (108685) PROBE: publish #572 => 0 (ok)[0m
+[0;32mI (108755) PROBE: CSI callback ENTERED #573, len=256, rssi=-53[0m
+[0;32mI (108765) PROBE: publish #573 => 0 (ok)[0m
+[0;32mI (108845) PROBE: CSI callback ENTERED #574, len=256, rssi=-52[0m
+[0;32mI (108845) PROBE: publish #574 => 0 (ok)[0m
+[0;32mI (108905) PROBE: CSI callback ENTERED #575, len=256, rssi=-53[0m
+[0;32mI (108915) PROBE: publish #575 => 0 (ok)[0m
+[0;32mI (108975) PROBE: CSI callback ENTERED #576, len=256, rssi=-52[0m
+[0;32mI (108985) PROBE: publish #576 => 0 (ok)[0m
+[0;32mI (109055) PROBE: CSI callback ENTERED #577, len=256, rssi=-53[0m
+[0;32mI (109055) PROBE: publish #577 => 0 (ok)[0m
+[0;32mI (109115) PROBE: CSI callback ENTERED #578, len=256, rssi=-52[0m
+[0;32mI (109125) PROBE: publish #578 => 0 (ok)[0m
+[0;32mI (109175) PROBE: CSI callback ENTERED #579, len=256, rssi=-53[0m
+[0;32mI (109175) PROBE: publish #579 => 0 (ok)[0m
+[0;32mI (109185) PROBE: CSI callback ENTERED #580, len=128, rssi=-55[0m
+[0;32mI (109195) PROBE: publish #580 => 0 (ok)[0m
+[0;32mI (109235) PROBE: CSI callback ENTERED #581, len=256, rssi=-53[0m
+[0;32mI (109245) PROBE: publish #581 => 0 (ok)[0m
+[0;32mI (109325) PROBE: CSI callback ENTERED #582, len=256, rssi=-53[0m
+[0;32mI (109335) PROBE: publish #582 => 0 (ok)[0m
+[0;32mI (109395) PROBE: CSI callback ENTERED #583, len=256, rssi=-52[0m
+[0;32mI (109395) PROBE: publish #583 => 0 (ok)[0m
+[0;32mI (109465) PROBE: CSI callback ENTERED #584, len=256, rssi=-53[0m
+[0;32mI (109465) PROBE: publish #584 => 0 (ok)[0m
+[0;32mI (109525) PROBE: CSI callback ENTERED #585, len=256, rssi=-52[0m
+[0;32mI (109525) PROBE: publish #585 => 0 (ok)[0m
+[0;32mI (109605) PROBE: CSI callback ENTERED #586, len=256, rssi=-53[0m
+[0;32mI (109605) PROBE: publish #586 => 0 (ok)[0m
+[0;32mI (109675) PROBE: CSI callback ENTERED #587, len=256, rssi=-53[0m
+[0;32mI (109685) PROBE: publish #587 => 0 (ok)[0m
+[0;32mI (109755) PROBE: CSI callback ENTERED #588, len=256, rssi=-53[0m
+[0;32mI (109755) PROBE: publish #588 => 0 (ok)[0m
+[0;32mI (109835) PROBE: CSI callback ENTERED #589, len=256, rssi=-53[0m
+[0;32mI (109835) PROBE: publish #589 => 0 (ok)[0m
+[0;32mI (109925) PROBE: CSI callback ENTERED #590, len=256, rssi=-52[0m
+[0;32mI (109925) PROBE: publish #590 => 0 (ok)[0m
+[0;32mI (109985) PROBE: CSI callback ENTERED #591, len=256, rssi=-53[0m
+[0;32mI (109995) PROBE: publish #591 => 0 (ok)[0m
+[0;32mI (110055) PROBE: CSI callback ENTERED #592, len=256, rssi=-52[0m
+[0;32mI (110065) PROBE: publish #592 => 0 (ok)[0m
+[0;32mI (110125) PROBE: CSI callback ENTERED #593, len=256, rssi=-53[0m
+[0;32mI (110125) PROBE: publish #593 => 0 (ok)[0m
+[0;32mI (110185) PROBE: CSI callback ENTERED #594, len=256, rssi=-53[0m
+[0;32mI (110185) PROBE: publish #594 => 0 (ok)[0m
+[0;32mI (110245) PROBE: CSI callback ENTERED #595, len=256, rssi=-52[0m
+[0;32mI (110245) PROBE: publish #595 => 0 (ok)[0m
+[0;32mI (110315) PROBE: CSI callback ENTERED #596, len=256, rssi=-53[0m
+[0;32mI (110325) PROBE: publish #596 => 0 (ok)[0m
+[0;32mI (110395) PROBE: CSI callback ENTERED #597, len=256, rssi=-53[0m
+[0;32mI (110395) PROBE: publish #597 => 0 (ok)[0m
+[0;32mI (110455) PROBE: CSI callback ENTERED #598, len=256, rssi=-53[0m
+[0;32mI (110465) PROBE: publish #598 => 0 (ok)[0m
+[0;32mI (110515) PROBE: CSI callback ENTERED #599, len=256, rssi=-53[0m
+[0;32mI (110515) PROBE: publish #599 => 0 (ok)[0m
+[0;32mI (110575) PROBE: CSI callback ENTERED #600, len=256, rssi=-53[0m
+[0;32mI (110575) CSI: cb fired 600 times, len=256, rssi=-53[0m
+[0;32mI (110585) PROBE: publish #600 => 0 (ok)[0m
+[0;32mI (110635) PROBE: CSI callback ENTERED #601, len=256, rssi=-53[0m
+[0;32mI (110645) PROBE: publish #601 => 0 (ok)[0m
+[0;32mI (110725) PROBE: CSI callback ENTERED #602, len=256, rssi=-52[0m
+[0;32mI (110725) PROBE: publish #602 => 0 (ok)[0m
+[0;32mI (110785) PROBE: CSI callback ENTERED #603, len=256, rssi=-53[0m
+[0;32mI (110785) PROBE: publish #603 => 0 (ok)[0m
+[0;32mI (110855) PROBE: CSI callback ENTERED #604, len=256, rssi=-53[0m
+[0;32mI (110855) PROBE: publish #604 => 0 (ok)[0m
+[0;32mI (110915) PROBE: CSI callback ENTERED #605, len=256, rssi=-53[0m
+[0;32mI (110925) PROBE: publish #605 => 0 (ok)[0m
+[0;32mI (110975) PROBE: CSI callback ENTERED #606, len=256, rssi=-53[0m
+[0;32mI (110985) PROBE: publish #606 => 0 (ok)[0m
+[0;32mI (111035) PROBE: CSI callback ENTERED #607, len=256, rssi=-53[0m
+[0;32mI (111045) PROBE: publish #607 => 0 (ok)[0m
+[0;32mI (111105) PROBE: CSI callback ENTERED #608, len=256, rssi=-53[0m
+[0;32mI (111115) PROBE: publish #608 => 0 (ok)[0m
+[0;32mI (111165) PROBE: CSI callback ENTERED #609, len=256, rssi=-53[0m
+[0;32mI (111175) PROBE: publish #609 => 0 (ok)[0m
+[0;32mI (111205) PROBE: CSI callback ENTERED #610, len=128, rssi=-54[0m
+[0;32mI (111215) PROBE: publish #610 => 0 (ok)[0m
+[0;32mI (111285) PROBE: CSI callback ENTERED #611, len=256, rssi=-53[0m
+[0;32mI (111295) PROBE: publish #611 => 0 (ok)[0m
+[0;32mI (111345) PROBE: CSI callback ENTERED #612, len=256, rssi=-53[0m
+[0;32mI (111355) PROBE: publish #612 => 0 (ok)[0m
+[0;32mI (111435) PROBE: CSI callback ENTERED #613, len=256, rssi=-53[0m
+[0;32mI (111445) PROBE: publish #613 => 0 (ok)[0m
+[0;32mI (111525) PROBE: CSI callback ENTERED #614, len=256, rssi=-53[0m
+[0;32mI (111525) PROBE: publish #614 => 0 (ok)[0m
+[0;32mI (111595) PROBE: CSI callback ENTERED #615, len=256, rssi=-53[0m
+[0;32mI (111595) PROBE: publish #615 => 0 (ok)[0m
+[0;32mI (111665) PROBE: CSI callback ENTERED #616, len=256, rssi=-53[0m
+[0;32mI (111665) PROBE: publish #616 => 0 (ok)[0m
+[0;32mI (111745) PROBE: CSI callback ENTERED #617, len=256, rssi=-53[0m
+[0;32mI (111755) PROBE: publish #617 => 0 (ok)[0m
+[0;32mI (111825) PROBE: CSI callback ENTERED #618, len=256, rssi=-53[0m
+[0;32mI (111825) PROBE: publish #618 => 0 (ok)[0m
+[0;32mI (111905) PROBE: CSI callback ENTERED #619, len=256, rssi=-53[0m
+[0;32mI (111905) PROBE: publish #619 => 0 (ok)[0m
+[0;32mI (111965) PROBE: CSI callback ENTERED #620, len=256, rssi=-53[0m
+[0;32mI (111975) PROBE: publish #620 => 0 (ok)[0m
+[0;32mI (112055) PROBE: CSI callback ENTERED #621, len=256, rssi=-53[0m
+[0;32mI (112065) PROBE: publish #621 => 0 (ok)[0m
+[0;32mI (112155) PROBE: CSI callback ENTERED #622, len=256, rssi=-52[0m
+[0;32mI (112155) PROBE: publish #622 => 0 (ok)[0m
+[0;32mI (112235) PROBE: CSI callback ENTERED #623, len=256, rssi=-53[0m
+[0;32mI (112245) PROBE: publish #623 => 0 (ok)[0m
+[0;32mI (112305) PROBE: CSI callback ENTERED #624, len=256, rssi=-52[0m
+[0;32mI (112315) PROBE: publish #624 => 0 (ok)[0m
+[0;32mI (112385) PROBE: CSI callback ENTERED #625, len=256, rssi=-53[0m
+[0;32mI (112395) PROBE: publish #625 => 0 (ok)[0m
+[0;32mI (112465) PROBE: CSI callback ENTERED #626, len=256, rssi=-53[0m
+[0;32mI (112465) PROBE: publish #626 => 0 (ok)[0m
+[0;32mI (112575) PROBE: CSI callback ENTERED #627, len=256, rssi=-53[0m
+[0;32mI (112575) PROBE: publish #627 => 0 (ok)[0m
+[0;32mI (112635) PROBE: CSI callback ENTERED #628, len=256, rssi=-53[0m
+[0;32mI (112635) PROBE: publish #628 => 0 (ok)[0m
+[0;32mI (112705) PROBE: CSI callback ENTERED #629, len=256, rssi=-53[0m
+[0;32mI (112715) PROBE: publish #629 => 0 (ok)[0m
+[0;32mI (112775) PROBE: CSI callback ENTERED #630, len=256, rssi=-53[0m
+[0;32mI (112785) PROBE: publish #630 => 0 (ok)[0m
+[0;32mI (112835) PROBE: CSI callback ENTERED #631, len=256, rssi=-53[0m
+[0;32mI (112835) PROBE: publish #631 => 0 (ok)[0m
+[0;32mI (112895) PROBE: CSI callback ENTERED #632, len=256, rssi=-53[0m
+[0;32mI (112905) PROBE: publish #632 => 0 (ok)[0m
+[0;32mI (112975) PROBE: CSI callback ENTERED #633, len=256, rssi=-53[0m
+[0;32mI (112975) PROBE: publish #633 => 0 (ok)[0m
+[0;32mI (113035) PROBE: CSI callback ENTERED #634, len=256, rssi=-53[0m
+[0;32mI (113035) PROBE: publish #634 => 0 (ok)[0m
+[0;32mI (113155) PROBE: CSI callback ENTERED #635, len=256, rssi=-52[0m
+[0;32mI (113155) PROBE: publish #635 => 0 (ok)[0m
+[0;32mI (113245) PROBE: CSI callback ENTERED #636, len=256, rssi=-53[0m
+[0;32mI (113255) PROBE: publish #636 => 0 (ok)[0m
+[0;32mI (113315) PROBE: CSI callback ENTERED #637, len=256, rssi=-53[0m
+[0;32mI (113315) PROBE: publish #637 => 0 (ok)[0m
+[0;32mI (113395) PROBE: CSI callback ENTERED #638, len=256, rssi=-53[0m
+[0;32mI (113405) PROBE: publish #638 => 0 (ok)[0m
+[0;32mI (113465) PROBE: CSI callback ENTERED #639, len=256, rssi=-53[0m
+[0;32mI (113465) PROBE: publish #639 => 0 (ok)[0m
+[0;32mI (113535) PROBE: CSI callback ENTERED #640, len=256, rssi=-53[0m
+[0;32mI (113545) PROBE: publish #640 => 0 (ok)[0m
+[0;32mI (113605) PROBE: CSI callback ENTERED #641, len=256, rssi=-53[0m
+[0;32mI (113605) PROBE: publish #641 => 0 (ok)[0m
+[0;32mI (113675) PROBE: CSI callback ENTERED #642, len=256, rssi=-53[0m
+[0;32mI (113675) PROBE: publish #642 => 0 (ok)[0m
+[0;32mI (113685) PROBE: CSI callback ENTERED #643, len=128, rssi=-55[0m
+[0;32mI (113685) PROBE: publish #643 => 0 (ok)[0m
+[0;32mI (113885) PROBE: CSI callback ENTERED #644, len=256, rssi=-52[0m
+[0;32mI (113895) PROBE: publish #644 => 0 (ok)[0m
+[0;32mI (113955) PROBE: CSI callback ENTERED #645, len=256, rssi=-53[0m
+[0;32mI (113965) PROBE: publish #645 => 0 (ok)[0m
+[0;32mI (114025) PROBE: CSI callback ENTERED #646, len=256, rssi=-53[0m
+[0;32mI (114025) PROBE: publish #646 => 0 (ok)[0m
+[0;32mI (114125) PROBE: CSI callback ENTERED #647, len=256, rssi=-53[0m
+[0;32mI (114125) PROBE: publish #647 => 0 (ok)[0m
+[0;32mI (114185) PROBE: CSI callback ENTERED #648, len=256, rssi=-53[0m
+[0;32mI (114195) PROBE: publish #648 => 0 (ok)[0m
+[0;32mI (114245) PROBE: CSI callback ENTERED #649, len=256, rssi=-54[0m
+[0;32mI (114255) PROBE: publish #649 => 0 (ok)[0m
+[0;32mI (114325) PROBE: CSI callback ENTERED #650, len=256, rssi=-53[0m
+[0;32mI (114325) CSI: cb fired 650 times, len=256, rssi=-53[0m
+[0;32mI (114325) PROBE: publish #650 => 0 (ok)[0m
+[0;32mI (114375) PROBE: CSI callback ENTERED #651, len=256, rssi=-53[0m
+[0;32mI (114385) PROBE: publish #651 => 0 (ok)[0m
+[0;32mI (114465) PROBE: CSI callback ENTERED #652, len=256, rssi=-53[0m
+[0;32mI (114465) PROBE: publish #652 => 0 (ok)[0m
+[0;32mI (114535) PROBE: CSI callback ENTERED #653, len=256, rssi=-53[0m
+[0;32mI (114545) PROBE: publish #653 => 0 (ok)[0m
+[0;32mI (114645) PROBE: CSI callback ENTERED #654, len=256, rssi=-52[0m
+[0;32mI (114645) PROBE: publish #654 => 0 (ok)[0m
+[0;32mI (114755) PROBE: CSI callback ENTERED #655, len=256, rssi=-52[0m
+[0;32mI (114765) PROBE: publish #655 => 0 (ok)[0m
+[0;32mI (114845) PROBE: CSI callback ENTERED #656, len=256, rssi=-52[0m
+[0;32mI (114855) PROBE: publish #656 => 0 (ok)[0m
+[0;32mI (114935) PROBE: CSI callback ENTERED #657, len=256, rssi=-53[0m
+[0;32mI (114935) PROBE: publish #657 => 0 (ok)[0m
+[0;32mI (114985) PROBE: CSI callback ENTERED #658, len=256, rssi=-53[0m
+[0;32mI (114995) PROBE: publish #658 => 0 (ok)[0m
+[0;32mI (115065) PROBE: CSI callback ENTERED #659, len=256, rssi=-53[0m
+[0;32mI (115065) PROBE: publish #659 => 0 (ok)[0m
+[0;32mI (115145) PROBE: CSI callback ENTERED #660, len=256, rssi=-53[0m
+[0;32mI (115155) PROBE: publish #660 => 0 (ok)[0m
+[0;32mI (115235) PROBE: CSI callback ENTERED #661, len=256, rssi=-52[0m
+[0;32mI (115245) PROBE: publish #661 => 0 (ok)[0m
+[0;32mI (115305) PROBE: CSI callback ENTERED #662, len=256, rssi=-53[0m
+[0;32mI (115305) PROBE: publish #662 => 0 (ok)[0m
+[0;32mI (115385) PROBE: CSI callback ENTERED #663, len=256, rssi=-53[0m
+[0;32mI (115385) PROBE: publish #663 => 0 (ok)[0m
+[0;32mI (115445) PROBE: CSI callback ENTERED #664, len=256, rssi=-53[0m
+[0;32mI (115445) PROBE: publish #664 => 0 (ok)[0m
+[0;32mI (115515) PROBE: CSI callback ENTERED #665, len=256, rssi=-53[0m
+[0;32mI (115525) PROBE: publish #665 => 0 (ok)[0m
+[0;32mI (115585) PROBE: CSI callback ENTERED #666, len=256, rssi=-53[0m
+[0;32mI (115595) PROBE: publish #666 => 0 (ok)[0m
+[0;32mI (115655) PROBE: CSI callback ENTERED #667, len=256, rssi=-53[0m
+[0;32mI (115655) PROBE: publish #667 => 0 (ok)[0m
+[0;32mI (115745) PROBE: CSI callback ENTERED #668, len=256, rssi=-53[0m
+[0;32mI (115755) PROBE: publish #668 => 0 (ok)[0m
+[0;32mI (115845) PROBE: CSI callback ENTERED #669, len=256, rssi=-53[0m
+[0;32mI (115855) PROBE: publish #669 => 0 (ok)[0m
+[0;32mI (115905) PROBE: CSI callback ENTERED #670, len=256, rssi=-52[0m
+[0;32mI (115915) PROBE: publish #670 => 0 (ok)[0m
+[0;32mI (115975) PROBE: CSI callback ENTERED #671, len=256, rssi=-53[0m
+[0;32mI (115975) PROBE: publish #671 => 0 (ok)[0m
+[0;32mI (116055) PROBE: CSI callback ENTERED #672, len=256, rssi=-53[0m
+[0;32mI (116055) PROBE: publish #672 => 0 (ok)[0m
+[0;32mI (116155) PROBE: CSI callback ENTERED #673, len=256, rssi=-53[0m
+[0;32mI (116155) PROBE: publish #673 => 0 (ok)[0m
+[0;32mI (116235) PROBE: CSI callback ENTERED #674, len=256, rssi=-52[0m
+[0;32mI (116235) PROBE: publish #674 => 0 (ok)[0m
+[0;32mI (116335) PROBE: CSI callback ENTERED #675, len=256, rssi=-53[0m
+[0;32mI (116335) PROBE: publish #675 => 0 (ok)[0m
+[0;32mI (116405) PROBE: CSI callback ENTERED #676, len=256, rssi=-53[0m
+[0;32mI (116415) PROBE: publish #676 => 0 (ok)[0m
+[0;32mI (116465) PROBE: CSI callback ENTERED #677, len=256, rssi=-53[0m
+[0;32mI (116475) PROBE: publish #677 => 0 (ok)[0m
+[0;32mI (116575) PROBE: CSI callback ENTERED #678, len=256, rssi=-53[0m
+[0;32mI (116585) PROBE: publish #678 => 0 (ok)[0m
+[0;32mI (116655) PROBE: CSI callback ENTERED #679, len=256, rssi=-52[0m
+[0;32mI (116655) PROBE: publish #679 => 0 (ok)[0m
+[0;32mI (116725) PROBE: CSI callback ENTERED #680, len=256, rssi=-53[0m
+[0;32mI (116725) PROBE: publish #680 => 0 (ok)[0m
+[0;32mI (116785) PROBE: CSI callback ENTERED #681, len=256, rssi=-53[0m
+[0;32mI (116785) PROBE: publish #681 => 0 (ok)[0m
+[0;32mI (116865) PROBE: CSI callback ENTERED #682, len=256, rssi=-53[0m
+[0;32mI (116865) PROBE: publish #682 => 0 (ok)[0m
+[0;32mI (116965) PROBE: CSI callback ENTERED #683, len=256, rssi=-53[0m
+[0;32mI (116975) PROBE: publish #683 => 0 (ok)[0m
+[0;32mI (117035) PROBE: CSI callback ENTERED #684, len=256, rssi=-53[0m
+[0;32mI (117045) PROBE: publish #684 => 0 (ok)[0m
+[0;32mI (117115) PROBE: CSI callback ENTERED #685, len=256, rssi=-53[0m
+[0;32mI (117115) PROBE: publish #685 => 0 (ok)[0m
+[0;32mI (117185) PROBE: CSI callback ENTERED #686, len=256, rssi=-53[0m
+[0;32mI (117195) PROBE: publish #686 => 0 (ok)[0m
+[0;32mI (117275) PROBE: CSI callback ENTERED #687, len=256, rssi=-53[0m
+[0;32mI (117285) PROBE: publish #687 => 0 (ok)[0m
+[0;32mI (117355) PROBE: CSI callback ENTERED #688, len=256, rssi=-53[0m
+[0;32mI (117365) PROBE: publish #688 => 0 (ok)[0m
+[0;32mI (117425) PROBE: CSI callback ENTERED #689, len=256, rssi=-52[0m
+[0;32mI (117435) PROBE: publish #689 => 0 (ok)[0m
+[0;32mI (117515) PROBE: CSI callback ENTERED #690, len=256, rssi=-53[0m
+[0;32mI (117515) PROBE: publish #690 => 0 (ok)[0m
+[0;32mI (117585) PROBE: CSI callback ENTERED #691, len=256, rssi=-53[0m
+[0;32mI (117585) PROBE: publish #691 => 0 (ok)[0m
+[0;32mI (117655) PROBE: CSI callback ENTERED #692, len=256, rssi=-53[0m
+[0;32mI (117655) PROBE: publish #692 => 0 (ok)[0m
+[0;32mI (117755) PROBE: CSI callback ENTERED #693, len=256, rssi=-53[0m
+[0;32mI (117755) PROBE: publish #693 => 0 (ok)[0m
+[0;32mI (117855) PROBE: CSI callback ENTERED #694, len=256, rssi=-52[0m
+[0;32mI (117855) PROBE: publish #694 => 0 (ok)[0m
+[0;32mI (117935) PROBE: CSI callback ENTERED #695, len=256, rssi=-53[0m
+[0;32mI (117935) PROBE: publish #695 => 0 (ok)[0m
+[0;32mI (117995) PROBE: CSI callback ENTERED #696, len=256, rssi=-53[0m
+[0;32mI (118005) PROBE: publish #696 => 0 (ok)[0m
+[0;32mI (118065) PROBE: CSI callback ENTERED #697, len=256, rssi=-53[0m
+[0;32mI (118065) PROBE: publish #697 => 0 (ok)[0m
+[0;32mI (118125) PROBE: CSI callback ENTERED #698, len=256, rssi=-53[0m
+[0;32mI (118125) PROBE: publish #698 => 0 (ok)[0m
+[0;32mI (118205) PROBE: CSI callback ENTERED #699, len=256, rssi=-53[0m
+[0;32mI (118205) PROBE: publish #699 => 0 (ok)[0m
+[0;32mI (118265) PROBE: CSI callback ENTERED #700, len=256, rssi=-53[0m
+[0;32mI (118265) CSI: cb fired 700 times, len=256, rssi=-53[0m
+[0;32mI (118275) PROBE: publish #700 => 0 (ok)[0m
+[0;32mI (118355) PROBE: CSI callback ENTERED #701, len=256, rssi=-53[0m
+[0;32mI (118355) PROBE: publish #701 => 0 (ok)[0m
+[0;32mI (118375) PROBE: CSI callback ENTERED #702, len=128, rssi=-56[0m
+[0;32mI (118375) PROBE: publish #702 => 0 (ok)[0m
+[0;32mI (118435) PROBE: CSI callback ENTERED #703, len=256, rssi=-52[0m
+[0;32mI (118445) PROBE: publish #703 => 0 (ok)[0m
+[0;32mI (118515) PROBE: CSI callback ENTERED #704, len=256, rssi=-52[0m
+[0;32mI (118515) PROBE: publish #704 => 0 (ok)[0m
+[0;32mI (118585) PROBE: CSI callback ENTERED #705, len=256, rssi=-53[0m
+[0;32mI (118585) PROBE: publish #705 => 0 (ok)[0m
+[0;32mI (118655) PROBE: CSI callback ENTERED #706, len=256, rssi=-53[0m
+[0;32mI (118665) PROBE: publish #706 => 0 (ok)[0m
+[0;32mI (118745) PROBE: CSI callback ENTERED #707, len=256, rssi=-53[0m
+[0;32mI (118745) PROBE: publish #707 => 0 (ok)[0m
+[0;32mI (118835) PROBE: CSI callback ENTERED #708, len=256, rssi=-53[0m
+[0;32mI (118835) PROBE: publish #708 => 0 (ok)[0m
+[0;32mI (118915) PROBE: CSI callback ENTERED #709, len=256, rssi=-52[0m
+[0;32mI (118915) PROBE: publish #709 => 0 (ok)[0m
+[0;32mI (118975) PROBE: CSI callback ENTERED #710, len=256, rssi=-53[0m
+[0;32mI (118985) PROBE: publish #710 => 0 (ok)[0m
+[0;32mI (119055) PROBE: CSI callback ENTERED #711, len=256, rssi=-53[0m
+[0;32mI (119055) PROBE: publish #711 => 0 (ok)[0m
+[0;32mI (119115) PROBE: CSI callback ENTERED #712, len=256, rssi=-53[0m
+[0;32mI (119125) PROBE: publish #712 => 0 (ok)[0m
+[0;32mI (119205) PROBE: CSI callback ENTERED #713, len=256, rssi=-53[0m
+[0;32mI (119205) PROBE: publish #713 => 0 (ok)[0m
+[0;32mI (119315) PROBE: CSI callback ENTERED #714, len=256, rssi=-52[0m
+[0;32mI (119325) PROBE: publish #714 => 0 (ok)[0m
+[0;32mI (119385) PROBE: CSI callback ENTERED #715, len=256, rssi=-52[0m
+[0;32mI (119395) PROBE: publish #715 => 0 (ok)[0m
+[0;32mI (119465) PROBE: CSI callback ENTERED #716, len=256, rssi=-53[0m
+[0;32mI (119475) PROBE: publish #716 => 0 (ok)[0m
+[0;32mI (119485) PROBE: CSI callback ENTERED #717, len=128, rssi=-55[0m
+[0;32mI (119495) PROBE: publish #717 => 0 (ok)[0m
+[0;32mI (119565) PROBE: CSI callback ENTERED #718, len=256, rssi=-53[0m
+[0;32mI (119575) PROBE: publish #718 => 0 (ok)[0m
+[0;32mI (119655) PROBE: CSI callback ENTERED #719, len=256, rssi=-52[0m
+[0;32mI (119665) PROBE: publish #719 => 0 (ok)[0m
+[0;32mI (119745) PROBE: CSI callback ENTERED #720, len=256, rssi=-53[0m
+[0;32mI (119755) PROBE: publish #720 => 0 (ok)[0m
+[0;32mI (119835) PROBE: CSI callback ENTERED #721, len=256, rssi=-52[0m
+[0;32mI (119835) PROBE: publish #721 => 0 (ok)[0m
+[0;32mI (119965) PROBE: CSI callback ENTERED #722, len=256, rssi=-53[0m
+[0;32mI (119975) PROBE: publish #722 => 0 (ok)[0m
+[0;32mI (120055) PROBE: CSI callback ENTERED #723, len=256, rssi=-53[0m
+[0;32mI (120065) PROBE: publish #723 => 0 (ok)[0m
+[0;32mI (120145) PROBE: CSI callback ENTERED #724, len=256, rssi=-53[0m
+[0;32mI (120145) PROBE: publish #724 => 0 (ok)[0m
+[0;32mI (120255) PROBE: CSI callback ENTERED #725, len=256, rssi=-53[0m
+[0;32mI (120265) PROBE: publish #725 => 0 (ok)[0m
+[0;32mI (120375) PROBE: CSI callback ENTERED #726, len=256, rssi=-52[0m
+[0;32mI (120385) PROBE: publish #726 => 0 (ok)[0m
+[0;32mI (120455) PROBE: CSI callback ENTERED #727, len=256, rssi=-52[0m
+[0;32mI (120465) PROBE: publish #727 => 0 (ok)[0m
+[0;32mI (120585) PROBE: CSI callback ENTERED #728, len=256, rssi=-52[0m
+[0;32mI (120585) PROBE: publish #728 => 0 (ok)[0m
+[0;32mI (120675) PROBE: CSI callback ENTERED #729, len=256, rssi=-53[0m
+[0;32mI (120675) PROBE: publish #729 => 0 (ok)[0m
+[0;32mI (120755) PROBE: CSI callback ENTERED #730, len=256, rssi=-53[0m
+[0;32mI (120755) PROBE: publish #730 => 0 (ok)[0m
+[0;32mI (120875) PROBE: CSI callback ENTERED #731, len=256, rssi=-52[0m
+[0;32mI (120875) PROBE: publish #731 => 0 (ok)[0m
+[0;32mI (120985) PROBE: CSI callback ENTERED #732, len=256, rssi=-52[0m
+[0;32mI (120985) PROBE: publish #732 => 0 (ok)[0m
+[0;32mI (121065) PROBE: CSI callback ENTERED #733, len=256, rssi=-53[0m
+[0;32mI (121075) PROBE: publish #733 => 0 (ok)[0m
+[0;32mI (121185) PROBE: CSI callback ENTERED #734, len=256, rssi=-52[0m
+[0;32mI (121185) PROBE: publish #734 => 0 (ok)[0m
+[0;32mI (121305) PROBE: CSI callback ENTERED #735, len=256, rssi=-52[0m
+[0;32mI (121305) PROBE: publish #735 => 0 (ok)[0m
+[0;32mI (121365) PROBE: CSI callback ENTERED #736, len=256, rssi=-52[0m
+[0;32mI (121375) PROBE: publish #736 => 0 (ok)[0m
+[0;32mI (121435) PROBE: CSI callback ENTERED #737, len=256, rssi=-53[0m
+[0;32mI (121435) PROBE: publish #737 => 0 (ok)[0m
+[0;32mI (121515) PROBE: CSI callback ENTERED #738, len=256, rssi=-53[0m
+[0;32mI (121515) PROBE: publish #738 => 0 (ok)[0m
+[0;32mI (121595) PROBE: CSI callback ENTERED #739, len=256, rssi=-53[0m
+[0;32mI (121595) PROBE: publish #739 => 0 (ok)[0m
+[0;32mI (121665) PROBE: CSI callback ENTERED #740, len=256, rssi=-53[0m
+[0;32mI (121675) PROBE: publish #740 => 0 (ok)[0m
+[0;32mI (121745) PROBE: CSI callback ENTERED #741, len=256, rssi=-53[0m
+[0;32mI (121755) PROBE: publish #741 => 0 (ok)[0m
+[0;32mI (121815) PROBE: CSI callback ENTERED #742, len=256, rssi=-53[0m
+[0;32mI (121825) PROBE: publish #742 => 0 (ok)[0m
+[0;32mI (121905) PROBE: CSI callback ENTERED #743, len=256, rssi=-52[0m
+[0;32mI (121905) PROBE: publish #743 => 0 (ok)[0m
+[0;32mI (121965) PROBE: CSI callback ENTERED #744, len=256, rssi=-53[0m
+[0;32mI (121975) PROBE: publish #744 => 0 (ok)[0m
+[0;32mI (122045) PROBE: CSI callback ENTERED #745, len=256, rssi=-53[0m
+[0;32mI (122055) PROBE: publish #745 => 0 (ok)[0m
+[0;32mI (122115) PROBE: CSI callback ENTERED #746, len=256, rssi=-53[0m
+[0;32mI (122125) PROBE: publish #746 => 0 (ok)[0m
+[0;32mI (122125) PROBE: CSI callback ENTERED #747, len=128, rssi=-54[0m
+[0;32mI (122125) PROBE: publish #747 => 0 (ok)[0m
+[0;32mI (122185) PROBE: CSI callback ENTERED #748, len=256, rssi=-52[0m
+[0;32mI (122195) PROBE: publish #748 => 0 (ok)[0m
+[0;32mI (122255) PROBE: CSI callback ENTERED #749, len=256, rssi=-53[0m
+[0;32mI (122255) PROBE: publish #749 => 0 (ok)[0m
+[0;32mI (122345) PROBE: CSI callback ENTERED #750, len=256, rssi=-52[0m
+[0;32mI (122345) CSI: cb fired 750 times, len=256, rssi=-52[0m
+[0;32mI (122345) PROBE: publish #750 => 0 (ok)[0m
+[0;32mI (122425) PROBE: CSI callback ENTERED #751, len=256, rssi=-53[0m
+[0;32mI (122435) PROBE: publish #751 => 0 (ok)[0m
+[0;32mI (122505) PROBE: CSI callback ENTERED #752, len=256, rssi=-52[0m
+[0;32mI (122515) PROBE: publish #752 => 0 (ok)[0m
+[0;32mI (122585) PROBE: CSI callback ENTERED #753, len=256, rssi=-54[0m
+[0;32mI (122585) PROBE: publish #753 => 0 (ok)[0m
+[0;32mI (122665) PROBE: CSI callback ENTERED #754, len=256, rssi=-53[0m
+[0;32mI (122675) PROBE: publish #754 => 0 (ok)[0m
+[0;32mI (122735) PROBE: CSI callback ENTERED #755, len=256, rssi=-52[0m
+[0;32mI (122745) PROBE: publish #755 => 0 (ok)[0m
+[0;32mI (122825) PROBE: CSI callback ENTERED #756, len=256, rssi=-53[0m
+[0;32mI (122835) PROBE: publish #756 => 0 (ok)[0m
+[0;32mI (122915) PROBE: CSI callback ENTERED #757, len=256, rssi=-52[0m
+[0;32mI (122925) PROBE: publish #757 => 0 (ok)[0m
+[0;32mI (122985) PROBE: CSI callback ENTERED #758, len=256, rssi=-52[0m
+[0;32mI (122995) PROBE: publish #758 => 0 (ok)[0m
+[0;32mI (123055) PROBE: CSI callback ENTERED #759, len=256, rssi=-53[0m
+[0;32mI (123055) PROBE: publish #759 => 0 (ok)[0m
+[0;32mI (123145) PROBE: CSI callback ENTERED #760, len=256, rssi=-52[0m
+[0;32mI (123155) PROBE: publish #760 => 0 (ok)[0m
+[0;32mI (123235) PROBE: CSI callback ENTERED #761, len=256, rssi=-52[0m
+[0;32mI (123235) PROBE: publish #761 => 0 (ok)[0m
+[0;32mI (123365) PROBE: CSI callback ENTERED #762, len=256, rssi=-51[0m
+[0;32mI (123365) PROBE: publish #762 => 0 (ok)[0m
+[0;32mI (123435) PROBE: CSI callback ENTERED #763, len=256, rssi=-52[0m
+[0;32mI (123435) PROBE: publish #763 => 0 (ok)[0m
+[0;32mI (123505) PROBE: CSI callback ENTERED #764, len=256, rssi=-52[0m
+[0;32mI (123515) PROBE: publish #764 => 0 (ok)[0m
+[0;32mI (123595) PROBE: CSI callback ENTERED #765, len=256, rssi=-53[0m
+[0;32mI (123605) PROBE: publish #765 => 0 (ok)[0m
+[0;32mI (123835) PROBE: CSI callback ENTERED #766, len=256, rssi=-51[0m
+[0;32mI (123835) PROBE: publish #766 => 0 (ok)[0m
+[0;32mI (123905) PROBE: CSI callback ENTERED #767, len=256, rssi=-53[0m
+[0;32mI (123915) PROBE: publish #767 => 0 (ok)[0m
+[0;32mI (123985) PROBE: CSI callback ENTERED #768, len=256, rssi=-53[0m
+[0;32mI (123985) PROBE: publish #768 => 0 (ok)[0m
+[0;32mI (124065) PROBE: CSI callback ENTERED #769, len=256, rssi=-53[0m
+[0;32mI (124075) PROBE: publish #769 => 0 (ok)[0m
+[0;32mI (124145) PROBE: CSI callback ENTERED #770, len=256, rssi=-53[0m
+[0;32mI (124155) PROBE: publish #770 => 0 (ok)[0m
+[0;32mI (124265) PROBE: CSI callback ENTERED #771, len=256, rssi=-53[0m
+[0;32mI (124265) PROBE: publish #771 => 0 (ok)[0m
+[0;32mI (124385) PROBE: CSI callback ENTERED #772, len=256, rssi=-52[0m
+[0;32mI (124385) PROBE: publish #772 => 0 (ok)[0m
+[0;32mI (124505) PROBE: CSI callback ENTERED #773, len=256, rssi=-52[0m
+[0;32mI (124515) PROBE: publish #773 => 0 (ok)[0m
+[0;32mI (124595) PROBE: CSI callback ENTERED #774, len=256, rssi=-53[0m
+[0;32mI (124605) PROBE: publish #774 => 0 (ok)[0m
+[0;32mI (124665) PROBE: CSI callback ENTERED #775, len=256, rssi=-52[0m
+[0;32mI (124665) PROBE: publish #775 => 0 (ok)[0m
+[0;32mI (124765) PROBE: CSI callback ENTERED #776, len=256, rssi=-52[0m
+[0;32mI (124775) PROBE: publish #776 => 0 (ok)[0m
+[0;32mI (124835) PROBE: CSI callback ENTERED #777, len=256, rssi=-54[0m
+[0;32mI (124835) PROBE: publish #777 => 0 (ok)[0m
+[0;32mI (124915) PROBE: CSI callback ENTERED #778, len=256, rssi=-53[0m
+[0;32mI (124925) PROBE: publish #778 => 0 (ok)[0m
+[0;32mI (124985) PROBE: CSI callback ENTERED #779, len=256, rssi=-53[0m
+[0;32mI (124985) PROBE: publish #779 => 0 (ok)[0m
+[0;32mI (125065) PROBE: CSI callback ENTERED #780, len=256, rssi=-54[0m
+[0;32mI (125075) PROBE: publish #780 => 0 (ok)[0m
+[0;32mI (125165) PROBE: CSI callback ENTERED #781, len=256, rssi=-52[0m
+[0;32mI (125175) PROBE: publish #781 => 0 (ok)[0m
+[0;32mI (125255) PROBE: CSI callback ENTERED #782, len=256, rssi=-54[0m
+[0;32mI (125255) PROBE: publish #782 => 0 (ok)[0m
+[0;32mI (125315) PROBE: CSI callback ENTERED #783, len=256, rssi=-54[0m
+[0;32mI (125315) PROBE: publish #783 => 0 (ok)[0m
+[0;32mI (125395) PROBE: CSI callback ENTERED #784, len=256, rssi=-53[0m
+[0;32mI (125405) PROBE: publish #784 => 0 (ok)[0m
+[0;32mI (125515) PROBE: CSI callback ENTERED #785, len=256, rssi=-53[0m
+[0;32mI (125525) PROBE: publish #785 => 0 (ok)[0m
+[0;32mI (125585) PROBE: CSI callback ENTERED #786, len=256, rssi=-53[0m
+[0;32mI (125595) PROBE: publish #786 => 0 (ok)[0m
+[0;32mI (125655) PROBE: CSI callback ENTERED #787, len=256, rssi=-54[0m
+[0;32mI (125655) PROBE: publish #787 => 0 (ok)[0m
+[0;32mI (125775) PROBE: CSI callback ENTERED #788, len=256, rssi=-52[0m
+[0;32mI (125775) PROBE: publish #788 => 0 (ok)[0m
+[0;32mI (125865) PROBE: CSI callback ENTERED #789, len=256, rssi=-54[0m
+[0;32mI (125865) PROBE: publish #789 => 0 (ok)[0m
+[0;32mI (125945) PROBE: CSI callback ENTERED #790, len=256, rssi=-53[0m
+[0;32mI (125955) PROBE: publish #790 => 0 (ok)[0m
+[0;32mI (126035) PROBE: CSI callback ENTERED #791, len=256, rssi=-52[0m
+[0;32mI (126035) PROBE: publish #791 => 0 (ok)[0m
+[0;32mI (126115) PROBE: CSI callback ENTERED #792, len=256, rssi=-52[0m
+[0;32mI (126115) PROBE: publish #792 => 0 (ok)[0m
+[0;32mI (126175) PROBE: CSI callback ENTERED #793, len=256, rssi=-54[0m
+[0;32mI (126185) PROBE: publish #793 => 0 (ok)[0m
+[0;32mI (126245) PROBE: CSI callback ENTERED #794, len=256, rssi=-53[0m
+[0;32mI (126255) PROBE: publish #794 => 0 (ok)[0m
+[0;32mI (126285) PROBE: CSI callback ENTERED #795, len=128, rssi=-55[0m
+[0;32mI (126285) PROBE: publish #795 => 0 (ok)[0m
+[0;32mI (126365) PROBE: CSI callback ENTERED #796, len=256, rssi=-52[0m
+[0;32mI (126375) PROBE: publish #796 => 0 (ok)[0m
+[0;32mI (126435) PROBE: CSI callback ENTERED #797, len=256, rssi=-54[0m
+[0;32mI (126435) PROBE: publish #797 => 0 (ok)[0m
+[0;32mI (126515) PROBE: CSI callback ENTERED #798, len=256, rssi=-53[0m
+[0;32mI (126525) PROBE: publish #798 => 0 (ok)[0m
+[0;32mI (126625) PROBE: CSI callback ENTERED #799, len=256, rssi=-53[0m
+[0;32mI (126635) PROBE: publish #799 => 0 (ok)[0m
+[0;32mI (126645) PROBE: CSI callback ENTERED #800, len=128, rssi=-55[0m
+[0;32mI (126645) CSI: cb fired 800 times, len=128, rssi=-55[0m
+[0;32mI (126645) PROBE: publish #800 => 0 (ok)[0m
+[0;32mI (126755) PROBE: CSI callback ENTERED #801, len=256, rssi=-53[0m
+[0;32mI (126755) PROBE: publish #801 => 0 (ok)[0m
+[0;32mI (128225) PROBE: CSI callback ENTERED #802, len=256, rssi=-53[0m
+[0;32mI (128225) PROBE: publish #802 => 0 (ok)[0m
+[0;32mI (128345) PROBE: CSI callback ENTERED #803, len=256, rssi=-52[0m
+[0;32mI (128355) PROBE: publish #803 => 0 (ok)[0m
+[0;32mI (128435) PROBE: CSI callback ENTERED #804, len=256, rssi=-53[0m
+[0;32mI (128445) PROBE: publish #804 => 0 (ok)[0m
+[0;32mI (128515) PROBE: CSI callback ENTERED #805, len=256, rssi=-53[0m
+[0;32mI (128515) PROBE: publish #805 => 0 (ok)[0m
+[0;32mI (128575) PROBE: CSI callback ENTERED #806, len=256, rssi=-53[0m
+[0;32mI (128575) PROBE: publish #806 => 0 (ok)[0m
+[0;32mI (128675) PROBE: CSI callback ENTERED #807, len=256, rssi=-53[0m
+[0;32mI (128685) PROBE: publish #807 => 0 (ok)[0m
+[0;32mI (128785) PROBE: CSI callback ENTERED #808, len=256, rssi=-53[0m
+[0;32mI (128785) PROBE: publish #808 => 0 (ok)[0m
+[0;32mI (128855) PROBE: CSI callback ENTERED #809, len=256, rssi=-52[0m
+[0;32mI (128865) PROBE: publish #809 => 0 (ok)[0m
+[0;32mI (128965) PROBE: CSI callback ENTERED #810, len=256, rssi=-53[0m
+[0;32mI (128965) PROBE: publish #810 => 0 (ok)[0m
+[0;32mI (129035) PROBE: CSI callback ENTERED #811, len=256, rssi=-53[0m
+[0;32mI (129035) PROBE: publish #811 => 0 (ok)[0m
+[0;32mI (129195) PROBE: CSI callback ENTERED #812, len=256, rssi=-52[0m
+[0;32mI (129205) PROBE: publish #812 => 0 (ok)[0m
+[0;32mI (129275) PROBE: CSI callback ENTERED #813, len=256, rssi=-52[0m
+[0;32mI (129275) PROBE: publish #813 => 0 (ok)[0m
+[0;32mI (129345) PROBE: CSI callback ENTERED #814, len=256, rssi=-53[0m
+[0;32mI (129345) PROBE: publish #814 => 0 (ok)[0m
+[0;32mI (129425) PROBE: CSI callback ENTERED #815, len=256, rssi=-52[0m
+[0;32mI (129425) PROBE: publish #815 => 0 (ok)[0m
+[0;32mI (129645) PROBE: CSI callback ENTERED #816, len=256, rssi=-51[0m
+[0;32mI (129655) PROBE: publish #816 => 0 (ok)[0m
+[0;32mI (129755) PROBE: CSI callback ENTERED #817, len=256, rssi=-53[0m
+[0;32mI (129765) PROBE: publish #817 => 0 (ok)[0m
+[0;32mI (129765) PROBE: CSI callback ENTERED #818, len=128, rssi=-55[0m
+[0;32mI (129775) PROBE: publish #818 => 0 (ok)[0m
+[0;32mI (129835) PROBE: CSI callback ENTERED #819, len=256, rssi=-53[0m
+[0;32mI (129835) PROBE: publish #819 => 0 (ok)[0m
+[0;32mI (129915) PROBE: CSI callback ENTERED #820, len=256, rssi=-52[0m
+[0;32mI (129915) PROBE: publish #820 => 0 (ok)[0m
+[0;32mI (129985) PROBE: CSI callback ENTERED #821, len=256, rssi=-53[0m
+[0;32mI (129995) PROBE: publish #821 => 0 (ok)[0m
+[0;32mI (130065) PROBE: CSI callback ENTERED #822, len=256, rssi=-53[0m
+[0;32mI (130075) PROBE: publish #822 => 0 (ok)[0m
+[0;32mI (130145) PROBE: CSI callback ENTERED #823, len=256, rssi=-53[0m
+[0;32mI (130155) PROBE: publish #823 => 0 (ok)[0m
+[0;32mI (130235) PROBE: CSI callback ENTERED #824, len=256, rssi=-52[0m
+[0;32mI (130235) PROBE: publish #824 => 0 (ok)[0m
+[0;32mI (130315) PROBE: CSI callback ENTERED #825, len=256, rssi=-52[0m
+[0;32mI (130315) PROBE: publish #825 => 0 (ok)[0m
+[0;32mI (130425) PROBE: CSI callback ENTERED #826, len=256, rssi=-53[0m
+[0;32mI (130435) PROBE: publish #826 => 0 (ok)[0m
+[0;32mI (130525) PROBE: CSI callback ENTERED #827, len=256, rssi=-52[0m
+[0;32mI (130535) PROBE: publish #827 => 0 (ok)[0m
+[0;32mI (130625) PROBE: CSI callback ENTERED #828, len=256, rssi=-52[0m
+[0;32mI (130625) PROBE: publish #828 => 0 (ok)[0m
+[0;32mI (130765) PROBE: CSI callback ENTERED #829, len=256, rssi=-52[0m
+[0;32mI (130775) PROBE: publish #829 => 0 (ok)[0m
+[0;32mI (130845) PROBE: CSI callback ENTERED #830, len=256, rssi=-53[0m
+[0;32mI (130855) PROBE: publish #830 => 0 (ok)[0m
+[0;32mI (130945) PROBE: CSI callback ENTERED #831, len=256, rssi=-52[0m
+[0;32mI (130955) PROBE: publish #831 => 0 (ok)[0m
+[0;32mI (131045) PROBE: CSI callback ENTERED #832, len=256, rssi=-52[0m
+[0;32mI (131045) PROBE: publish #832 => 0 (ok)[0m
+[0;32mI (131165) PROBE: CSI callback ENTERED #833, len=256, rssi=-53[0m
+[0;32mI (131175) PROBE: publish #833 => 0 (ok)[0m
+[0;32mI (131245) PROBE: CSI callback ENTERED #834, len=256, rssi=-53[0m
+[0;32mI (131255) PROBE: publish #834 => 0 (ok)[0m
+[0;32mI (131355) PROBE: CSI callback ENTERED #835, len=256, rssi=-52[0m
+[0;32mI (131365) PROBE: publish #835 => 0 (ok)[0m
+[0;32mI (131435) PROBE: CSI callback ENTERED #836, len=256, rssi=-52[0m
+[0;32mI (131445) PROBE: publish #836 => 0 (ok)[0m
+[0;32mI (134255) PROBE: CSI callback ENTERED #837, len=256, rssi=-52[0m
+[0;32mI (134265) PROBE: publish #837 => 0 (ok)[0m
+[0;32mI (134295) PROBE: CSI callback ENTERED #838, len=256, rssi=-52[0m
+[0;32mI (134305) PROBE: publish #838 => 0 (ok)[0m
+[0;32mI (134365) PROBE: CSI callback ENTERED #839, len=256, rssi=-54[0m
+[0;32mI (134365) PROBE: publish #839 => 0 (ok)[0m
+[0;32mI (134455) PROBE: CSI callback ENTERED #840, len=256, rssi=-53[0m
+[0;32mI (134455) PROBE: publish #840 => 0 (ok)[0m
+[0;32mI (134575) PROBE: CSI callback ENTERED #841, len=256, rssi=-52[0m
+[0;32mI (134585) PROBE: publish #841 => 0 (ok)[0m
+[0;32mI (134665) PROBE: CSI callback ENTERED #842, len=256, rssi=-53[0m
+[0;32mI (134665) PROBE: publish #842 => 0 (ok)[0m
+[0;32mI (134745) PROBE: CSI callback ENTERED #843, len=256, rssi=-53[0m
+[0;32mI (134755) PROBE: publish #843 => 0 (ok)[0m
+[0;32mI (134835) PROBE: CSI callback ENTERED #844, len=256, rssi=-52[0m
+[0;32mI (134835) PROBE: publish #844 => 0 (ok)[0m
+[0;32mI (134915) PROBE: CSI callback ENTERED #845, len=256, rssi=-53[0m
+[0;32mI (134915) PROBE: publish #845 => 0 (ok)[0m
+[0;32mI (134975) PROBE: CSI callback ENTERED #846, len=256, rssi=-52[0m
+[0;32mI (134985) PROBE: publish #846 => 0 (ok)[0m
+[0;32mI (135035) PROBE: CSI callback ENTERED #847, len=256, rssi=-53[0m
+[0;32mI (135045) PROBE: publish #847 => 0 (ok)[0m
+[0;32mI (135115) PROBE: CSI callback ENTERED #848, len=256, rssi=-53[0m
+[0;32mI (135115) PROBE: publish #848 => 0 (ok)[0m
+[0;32mI (135175) PROBE: CSI callback ENTERED #849, len=256, rssi=-53[0m
+[0;32mI (135185) PROBE: publish #849 => 0 (ok)[0m
+[0;32mI (135245) PROBE: CSI callback ENTERED #850, len=256, rssi=-52[0m
+[0;32mI (135245) CSI: cb fired 850 times, len=256, rssi=-52[0m
+[0;32mI (135255) PROBE: publish #850 => 0 (ok)[0m
+[0;32mI (135355) PROBE: CSI callback ENTERED #851, len=256, rssi=-52[0m
+[0;32mI (135355) PROBE: publish #851 => 0 (ok)[0m
+[0;32mI (135435) PROBE: CSI callback ENTERED #852, len=256, rssi=-53[0m
+[0;32mI (135435) PROBE: publish #852 => 0 (ok)[0m
+[0;32mI (135445) PROBE: CSI callback ENTERED #853, len=128, rssi=-55[0m
+[0;32mI (135445) PROBE: publish #853 => 0 (ok)[0m
+[0;32mI (135505) PROBE: CSI callback ENTERED #854, len=256, rssi=-53[0m
+[0;32mI (135505) PROBE: publish #854 => 0 (ok)[0m
+[0;32mI (135585) PROBE: CSI callback ENTERED #855, len=256, rssi=-53[0m
+[0;32mI (135595) PROBE: publish #855 => 0 (ok)[0m
+[0;32mI (135655) PROBE: CSI callback ENTERED #856, len=256, rssi=-53[0m
+[0;32mI (135665) PROBE: publish #856 => 0 (ok)[0m
+[0;32mI (135745) PROBE: CSI callback ENTERED #857, len=256, rssi=-52[0m
+[0;32mI (135755) PROBE: publish #857 => 0 (ok)[0m
+[0;32mI (135835) PROBE: CSI callback ENTERED #858, len=256, rssi=-52[0m
+[0;32mI (135845) PROBE: publish #858 => 0 (ok)[0m
+[0;32mI (135945) PROBE: CSI callback ENTERED #859, len=256, rssi=-52[0m
+[0;32mI (135945) PROBE: publish #859 => 0 (ok)[0m
+[0;32mI (136025) PROBE: CSI callback ENTERED #860, len=256, rssi=-52[0m
+[0;32mI (136025) PROBE: publish #860 => 0 (ok)[0m
+[0;32mI (136105) PROBE: CSI callback ENTERED #861, len=256, rssi=-52[0m
+[0;32mI (136105) PROBE: publish #861 => 0 (ok)[0m
+[0;32mI (136155) PROBE: CSI callback ENTERED #862, len=256, rssi=-52[0m
+[0;32mI (136165) PROBE: publish #862 => 0 (ok)[0m
+[0;32mI (136215) PROBE: CSI callback ENTERED #863, len=256, rssi=-53[0m
+[0;32mI (136225) PROBE: publish #863 => 0 (ok)[0m
+[0;32mI (136295) PROBE: CSI callback ENTERED #864, len=256, rssi=-53[0m
+[0;32mI (136305) PROBE: publish #864 => 0 (ok)[0m
+[0;32mI (136355) PROBE: CSI callback ENTERED #865, len=256, rssi=-52[0m
+[0;32mI (136355) PROBE: publish #865 => 0 (ok)[0m
+[0;32mI (136435) PROBE: CSI callback ENTERED #866, len=256, rssi=-52[0m
+[0;32mI (136445) PROBE: publish #866 => 0 (ok)[0m
+[0;32mI (136495) PROBE: CSI callback ENTERED #867, len=256, rssi=-53[0m
+[0;32mI (136495) PROBE: publish #867 => 0 (ok)[0m
+[0;32mI (136555) PROBE: CSI callback ENTERED #868, len=256, rssi=-53[0m
+[0;32mI (136565) PROBE: publish #868 => 0 (ok)[0m
+[0;32mI (136635) PROBE: CSI callback ENTERED #869, len=256, rssi=-53[0m
+[0;32mI (136645) PROBE: publish #869 => 0 (ok)[0m
+[0;32mI (136705) PROBE: CSI callback ENTERED #870, len=256, rssi=-52[0m
+[0;32mI (136705) PROBE: publish #870 => 0 (ok)[0m
+[0;32mI (136775) PROBE: CSI callback ENTERED #871, len=256, rssi=-52[0m
+[0;32mI (136785) PROBE: publish #871 => 0 (ok)[0m
+[0;32mI (136845) PROBE: CSI callback ENTERED #872, len=256, rssi=-52[0m
+[0;32mI (136845) PROBE: publish #872 => 0 (ok)[0m
+[0;32mI (136955) PROBE: CSI callback ENTERED #873, len=256, rssi=-52[0m
+[0;32mI (136965) PROBE: publish #873 => 0 (ok)[0m
+[0;32mI (137025) PROBE: CSI callback ENTERED #874, len=256, rssi=-53[0m
+[0;32mI (137025) PROBE: publish #874 => 0 (ok)[0m
+[0;32mI (137145) PROBE: CSI callback ENTERED #875, len=256, rssi=-52[0m
+[0;32mI (137145) PROBE: publish #875 => 0 (ok)[0m
+[0;32mI (137225) PROBE: CSI callback ENTERED #876, len=256, rssi=-51[0m
+[0;32mI (137235) PROBE: publish #876 => 0 (ok)[0m
+[0;32mI (137295) PROBE: CSI callback ENTERED #877, len=256, rssi=-52[0m
+[0;32mI (137305) PROBE: publish #877 => 0 (ok)[0m
+[0;32mI (137365) PROBE: CSI callback ENTERED #878, len=256, rssi=-52[0m
+[0;32mI (137375) PROBE: publish #878 => 0 (ok)[0m
+[0;32mI (137455) PROBE: CSI callback ENTERED #879, len=256, rssi=-53[0m
+[0;32mI (137455) PROBE: publish #879 => 0 (ok)[0m
+[0;32mI (137505) PROBE: CSI callback ENTERED #880, len=256, rssi=-52[0m
+[0;32mI (137515) PROBE: publish #880 => 0 (ok)[0m
+[0;32mI (137575) PROBE: CSI callback ENTERED #881, len=256, rssi=-53[0m
+[0;32mI (137575) PROBE: publish #881 => 0 (ok)[0m
+[0;32mI (137625) PROBE: CSI callback ENTERED #882, len=256, rssi=-53[0m
+[0;32mI (137635) PROBE: publish #882 => 0 (ok)[0m
+[0;32mI (137755) PROBE: CSI callback ENTERED #883, len=256, rssi=-52[0m
+[0;32mI (137765) PROBE: publish #883 => 0 (ok)[0m
+[0;32mI (137835) PROBE: CSI callback ENTERED #884, len=256, rssi=-52[0m
+[0;32mI (137835) PROBE: publish #884 => 0 (ok)[0m
+[0;32mI (137915) PROBE: CSI callback ENTERED #885, len=256, rssi=-52[0m
+[0;32mI (137925) PROBE: publish #885 => 0 (ok)[0m
+[0;32mI (137975) PROBE: CSI callback ENTERED #886, len=256, rssi=-52[0m
+[0;32mI (137985) PROBE: publish #886 => 0 (ok)[0m
+[0;32mI (138045) PROBE: CSI callback ENTERED #887, len=256, rssi=-53[0m
+[0;32mI (138045) PROBE: publish #887 => 0 (ok)[0m
+[0;32mI (138115) PROBE: CSI callback ENTERED #888, len=256, rssi=-52[0m
+[0;32mI (138115) PROBE: publish #888 => 0 (ok)[0m
+[0;32mI (138175) PROBE: CSI callback ENTERED #889, len=256, rssi=-52[0m
+[0;32mI (138185) PROBE: publish #889 => 0 (ok)[0m
+[0;32mI (138245) PROBE: CSI callback ENTERED #890, len=256, rssi=-52[0m
+[0;32mI (138255) PROBE: publish #890 => 0 (ok)[0m
+[0;32mI (138305) PROBE: CSI callback ENTERED #891, len=256, rssi=-53[0m
+[0;32mI (138315) PROBE: publish #891 => 0 (ok)[0m
+[0;32mI (138385) PROBE: CSI callback ENTERED #892, len=256, rssi=-53[0m
+[0;32mI (138395) PROBE: publish #892 => 0 (ok)[0m
+[0;32mI (138455) PROBE: CSI callback ENTERED #893, len=256, rssi=-52[0m
+[0;32mI (138465) PROBE: publish #893 => 0 (ok)[0m
+[0;32mI (138535) PROBE: CSI callback ENTERED #894, len=256, rssi=-52[0m
+[0;32mI (138535) PROBE: publish #894 => 0 (ok)[0m
+[0;32mI (138625) PROBE: CSI callback ENTERED #895, len=256, rssi=-52[0m
+[0;32mI (138625) PROBE: publish #895 => 0 (ok)[0m
+[0;32mI (138705) PROBE: CSI callback ENTERED #896, len=256, rssi=-52[0m
+[0;32mI (138715) PROBE: publish #896 => 0 (ok)[0m
+[0;32mI (138795) PROBE: CSI callback ENTERED #897, len=256, rssi=-52[0m
+[0;32mI (138805) PROBE: publish #897 => 0 (ok)[0m
+[0;32mI (138875) PROBE: CSI callback ENTERED #898, len=256, rssi=-52[0m
+[0;32mI (138885) PROBE: publish #898 => 0 (ok)[0m
+[0;32mI (138935) PROBE: CSI callback ENTERED #899, len=256, rssi=-52[0m
+[0;32mI (138945) PROBE: publish #899 => 0 (ok)[0m
+[0;32mI (139025) PROBE: CSI callback ENTERED #900, len=256, rssi=-51[0m
+[0;32mI (139025) CSI: cb fired 900 times, len=256, rssi=-51[0m
+[0;32mI (139035) PROBE: publish #900 => 0 (ok)[0m
+[0;32mI (139145) PROBE: CSI callback ENTERED #901, len=256, rssi=-52[0m
+[0;32mI (139145) PROBE: publish #901 => 0 (ok)[0m
+[0;32mI (139225) PROBE: CSI callback ENTERED #902, len=256, rssi=-52[0m
+[0;32mI (139225) PROBE: publish #902 => 0 (ok)[0m
+[0;32mI (139295) PROBE: CSI callback ENTERED #903, len=256, rssi=-52[0m
+[0;32mI (139295) PROBE: publish #903 => 0 (ok)[0m
+[0;32mI (139355) PROBE: CSI callback ENTERED #904, len=256, rssi=-52[0m
+[0;32mI (139365) PROBE: publish #904 => 0 (ok)[0m
+[0;32mI (139415) PROBE: CSI callback ENTERED #905, len=256, rssi=-52[0m
+[0;32mI (139425) PROBE: publish #905 => 0 (ok)[0m
+[0;32mI (139505) PROBE: CSI callback ENTERED #906, len=256, rssi=-53[0m
+[0;32mI (139515) PROBE: publish #906 => 0 (ok)[0m
+[0;32mI (139565) PROBE: CSI callback ENTERED #907, len=256, rssi=-52[0m
+[0;32mI (139565) PROBE: publish #907 => 0 (ok)[0m
+[0;32mI (139625) PROBE: CSI callback ENTERED #908, len=256, rssi=-52[0m
+[0;32mI (139635) PROBE: publish #908 => 0 (ok)[0m
+[0;32mI (139705) PROBE: CSI callback ENTERED #909, len=256, rssi=-52[0m
+[0;32mI (139715) PROBE: publish #909 => 0 (ok)[0m
+[0;32mI (139765) PROBE: CSI callback ENTERED #910, len=256, rssi=-52[0m
+[0;32mI (139775) PROBE: publish #910 => 0 (ok)[0m
+[0;32mI (139835) PROBE: CSI callback ENTERED #911, len=256, rssi=-52[0m
+[0;32mI (139845) PROBE: publish #911 => 0 (ok)[0m
+[0;32mI (139935) PROBE: CSI callback ENTERED #912, len=256, rssi=-52[0m
+[0;32mI (139945) PROBE: publish #912 => 0 (ok)[0m
+[0;32mI (140035) PROBE: CSI callback ENTERED #913, len=256, rssi=-52[0m
+[0;32mI (140035) PROBE: publish #913 => 0 (ok)[0m
+[0;32mI (140105) PROBE: CSI callback ENTERED #914, len=256, rssi=-53[0m
+[0;32mI (140105) PROBE: publish #914 => 0 (ok)[0m
+[0;32mI (140155) PROBE: CSI callback ENTERED #915, len=256, rssi=-53[0m
+[0;32mI (140165) PROBE: publish #915 => 0 (ok)[0m
+[0;32mI (140225) PROBE: CSI callback ENTERED #916, len=256, rssi=-52[0m
+[0;32mI (140225) PROBE: publish #916 => 0 (ok)[0m
+[0;32mI (140295) PROBE: CSI callback ENTERED #917, len=256, rssi=-51[0m
+[0;32mI (140295) PROBE: publish #917 => 0 (ok)[0m
+[0;32mI (140375) PROBE: CSI callback ENTERED #918, len=256, rssi=-52[0m
+[0;32mI (140385) PROBE: publish #918 => 0 (ok)[0m
+[0;32mI (140445) PROBE: CSI callback ENTERED #919, len=256, rssi=-52[0m
+[0;32mI (140445) PROBE: publish #919 => 0 (ok)[0m
+[0;32mI (140515) PROBE: CSI callback ENTERED #920, len=256, rssi=-52[0m
+[0;32mI (140515) PROBE: publish #920 => 0 (ok)[0m
+[0;32mI (140575) PROBE: CSI callback ENTERED #921, len=256, rssi=-52[0m
+[0;32mI (140575) PROBE: publish #921 => 0 (ok)[0m
+[0;32mI (140645) PROBE: CSI callback ENTERED #922, len=256, rssi=-53[0m
+[0;32mI (140645) PROBE: publish #922 => 0 (ok)[0m
+[0;32mI (140705) PROBE: CSI callback ENTERED #923, len=256, rssi=-52[0m
+[0;32mI (140715) PROBE: publish #923 => 0 (ok)[0m
+[0;32mI (140765) PROBE: CSI callback ENTERED #924, len=256, rssi=-53[0m
+[0;32mI (140775) PROBE: publish #924 => 0 (ok)[0m
+[0;32mI (140825) PROBE: CSI callback ENTERED #925, len=256, rssi=-52[0m
+[0;32mI (140835) PROBE: publish #925 => 0 (ok)[0m
+[0;32mI (140895) PROBE: CSI callback ENTERED #926, len=256, rssi=-53[0m
+[0;32mI (140905) PROBE: publish #926 => 0 (ok)[0m
+[0;32mI (140955) PROBE: CSI callback ENTERED #927, len=256, rssi=-52[0m
+[0;32mI (140965) PROBE: publish #927 => 0 (ok)[0m
+[0;32mI (141045) PROBE: CSI callback ENTERED #928, len=256, rssi=-51[0m
+[0;32mI (141055) PROBE: publish #928 => 0 (ok)[0m
+[0;32mI (141105) PROBE: CSI callback ENTERED #929, len=256, rssi=-51[0m
+[0;32mI (141115) PROBE: publish #929 => 0 (ok)[0m
+[0;32mI (141115) PROBE: CSI callback ENTERED #930, len=128, rssi=-54[0m
+[0;32mI (141115) PROBE: publish #930 => 0 (ok)[0m
+[0;32mI (141205) PROBE: CSI callback ENTERED #931, len=256, rssi=-51[0m
+[0;32mI (141205) PROBE: publish #931 => 0 (ok)[0m
+[0;32mI (141435) PROBE: CSI callback ENTERED #932, len=256, rssi=-51[0m
+[0;32mI (141435) PROBE: publish #932 => 0 (ok)[0m
+[0;32mI (141495) PROBE: CSI callback ENTERED #933, len=256, rssi=-53[0m
+[0;32mI (141505) PROBE: publish #933 => 0 (ok)[0m
+[0;32mI (141565) PROBE: CSI callback ENTERED #934, len=256, rssi=-52[0m
+[0;32mI (141565) PROBE: publish #934 => 0 (ok)[0m
+[0;32mI (141635) PROBE: CSI callback ENTERED #935, len=256, rssi=-52[0m
+[0;32mI (141635) PROBE: publish #935 => 0 (ok)[0m
+[0;32mI (141705) PROBE: CSI callback ENTERED #936, len=256, rssi=-52[0m
+[0;32mI (141715) PROBE: publish #936 => 0 (ok)[0m
+[0;32mI (141775) PROBE: CSI callback ENTERED #937, len=256, rssi=-52[0m
+[0;32mI (141785) PROBE: publish #937 => 0 (ok)[0m
+[0;32mI (141845) PROBE: CSI callback ENTERED #938, len=256, rssi=-52[0m
+[0;32mI (141855) PROBE: publish #938 => 0 (ok)[0m
+[0;32mI (141965) PROBE: CSI callback ENTERED #939, len=256, rssi=-52[0m
+[0;32mI (141965) PROBE: publish #939 => 0 (ok)[0m
+[0;32mI (142035) PROBE: CSI callback ENTERED #940, len=256, rssi=-52[0m
+[0;32mI (142045) PROBE: publish #940 => 0 (ok)[0m
+[0;32mI (142105) PROBE: CSI callback ENTERED #941, len=256, rssi=-52[0m
+[0;32mI (142105) PROBE: publish #941 => 0 (ok)[0m
+[0;32mI (142195) PROBE: CSI callback ENTERED #942, len=256, rssi=-52[0m
+[0;32mI (142195) PROBE: publish #942 => 0 (ok)[0m
+[0;32mI (142285) PROBE: CSI callback ENTERED #943, len=256, rssi=-53[0m
+[0;32mI (142285) PROBE: publish #943 => 0 (ok)[0m
+[0;32mI (142365) PROBE: CSI callback ENTERED #944, len=256, rssi=-52[0m
+[0;32mI (142375) PROBE: publish #944 => 0 (ok)[0m
+[0;32mI (142435) PROBE: CSI callback ENTERED #945, len=256, rssi=-53[0m
+[0;32mI (142435) PROBE: publish #945 => 0 (ok)[0m
+[0;32mI (142485) PROBE: CSI callback ENTERED #946, len=256, rssi=-52[0m
+[0;32mI (142495) PROBE: publish #946 => 0 (ok)[0m
+[0;32mI (142565) PROBE: CSI callback ENTERED #947, len=256, rssi=-52[0m
+[0;32mI (142575) PROBE: publish #947 => 0 (ok)[0m
+[0;32mI (142625) PROBE: CSI callback ENTERED #948, len=256, rssi=-52[0m
+[0;32mI (142625) PROBE: publish #948 => 0 (ok)[0m
+[0;32mI (142705) PROBE: CSI callback ENTERED #949, len=256, rssi=-52[0m
+[0;32mI (142715) PROBE: publish #949 => 0 (ok)[0m
+[0;32mI (142775) PROBE: CSI callback ENTERED #950, len=256, rssi=-52[0m
+[0;32mI (142775) CSI: cb fired 950 times, len=256, rssi=-52[0m
+[0;32mI (142775) PROBE: publish #950 => 0 (ok)[0m
+[0;32mI (142835) PROBE: CSI callback ENTERED #951, len=256, rssi=-53[0m
+[0;32mI (142835) PROBE: publish #951 => 0 (ok)[0m
+[0;32mI (142895) PROBE: CSI callback ENTERED #952, len=256, rssi=-52[0m
+[0;32mI (142905) PROBE: publish #952 => 0 (ok)[0m
+[0;32mI (142965) PROBE: CSI callback ENTERED #953, len=256, rssi=-53[0m
+[0;32mI (142965) PROBE: publish #953 => 0 (ok)[0m
+[0;32mI (143045) PROBE: CSI callback ENTERED #954, len=256, rssi=-53[0m
+[0;32mI (143045) PROBE: publish #954 => 0 (ok)[0m
+[0;32mI (143165) PROBE: CSI callback ENTERED #955, len=256, rssi=-51[0m
+[0;32mI (143165) PROBE: publish #955 => 0 (ok)[0m
+[0;32mI (143225) PROBE: CSI callback ENTERED #956, len=256, rssi=-53[0m
+[0;32mI (143225) PROBE: publish #956 => 0 (ok)[0m
+[0;32mI (143245) PROBE: CSI callback ENTERED #957, len=128, rssi=-56[0m
+[0;32mI (143245) PROBE: publish #957 => 0 (ok)[0m
+[0;32mI (143325) PROBE: CSI callback ENTERED #958, len=256, rssi=-52[0m
+[0;32mI (143325) PROBE: publish #958 => 0 (ok)[0m
+[0;32mI (143415) PROBE: CSI callback ENTERED #959, len=256, rssi=-52[0m
+[0;32mI (143415) PROBE: publish #959 => 0 (ok)[0m
+[0;32mI (143505) PROBE: CSI callback ENTERED #960, len=256, rssi=-52[0m
+[0;32mI (143515) PROBE: publish #960 => 0 (ok)[0m
+[0;32mI (143575) PROBE: CSI callback ENTERED #961, len=256, rssi=-52[0m
+[0;32mI (143575) PROBE: publish #961 => 0 (ok)[0m
+[0;32mI (143635) PROBE: CSI callback ENTERED #962, len=256, rssi=-52[0m
+[0;32mI (143635) PROBE: publish #962 => 0 (ok)[0m
+[0;32mI (143735) PROBE: CSI callback ENTERED #963, len=256, rssi=-51[0m
+[0;32mI (143745) PROBE: publish #963 => 0 (ok)[0m
+[0;32mI (143755) PROBE: CSI callback ENTERED #964, len=128, rssi=-54[0m
+[0;32mI (143765) PROBE: publish #964 => 0 (ok)[0m
+[0;32mI (143875) PROBE: CSI callback ENTERED #965, len=256, rssi=-52[0m
+[0;32mI (143875) PROBE: publish #965 => 0 (ok)[0m
+[0;32mI (143975) PROBE: CSI callback ENTERED #966, len=256, rssi=-52[0m
+[0;32mI (143985) PROBE: publish #966 => 0 (ok)[0m
+[0;32mI (144085) PROBE: CSI callback ENTERED #967, len=256, rssi=-52[0m
+[0;32mI (144085) PROBE: publish #967 => 0 (ok)[0m
+[0;32mI (144145) PROBE: CSI callback ENTERED #968, len=256, rssi=-52[0m
+[0;32mI (144155) PROBE: publish #968 => 0 (ok)[0m
+[0;32mI (144165) PROBE: CSI callback ENTERED #969, len=128, rssi=-55[0m
+[0;32mI (144175) PROBE: publish #969 => 0 (ok)[0m
+[0;32mI (144215) PROBE: CSI callback ENTERED #970, len=256, rssi=-52[0m
+[0;32mI (144215) PROBE: publish #970 => 0 (ok)[0m
+[0;32mI (144345) PROBE: CSI callback ENTERED #971, len=256, rssi=-52[0m
+[0;32mI (144345) PROBE: publish #971 => 0 (ok)[0m
+[0;32mI (144445) PROBE: CSI callback ENTERED #972, len=256, rssi=-51[0m
+[0;32mI (144445) PROBE: publish #972 => 0 (ok)[0m
+[0;32mI (144565) PROBE: CSI callback ENTERED #973, len=256, rssi=-51[0m
+[0;32mI (144575) PROBE: publish #973 => 0 (ok)[0m
+[0;32mI (144635) PROBE: CSI callback ENTERED #974, len=256, rssi=-51[0m
+[0;32mI (144635) PROBE: publish #974 => 0 (ok)[0m
+[0;32mI (144645) PROBE: CSI callback ENTERED #975, len=128, rssi=-56[0m
+[0;32mI (144645) PROBE: publish #975 => 0 (ok)[0m
+[0;32mI (144715) PROBE: CSI callback ENTERED #976, len=256, rssi=-53[0m
+[0;32mI (144715) PROBE: publish #976 => 0 (ok)[0m
+[0;32mI (144825) PROBE: CSI callback ENTERED #977, len=256, rssi=-51[0m
+[0;32mI (144825) PROBE: publish #977 => 0 (ok)[0m
+[0;32mI (144905) PROBE: CSI callback ENTERED #978, len=256, rssi=-53[0m
+[0;32mI (144915) PROBE: publish #978 => 0 (ok)[0m
+[0;32mI (144995) PROBE: CSI callback ENTERED #979, len=256, rssi=-52[0m
+[0;32mI (144995) PROBE: publish #979 => 0 (ok)[0m
+[0;32mI (145055) PROBE: CSI callback ENTERED #980, len=256, rssi=-53[0m
+[0;32mI (145065) PROBE: publish #980 => 0 (ok)[0m
+[0;32mI (145195) PROBE: CSI callback ENTERED #981, len=256, rssi=-52[0m
+[0;32mI (145195) PROBE: publish #981 => 0 (ok)[0m
+[0;32mI (145305) PROBE: CSI callback ENTERED #982, len=256, rssi=-52[0m
+[0;32mI (145315) PROBE: publish #982 => 0 (ok)[0m
+[0;32mI (145385) PROBE: CSI callback ENTERED #983, len=256, rssi=-53[0m
+[0;32mI (145395) PROBE: publish #983 => 0 (ok)[0m
+[0;32mI (145465) PROBE: CSI callback ENTERED #984, len=256, rssi=-52[0m
+[0;32mI (145475) PROBE: publish #984 => 0 (ok)[0m
+[0;32mI (145535) PROBE: CSI callback ENTERED #985, len=256, rssi=-53[0m
+[0;32mI (145535) PROBE: publish #985 => 0 (ok)[0m
+[0;32mI (145625) PROBE: CSI callback ENTERED #986, len=256, rssi=-53[0m
+[0;32mI (145625) PROBE: publish #986 => 0 (ok)[0m
+[0;32mI (145705) PROBE: CSI callback ENTERED #987, len=256, rssi=-52[0m
+[0;32mI (145705) PROBE: publish #987 => 0 (ok)[0m
+[0;32mI (145775) PROBE: CSI callback ENTERED #988, len=256, rssi=-53[0m
+[0;32mI (145775) PROBE: publish #988 => 0 (ok)[0m
+[0;32mI (145875) PROBE: CSI callback ENTERED #989, len=256, rssi=-53[0m
+[0;32mI (145875) PROBE: publish #989 => 0 (ok)[0m
+[0;32mI (145885) PROBE: CSI callback ENTERED #990, len=128, rssi=-56[0m
+[0;32mI (145885) PROBE: publish #990 => 0 (ok)[0m
+[0;32mI (145955) PROBE: CSI callback ENTERED #991, len=256, rssi=-53[0m
+[0;32mI (145955) PROBE: publish #991 => 0 (ok)[0m
+[0;32mI (146015) PROBE: CSI callback ENTERED #992, len=256, rssi=-53[0m
+[0;32mI (146015) PROBE: publish #992 => 0 (ok)[0m
+[0;32mI (146095) PROBE: CSI callback ENTERED #993, len=256, rssi=-52[0m
+[0;32mI (146095) PROBE: publish #993 => 0 (ok)[0m
+[0;32mI (146185) PROBE: CSI callback ENTERED #994, len=256, rssi=-53[0m
+[0;32mI (146185) PROBE: publish #994 => 0 (ok)[0m
+[0;32mI (146255) PROBE: CSI callback ENTERED #995, len=256, rssi=-53[0m
+[0;32mI (146255) PROBE: publish #995 => 0 (ok)[0m
+[0;32mI (146385) PROBE: CSI callback ENTERED #996, len=256, rssi=-52[0m
+[0;32mI (146395) PROBE: publish #996 => 0 (ok)[0m
+[0;32mI (146465) PROBE: CSI callback ENTERED #997, len=256, rssi=-52[0m
+[0;32mI (146465) PROBE: publish #997 => 0 (ok)[0m
+[0;32mI (146535) PROBE: CSI callback ENTERED #998, len=256, rssi=-53[0m
+[0;32mI (146545) PROBE: publish #998 => 0 (ok)[0m
+[0;32mI (146625) PROBE: CSI callback ENTERED #999, len=256, rssi=-52[0m
+[0;32mI (146625) PROBE: publish #999 => 0 (ok)[0m
+[0;32mI (146705) PROBE: CSI callback ENTERED #1000, len=256, rssi=-52[0m
+[0;32mI (146705) CSI: cb fired 1000 times, len=256, rssi=-52[0m
+[0;32mI (146715) PROBE: publish #1000 => 0 (ok)[0m
+[0;32mI (146775) PROBE: CSI callback ENTERED #1001, len=256, rssi=-53[0m
+[0;32mI (146775) PROBE: publish #1001 => 0 (ok)[0m
+[0;32mI (146825) PROBE: CSI callback ENTERED #1002, len=256, rssi=-53[0m
+[0;32mI (146835) PROBE: publish #1002 => 0 (ok)[0m
+[0;32mI (146905) PROBE: CSI callback ENTERED #1003, len=256, rssi=-53[0m
+[0;32mI (146905) PROBE: publish #1003 => 0 (ok)[0m
+[0;32mI (147015) PROBE: CSI callback ENTERED #1004, len=256, rssi=-52[0m
+[0;32mI (147025) PROBE: publish #1004 => 0 (ok)[0m
+[0;32mI (147105) PROBE: CSI callback ENTERED #1005, len=256, rssi=-52[0m
+[0;32mI (147115) PROBE: publish #1005 => 0 (ok)[0m
+[0;32mI (147215) PROBE: CSI callback ENTERED #1006, len=256, rssi=-53[0m
+[0;32mI (147215) PROBE: publish #1006 => 0 (ok)[0m
+[0;32mI (147315) PROBE: CSI callback ENTERED #1007, len=256, rssi=-52[0m
+[0;32mI (147315) PROBE: publish #1007 => 0 (ok)[0m
+[0;32mI (147385) PROBE: CSI callback ENTERED #1008, len=256, rssi=-53[0m
+[0;32mI (147385) PROBE: publish #1008 => 0 (ok)[0m
+[0;32mI (147455) PROBE: CSI callback ENTERED #1009, len=256, rssi=-52[0m
+[0;32mI (147465) PROBE: publish #1009 => 0 (ok)[0m
+[0;32mI (147535) PROBE: CSI callback ENTERED #1010, len=256, rssi=-53[0m
+[0;32mI (147545) PROBE: publish #1010 => 0 (ok)[0m
+[0;32mI (147625) PROBE: CSI callback ENTERED #1011, len=256, rssi=-52[0m
+[0;32mI (147625) PROBE: publish #1011 => 0 (ok)[0m
+[0;32mI (147635) PROBE: CSI callback ENTERED #1012, len=128, rssi=-56[0m
+[0;32mI (147645) PROBE: publish #1012 => 0 (ok)[0m
+[0;32mI (147705) PROBE: CSI callback ENTERED #1013, len=256, rssi=-53[0m
+[0;32mI (147705) PROBE: publish #1013 => 0 (ok)[0m
+[0;32mI (147825) PROBE: CSI callback ENTERED #1014, len=256, rssi=-53[0m
+[0;32mI (147825) PROBE: publish #1014 => 0 (ok)[0m
+[0;32mI (147955) PROBE: CSI callback ENTERED #1015, len=256, rssi=-53[0m
+[0;32mI (147955) PROBE: publish #1015 => 0 (ok)[0m
+[0;32mI (148025) PROBE: CSI callback ENTERED #1016, len=256, rssi=-53[0m
+[0;32mI (148025) PROBE: publish #1016 => 0 (ok)[0m
+[0;32mI (148105) PROBE: CSI callback ENTERED #1017, len=256, rssi=-52[0m
+[0;32mI (148105) PROBE: publish #1017 => 0 (ok)[0m
+[0;32mI (148165) PROBE: CSI callback ENTERED #1018, len=256, rssi=-52[0m
+[0;32mI (148165) PROBE: publish #1018 => 0 (ok)[0m
+[0;32mI (148235) PROBE: CSI callback ENTERED #1019, len=256, rssi=-52[0m
+[0;32mI (148245) PROBE: publish #1019 => 0 (ok)[0m
+[0;32mI (148295) PROBE: CSI callback ENTERED #1020, len=256, rssi=-53[0m
+[0;32mI (148305) PROBE: publish #1020 => 0 (ok)[0m
+[0;32mI (148365) PROBE: CSI callback ENTERED #1021, len=256, rssi=-54[0m
+[0;32mI (148365) PROBE: publish #1021 => 0 (ok)[0m
+[0;32mI (148425) PROBE: CSI callback ENTERED #1022, len=256, rssi=-53[0m
+[0;32mI (148425) PROBE: publish #1022 => 0 (ok)[0m
+[0;32mI (148495) PROBE: CSI callback ENTERED #1023, len=256, rssi=-53[0m
+[0;32mI (148495) PROBE: publish #1023 => 0 (ok)[0m
+[0;32mI (148555) PROBE: CSI callback ENTERED #1024, len=256, rssi=-53[0m
+[0;32mI (148555) PROBE: publish #1024 => 0 (ok)[0m
+[0;32mI (148635) PROBE: CSI callback ENTERED #1025, len=256, rssi=-53[0m
+[0;32mI (148635) PROBE: publish #1025 => 0 (ok)[0m
+[0;32mI (148695) PROBE: CSI callback ENTERED #1026, len=256, rssi=-53[0m
+[0;32mI (148695) PROBE: publish #1026 => 0 (ok)[0m
+[0;32mI (148765) PROBE: CSI callback ENTERED #1027, len=256, rssi=-53[0m
+[0;32mI (148775) PROBE: publish #1027 => 0 (ok)[0m
+[0;32mI (148835) PROBE: CSI callback ENTERED #1028, len=256, rssi=-53[0m
+[0;32mI (148835) PROBE: publish #1028 => 0 (ok)[0m
+[0;32mI (148945) PROBE: CSI callback ENTERED #1029, len=256, rssi=-53[0m
+[0;32mI (148955) PROBE: publish #1029 => 0 (ok)[0m
+[0;32mI (148965) PROBE: CSI callback ENTERED #1030, len=128, rssi=-56[0m
+[0;32mI (148965) PROBE: publish #1030 => 0 (ok)[0m
+[0;32mI (149025) PROBE: CSI callback ENTERED #1031, len=256, rssi=-53[0m
+[0;32mI (149025) PROBE: publish #1031 => 0 (ok)[0m
+[0;32mI (149035) PROBE: CSI callback ENTERED #1032, len=128, rssi=-55[0m
+[0;32mI (149035) PROBE: publish #1032 => 0 (ok)[0m
+[0;32mI (149105) PROBE: CSI callback ENTERED #1033, len=256, rssi=-53[0m
+[0;33mW (154115) transport_base: Poll timeout or error, errno=Success, fd=54, timeout_ms=5000[0m
+[0;31mE (154115) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;33mW (154115) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154125) PROBE: publish #1033 => -1 (FAILED)[0m
+[0;32mI (154305) PROBE: CSI callback ENTERED #1034, len=256, rssi=-52[0m
+[0;33mW (154305) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154305) PROBE: publish #1034 => -1 (FAILED)[0m
+[0;32mI (154335) PROBE: CSI callback ENTERED #1035, len=256, rssi=-53[0m
+[0;33mW (154335) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154335) PROBE: publish #1035 => -1 (FAILED)[0m
+[0;32mI (154365) PROBE: CSI callback ENTERED #1036, len=128, rssi=-55[0m
+[0;33mW (154365) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154365) PROBE: publish #1036 => -1 (FAILED)[0m
+[0;32mI (154415) PROBE: CSI callback ENTERED #1037, len=256, rssi=-52[0m
+[0;33mW (154415) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154415) PROBE: publish #1037 => -1 (FAILED)[0m
+[0;32mI (154425) PROBE: CSI callback ENTERED #1038, len=256, rssi=-52[0m
+[0;33mW (154435) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (154435) PROBE: publish #1038 => -1 (FAILED)[0m
+[0;32mI (157155) PROBE: CSI callback ENTERED #1039, len=256, rssi=-53[0m
+[0;31mE (162135) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (162135) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (162135) mqtt_client: Error transport connect[0m
+[0;33mW (162135) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (162145) PROBE: publish #1039 => -1 (FAILED)[0m
+[0;32mI (162145) PROBE: CSI callback ENTERED #1040, len=128, rssi=-54[0m
+[0;33mW (162155) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (162165) PROBE: publish #1040 => -1 (FAILED)[0m
+[0;32mI (165165) PROBE: CSI callback ENTERED #1041, len=256, rssi=-53[0m
+[0;31mE (170155) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (170155) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (170155) mqtt_client: Error transport connect[0m
+[0;33mW (170155) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (170165) PROBE: publish #1041 => -1 (FAILED)[0m
+[0;32mI (173175) PROBE: CSI callback ENTERED #1042, len=256, rssi=-53[0m
+[0;31mE (178175) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (178175) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (178175) mqtt_client: Error transport connect[0m
+[0;33mW (178175) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (178185) PROBE: publish #1042 => -1 (FAILED)[0m
+[0;32mI (182715) PROBE: CSI callback ENTERED #1043, len=256, rssi=-54[0m
+[0;31mE (187685) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (187685) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (187685) mqtt_client: Error transport connect[0m
+[0;33mW (187685) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (187695) PROBE: publish #1043 => -1 (FAILED)[0m
+[0;32mI (190745) PROBE: CSI callback ENTERED #1044, len=256, rssi=-54[0m
+[0;31mE (195705) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (195705) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (195705) mqtt_client: Error transport connect[0m
+[0;33mW (195705) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (195715) PROBE: publish #1044 => -1 (FAILED)[0m
+[0;32mI (200265) PROBE: CSI callback ENTERED #1045, len=256, rssi=-54[0m
+[0;31mE (205215) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (205215) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (205215) mqtt_client: Error transport connect[0m
+[0;33mW (205215) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (205225) PROBE: publish #1045 => -1 (FAILED)[0m
+[0;32mI (208255) PROBE: CSI callback ENTERED #1046, len=256, rssi=-53[0m
+[0;31mE (213235) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (213235) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (213235) mqtt_client: Error transport connect[0m
+[0;33mW (213235) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (213245) PROBE: publish #1046 => -1 (FAILED)[0m
+[0;32mI (217785) PROBE: CSI callback ENTERED #1047, len=256, rssi=-53[0m
+[0;31mE (222745) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (222745) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (222745) mqtt_client: Error transport connect[0m
+[0;33mW (222745) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (222755) PROBE: publish #1047 => -1 (FAILED)[0m
+[0;32mI (225765) PROBE: CSI callback ENTERED #1048, len=256, rssi=-53[0m
+[0;31mE (230765) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (230765) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (230765) mqtt_client: Error transport connect[0m
+[0;33mW (230765) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (230775) PROBE: publish #1048 => -1 (FAILED)[0m
+[0;32mI (235285) PROBE: CSI callback ENTERED #1049, len=256, rssi=-54[0m
+[0;31mE (240275) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (240275) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (240275) mqtt_client: Error transport connect[0m
+[0;33mW (240275) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (240285) PROBE: publish #1049 => -1 (FAILED)[0m
+[0;32mI (243375) PROBE: CSI callback ENTERED #1050, len=256, rssi=-53[0m
+[0;32mI (243375) CSI: cb fired 1050 times, len=256, rssi=-53[0m
+[0;31mE (248295) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (248295) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (248295) mqtt_client: Error transport connect[0m
+[0;33mW (248295) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (248305) PROBE: publish #1050 => -1 (FAILED)[0m
+[0;32mI (252895) PROBE: CSI callback ENTERED #1051, len=256, rssi=-54[0m
+[0;31mE (257805) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (257805) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (257805) mqtt_client: Error transport connect[0m
+[0;33mW (257805) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (257815) PROBE: publish #1051 => -1 (FAILED)[0m
+[0;32mI (257815) PROBE: CSI callback ENTERED #1052, len=128, rssi=-59[0m
+[0;33mW (257825) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (257835) PROBE: publish #1052 => -1 (FAILED)[0m
+[0;32mI (260885) PROBE: CSI callback ENTERED #1053, len=256, rssi=-54[0m
+[0;31mE (265825) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (265825) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (265825) mqtt_client: Error transport connect[0m
+[0;33mW (265825) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (265835) PROBE: publish #1053 => -1 (FAILED)[0m
+[0;32mI (268595) PROBE: CSI callback ENTERED #1054, len=128, rssi=-56[0m
+[0;33mW (268605) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (268605) PROBE: publish #1054 => -1 (FAILED)[0m
+[0;32mI (270345) PROBE: CSI callback ENTERED #1055, len=256, rssi=-54[0m
+[0;31mE (275335) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (275335) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (275335) mqtt_client: Error transport connect[0m
+[0;33mW (275335) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (275345) PROBE: publish #1055 => -1 (FAILED)[0m
+[0;32mI (278355) PROBE: CSI callback ENTERED #1056, len=256, rssi=-54[0m
+[0;31mE (283355) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (283355) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (283355) mqtt_client: Error transport connect[0m
+[0;33mW (283355) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (283365) PROBE: publish #1056 => -1 (FAILED)[0m
+[0;32mI (287865) PROBE: CSI callback ENTERED #1057, len=256, rssi=-53[0m
+[0;31mE (292865) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (292865) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (292865) mqtt_client: Error transport connect[0m
+[0;33mW (292865) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (292875) PROBE: publish #1057 => -1 (FAILED)[0m
+[0;32mI (295585) PROBE: CSI callback ENTERED #1058, len=128, rssi=-55[0m
+[0;33mW (295585) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (295585) PROBE: publish #1058 => -1 (FAILED)[0m
+[0;32mI (295905) PROBE: CSI callback ENTERED #1059, len=256, rssi=-53[0m
+[0;31mE (300885) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (300885) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (300885) mqtt_client: Error transport connect[0m
+[0;33mW (300885) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (300895) PROBE: publish #1059 => -1 (FAILED)[0m
+[0;32mI (305435) PROBE: CSI callback ENTERED #1060, len=256, rssi=-53[0m
+[0;31mE (310395) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (310395) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (310395) mqtt_client: Error transport connect[0m
+[0;33mW (310395) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (310405) PROBE: publish #1060 => -1 (FAILED)[0m
+[0;32mI (310425) PROBE: CSI callback ENTERED #1061, len=256, rssi=-51[0m
+[0;33mW (310425) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (310425) PROBE: publish #1061 => -1 (FAILED)[0m
+[0;32mI (312465) PROBE: CSI callback ENTERED #1062, len=256, rssi=-53[0m
+[0;33mW (312465) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (312465) PROBE: publish #1062 => -1 (FAILED)[0m
+[0;32mI (313525) PROBE: CSI callback ENTERED #1063, len=256, rssi=-52[0m
+[0;31mE (318415) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (318415) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (318415) mqtt_client: Error transport connect[0m
+[0;33mW (318415) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (318425) PROBE: publish #1063 => -1 (FAILED)[0m
+[0;32mI (322955) PROBE: CSI callback ENTERED #1064, len=256, rssi=-51[0m
+[0;31mE (327925) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (327925) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (327925) mqtt_client: Error transport connect[0m
+[0;33mW (327925) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (327935) PROBE: publish #1064 => -1 (FAILED)[0m
+[0;32mI (331035) PROBE: CSI callback ENTERED #1065, len=256, rssi=-51[0m
+[0;31mE (335945) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (335945) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (335945) mqtt_client: Error transport connect[0m
+[0;33mW (335945) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (335955) PROBE: publish #1065 => -1 (FAILED)[0m
+[0;32mI (339025) PROBE: CSI callback ENTERED #1066, len=256, rssi=-52[0m
+[0;31mE (343965) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (343965) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (343965) mqtt_client: Error transport connect[0m
+[0;33mW (343965) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (343975) PROBE: publish #1066 => -1 (FAILED)[0m
+[0;32mI (347005) PROBE: CSI callback ENTERED #1067, len=256, rssi=-51[0m
+[0;31mE (351985) esp-tls: [sock=54] select() timeout[0m
+[0;31mE (351985) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (351985) mqtt_client: Error transport connect[0m
+[0;33mW (351985) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (351995) PROBE: publish #1067 => -1 (FAILED)[0m
+[0;32mI (356485) PROBE: CSI callback ENTERED #1068, len=256, rssi=-50[0m

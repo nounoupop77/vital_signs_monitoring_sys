@@ -1,0 +1,73 @@
+[1/5] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\vital_signs_monitoring_sys\build\esp-idf\esptool_py && C:\Espressif\tools\python\v5.2.6\venv\Scripts\python.exe C:/esp/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/vital_signs_monitoring_sys/build/partition_table/partition-table.bin D:/vital_signs_monitoring_sys/build/vital_signs_monitoring_sys.bin"
+vital_signs_monitoring_sys.bin binary size 0xc9f30 bytes. Smallest app partition is 0x100000 bytes. 0x360d0 bytes (21%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\vital_signs_monitoring_sys\build\bootloader\esp-idf\esptool_py && C:\Espressif\tools\python\v5.2.6\venv\Scripts\python.exe C:/esp/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/vital_signs_monitoring_sys/build/bootloader/bootloader.bin"
+Bootloader binary size 0x68c0 bytes. 0x740 bytes (6%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\esp\v5.2.6\esp-idf\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/esp/v5.2.6/esp-idf -D SERIAL_TOOL=C:/Espressif/tools/python/v5.2.6/venv/Scripts/python.exe;;C:/esp/v5.2.6/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=D:/vital_signs_monitoring_sys/build -P C:/esp/v5.2.6/esp-idf/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32 -p COM6 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 vital_signs_monitoring_sys.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.11.0
+Serial port COM6
+Connecting..............
+Chip is ESP32-D0WD-V3 (revision v3.1)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: f4:2d:c9:73:dd:6c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000d9fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 26816 bytes to 16396...
+Writing at 0x00001000... (50 %)
+Writing at 0x000078bb... (100 %)
+Wrote 26816 bytes (16396 compressed) at 0x00001000 in 0.5 seconds (effective 415.8 kbit/s)...
+Hash of data verified.
+Compressed 827184 bytes to 520210...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001d2b7... (6 %)
+Writing at 0x00025de0... (9 %)
+Writing at 0x0003121c... (12 %)
+Writing at 0x00036b7a... (15 %)
+Writing at 0x0003c389... (18 %)
+Writing at 0x0004225b... (21 %)
+Writing at 0x00047e02... (25 %)
+Writing at 0x0004dd30... (28 %)
+Writing at 0x00054400... (31 %)
+Writing at 0x00059fed... (34 %)
+Writing at 0x0005fd7c... (37 %)
+Writing at 0x00065a27... (40 %)
+Writing at 0x0006b2b6... (43 %)
+Writing at 0x00070a30... (46 %)
+Writing at 0x0007614f... (50 %)
+Writing at 0x0007b871... (53 %)
+Writing at 0x000815a1... (56 %)
+Writing at 0x000875ff... (59 %)
+Writing at 0x0008cf6c... (62 %)
+Writing at 0x00092b30... (65 %)
+Writing at 0x00098961... (68 %)
+Writing at 0x0009e3b7... (71 %)
+Writing at 0x000a3ea4... (75 %)
+Writing at 0x000a9d20... (78 %)
+Writing at 0x000af648... (81 %)
+Writing at 0x000b8293... (84 %)
+Writing at 0x000be521... (87 %)
+Writing at 0x000c464b... (90 %)
+Writing at 0x000ca0f1... (93 %)
+Writing at 0x000d032e... (96 %)
+Writing at 0x000d5b48... (100 %)
+Wrote 827184 bytes (520210 compressed) at 0x00010000 in 12.0 seconds (effective 551.1 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.0 seconds (effective 982.7 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "dgSpecHash": "TcVoRuNXWS0=",
+  "success": true,
+  "projectFilePath": "D:\\vital_signs_monitoring_sys\\vital_signs_monitor_gui\\VitalSignsMonitor\\VitalSignsMonitor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp\\7.3.0.3\\harfbuzzsharp.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0.3\\harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0.3\\harfbuzzsharp.nativeassets.macos.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0.3\\harfbuzzsharp.nativeassets.win32.7.3.0.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.9\\microsoft.netcore.platforms.3.1.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mqttnet\\4.3.7.1207\\mqttnet.4.3.7.1207.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk\\4.3.0\\opentk.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.compute\\4.3.0\\opentk.compute.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.core\\4.3.0\\opentk.core.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.glwpfcontrol\\4.2.3\\opentk.glwpfcontrol.4.2.3.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.graphics\\4.3.0\\opentk.graphics.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.input\\4.3.0\\opentk.input.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.mathematics\\4.3.0\\opentk.mathematics.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.openal\\4.3.0\\opentk.openal.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.redist.glfw\\3.3.0-pre20200830200122\\opentk.redist.glfw.3.3.0-pre20200830200122.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.windowing.common\\4.3.0\\opentk.windowing.common.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.windowing.desktop\\4.3.0\\opentk.windowing.desktop.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.3.0\\opentk.windowing.graphicslibraryframework.4.3.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\scottplot\\5.0.46\\scottplot.5.0.46.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\scottplot.wpf\\5.0.46\\scottplot.wpf.5.0.46.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp\\2.88.9\\skiasharp.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.9\\skiasharp.harfbuzz.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.9\\skiasharp.nativeassets.linux.nodependencies.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.9\\skiasharp.nativeassets.macos.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.9\\skiasharp.nativeassets.win32.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.9\\skiasharp.views.desktop.common.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\skiasharp.views.wpf\\2.88.9\\skiasharp.views.wpf.2.88.9.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.drawing.common\\4.7.3\\system.drawing.common.4.7.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "VitalSignsMonitor 依赖于 MQTTnet (>= 4.3.7)，但找不到 MQTTnet 4.3.7。 已解决 MQTTnet 4.3.7.1207 的近似最佳匹配。 ",
+      "libraryId": "MQTTnet",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

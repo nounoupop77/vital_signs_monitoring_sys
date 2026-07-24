@@ -1,0 +1,2088 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d854h (120916) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=0002d87c vaddr=3ffb0000 size=0279ch ( 10140) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=97d68h (621928) map[0m
+[0;32mI (365) esp_image: segment 3: paddr=000c7d90 vaddr=3ffb279c size=015bch (  5564) load[0m
+[0;32mI (367) esp_image: segment 4: paddr=000c9354 vaddr=40080000 size=1729ch ( 94876) load[0m
+[0;32mI (419) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (419) boot: Disabling RNG early entropy source...[0m
+[0;32mI (431) cpu_start: Multicore app[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (440) cpu_start: Application information:[0m
+[0;32mI (443) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (450) cpu_start: App version:      1[0m
+[0;32mI (454) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (460) cpu_start: ELF file SHA256:  06b5f08a3...[0m
+[0;32mI (466) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (470) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (475) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (480) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (485) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (492) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (498) heap_init: At 3FFB8278 len 00027D88 (159 KiB): DRAM[0m
+[0;32mI (504) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (510) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (517) heap_init: At 4009729C len 00008D64 (35 KiB): IRAM[0m
+[0;32mI (525) spi_flash: detected chip: generic[0m
+[0;32mI (528) spi_flash: flash io: dio[0m
+[0;33mW (532) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (556) main_task: Calling app_main()[0m
+[0;32mI (586) wifi:wifi driver task: 3ffc02c0, prio:23, stack:6656, core=0[0m
+[0;32mI (596) wifi:wifi firmware version: e851349[0m
+[0;32mI (596) wifi:wifi certification version: v7.0[0m
+[0;32mI (596) wifi:config NVS flash: enabled[0m
+[0;32mI (596) wifi:config nano formating: disabled[0m
+[0;32mI (596) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (606) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (606) wifi:Init management short buffer num: 32[0m
+[0;32mI (616) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (616) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (626) wifi:Init static rx buffer num: 10[0m
+[0;32mI (626) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (626) wifi_init: rx ba win: 6[0m
+[0;32mI (636) wifi_init: tcpip mbox: 32[0m
+[0;32mI (636) wifi_init: udp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp tx win: 5760[0m
+[0;32mI (646) wifi_init: tcp rx win: 5760[0m
+[0;32mI (656) wifi_init: tcp mss: 1440[0m
+[0;32mI (656) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (666) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (666) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (676) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (676) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (766) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (776) wifi:enable tsf[0m
+[0;32mI (776) PROBE: EVENT: STA_START[0m
+[0;32mI (776) main_task: Returned from app_main()[0m
+[0;32mI (836) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (836) wifi:state: init -> auth (b0)[0m
+[0;32mI (856) wifi:state: auth -> assoc (0)[0m
+[0;32mI (866) wifi:state: assoc -> run (10)[0m
+[0;32mI (896) wifi:connected with 4223PSTS, aid = 17, channel 11, BW20, bssid = 4c:49:68:d0:9b:0c[0m
+[0;32mI (896) wifi:security: WPA2-PSK, phy: bgn, rssi: -53[0m
+[0;32mI (906) wifi:pm start, type: 0[0m
+
+[0;32mI (906) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (966) wifi:<ba-add>idx:0 (ifx:0, 4c:49:68:d0:9b:0c), tid:0, ssn:0, winSize:64[0m
+[0;32mI (1036) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1916) esp_netif_handlers: sta ip: 192.168.110.51, mask: 255.255.255.0, gw: 192.168.110.1[0m
+[0;32mI (1916) PROBE: EVENT: GOT_IP[0m
+[0;32mI (1916) WIFI: got ip:192.168.110.51[0m
+[0;32mI (1916) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (1926) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (1926) MQTT: MQTT client started (after IP)[0m
+[0;32mI (1946) PROBE: CSI callback ENTERED #1, len=256, rssi=-54[0m
+[0;31mE (6946) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (6946) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (6946) mqtt_client: Error transport connect[0m
+[0;31mE (6946) MQTT: ERROR type=1[0m
+[0;33mW (6946) MQTT: DISCONNECTED from broker[0m
+[0;33mW (6956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (6966) PROBE: publish #1 => -1 (FAILED)[0m
+[0;32mI (6976) wifi:<ba-add>idx:1 (ifx:0, 4c:49:68:d0:9b:0c), tid:7, ssn:7, winSize:64[0m
+[0;32mI (7006) PROBE: CSI callback ENTERED #2, len=256, rssi=-53[0m
+[0;33mW (7016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7016) PROBE: publish #2 => -1 (FAILED)[0m
+[0;32mI (7016) PROBE: CSI callback ENTERED #3, len=256, rssi=-53[0m
+[0;33mW (7026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7036) PROBE: publish #3 => -1 (FAILED)[0m
+[0;32mI (7036) PROBE: CSI callback ENTERED #4, len=256, rssi=-54[0m
+[0;33mW (7046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7046) PROBE: publish #4 => -1 (FAILED)[0m
+[0;32mI (7066) PROBE: CSI callback ENTERED #5, len=256, rssi=-54[0m
+[0;33mW (7066) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7066) PROBE: publish #5 => -1 (FAILED)[0m
+[0;32mI (7096) PROBE: CSI callback ENTERED #6, len=256, rssi=-54[0m
+[0;33mW (7106) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7106) PROBE: publish #6 => -1 (FAILED)[0m
+[0;32mI (7126) PROBE: CSI callback ENTERED #7, len=256, rssi=-53[0m
+[0;33mW (7136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7136) PROBE: publish #7 => -1 (FAILED)[0m
+[0;32mI (7146) PROBE: CSI callback ENTERED #8, len=256, rssi=-54[0m
+[0;33mW (7146) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7156) PROBE: publish #8 => -1 (FAILED)[0m
+[0;32mI (7166) PROBE: CSI callback ENTERED #9, len=256, rssi=-54[0m
+[0;33mW (7166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7166) PROBE: publish #9 => -1 (FAILED)[0m
+[0;32mI (7206) PROBE: CSI callback ENTERED #10, len=256, rssi=-53[0m
+[0;33mW (7206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7206) PROBE: publish #10 => -1 (FAILED)[0m
+[0;32mI (7216) PROBE: CSI callback ENTERED #11, len=256, rssi=-53[0m
+[0;33mW (7226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7226) PROBE: publish #11 => -1 (FAILED)[0m
+[0;32mI (7246) PROBE: CSI callback ENTERED #12, len=256, rssi=-53[0m
+[0;33mW (7246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7246) PROBE: publish #12 => -1 (FAILED)[0m
+[0;32mI (7266) PROBE: CSI callback ENTERED #13, len=256, rssi=-55[0m
+[0;33mW (7266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7266) PROBE: publish #13 => -1 (FAILED)[0m
+[0;32mI (7286) PROBE: CSI callback ENTERED #14, len=256, rssi=-54[0m
+[0;33mW (7286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7286) PROBE: publish #14 => -1 (FAILED)[0m
+[0;32mI (7296) PROBE: CSI callback ENTERED #15, len=256, rssi=-53[0m
+[0;33mW (7306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7306) PROBE: publish #15 => -1 (FAILED)[0m
+[0;32mI (7336) PROBE: CSI callback ENTERED #16, len=256, rssi=-53[0m
+[0;33mW (7336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7336) PROBE: publish #16 => -1 (FAILED)[0m
+[0;32mI (7346) PROBE: CSI callback ENTERED #17, len=256, rssi=-53[0m
+[0;33mW (7356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7356) PROBE: publish #17 => -1 (FAILED)[0m
+[0;32mI (7376) PROBE: CSI callback ENTERED #18, len=256, rssi=-53[0m
+[0;33mW (7376) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7376) PROBE: publish #18 => -1 (FAILED)[0m
+[0;32mI (7406) PROBE: CSI callback ENTERED #19, len=256, rssi=-53[0m
+[0;33mW (7406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7406) PROBE: publish #19 => -1 (FAILED)[0m
+[0;32mI (7416) PROBE: CSI callback ENTERED #20, len=256, rssi=-53[0m
+[0;33mW (7426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7426) PROBE: publish #20 => -1 (FAILED)[0m
+[0;32mI (7436) PROBE: CSI callback ENTERED #21, len=256, rssi=-53[0m
+[0;33mW (7446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7446) PROBE: publish #21 => -1 (FAILED)[0m
+[0;32mI (7456) PROBE: CSI callback ENTERED #22, len=256, rssi=-54[0m
+[0;33mW (7466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7466) PROBE: publish #22 => -1 (FAILED)[0m
+[0;32mI (7496) PROBE: CSI callback ENTERED #23, len=256, rssi=-53[0m
+[0;33mW (7496) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7496) PROBE: publish #23 => -1 (FAILED)[0m
+[0;32mI (7506) PROBE: CSI callback ENTERED #24, len=256, rssi=-54[0m
+[0;33mW (7506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7516) PROBE: publish #24 => -1 (FAILED)[0m
+[0;32mI (7526) PROBE: CSI callback ENTERED #25, len=256, rssi=-53[0m
+[0;33mW (7526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7536) PROBE: publish #25 => -1 (FAILED)[0m
+[0;32mI (7536) PROBE: CSI callback ENTERED #26, len=256, rssi=-53[0m
+[0;33mW (7546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7546) PROBE: publish #26 => -1 (FAILED)[0m
+[0;32mI (7566) PROBE: CSI callback ENTERED #27, len=256, rssi=-53[0m
+[0;33mW (7576) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7576) PROBE: publish #27 => -1 (FAILED)[0m
+[0;32mI (7576) PROBE: CSI callback ENTERED #28, len=256, rssi=-53[0m
+[0;33mW (7586) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7586) PROBE: publish #28 => -1 (FAILED)[0m
+[0;32mI (7606) PROBE: CSI callback ENTERED #29, len=256, rssi=-53[0m
+[0;33mW (7606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7606) PROBE: publish #29 => -1 (FAILED)[0m
+[0;32mI (7616) PROBE: CSI callback ENTERED #30, len=256, rssi=-54[0m
+[0;33mW (7626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7626) PROBE: publish #30 => -1 (FAILED)[0m
+[0;32mI (7646) PROBE: CSI callback ENTERED #31, len=256, rssi=-54[0m
+[0;33mW (7646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7646) PROBE: publish #31 => -1 (FAILED)[0m
+[0;32mI (7666) PROBE: CSI callback ENTERED #32, len=256, rssi=-54[0m
+[0;33mW (7666) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7666) PROBE: publish #32 => -1 (FAILED)[0m
+[0;32mI (7686) PROBE: CSI callback ENTERED #33, len=256, rssi=-54[0m
+[0;33mW (7686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7686) PROBE: publish #33 => -1 (FAILED)[0m
+[0;32mI (7736) PROBE: CSI callback ENTERED #34, len=256, rssi=-53[0m
+[0;33mW (7736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7736) PROBE: publish #34 => -1 (FAILED)[0m
+[0;32mI (7746) PROBE: CSI callback ENTERED #35, len=256, rssi=-53[0m
+[0;33mW (7756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7756) PROBE: publish #35 => -1 (FAILED)[0m
+[0;32mI (7766) PROBE: CSI callback ENTERED #36, len=256, rssi=-55[0m
+[0;33mW (7766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7776) PROBE: publish #36 => -1 (FAILED)[0m
+[0;32mI (7786) PROBE: CSI callback ENTERED #37, len=256, rssi=-56[0m
+[0;33mW (7786) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7796) PROBE: publish #37 => -1 (FAILED)[0m
+[0;32mI (7826) PROBE: CSI callback ENTERED #38, len=256, rssi=-54[0m
+[0;33mW (7826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7826) PROBE: publish #38 => -1 (FAILED)[0m
+[0;32mI (7836) PROBE: CSI callback ENTERED #39, len=256, rssi=-54[0m
+[0;33mW (7836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7846) PROBE: publish #39 => -1 (FAILED)[0m
+[0;32mI (7856) PROBE: CSI callback ENTERED #40, len=256, rssi=-54[0m
+[0;33mW (7856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7866) PROBE: publish #40 => -1 (FAILED)[0m
+[0;32mI (7886) PROBE: CSI callback ENTERED #41, len=256, rssi=-54[0m
+[0;33mW (7896) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7896) PROBE: publish #41 => -1 (FAILED)[0m
+[0;32mI (7896) PROBE: CSI callback ENTERED #42, len=256, rssi=-54[0m
+[0;33mW (7906) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7906) PROBE: publish #42 => -1 (FAILED)[0m
+[0;32mI (7926) PROBE: CSI callback ENTERED #43, len=256, rssi=-54[0m
+[0;33mW (7926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7936) PROBE: publish #43 => -1 (FAILED)[0m
+[0;32mI (7936) PROBE: CSI callback ENTERED #44, len=256, rssi=-54[0m
+[0;33mW (7946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7946) PROBE: publish #44 => -1 (FAILED)[0m
+[0;32mI (7956) PROBE: CSI callback ENTERED #45, len=256, rssi=-53[0m
+[0;33mW (7966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7966) PROBE: publish #45 => -1 (FAILED)[0m
+[0;32mI (7976) PROBE: CSI callback ENTERED #46, len=256, rssi=-55[0m
+[0;33mW (7986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (7986) PROBE: publish #46 => -1 (FAILED)[0m
+[0;32mI (8016) PROBE: CSI callback ENTERED #47, len=256, rssi=-53[0m
+[0;33mW (8016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8016) PROBE: publish #47 => -1 (FAILED)[0m
+[0;32mI (8026) PROBE: CSI callback ENTERED #48, len=256, rssi=-53[0m
+[0;33mW (8036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8036) PROBE: publish #48 => -1 (FAILED)[0m
+[0;32mI (8046) PROBE: CSI callback ENTERED #49, len=256, rssi=-53[0m
+[0;33mW (8056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8056) PROBE: publish #49 => -1 (FAILED)[0m
+[0;32mI (8066) PROBE: CSI callback ENTERED #50, len=256, rssi=-53[0m
+[0;32mI (8066) CSI: cb fired 50 times, len=256, rssi=-53[0m
+[0;33mW (8076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8076) PROBE: publish #50 => -1 (FAILED)[0m
+[0;32mI (8086) PROBE: CSI callback ENTERED #51, len=256, rssi=-53[0m
+[0;33mW (8086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8096) PROBE: publish #51 => -1 (FAILED)[0m
+[0;32mI (8106) PROBE: CSI callback ENTERED #52, len=256, rssi=-53[0m
+[0;33mW (8106) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8116) PROBE: publish #52 => -1 (FAILED)[0m
+[0;32mI (8126) PROBE: CSI callback ENTERED #53, len=256, rssi=-54[0m
+[0;33mW (8136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8136) PROBE: publish #53 => -1 (FAILED)[0m
+[0;32mI (8136) PROBE: CSI callback ENTERED #54, len=256, rssi=-53[0m
+[0;33mW (8146) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8156) PROBE: publish #54 => -1 (FAILED)[0m
+[0;32mI (8156) PROBE: CSI callback ENTERED #55, len=256, rssi=-54[0m
+[0;33mW (8166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8166) PROBE: publish #55 => -1 (FAILED)[0m
+[0;32mI (8176) PROBE: CSI callback ENTERED #56, len=256, rssi=-53[0m
+[0;33mW (8186) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8186) PROBE: publish #56 => -1 (FAILED)[0m
+[0;32mI (8216) PROBE: CSI callback ENTERED #57, len=256, rssi=-54[0m
+[0;33mW (8226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8226) PROBE: publish #57 => -1 (FAILED)[0m
+[0;32mI (8246) PROBE: CSI callback ENTERED #58, len=256, rssi=-54[0m
+[0;33mW (8246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8246) PROBE: publish #58 => -1 (FAILED)[0m
+[0;32mI (8256) PROBE: CSI callback ENTERED #59, len=256, rssi=-54[0m
+[0;33mW (8266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8266) PROBE: publish #59 => -1 (FAILED)[0m
+[0;32mI (8286) PROBE: CSI callback ENTERED #60, len=256, rssi=-55[0m
+[0;33mW (8286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8286) PROBE: publish #60 => -1 (FAILED)[0m
+[0;32mI (8336) PROBE: CSI callback ENTERED #61, len=256, rssi=-54[0m
+[0;33mW (8336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8336) PROBE: publish #61 => -1 (FAILED)[0m
+[0;32mI (8346) PROBE: CSI callback ENTERED #62, len=256, rssi=-54[0m
+[0;33mW (8356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8356) PROBE: publish #62 => -1 (FAILED)[0m
+[0;32mI (8366) PROBE: CSI callback ENTERED #63, len=256, rssi=-54[0m
+[0;33mW (8366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8376) PROBE: publish #63 => -1 (FAILED)[0m
+[0;32mI (8426) PROBE: CSI callback ENTERED #64, len=256, rssi=-54[0m
+[0;33mW (8436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8436) PROBE: publish #64 => -1 (FAILED)[0m
+[0;32mI (8536) PROBE: CSI callback ENTERED #65, len=256, rssi=-54[0m
+[0;33mW (8536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8536) PROBE: publish #65 => -1 (FAILED)[0m
+[0;32mI (8646) PROBE: CSI callback ENTERED #66, len=256, rssi=-55[0m
+[0;33mW (8646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8646) PROBE: publish #66 => -1 (FAILED)[0m
+[0;32mI (8736) PROBE: CSI callback ENTERED #67, len=256, rssi=-54[0m
+[0;33mW (8736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8736) PROBE: publish #67 => -1 (FAILED)[0m
+[0;32mI (8826) PROBE: CSI callback ENTERED #68, len=128, rssi=-60[0m
+[0;33mW (8826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (8826) PROBE: publish #68 => -1 (FAILED)[0m
+[0;32mI (9826) PROBE: CSI callback ENTERED #69, len=256, rssi=-56[0m
+[0;33mW (9826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9826) PROBE: publish #69 => -1 (FAILED)[0m
+[0;32mI (9846) PROBE: CSI callback ENTERED #70, len=256, rssi=-55[0m
+[0;33mW (9846) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9846) PROBE: publish #70 => -1 (FAILED)[0m
+[0;32mI (9916) PROBE: CSI callback ENTERED #71, len=256, rssi=-56[0m
+[0;33mW (9916) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9916) PROBE: publish #71 => -1 (FAILED)[0m
+[0;32mI (9926) PROBE: CSI callback ENTERED #72, len=256, rssi=-56[0m
+[0;33mW (9936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9936) PROBE: publish #72 => -1 (FAILED)[0m
+[0;32mI (9956) PROBE: CSI callback ENTERED #73, len=256, rssi=-56[0m
+[0;31mE (14976) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (14976) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (14976) mqtt_client: Error transport connect[0m
+[0;31mE (14976) MQTT: ERROR type=1[0m
+[0;33mW (14976) MQTT: DISCONNECTED from broker[0m
+[0;33mW (14986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (14996) PROBE: publish #73 => -1 (FAILED)[0m
+[0;32mI (15016) PROBE: CSI callback ENTERED #74, len=256, rssi=-54[0m
+[0;33mW (15016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15016) PROBE: publish #74 => -1 (FAILED)[0m
+[0;32mI (15026) PROBE: CSI callback ENTERED #75, len=256, rssi=-56[0m
+[0;33mW (15036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15036) PROBE: publish #75 => -1 (FAILED)[0m
+[0;32mI (15046) PROBE: CSI callback ENTERED #76, len=256, rssi=-54[0m
+[0;33mW (15046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15056) PROBE: publish #76 => -1 (FAILED)[0m
+[0;32mI (15346) PROBE: CSI callback ENTERED #77, len=256, rssi=-54[0m
+[0;33mW (15346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15346) PROBE: publish #77 => -1 (FAILED)[0m
+[0;32mI (15356) PROBE: CSI callback ENTERED #78, len=256, rssi=-54[0m
+[0;33mW (15366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15366) PROBE: publish #78 => -1 (FAILED)[0m
+[0;32mI (15376) PROBE: CSI callback ENTERED #79, len=256, rssi=-54[0m
+[0;33mW (15386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15386) PROBE: publish #79 => -1 (FAILED)[0m
+[0;32mI (15406) PROBE: CSI callback ENTERED #80, len=256, rssi=-54[0m
+[0;33mW (15416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15416) PROBE: publish #80 => -1 (FAILED)[0m
+[0;32mI (15426) PROBE: CSI callback ENTERED #81, len=256, rssi=-54[0m
+[0;33mW (15426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15426) PROBE: publish #81 => -1 (FAILED)[0m
+[0;32mI (15436) PROBE: CSI callback ENTERED #82, len=256, rssi=-55[0m
+[0;33mW (15446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15446) PROBE: publish #82 => -1 (FAILED)[0m
+[0;32mI (15456) PROBE: CSI callback ENTERED #83, len=256, rssi=-54[0m
+[0;33mW (15466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15466) PROBE: publish #83 => -1 (FAILED)[0m
+[0;32mI (15526) PROBE: CSI callback ENTERED #84, len=256, rssi=-55[0m
+[0;33mW (15536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15536) PROBE: publish #84 => -1 (FAILED)[0m
+[0;32mI (15546) PROBE: CSI callback ENTERED #85, len=256, rssi=-54[0m
+[0;33mW (15546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15556) PROBE: publish #85 => -1 (FAILED)[0m
+[0;32mI (15566) PROBE: CSI callback ENTERED #86, len=256, rssi=-54[0m
+[0;33mW (15566) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15576) PROBE: publish #86 => -1 (FAILED)[0m
+[0;32mI (15576) PROBE: CSI callback ENTERED #87, len=256, rssi=-54[0m
+[0;33mW (15586) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15586) PROBE: publish #87 => -1 (FAILED)[0m
+[0;32mI (15606) PROBE: CSI callback ENTERED #88, len=256, rssi=-56[0m
+[0;33mW (15606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15606) PROBE: publish #88 => -1 (FAILED)[0m
+[0;32mI (15616) PROBE: CSI callback ENTERED #89, len=256, rssi=-54[0m
+[0;33mW (15626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15626) PROBE: publish #89 => -1 (FAILED)[0m
+[0;32mI (15636) PROBE: CSI callback ENTERED #90, len=256, rssi=-54[0m
+[0;33mW (15636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15646) PROBE: publish #90 => -1 (FAILED)[0m
+[0;32mI (15656) PROBE: CSI callback ENTERED #91, len=256, rssi=-54[0m
+[0;33mW (15656) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15666) PROBE: publish #91 => -1 (FAILED)[0m
+[0;32mI (15696) PROBE: CSI callback ENTERED #92, len=256, rssi=-54[0m
+[0;33mW (15706) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15706) PROBE: publish #92 => -1 (FAILED)[0m
+[0;32mI (15716) PROBE: CSI callback ENTERED #93, len=256, rssi=-55[0m
+[0;33mW (15726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15726) PROBE: publish #93 => -1 (FAILED)[0m
+[0;32mI (15736) PROBE: CSI callback ENTERED #94, len=256, rssi=-54[0m
+[0;33mW (15736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15746) PROBE: publish #94 => -1 (FAILED)[0m
+[0;32mI (15756) PROBE: CSI callback ENTERED #95, len=256, rssi=-54[0m
+[0;33mW (15756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15766) PROBE: publish #95 => -1 (FAILED)[0m
+[0;32mI (15776) PROBE: CSI callback ENTERED #96, len=256, rssi=-54[0m
+[0;33mW (15776) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15786) PROBE: publish #96 => -1 (FAILED)[0m
+[0;32mI (15806) PROBE: CSI callback ENTERED #97, len=256, rssi=-55[0m
+[0;33mW (15806) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15806) PROBE: publish #97 => -1 (FAILED)[0m
+[0;32mI (15816) PROBE: CSI callback ENTERED #98, len=256, rssi=-54[0m
+[0;33mW (15826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15826) PROBE: publish #98 => -1 (FAILED)[0m
+[0;32mI (15836) PROBE: CSI callback ENTERED #99, len=256, rssi=-55[0m
+[0;33mW (15836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15846) PROBE: publish #99 => -1 (FAILED)[0m
+[0;32mI (15856) PROBE: CSI callback ENTERED #100, len=256, rssi=-55[0m
+[0;32mI (15856) CSI: cb fired 100 times, len=256, rssi=-55[0m
+[0;33mW (15866) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15866) PROBE: publish #100 => -1 (FAILED)[0m
+[0;32mI (15936) PROBE: CSI callback ENTERED #101, len=256, rssi=-54[0m
+[0;33mW (15936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15936) PROBE: publish #101 => -1 (FAILED)[0m
+[0;32mI (15956) PROBE: CSI callback ENTERED #102, len=256, rssi=-54[0m
+[0;33mW (15956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15956) PROBE: publish #102 => -1 (FAILED)[0m
+[0;32mI (15966) PROBE: CSI callback ENTERED #103, len=256, rssi=-55[0m
+[0;33mW (15976) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (15976) PROBE: publish #103 => -1 (FAILED)[0m
+[0;32mI (16016) PROBE: CSI callback ENTERED #104, len=256, rssi=-55[0m
+[0;33mW (16016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16016) PROBE: publish #104 => -1 (FAILED)[0m
+[0;32mI (16026) PROBE: CSI callback ENTERED #105, len=256, rssi=-55[0m
+[0;33mW (16036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16036) PROBE: publish #105 => -1 (FAILED)[0m
+[0;32mI (16056) PROBE: CSI callback ENTERED #106, len=256, rssi=-54[0m
+[0;33mW (16056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16056) PROBE: publish #106 => -1 (FAILED)[0m
+[0;32mI (16066) PROBE: CSI callback ENTERED #107, len=256, rssi=-55[0m
+[0;33mW (16076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16076) PROBE: publish #107 => -1 (FAILED)[0m
+[0;32mI (16086) PROBE: CSI callback ENTERED #108, len=256, rssi=-56[0m
+[0;33mW (16086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16096) PROBE: publish #108 => -1 (FAILED)[0m
+[0;32mI (16126) PROBE: CSI callback ENTERED #109, len=256, rssi=-54[0m
+[0;33mW (16136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16136) PROBE: publish #109 => -1 (FAILED)[0m
+[0;32mI (16146) PROBE: CSI callback ENTERED #110, len=256, rssi=-55[0m
+[0;33mW (16156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16156) PROBE: publish #110 => -1 (FAILED)[0m
+[0;32mI (16166) PROBE: CSI callback ENTERED #111, len=256, rssi=-55[0m
+[0;33mW (16166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16176) PROBE: publish #111 => -1 (FAILED)[0m
+[0;32mI (16186) PROBE: CSI callback ENTERED #112, len=256, rssi=-55[0m
+[0;33mW (16186) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16196) PROBE: publish #112 => -1 (FAILED)[0m
+[0;32mI (16226) PROBE: CSI callback ENTERED #113, len=256, rssi=-54[0m
+[0;33mW (16226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16226) PROBE: publish #113 => -1 (FAILED)[0m
+[0;32mI (16246) PROBE: CSI callback ENTERED #114, len=256, rssi=-54[0m
+[0;33mW (16246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16246) PROBE: publish #114 => -1 (FAILED)[0m
+[0;32mI (16266) PROBE: CSI callback ENTERED #115, len=256, rssi=-55[0m
+[0;33mW (16266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16266) PROBE: publish #115 => -1 (FAILED)[0m
+[0;32mI (16296) PROBE: CSI callback ENTERED #116, len=256, rssi=-54[0m
+[0;33mW (16306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16306) PROBE: publish #116 => -1 (FAILED)[0m
+[0;32mI (16326) PROBE: CSI callback ENTERED #117, len=256, rssi=-54[0m
+[0;33mW (16336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16336) PROBE: publish #117 => -1 (FAILED)[0m
+[0;32mI (16346) PROBE: CSI callback ENTERED #118, len=256, rssi=-54[0m
+[0;33mW (16346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16346) PROBE: publish #118 => -1 (FAILED)[0m
+[0;32mI (16356) PROBE: CSI callback ENTERED #119, len=256, rssi=-55[0m
+[0;33mW (16366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16366) PROBE: publish #119 => -1 (FAILED)[0m
+[0;32mI (16376) PROBE: CSI callback ENTERED #120, len=256, rssi=-55[0m
+[0;33mW (16386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16386) PROBE: publish #120 => -1 (FAILED)[0m
+[0;32mI (16406) PROBE: CSI callback ENTERED #121, len=256, rssi=-55[0m
+[0;33mW (16416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16416) PROBE: publish #121 => -1 (FAILED)[0m
+[0;32mI (16426) PROBE: CSI callback ENTERED #122, len=256, rssi=-55[0m
+[0;33mW (16426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16436) PROBE: publish #122 => -1 (FAILED)[0m
+[0;32mI (16446) PROBE: CSI callback ENTERED #123, len=256, rssi=-55[0m
+[0;33mW (16456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16456) PROBE: publish #123 => -1 (FAILED)[0m
+[0;32mI (16466) PROBE: CSI callback ENTERED #124, len=256, rssi=-55[0m
+[0;33mW (16466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16476) PROBE: publish #124 => -1 (FAILED)[0m
+[0;32mI (16486) PROBE: CSI callback ENTERED #125, len=256, rssi=-55[0m
+[0;33mW (16486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16496) PROBE: publish #125 => -1 (FAILED)[0m
+[0;32mI (16506) PROBE: CSI callback ENTERED #126, len=256, rssi=-55[0m
+[0;33mW (16506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (16506) PROBE: publish #126 => -1 (FAILED)[0m
+[0;32mI (17526) PROBE: CSI callback ENTERED #127, len=256, rssi=-55[0m
+[0;33mW (17526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17526) PROBE: publish #127 => -1 (FAILED)[0m
+[0;32mI (17856) PROBE: CSI callback ENTERED #128, len=256, rssi=-55[0m
+[0;33mW (17856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17856) PROBE: publish #128 => -1 (FAILED)[0m
+[0;32mI (17866) PROBE: CSI callback ENTERED #129, len=256, rssi=-55[0m
+[0;33mW (17866) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17876) PROBE: publish #129 => -1 (FAILED)[0m
+[0;32mI (17886) PROBE: CSI callback ENTERED #130, len=256, rssi=-56[0m
+[0;33mW (17886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17896) PROBE: publish #130 => -1 (FAILED)[0m
+[0;32mI (17906) PROBE: CSI callback ENTERED #131, len=256, rssi=-56[0m
+[0;33mW (17906) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17916) PROBE: publish #131 => -1 (FAILED)[0m
+[0;32mI (17926) PROBE: CSI callback ENTERED #132, len=256, rssi=-56[0m
+[0;33mW (17926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17936) PROBE: publish #132 => -1 (FAILED)[0m
+[0;32mI (17946) PROBE: CSI callback ENTERED #133, len=256, rssi=-56[0m
+[0;33mW (17946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17956) PROBE: publish #133 => -1 (FAILED)[0m
+[0;32mI (17966) PROBE: CSI callback ENTERED #134, len=256, rssi=-56[0m
+[0;33mW (17966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17976) PROBE: publish #134 => -1 (FAILED)[0m
+[0;32mI (17976) PROBE: CSI callback ENTERED #135, len=256, rssi=-56[0m
+[0;33mW (17986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (17986) PROBE: publish #135 => -1 (FAILED)[0m
+[0;32mI (18006) PROBE: CSI callback ENTERED #136, len=256, rssi=-57[0m
+[0;31mE (23006) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (23006) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (23006) mqtt_client: Error transport connect[0m
+[0;31mE (23006) MQTT: ERROR type=1[0m
+[0;33mW (23006) MQTT: DISCONNECTED from broker[0m
+[0;33mW (23016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23026) PROBE: publish #136 => -1 (FAILED)[0m
+[0;32mI (23026) PROBE: CSI callback ENTERED #137, len=256, rssi=-56[0m
+[0;33mW (23036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23046) PROBE: publish #137 => -1 (FAILED)[0m
+[0;32mI (23056) PROBE: CSI callback ENTERED #138, len=256, rssi=-56[0m
+[0;33mW (23056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23066) PROBE: publish #138 => -1 (FAILED)[0m
+[0;32mI (23076) PROBE: CSI callback ENTERED #139, len=256, rssi=-55[0m
+[0;33mW (23086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23086) PROBE: publish #139 => -1 (FAILED)[0m
+[0;32mI (23086) PROBE: CSI callback ENTERED #140, len=256, rssi=-54[0m
+[0;33mW (23096) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23106) PROBE: publish #140 => -1 (FAILED)[0m
+[0;32mI (23106) PROBE: CSI callback ENTERED #141, len=256, rssi=-55[0m
+[0;33mW (23116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23126) PROBE: publish #141 => -1 (FAILED)[0m
+[0;32mI (23126) PROBE: CSI callback ENTERED #142, len=256, rssi=-54[0m
+[0;33mW (23136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23136) PROBE: publish #142 => -1 (FAILED)[0m
+[0;32mI (23146) PROBE: CSI callback ENTERED #143, len=256, rssi=-54[0m
+[0;33mW (23156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23156) PROBE: publish #143 => -1 (FAILED)[0m
+[0;32mI (23166) PROBE: CSI callback ENTERED #144, len=256, rssi=-54[0m
+[0;33mW (23176) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23176) PROBE: publish #144 => -1 (FAILED)[0m
+[0;32mI (23206) PROBE: CSI callback ENTERED #145, len=256, rssi=-54[0m
+[0;33mW (23206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23206) PROBE: publish #145 => -1 (FAILED)[0m
+[0;32mI (23216) PROBE: CSI callback ENTERED #146, len=256, rssi=-54[0m
+[0;33mW (23226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23226) PROBE: publish #146 => -1 (FAILED)[0m
+[0;32mI (23236) PROBE: CSI callback ENTERED #147, len=256, rssi=-54[0m
+[0;33mW (23246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23246) PROBE: publish #147 => -1 (FAILED)[0m
+[0;32mI (23256) PROBE: CSI callback ENTERED #148, len=256, rssi=-55[0m
+[0;33mW (23266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23266) PROBE: publish #148 => -1 (FAILED)[0m
+[0;32mI (23276) PROBE: CSI callback ENTERED #149, len=256, rssi=-56[0m
+[0;33mW (23286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23286) PROBE: publish #149 => -1 (FAILED)[0m
+[0;32mI (23296) PROBE: CSI callback ENTERED #150, len=256, rssi=-54[0m
+[0;32mI (23296) CSI: cb fired 150 times, len=256, rssi=-54[0m
+[0;33mW (23306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23306) PROBE: publish #150 => -1 (FAILED)[0m
+[0;32mI (23316) PROBE: CSI callback ENTERED #151, len=256, rssi=-54[0m
+[0;33mW (23326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23326) PROBE: publish #151 => -1 (FAILED)[0m
+[0;32mI (23336) PROBE: CSI callback ENTERED #152, len=256, rssi=-56[0m
+[0;33mW (23346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23346) PROBE: publish #152 => -1 (FAILED)[0m
+[0;32mI (23366) PROBE: CSI callback ENTERED #153, len=256, rssi=-55[0m
+[0;33mW (23366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23366) PROBE: publish #153 => -1 (FAILED)[0m
+[0;32mI (23396) PROBE: CSI callback ENTERED #154, len=256, rssi=-54[0m
+[0;33mW (23406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23406) PROBE: publish #154 => -1 (FAILED)[0m
+[0;32mI (23416) PROBE: CSI callback ENTERED #155, len=256, rssi=-54[0m
+[0;33mW (23416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23426) PROBE: publish #155 => -1 (FAILED)[0m
+[0;32mI (23426) PROBE: CSI callback ENTERED #156, len=256, rssi=-54[0m
+[0;33mW (23436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23446) PROBE: publish #156 => -1 (FAILED)[0m
+[0;32mI (23456) PROBE: CSI callback ENTERED #157, len=256, rssi=-54[0m
+[0;33mW (23456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23456) PROBE: publish #157 => -1 (FAILED)[0m
+[0;32mI (23486) PROBE: CSI callback ENTERED #158, len=256, rssi=-55[0m
+[0;33mW (23486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23486) PROBE: publish #158 => -1 (FAILED)[0m
+[0;32mI (23496) PROBE: CSI callback ENTERED #159, len=256, rssi=-55[0m
+[0;33mW (23496) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23506) PROBE: publish #159 => -1 (FAILED)[0m
+[0;32mI (23516) PROBE: CSI callback ENTERED #160, len=256, rssi=-56[0m
+[0;33mW (23516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23526) PROBE: publish #160 => -1 (FAILED)[0m
+[0;32mI (23536) PROBE: CSI callback ENTERED #161, len=256, rssi=-55[0m
+[0;33mW (23536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23546) PROBE: publish #161 => -1 (FAILED)[0m
+[0;32mI (23556) PROBE: CSI callback ENTERED #162, len=256, rssi=-54[0m
+[0;33mW (23556) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23566) PROBE: publish #162 => -1 (FAILED)[0m
+[0;32mI (23576) PROBE: CSI callback ENTERED #163, len=256, rssi=-54[0m
+[0;33mW (23586) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23586) PROBE: publish #163 => -1 (FAILED)[0m
+[0;32mI (23596) PROBE: CSI callback ENTERED #164, len=256, rssi=-55[0m
+[0;33mW (23606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23606) PROBE: publish #164 => -1 (FAILED)[0m
+[0;32mI (23616) PROBE: CSI callback ENTERED #165, len=256, rssi=-55[0m
+[0;33mW (23616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23626) PROBE: publish #165 => -1 (FAILED)[0m
+[0;32mI (23626) PROBE: CSI callback ENTERED #166, len=256, rssi=-54[0m
+[0;33mW (23636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23636) PROBE: publish #166 => -1 (FAILED)[0m
+[0;32mI (23646) PROBE: CSI callback ENTERED #167, len=256, rssi=-55[0m
+[0;33mW (23656) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23656) PROBE: publish #167 => -1 (FAILED)[0m
+[0;32mI (23686) PROBE: CSI callback ENTERED #168, len=256, rssi=-55[0m
+[0;33mW (23686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23686) PROBE: publish #168 => -1 (FAILED)[0m
+[0;32mI (23696) PROBE: CSI callback ENTERED #169, len=256, rssi=-55[0m
+[0;33mW (23696) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23706) PROBE: publish #169 => -1 (FAILED)[0m
+[0;32mI (23726) PROBE: CSI callback ENTERED #170, len=256, rssi=-55[0m
+[0;33mW (23726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23726) PROBE: publish #170 => -1 (FAILED)[0m
+[0;32mI (23736) PROBE: CSI callback ENTERED #171, len=256, rssi=-55[0m
+[0;33mW (23746) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23746) PROBE: publish #171 => -1 (FAILED)[0m
+[0;32mI (23756) PROBE: CSI callback ENTERED #172, len=256, rssi=-55[0m
+[0;33mW (23766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23766) PROBE: publish #172 => -1 (FAILED)[0m
+[0;32mI (23776) PROBE: CSI callback ENTERED #173, len=256, rssi=-55[0m
+[0;33mW (23786) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23786) PROBE: publish #173 => -1 (FAILED)[0m
+[0;32mI (23806) PROBE: CSI callback ENTERED #174, len=256, rssi=-56[0m
+[0;33mW (23806) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23806) PROBE: publish #174 => -1 (FAILED)[0m
+[0;32mI (23816) PROBE: CSI callback ENTERED #175, len=256, rssi=-55[0m
+[0;33mW (23826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23826) PROBE: publish #175 => -1 (FAILED)[0m
+[0;32mI (23836) PROBE: CSI callback ENTERED #176, len=256, rssi=-55[0m
+[0;33mW (23836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23846) PROBE: publish #176 => -1 (FAILED)[0m
+[0;32mI (23856) PROBE: CSI callback ENTERED #177, len=256, rssi=-55[0m
+[0;33mW (23856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23866) PROBE: publish #177 => -1 (FAILED)[0m
+[0;32mI (23886) PROBE: CSI callback ENTERED #178, len=256, rssi=-55[0m
+[0;33mW (23886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23886) PROBE: publish #178 => -1 (FAILED)[0m
+[0;32mI (23906) PROBE: CSI callback ENTERED #179, len=256, rssi=-54[0m
+[0;33mW (23906) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23906) PROBE: publish #179 => -1 (FAILED)[0m
+[0;32mI (23916) PROBE: CSI callback ENTERED #180, len=256, rssi=-54[0m
+[0;33mW (23926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23926) PROBE: publish #180 => -1 (FAILED)[0m
+[0;32mI (23936) PROBE: CSI callback ENTERED #181, len=256, rssi=-54[0m
+[0;33mW (23946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23946) PROBE: publish #181 => -1 (FAILED)[0m
+[0;32mI (23956) PROBE: CSI callback ENTERED #182, len=256, rssi=-56[0m
+[0;33mW (23956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23966) PROBE: publish #182 => -1 (FAILED)[0m
+[0;32mI (23976) PROBE: CSI callback ENTERED #183, len=256, rssi=-55[0m
+[0;33mW (23986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (23986) PROBE: publish #183 => -1 (FAILED)[0m
+[0;32mI (23996) PROBE: CSI callback ENTERED #184, len=256, rssi=-55[0m
+[0;33mW (23996) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24006) PROBE: publish #184 => -1 (FAILED)[0m
+[0;32mI (24016) PROBE: CSI callback ENTERED #185, len=256, rssi=-55[0m
+[0;33mW (24026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24026) PROBE: publish #185 => -1 (FAILED)[0m
+[0;32mI (24036) PROBE: CSI callback ENTERED #186, len=256, rssi=-55[0m
+[0;33mW (24036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24046) PROBE: publish #186 => -1 (FAILED)[0m
+[0;32mI (24056) PROBE: CSI callback ENTERED #187, len=256, rssi=-55[0m
+[0;33mW (24056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24066) PROBE: publish #187 => -1 (FAILED)[0m
+[0;32mI (24086) PROBE: CSI callback ENTERED #188, len=256, rssi=-56[0m
+[0;33mW (24086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24086) PROBE: publish #188 => -1 (FAILED)[0m
+[0;32mI (24096) PROBE: CSI callback ENTERED #189, len=256, rssi=-55[0m
+[0;33mW (24106) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24106) PROBE: publish #189 => -1 (FAILED)[0m
+[0;32mI (24106) PROBE: CSI callback ENTERED #190, len=128, rssi=-60[0m
+[0;33mW (24116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24126) PROBE: publish #190 => -1 (FAILED)[0m
+[0;32mI (24136) PROBE: CSI callback ENTERED #191, len=256, rssi=-55[0m
+[0;33mW (24136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24146) PROBE: publish #191 => -1 (FAILED)[0m
+[0;32mI (24146) PROBE: CSI callback ENTERED #192, len=256, rssi=-55[0m
+[0;33mW (24156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24156) PROBE: publish #192 => -1 (FAILED)[0m
+[0;32mI (24166) PROBE: CSI callback ENTERED #193, len=256, rssi=-55[0m
+[0;33mW (24176) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24176) PROBE: publish #193 => -1 (FAILED)[0m
+[0;32mI (24196) PROBE: CSI callback ENTERED #194, len=256, rssi=-55[0m
+[0;33mW (24206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24206) PROBE: publish #194 => -1 (FAILED)[0m
+[0;32mI (24216) PROBE: CSI callback ENTERED #195, len=256, rssi=-55[0m
+[0;33mW (24226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24226) PROBE: publish #195 => -1 (FAILED)[0m
+[0;32mI (24236) PROBE: CSI callback ENTERED #196, len=256, rssi=-55[0m
+[0;33mW (24236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24246) PROBE: publish #196 => -1 (FAILED)[0m
+[0;32mI (24256) PROBE: CSI callback ENTERED #197, len=256, rssi=-55[0m
+[0;33mW (24256) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24266) PROBE: publish #197 => -1 (FAILED)[0m
+[0;32mI (24286) PROBE: CSI callback ENTERED #198, len=256, rssi=-55[0m
+[0;33mW (24286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24286) PROBE: publish #198 => -1 (FAILED)[0m
+[0;32mI (24296) PROBE: CSI callback ENTERED #199, len=256, rssi=-55[0m
+[0;33mW (24306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24306) PROBE: publish #199 => -1 (FAILED)[0m
+[0;32mI (24316) PROBE: CSI callback ENTERED #200, len=256, rssi=-55[0m
+[0;32mI (24316) CSI: cb fired 200 times, len=256, rssi=-55[0m
+[0;33mW (24326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24326) PROBE: publish #200 => -1 (FAILED)[0m
+[0;32mI (24336) PROBE: CSI callback ENTERED #201, len=256, rssi=-54[0m
+[0;33mW (24346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24346) PROBE: publish #201 => -1 (FAILED)[0m
+[0;32mI (24356) PROBE: CSI callback ENTERED #202, len=256, rssi=-55[0m
+[0;33mW (24366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24366) PROBE: publish #202 => -1 (FAILED)[0m
+[0;32mI (24376) PROBE: CSI callback ENTERED #203, len=256, rssi=-54[0m
+[0;33mW (24386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24386) PROBE: publish #203 => -1 (FAILED)[0m
+[0;32mI (24406) PROBE: CSI callback ENTERED #204, len=256, rssi=-54[0m
+[0;33mW (24406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24406) PROBE: publish #204 => -1 (FAILED)[0m
+[0;32mI (24416) PROBE: CSI callback ENTERED #205, len=256, rssi=-54[0m
+[0;33mW (24426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24426) PROBE: publish #205 => -1 (FAILED)[0m
+[0;32mI (24436) PROBE: CSI callback ENTERED #206, len=256, rssi=-54[0m
+[0;33mW (24446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24446) PROBE: publish #206 => -1 (FAILED)[0m
+[0;32mI (24456) PROBE: CSI callback ENTERED #207, len=256, rssi=-54[0m
+[0;33mW (24466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24466) PROBE: publish #207 => -1 (FAILED)[0m
+[0;32mI (24476) PROBE: CSI callback ENTERED #208, len=256, rssi=-54[0m
+[0;33mW (24476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24486) PROBE: publish #208 => -1 (FAILED)[0m
+[0;32mI (24496) PROBE: CSI callback ENTERED #209, len=256, rssi=-54[0m
+[0;33mW (24506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24506) PROBE: publish #209 => -1 (FAILED)[0m
+[0;32mI (24526) PROBE: CSI callback ENTERED #210, len=256, rssi=-55[0m
+[0;33mW (24526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24526) PROBE: publish #210 => -1 (FAILED)[0m
+[0;32mI (24536) PROBE: CSI callback ENTERED #211, len=256, rssi=-54[0m
+[0;33mW (24536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24546) PROBE: publish #211 => -1 (FAILED)[0m
+[0;32mI (24556) PROBE: CSI callback ENTERED #212, len=256, rssi=-55[0m
+[0;33mW (24556) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24566) PROBE: publish #212 => -1 (FAILED)[0m
+[0;32mI (24576) PROBE: CSI callback ENTERED #213, len=256, rssi=-56[0m
+[0;33mW (24576) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24586) PROBE: publish #213 => -1 (FAILED)[0m
+[0;32mI (24606) PROBE: CSI callback ENTERED #214, len=256, rssi=-57[0m
+[0;33mW (24606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24606) PROBE: publish #214 => -1 (FAILED)[0m
+[0;32mI (24616) PROBE: CSI callback ENTERED #215, len=256, rssi=-56[0m
+[0;33mW (24616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24626) PROBE: publish #215 => -1 (FAILED)[0m
+[0;32mI (24646) PROBE: CSI callback ENTERED #216, len=256, rssi=-55[0m
+[0;33mW (24646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24656) PROBE: publish #216 => -1 (FAILED)[0m
+[0;32mI (24656) PROBE: CSI callback ENTERED #217, len=256, rssi=-57[0m
+[0;33mW (24666) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24666) PROBE: publish #217 => -1 (FAILED)[0m
+[0;32mI (24676) PROBE: CSI callback ENTERED #218, len=256, rssi=-56[0m
+[0;33mW (24686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24686) PROBE: publish #218 => -1 (FAILED)[0m
+[0;32mI (24756) PROBE: CSI callback ENTERED #219, len=256, rssi=-55[0m
+[0;33mW (24756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24756) PROBE: publish #219 => -1 (FAILED)[0m
+[0;32mI (24766) PROBE: CSI callback ENTERED #220, len=256, rssi=-57[0m
+[0;33mW (24776) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24776) PROBE: publish #220 => -1 (FAILED)[0m
+[0;32mI (24826) PROBE: CSI callback ENTERED #221, len=256, rssi=-56[0m
+[0;33mW (24826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24826) PROBE: publish #221 => -1 (FAILED)[0m
+[0;32mI (24836) PROBE: CSI callback ENTERED #222, len=256, rssi=-57[0m
+[0;33mW (24836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24846) PROBE: publish #222 => -1 (FAILED)[0m
+[0;32mI (24846) PROBE: CSI callback ENTERED #223, len=128, rssi=-59[0m
+[0;33mW (24856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24866) PROBE: publish #223 => -1 (FAILED)[0m
+[0;32mI (24876) PROBE: CSI callback ENTERED #224, len=256, rssi=-56[0m
+[0;33mW (24886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24886) PROBE: publish #224 => -1 (FAILED)[0m
+[0;32mI (24896) PROBE: CSI callback ENTERED #225, len=256, rssi=-56[0m
+[0;33mW (24906) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24906) PROBE: publish #225 => -1 (FAILED)[0m
+[0;32mI (24926) PROBE: CSI callback ENTERED #226, len=256, rssi=-55[0m
+[0;33mW (24926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24926) PROBE: publish #226 => -1 (FAILED)[0m
+[0;32mI (24956) PROBE: CSI callback ENTERED #227, len=256, rssi=-55[0m
+[0;33mW (24956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24956) PROBE: publish #227 => -1 (FAILED)[0m
+[0;32mI (24966) PROBE: CSI callback ENTERED #228, len=256, rssi=-55[0m
+[0;33mW (24966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24976) PROBE: publish #228 => -1 (FAILED)[0m
+[0;32mI (24986) PROBE: CSI callback ENTERED #229, len=256, rssi=-55[0m
+[0;33mW (24986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (24996) PROBE: publish #229 => -1 (FAILED)[0m
+[0;32mI (25026) PROBE: CSI callback ENTERED #230, len=256, rssi=-54[0m
+[0;33mW (25026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25036) PROBE: publish #230 => -1 (FAILED)[0m
+[0;32mI (25126) PROBE: CSI callback ENTERED #231, len=256, rssi=-54[0m
+[0;33mW (25126) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25126) PROBE: publish #231 => -1 (FAILED)[0m
+[0;32mI (25226) PROBE: CSI callback ENTERED #232, len=256, rssi=-54[0m
+[0;33mW (25226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25226) PROBE: publish #232 => -1 (FAILED)[0m
+[0;32mI (25326) PROBE: CSI callback ENTERED #233, len=256, rssi=-54[0m
+[0;33mW (25326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25336) PROBE: publish #233 => -1 (FAILED)[0m
+[0;32mI (25426) PROBE: CSI callback ENTERED #234, len=256, rssi=-54[0m
+[0;33mW (25426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25426) PROBE: publish #234 => -1 (FAILED)[0m
+[0;32mI (25526) PROBE: CSI callback ENTERED #235, len=256, rssi=-54[0m
+[0;33mW (25526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25526) PROBE: publish #235 => -1 (FAILED)[0m
+[0;32mI (25636) PROBE: CSI callback ENTERED #236, len=256, rssi=-54[0m
+[0;33mW (25636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25636) PROBE: publish #236 => -1 (FAILED)[0m
+[0;32mI (25726) PROBE: CSI callback ENTERED #237, len=256, rssi=-55[0m
+[0;33mW (25736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25736) PROBE: publish #237 => -1 (FAILED)[0m
+[0;32mI (25826) PROBE: CSI callback ENTERED #238, len=128, rssi=-61[0m
+[0;33mW (25826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (25826) PROBE: publish #238 => -1 (FAILED)[0m
+[0;32mI (26056) PROBE: CSI callback ENTERED #239, len=256, rssi=-55[0m
+[0;31mE (31036) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (31036) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (31036) mqtt_client: Error transport connect[0m
+[0;31mE (31036) MQTT: ERROR type=1[0m
+[0;33mW (31036) MQTT: DISCONNECTED from broker[0m
+[0;33mW (31046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31056) PROBE: publish #239 => -1 (FAILED)[0m
+[0;32mI (31076) PROBE: CSI callback ENTERED #240, len=256, rssi=-53[0m
+[0;33mW (31076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31076) PROBE: publish #240 => -1 (FAILED)[0m
+[0;32mI (31086) PROBE: CSI callback ENTERED #241, len=256, rssi=-53[0m
+[0;33mW (31096) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31096) PROBE: publish #241 => -1 (FAILED)[0m
+[0;32mI (31106) PROBE: CSI callback ENTERED #242, len=256, rssi=-53[0m
+[0;33mW (31116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31116) PROBE: publish #242 => -1 (FAILED)[0m
+[0;32mI (31136) PROBE: CSI callback ENTERED #243, len=256, rssi=-54[0m
+[0;33mW (31136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31136) PROBE: publish #243 => -1 (FAILED)[0m
+[0;32mI (31146) PROBE: CSI callback ENTERED #244, len=256, rssi=-54[0m
+[0;33mW (31156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31156) PROBE: publish #244 => -1 (FAILED)[0m
+[0;32mI (31166) PROBE: CSI callback ENTERED #245, len=256, rssi=-54[0m
+[0;33mW (31166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31176) PROBE: publish #245 => -1 (FAILED)[0m
+[0;32mI (31216) PROBE: CSI callback ENTERED #246, len=256, rssi=-53[0m
+[0;33mW (31226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31226) PROBE: publish #246 => -1 (FAILED)[0m
+[0;32mI (31236) PROBE: CSI callback ENTERED #247, len=256, rssi=-53[0m
+[0;33mW (31236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31246) PROBE: publish #247 => -1 (FAILED)[0m
+[0;32mI (31246) PROBE: CSI callback ENTERED #248, len=256, rssi=-54[0m
+[0;33mW (31256) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31256) PROBE: publish #248 => -1 (FAILED)[0m
+[0;32mI (31276) PROBE: CSI callback ENTERED #249, len=256, rssi=-54[0m
+[0;33mW (31276) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31286) PROBE: publish #249 => -1 (FAILED)[0m
+[0;32mI (31286) PROBE: CSI callback ENTERED #250, len=256, rssi=-53[0m
+[0;32mI (31296) CSI: cb fired 250 times, len=256, rssi=-53[0m
+[0;33mW (31296) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31306) PROBE: publish #250 => -1 (FAILED)[0m
+[0;32mI (31316) PROBE: CSI callback ENTERED #251, len=256, rssi=-53[0m
+[0;33mW (31316) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31326) PROBE: publish #251 => -1 (FAILED)[0m
+[0;32mI (31336) PROBE: CSI callback ENTERED #252, len=256, rssi=-53[0m
+[0;33mW (31336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31346) PROBE: publish #252 => -1 (FAILED)[0m
+[0;32mI (31356) PROBE: CSI callback ENTERED #253, len=256, rssi=-54[0m
+[0;33mW (31356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31366) PROBE: publish #253 => -1 (FAILED)[0m
+[0;32mI (31376) PROBE: CSI callback ENTERED #254, len=256, rssi=-53[0m
+[0;33mW (31376) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31386) PROBE: publish #254 => -1 (FAILED)[0m
+[0;32mI (31396) PROBE: CSI callback ENTERED #255, len=256, rssi=-54[0m
+[0;33mW (31396) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31396) PROBE: publish #255 => -1 (FAILED)[0m
+[0;32mI (31416) PROBE: CSI callback ENTERED #256, len=256, rssi=-54[0m
+[0;33mW (31416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31416) PROBE: publish #256 => -1 (FAILED)[0m
+[0;32mI (31436) PROBE: CSI callback ENTERED #257, len=256, rssi=-54[0m
+[0;33mW (31436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31436) PROBE: publish #257 => -1 (FAILED)[0m
+[0;32mI (31446) PROBE: CSI callback ENTERED #258, len=256, rssi=-54[0m
+[0;33mW (31456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31456) PROBE: publish #258 => -1 (FAILED)[0m
+[0;32mI (31476) PROBE: CSI callback ENTERED #259, len=256, rssi=-55[0m
+[0;33mW (31476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31476) PROBE: publish #259 => -1 (FAILED)[0m
+[0;32mI (31486) PROBE: CSI callback ENTERED #260, len=256, rssi=-55[0m
+[0;33mW (31496) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31496) PROBE: publish #260 => -1 (FAILED)[0m
+[0;32mI (31516) PROBE: CSI callback ENTERED #261, len=256, rssi=-54[0m
+[0;33mW (31516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31516) PROBE: publish #261 => -1 (FAILED)[0m
+[0;32mI (31536) PROBE: CSI callback ENTERED #262, len=256, rssi=-54[0m
+[0;33mW (31536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31536) PROBE: publish #262 => -1 (FAILED)[0m
+[0;32mI (31556) PROBE: CSI callback ENTERED #263, len=256, rssi=-55[0m
+[0;33mW (31556) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31556) PROBE: publish #263 => -1 (FAILED)[0m
+[0;32mI (31566) PROBE: CSI callback ENTERED #264, len=256, rssi=-54[0m
+[0;33mW (31576) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31576) PROBE: publish #264 => -1 (FAILED)[0m
+[0;32mI (31606) PROBE: CSI callback ENTERED #265, len=256, rssi=-54[0m
+[0;33mW (31606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31606) PROBE: publish #265 => -1 (FAILED)[0m
+[0;32mI (31616) PROBE: CSI callback ENTERED #266, len=256, rssi=-55[0m
+[0;33mW (31616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31626) PROBE: publish #266 => -1 (FAILED)[0m
+[0;32mI (31636) PROBE: CSI callback ENTERED #267, len=256, rssi=-55[0m
+[0;33mW (31636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31646) PROBE: publish #267 => -1 (FAILED)[0m
+[0;32mI (31656) PROBE: CSI callback ENTERED #268, len=256, rssi=-55[0m
+[0;33mW (31656) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31666) PROBE: publish #268 => -1 (FAILED)[0m
+[0;32mI (31666) PROBE: CSI callback ENTERED #269, len=256, rssi=-54[0m
+[0;33mW (31676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31676) PROBE: publish #269 => -1 (FAILED)[0m
+[0;32mI (31696) PROBE: CSI callback ENTERED #270, len=256, rssi=-54[0m
+[0;33mW (31696) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31696) PROBE: publish #270 => -1 (FAILED)[0m
+[0;32mI (31716) PROBE: CSI callback ENTERED #271, len=256, rssi=-54[0m
+[0;33mW (31716) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31716) PROBE: publish #271 => -1 (FAILED)[0m
+[0;32mI (31746) PROBE: CSI callback ENTERED #272, len=256, rssi=-54[0m
+[0;33mW (31746) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31746) PROBE: publish #272 => -1 (FAILED)[0m
+[0;32mI (31756) PROBE: CSI callback ENTERED #273, len=256, rssi=-54[0m
+[0;33mW (31766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31766) PROBE: publish #273 => -1 (FAILED)[0m
+[0;32mI (31806) PROBE: CSI callback ENTERED #274, len=256, rssi=-54[0m
+[0;33mW (31806) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31806) PROBE: publish #274 => -1 (FAILED)[0m
+[0;32mI (31816) PROBE: CSI callback ENTERED #275, len=256, rssi=-54[0m
+[0;33mW (31816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31826) PROBE: publish #275 => -1 (FAILED)[0m
+[0;32mI (31836) PROBE: CSI callback ENTERED #276, len=256, rssi=-54[0m
+[0;33mW (31836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31846) PROBE: publish #276 => -1 (FAILED)[0m
+[0;32mI (31856) PROBE: CSI callback ENTERED #277, len=256, rssi=-55[0m
+[0;33mW (31856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31866) PROBE: publish #277 => -1 (FAILED)[0m
+[0;32mI (31876) PROBE: CSI callback ENTERED #278, len=256, rssi=-54[0m
+[0;33mW (31876) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31886) PROBE: publish #278 => -1 (FAILED)[0m
+[0;32mI (31886) PROBE: CSI callback ENTERED #279, len=256, rssi=-54[0m
+[0;33mW (31896) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31896) PROBE: publish #279 => -1 (FAILED)[0m
+[0;32mI (31916) PROBE: CSI callback ENTERED #280, len=256, rssi=-54[0m
+[0;33mW (31916) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31916) PROBE: publish #280 => -1 (FAILED)[0m
+[0;32mI (31926) PROBE: CSI callback ENTERED #281, len=256, rssi=-54[0m
+[0;33mW (31936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31936) PROBE: publish #281 => -1 (FAILED)[0m
+[0;32mI (31946) PROBE: CSI callback ENTERED #282, len=256, rssi=-54[0m
+[0;33mW (31956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31956) PROBE: publish #282 => -1 (FAILED)[0m
+[0;32mI (31976) PROBE: CSI callback ENTERED #283, len=256, rssi=-54[0m
+[0;33mW (31976) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (31976) PROBE: publish #283 => -1 (FAILED)[0m
+[0;32mI (31996) PROBE: CSI callback ENTERED #284, len=256, rssi=-54[0m
+[0;33mW (32006) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32006) PROBE: publish #284 => -1 (FAILED)[0m
+[0;32mI (32016) PROBE: CSI callback ENTERED #285, len=256, rssi=-54[0m
+[0;33mW (32016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32026) PROBE: publish #285 => -1 (FAILED)[0m
+[0;32mI (32036) PROBE: CSI callback ENTERED #286, len=256, rssi=-55[0m
+[0;33mW (32036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32046) PROBE: publish #286 => -1 (FAILED)[0m
+[0;32mI (32056) PROBE: CSI callback ENTERED #287, len=256, rssi=-54[0m
+[0;33mW (32056) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32056) PROBE: publish #287 => -1 (FAILED)[0m
+[0;32mI (32076) PROBE: CSI callback ENTERED #288, len=256, rssi=-54[0m
+[0;33mW (32086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32086) PROBE: publish #288 => -1 (FAILED)[0m
+[0;32mI (32096) PROBE: CSI callback ENTERED #289, len=256, rssi=-54[0m
+[0;33mW (32096) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32096) PROBE: publish #289 => -1 (FAILED)[0m
+[0;32mI (32116) PROBE: CSI callback ENTERED #290, len=256, rssi=-54[0m
+[0;33mW (32126) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32126) PROBE: publish #290 => -1 (FAILED)[0m
+[0;32mI (32136) PROBE: CSI callback ENTERED #291, len=256, rssi=-55[0m
+[0;33mW (32136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32146) PROBE: publish #291 => -1 (FAILED)[0m
+[0;32mI (32156) PROBE: CSI callback ENTERED #292, len=256, rssi=-54[0m
+[0;33mW (32156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32166) PROBE: publish #292 => -1 (FAILED)[0m
+[0;32mI (32166) PROBE: CSI callback ENTERED #293, len=256, rssi=-54[0m
+[0;33mW (32176) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32176) PROBE: publish #293 => -1 (FAILED)[0m
+[0;32mI (32206) PROBE: CSI callback ENTERED #294, len=256, rssi=-54[0m
+[0;33mW (32206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32206) PROBE: publish #294 => -1 (FAILED)[0m
+[0;32mI (32216) PROBE: CSI callback ENTERED #295, len=256, rssi=-54[0m
+[0;33mW (32226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32226) PROBE: publish #295 => -1 (FAILED)[0m
+[0;32mI (32236) PROBE: CSI callback ENTERED #296, len=256, rssi=-54[0m
+[0;33mW (32236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32246) PROBE: publish #296 => -1 (FAILED)[0m
+[0;32mI (32286) PROBE: CSI callback ENTERED #297, len=256, rssi=-54[0m
+[0;33mW (32286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32286) PROBE: publish #297 => -1 (FAILED)[0m
+[0;32mI (32316) PROBE: CSI callback ENTERED #298, len=256, rssi=-54[0m
+[0;33mW (32326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32326) PROBE: publish #298 => -1 (FAILED)[0m
+[0;32mI (32336) PROBE: CSI callback ENTERED #299, len=256, rssi=-54[0m
+[0;33mW (32336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32346) PROBE: publish #299 => -1 (FAILED)[0m
+[0;32mI (32356) PROBE: CSI callback ENTERED #300, len=256, rssi=-54[0m
+[0;32mI (32356) CSI: cb fired 300 times, len=256, rssi=-54[0m
+[0;33mW (32366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32366) PROBE: publish #300 => -1 (FAILED)[0m
+[0;32mI (32396) PROBE: CSI callback ENTERED #301, len=256, rssi=-54[0m
+[0;33mW (32406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32406) PROBE: publish #301 => -1 (FAILED)[0m
+[0;32mI (32406) PROBE: CSI callback ENTERED #302, len=256, rssi=-54[0m
+[0;33mW (32416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32426) PROBE: publish #302 => -1 (FAILED)[0m
+[0;32mI (32426) PROBE: CSI callback ENTERED #303, len=256, rssi=-54[0m
+[0;33mW (32436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32436) PROBE: publish #303 => -1 (FAILED)[0m
+[0;32mI (32456) PROBE: CSI callback ENTERED #304, len=256, rssi=-55[0m
+[0;33mW (32456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32456) PROBE: publish #304 => -1 (FAILED)[0m
+[0;32mI (32476) PROBE: CSI callback ENTERED #305, len=256, rssi=-54[0m
+[0;33mW (32476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32476) PROBE: publish #305 => -1 (FAILED)[0m
+[0;32mI (32526) PROBE: CSI callback ENTERED #306, len=256, rssi=-54[0m
+[0;33mW (32536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32536) PROBE: publish #306 => -1 (FAILED)[0m
+[0;32mI (32626) PROBE: CSI callback ENTERED #307, len=256, rssi=-55[0m
+[0;33mW (32636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32636) PROBE: publish #307 => -1 (FAILED)[0m
+[0;32mI (32726) PROBE: CSI callback ENTERED #308, len=256, rssi=-54[0m
+[0;33mW (32726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32726) PROBE: publish #308 => -1 (FAILED)[0m
+[0;32mI (32826) PROBE: CSI callback ENTERED #309, len=256, rssi=-54[0m
+[0;33mW (32826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32826) PROBE: publish #309 => -1 (FAILED)[0m
+[0;32mI (32926) PROBE: CSI callback ENTERED #310, len=256, rssi=-55[0m
+[0;33mW (32926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (32926) PROBE: publish #310 => -1 (FAILED)[0m
+[0;32mI (33026) PROBE: CSI callback ENTERED #311, len=256, rssi=-54[0m
+[0;33mW (33026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33026) PROBE: publish #311 => -1 (FAILED)[0m
+[0;32mI (33126) PROBE: CSI callback ENTERED #312, len=256, rssi=-54[0m
+[0;33mW (33126) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33136) PROBE: publish #312 => -1 (FAILED)[0m
+[0;32mI (33226) PROBE: CSI callback ENTERED #313, len=256, rssi=-54[0m
+[0;33mW (33236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33236) PROBE: publish #313 => -1 (FAILED)[0m
+[0;32mI (33326) PROBE: CSI callback ENTERED #314, len=256, rssi=-54[0m
+[0;33mW (33336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33336) PROBE: publish #314 => -1 (FAILED)[0m
+[0;32mI (33426) PROBE: CSI callback ENTERED #315, len=256, rssi=-54[0m
+[0;33mW (33426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33426) PROBE: publish #315 => -1 (FAILED)[0m
+[0;32mI (33526) PROBE: CSI callback ENTERED #316, len=256, rssi=-53[0m
+[0;33mW (33536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33536) PROBE: publish #316 => -1 (FAILED)[0m
+[0;32mI (33646) PROBE: CSI callback ENTERED #317, len=256, rssi=-54[0m
+[0;33mW (33656) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33656) PROBE: publish #317 => -1 (FAILED)[0m
+[0;32mI (33736) PROBE: CSI callback ENTERED #318, len=256, rssi=-54[0m
+[0;33mW (33736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33736) PROBE: publish #318 => -1 (FAILED)[0m
+[0;32mI (33826) PROBE: CSI callback ENTERED #319, len=256, rssi=-54[0m
+[0;33mW (33836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33836) PROBE: publish #319 => -1 (FAILED)[0m
+[0;32mI (33936) PROBE: CSI callback ENTERED #320, len=256, rssi=-54[0m
+[0;33mW (33946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (33946) PROBE: publish #320 => -1 (FAILED)[0m
+[0;32mI (34026) PROBE: CSI callback ENTERED #321, len=256, rssi=-55[0m
+[0;33mW (34026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (34026) PROBE: publish #321 => -1 (FAILED)[0m
+[0;32mI (34056) PROBE: CSI callback ENTERED #322, len=256, rssi=-54[0m
+[0;31mE (39066) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (39066) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (39066) mqtt_client: Error transport connect[0m
+[0;31mE (39066) MQTT: ERROR type=1[0m
+[0;33mW (39066) MQTT: DISCONNECTED from broker[0m
+[0;33mW (39076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39086) PROBE: publish #322 => -1 (FAILED)[0m
+[0;32mI (39116) PROBE: CSI callback ENTERED #323, len=256, rssi=-55[0m
+[0;33mW (39116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39116) PROBE: publish #323 => -1 (FAILED)[0m
+[0;32mI (39126) PROBE: CSI callback ENTERED #324, len=256, rssi=-55[0m
+[0;33mW (39126) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39136) PROBE: publish #324 => -1 (FAILED)[0m
+[0;32mI (39156) PROBE: CSI callback ENTERED #325, len=256, rssi=-55[0m
+[0;33mW (39156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39156) PROBE: publish #325 => -1 (FAILED)[0m
+[0;32mI (39166) PROBE: CSI callback ENTERED #326, len=256, rssi=-55[0m
+[0;33mW (39176) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39176) PROBE: publish #326 => -1 (FAILED)[0m
+[0;32mI (39206) PROBE: CSI callback ENTERED #327, len=256, rssi=-55[0m
+[0;33mW (39206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39206) PROBE: publish #327 => -1 (FAILED)[0m
+[0;32mI (39216) PROBE: CSI callback ENTERED #328, len=256, rssi=-55[0m
+[0;33mW (39226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39226) PROBE: publish #328 => -1 (FAILED)[0m
+[0;32mI (39246) PROBE: CSI callback ENTERED #329, len=256, rssi=-55[0m
+[0;33mW (39246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39256) PROBE: publish #329 => -1 (FAILED)[0m
+[0;32mI (39276) PROBE: CSI callback ENTERED #330, len=256, rssi=-55[0m
+[0;33mW (39286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39286) PROBE: publish #330 => -1 (FAILED)[0m
+[0;32mI (39326) PROBE: CSI callback ENTERED #331, len=256, rssi=-55[0m
+[0;33mW (39326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39326) PROBE: publish #331 => -1 (FAILED)[0m
+[0;32mI (39336) PROBE: CSI callback ENTERED #332, len=256, rssi=-55[0m
+[0;33mW (39346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39346) PROBE: publish #332 => -1 (FAILED)[0m
+[0;32mI (39366) PROBE: CSI callback ENTERED #333, len=256, rssi=-55[0m
+[0;33mW (39376) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39376) PROBE: publish #333 => -1 (FAILED)[0m
+[0;32mI (39406) PROBE: CSI callback ENTERED #334, len=256, rssi=-55[0m
+[0;33mW (39406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39406) PROBE: publish #334 => -1 (FAILED)[0m
+[0;32mI (39426) PROBE: CSI callback ENTERED #335, len=256, rssi=-55[0m
+[0;33mW (39426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39426) PROBE: publish #335 => -1 (FAILED)[0m
+[0;32mI (39456) PROBE: CSI callback ENTERED #336, len=256, rssi=-55[0m
+[0;33mW (39456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39456) PROBE: publish #336 => -1 (FAILED)[0m
+[0;32mI (39456) PROBE: CSI callback ENTERED #337, len=128, rssi=-59[0m
+[0;33mW (39466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39476) PROBE: publish #337 => -1 (FAILED)[0m
+[0;32mI (39496) PROBE: CSI callback ENTERED #338, len=256, rssi=-55[0m
+[0;33mW (39496) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39496) PROBE: publish #338 => -1 (FAILED)[0m
+[0;32mI (39496) PROBE: CSI callback ENTERED #339, len=128, rssi=-59[0m
+[0;33mW (39506) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39516) PROBE: publish #339 => -1 (FAILED)[0m
+[0;32mI (39526) PROBE: CSI callback ENTERED #340, len=256, rssi=-56[0m
+[0;33mW (39526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39536) PROBE: publish #340 => -1 (FAILED)[0m
+[0;32mI (39546) PROBE: CSI callback ENTERED #341, len=256, rssi=-55[0m
+[0;33mW (39546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39556) PROBE: publish #341 => -1 (FAILED)[0m
+[0;32mI (39576) PROBE: CSI callback ENTERED #342, len=256, rssi=-56[0m
+[0;33mW (39576) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39576) PROBE: publish #342 => -1 (FAILED)[0m
+[0;32mI (39596) PROBE: CSI callback ENTERED #343, len=256, rssi=-55[0m
+[0;33mW (39596) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39596) PROBE: publish #343 => -1 (FAILED)[0m
+[0;32mI (39606) PROBE: CSI callback ENTERED #344, len=256, rssi=-56[0m
+[0;33mW (39616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39616) PROBE: publish #344 => -1 (FAILED)[0m
+[0;32mI (39626) PROBE: CSI callback ENTERED #345, len=256, rssi=-56[0m
+[0;33mW (39626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39636) PROBE: publish #345 => -1 (FAILED)[0m
+[0;32mI (39646) PROBE: CSI callback ENTERED #346, len=256, rssi=-56[0m
+[0;33mW (39646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39656) PROBE: publish #346 => -1 (FAILED)[0m
+[0;32mI (39676) PROBE: CSI callback ENTERED #347, len=256, rssi=-56[0m
+[0;33mW (39686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39686) PROBE: publish #347 => -1 (FAILED)[0m
+[0;32mI (39726) PROBE: CSI callback ENTERED #348, len=256, rssi=-56[0m
+[0;33mW (39726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39726) PROBE: publish #348 => -1 (FAILED)[0m
+[0;32mI (39736) PROBE: CSI callback ENTERED #349, len=256, rssi=-56[0m
+[0;33mW (39736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39746) PROBE: publish #349 => -1 (FAILED)[0m
+[0;32mI (39756) PROBE: CSI callback ENTERED #350, len=256, rssi=-56[0m
+[0;32mI (39756) CSI: cb fired 350 times, len=256, rssi=-56[0m
+[0;33mW (39766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39766) PROBE: publish #350 => -1 (FAILED)[0m
+[0;32mI (39796) PROBE: CSI callback ENTERED #351, len=256, rssi=-55[0m
+[0;33mW (39796) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39796) PROBE: publish #351 => -1 (FAILED)[0m
+[0;32mI (39806) PROBE: CSI callback ENTERED #352, len=256, rssi=-55[0m
+[0;33mW (39816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39816) PROBE: publish #352 => -1 (FAILED)[0m
+[0;32mI (39826) PROBE: CSI callback ENTERED #353, len=256, rssi=-56[0m
+[0;33mW (39836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39836) PROBE: publish #353 => -1 (FAILED)[0m
+[0;32mI (39856) PROBE: CSI callback ENTERED #354, len=256, rssi=-56[0m
+[0;33mW (39856) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39856) PROBE: publish #354 => -1 (FAILED)[0m
+[0;32mI (39886) PROBE: CSI callback ENTERED #355, len=256, rssi=-56[0m
+[0;33mW (39886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39886) PROBE: publish #355 => -1 (FAILED)[0m
+[0;32mI (39916) PROBE: CSI callback ENTERED #356, len=256, rssi=-55[0m
+[0;33mW (39916) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39916) PROBE: publish #356 => -1 (FAILED)[0m
+[0;32mI (39926) PROBE: CSI callback ENTERED #357, len=256, rssi=-55[0m
+[0;33mW (39926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39936) PROBE: publish #357 => -1 (FAILED)[0m
+[0;32mI (39956) PROBE: CSI callback ENTERED #358, len=256, rssi=-55[0m
+[0;33mW (39956) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39956) PROBE: publish #358 => -1 (FAILED)[0m
+[0;32mI (39966) PROBE: CSI callback ENTERED #359, len=128, rssi=-60[0m
+[0;33mW (39966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39976) PROBE: publish #359 => -1 (FAILED)[0m
+[0;32mI (39996) PROBE: CSI callback ENTERED #360, len=256, rssi=-56[0m
+[0;33mW (39996) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (39996) PROBE: publish #360 => -1 (FAILED)[0m
+[0;32mI (40006) PROBE: CSI callback ENTERED #361, len=256, rssi=-56[0m
+[0;33mW (40016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40016) PROBE: publish #361 => -1 (FAILED)[0m
+[0;32mI (40026) PROBE: CSI callback ENTERED #362, len=256, rssi=-56[0m
+[0;33mW (40036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40036) PROBE: publish #362 => -1 (FAILED)[0m
+[0;32mI (40046) PROBE: CSI callback ENTERED #363, len=128, rssi=-61[0m
+[0;33mW (40046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40056) PROBE: publish #363 => -1 (FAILED)[0m
+[0;32mI (40086) PROBE: CSI callback ENTERED #364, len=256, rssi=-56[0m
+[0;33mW (40086) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40086) PROBE: publish #364 => -1 (FAILED)[0m
+[0;32mI (40126) PROBE: CSI callback ENTERED #365, len=256, rssi=-55[0m
+[0;33mW (40126) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40126) PROBE: publish #365 => -1 (FAILED)[0m
+[0;32mI (40136) PROBE: CSI callback ENTERED #366, len=256, rssi=-55[0m
+[0;33mW (40136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40146) PROBE: publish #366 => -1 (FAILED)[0m
+[0;32mI (40166) PROBE: CSI callback ENTERED #367, len=128, rssi=-60[0m
+[0;33mW (40166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (40166) PROBE: publish #367 => -1 (FAILED)[0m
+[0;32mI (41146) PROBE: CSI callback ENTERED #368, len=256, rssi=-56[0m
+[0;33mW (41156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41156) PROBE: publish #368 => -1 (FAILED)[0m
+[0;32mI (41166) PROBE: CSI callback ENTERED #369, len=256, rssi=-56[0m
+[0;33mW (41166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41166) PROBE: publish #369 => -1 (FAILED)[0m
+[0;32mI (41206) PROBE: CSI callback ENTERED #370, len=256, rssi=-55[0m
+[0;33mW (41206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41206) PROBE: publish #370 => -1 (FAILED)[0m
+[0;32mI (41216) PROBE: CSI callback ENTERED #371, len=256, rssi=-56[0m
+[0;33mW (41226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41226) PROBE: publish #371 => -1 (FAILED)[0m
+[0;32mI (41236) PROBE: CSI callback ENTERED #372, len=256, rssi=-56[0m
+[0;33mW (41246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41246) PROBE: publish #372 => -1 (FAILED)[0m
+[0;32mI (41286) PROBE: CSI callback ENTERED #373, len=256, rssi=-56[0m
+[0;33mW (41286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41286) PROBE: publish #373 => -1 (FAILED)[0m
+[0;32mI (41286) PROBE: CSI callback ENTERED #374, len=128, rssi=-60[0m
+[0;33mW (41296) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41306) PROBE: publish #374 => -1 (FAILED)[0m
+[0;32mI (41316) PROBE: CSI callback ENTERED #375, len=256, rssi=-56[0m
+[0;33mW (41316) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41326) PROBE: publish #375 => -1 (FAILED)[0m
+[0;32mI (41336) PROBE: CSI callback ENTERED #376, len=256, rssi=-56[0m
+[0;33mW (41336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41346) PROBE: publish #376 => -1 (FAILED)[0m
+[0;32mI (41356) PROBE: CSI callback ENTERED #377, len=256, rssi=-56[0m
+[0;33mW (41356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41356) PROBE: publish #377 => -1 (FAILED)[0m
+[0;32mI (41376) PROBE: CSI callback ENTERED #378, len=256, rssi=-56[0m
+[0;33mW (41376) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41376) PROBE: publish #378 => -1 (FAILED)[0m
+[0;32mI (41396) PROBE: CSI callback ENTERED #379, len=256, rssi=-56[0m
+[0;33mW (41396) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41396) PROBE: publish #379 => -1 (FAILED)[0m
+[0;32mI (41416) PROBE: CSI callback ENTERED #380, len=256, rssi=-56[0m
+[0;33mW (41416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41416) PROBE: publish #380 => -1 (FAILED)[0m
+[0;32mI (41426) PROBE: CSI callback ENTERED #381, len=256, rssi=-56[0m
+[0;33mW (41436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41436) PROBE: publish #381 => -1 (FAILED)[0m
+[0;32mI (41446) PROBE: CSI callback ENTERED #382, len=256, rssi=-56[0m
+[0;33mW (41456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41456) PROBE: publish #382 => -1 (FAILED)[0m
+[0;32mI (41476) PROBE: CSI callback ENTERED #383, len=256, rssi=-56[0m
+[0;33mW (41476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41476) PROBE: publish #383 => -1 (FAILED)[0m
+[0;32mI (41526) PROBE: CSI callback ENTERED #384, len=256, rssi=-55[0m
+[0;33mW (41526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41526) PROBE: publish #384 => -1 (FAILED)[0m
+[0;32mI (41536) PROBE: CSI callback ENTERED #385, len=256, rssi=-55[0m
+[0;33mW (41546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41546) PROBE: publish #385 => -1 (FAILED)[0m
+[0;32mI (41556) PROBE: CSI callback ENTERED #386, len=256, rssi=-55[0m
+[0;33mW (41556) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41566) PROBE: publish #386 => -1 (FAILED)[0m
+[0;32mI (41576) PROBE: CSI callback ENTERED #387, len=256, rssi=-56[0m
+[0;33mW (41576) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41586) PROBE: publish #387 => -1 (FAILED)[0m
+[0;32mI (41606) PROBE: CSI callback ENTERED #388, len=256, rssi=-56[0m
+[0;33mW (41606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41606) PROBE: publish #388 => -1 (FAILED)[0m
+[0;32mI (41616) PROBE: CSI callback ENTERED #389, len=256, rssi=-56[0m
+[0;33mW (41626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41626) PROBE: publish #389 => -1 (FAILED)[0m
+[0;32mI (41636) PROBE: CSI callback ENTERED #390, len=256, rssi=-56[0m
+[0;33mW (41636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41646) PROBE: publish #390 => -1 (FAILED)[0m
+[0;32mI (41676) PROBE: CSI callback ENTERED #391, len=256, rssi=-56[0m
+[0;33mW (41686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41686) PROBE: publish #391 => -1 (FAILED)[0m
+[0;32mI (41696) PROBE: CSI callback ENTERED #392, len=256, rssi=-56[0m
+[0;33mW (41696) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41696) PROBE: publish #392 => -1 (FAILED)[0m
+[0;32mI (41716) PROBE: CSI callback ENTERED #393, len=256, rssi=-56[0m
+[0;33mW (41726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41726) PROBE: publish #393 => -1 (FAILED)[0m
+[0;32mI (41736) PROBE: CSI callback ENTERED #394, len=256, rssi=-56[0m
+[0;33mW (41746) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41746) PROBE: publish #394 => -1 (FAILED)[0m
+[0;32mI (41746) PROBE: CSI callback ENTERED #395, len=256, rssi=-56[0m
+[0;33mW (41756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41766) PROBE: publish #395 => -1 (FAILED)[0m
+[0;32mI (41776) PROBE: CSI callback ENTERED #396, len=256, rssi=-56[0m
+[0;33mW (41776) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41776) PROBE: publish #396 => -1 (FAILED)[0m
+[0;32mI (41806) PROBE: CSI callback ENTERED #397, len=256, rssi=-56[0m
+[0;33mW (41816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41816) PROBE: publish #397 => -1 (FAILED)[0m
+[0;32mI (41826) PROBE: CSI callback ENTERED #398, len=256, rssi=-56[0m
+[0;33mW (41826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41836) PROBE: publish #398 => -1 (FAILED)[0m
+[0;32mI (41846) PROBE: CSI callback ENTERED #399, len=256, rssi=-56[0m
+[0;33mW (41846) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41846) PROBE: publish #399 => -1 (FAILED)[0m
+[0;32mI (41876) PROBE: CSI callback ENTERED #400, len=256, rssi=-57[0m
+[0;32mI (41876) CSI: cb fired 400 times, len=256, rssi=-57[0m
+[0;33mW (41876) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41886) PROBE: publish #400 => -1 (FAILED)[0m
+[0;32mI (41926) PROBE: CSI callback ENTERED #401, len=256, rssi=-56[0m
+[0;33mW (41936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41936) PROBE: publish #401 => -1 (FAILED)[0m
+[0;32mI (41946) PROBE: CSI callback ENTERED #402, len=256, rssi=-55[0m
+[0;33mW (41946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41956) PROBE: publish #402 => -1 (FAILED)[0m
+[0;32mI (41976) PROBE: CSI callback ENTERED #403, len=256, rssi=-56[0m
+[0;33mW (41976) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41976) PROBE: publish #403 => -1 (FAILED)[0m
+[0;32mI (41986) PROBE: CSI callback ENTERED #404, len=128, rssi=-61[0m
+[0;33mW (41986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (41996) PROBE: publish #404 => -1 (FAILED)[0m
+[0;32mI (42026) PROBE: CSI callback ENTERED #405, len=256, rssi=-56[0m
+[0;33mW (42026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (42026) PROBE: publish #405 => -1 (FAILED)[0m
+[0;32mI (42096) PROBE: CSI callback ENTERED #406, len=256, rssi=-55[0m
+[0;31mE (47096) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (47096) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (47096) mqtt_client: Error transport connect[0m
+[0;31mE (47096) MQTT: ERROR type=1[0m
+[0;33mW (47096) MQTT: DISCONNECTED from broker[0m
+[0;33mW (47106) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47116) PROBE: publish #406 => -1 (FAILED)[0m
+[0;32mI (47136) PROBE: CSI callback ENTERED #407, len=256, rssi=-56[0m
+[0;33mW (47136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47136) PROBE: publish #407 => -1 (FAILED)[0m
+[0;32mI (47146) PROBE: CSI callback ENTERED #408, len=256, rssi=-56[0m
+[0;33mW (47146) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47156) PROBE: publish #408 => -1 (FAILED)[0m
+[0;32mI (47166) PROBE: CSI callback ENTERED #409, len=256, rssi=-56[0m
+[0;33mW (47166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47176) PROBE: publish #409 => -1 (FAILED)[0m
+[0;32mI (47206) PROBE: CSI callback ENTERED #410, len=256, rssi=-56[0m
+[0;33mW (47206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47206) PROBE: publish #410 => -1 (FAILED)[0m
+[0;32mI (47226) PROBE: CSI callback ENTERED #411, len=256, rssi=-56[0m
+[0;33mW (47226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47226) PROBE: publish #411 => -1 (FAILED)[0m
+[0;32mI (47236) PROBE: CSI callback ENTERED #412, len=256, rssi=-56[0m
+[0;33mW (47236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47246) PROBE: publish #412 => -1 (FAILED)[0m
+[0;32mI (47276) PROBE: CSI callback ENTERED #413, len=256, rssi=-56[0m
+[0;33mW (47276) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47276) PROBE: publish #413 => -1 (FAILED)[0m
+[0;32mI (47286) PROBE: CSI callback ENTERED #414, len=256, rssi=-56[0m
+[0;33mW (47296) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47296) PROBE: publish #414 => -1 (FAILED)[0m
+[0;32mI (47306) PROBE: CSI callback ENTERED #415, len=256, rssi=-56[0m
+[0;33mW (47316) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47316) PROBE: publish #415 => -1 (FAILED)[0m
+[0;32mI (47326) PROBE: CSI callback ENTERED #416, len=256, rssi=-56[0m
+[0;33mW (47326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47336) PROBE: publish #416 => -1 (FAILED)[0m
+[0;32mI (47346) PROBE: CSI callback ENTERED #417, len=256, rssi=-56[0m
+[0;33mW (47346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47356) PROBE: publish #417 => -1 (FAILED)[0m
+[0;32mI (47366) PROBE: CSI callback ENTERED #418, len=256, rssi=-56[0m
+[0;33mW (47366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47376) PROBE: publish #418 => -1 (FAILED)[0m
+[0;32mI (47406) PROBE: CSI callback ENTERED #419, len=256, rssi=-56[0m
+[0;33mW (47406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47406) PROBE: publish #419 => -1 (FAILED)[0m
+[0;32mI (47416) PROBE: CSI callback ENTERED #420, len=256, rssi=-56[0m
+[0;33mW (47426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47426) PROBE: publish #420 => -1 (FAILED)[0m
+[0;32mI (47446) PROBE: CSI callback ENTERED #421, len=256, rssi=-55[0m
+[0;33mW (47446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47446) PROBE: publish #421 => -1 (FAILED)[0m
+[0;32mI (47456) PROBE: CSI callback ENTERED #422, len=256, rssi=-56[0m
+[0;33mW (47456) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47466) PROBE: publish #422 => -1 (FAILED)[0m
+[0;32mI (47476) PROBE: CSI callback ENTERED #423, len=256, rssi=-55[0m
+[0;33mW (47486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47486) PROBE: publish #423 => -1 (FAILED)[0m
+[0;32mI (47516) PROBE: CSI callback ENTERED #424, len=256, rssi=-55[0m
+[0;33mW (47516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47516) PROBE: publish #424 => -1 (FAILED)[0m
+[0;32mI (47536) PROBE: CSI callback ENTERED #425, len=128, rssi=-57[0m
+[0;33mW (47536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (47536) PROBE: publish #425 => -1 (FAILED)[0m
+[0;32mI (48526) PROBE: CSI callback ENTERED #426, len=256, rssi=-56[0m
+[0;33mW (48536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48536) PROBE: publish #426 => -1 (FAILED)[0m
+[0;32mI (48546) PROBE: CSI callback ENTERED #427, len=256, rssi=-55[0m
+[0;33mW (48546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48556) PROBE: publish #427 => -1 (FAILED)[0m
+[0;32mI (48566) PROBE: CSI callback ENTERED #428, len=256, rssi=-55[0m
+[0;33mW (48566) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48576) PROBE: publish #428 => -1 (FAILED)[0m
+[0;32mI (48596) PROBE: CSI callback ENTERED #429, len=256, rssi=-55[0m
+[0;33mW (48596) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48596) PROBE: publish #429 => -1 (FAILED)[0m
+[0;32mI (48606) PROBE: CSI callback ENTERED #430, len=256, rssi=-55[0m
+[0;33mW (48616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48616) PROBE: publish #430 => -1 (FAILED)[0m
+[0;32mI (48636) PROBE: CSI callback ENTERED #431, len=256, rssi=-56[0m
+[0;33mW (48636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48636) PROBE: publish #431 => -1 (FAILED)[0m
+[0;32mI (48676) PROBE: CSI callback ENTERED #432, len=256, rssi=-55[0m
+[0;33mW (48676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48676) PROBE: publish #432 => -1 (FAILED)[0m
+[0;32mI (48686) PROBE: CSI callback ENTERED #433, len=256, rssi=-55[0m
+[0;33mW (48696) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48696) PROBE: publish #433 => -1 (FAILED)[0m
+[0;32mI (48726) PROBE: CSI callback ENTERED #434, len=256, rssi=-55[0m
+[0;33mW (48726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48726) PROBE: publish #434 => -1 (FAILED)[0m
+[0;32mI (48736) PROBE: CSI callback ENTERED #435, len=256, rssi=-55[0m
+[0;33mW (48746) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48746) PROBE: publish #435 => -1 (FAILED)[0m
+[0;32mI (48756) PROBE: CSI callback ENTERED #436, len=256, rssi=-54[0m
+[0;33mW (48766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48766) PROBE: publish #436 => -1 (FAILED)[0m
+[0;32mI (48796) PROBE: CSI callback ENTERED #437, len=256, rssi=-54[0m
+[0;33mW (48796) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48796) PROBE: publish #437 => -1 (FAILED)[0m
+[0;32mI (48806) PROBE: CSI callback ENTERED #438, len=256, rssi=-54[0m
+[0;33mW (48806) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48816) PROBE: publish #438 => -1 (FAILED)[0m
+[0;32mI (48826) PROBE: CSI callback ENTERED #439, len=256, rssi=-54[0m
+[0;33mW (48826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48836) PROBE: publish #439 => -1 (FAILED)[0m
+[0;32mI (48846) PROBE: CSI callback ENTERED #440, len=256, rssi=-54[0m
+[0;33mW (48846) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48856) PROBE: publish #440 => -1 (FAILED)[0m
+[0;32mI (48886) PROBE: CSI callback ENTERED #441, len=256, rssi=-54[0m
+[0;33mW (48886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48886) PROBE: publish #441 => -1 (FAILED)[0m
+[0;32mI (48916) PROBE: CSI callback ENTERED #442, len=256, rssi=-54[0m
+[0;33mW (48916) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48916) PROBE: publish #442 => -1 (FAILED)[0m
+[0;32mI (48926) PROBE: CSI callback ENTERED #443, len=256, rssi=-54[0m
+[0;33mW (48936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48936) PROBE: publish #443 => -1 (FAILED)[0m
+[0;32mI (48946) PROBE: CSI callback ENTERED #444, len=256, rssi=-54[0m
+[0;33mW (48946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48956) PROBE: publish #444 => -1 (FAILED)[0m
+[0;32mI (48966) PROBE: CSI callback ENTERED #445, len=256, rssi=-54[0m
+[0;33mW (48966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48976) PROBE: publish #445 => -1 (FAILED)[0m
+[0;32mI (48996) PROBE: CSI callback ENTERED #446, len=256, rssi=-54[0m
+[0;33mW (48996) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (48996) PROBE: publish #446 => -1 (FAILED)[0m
+[0;32mI (49006) PROBE: CSI callback ENTERED #447, len=256, rssi=-54[0m
+[0;33mW (49016) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49016) PROBE: publish #447 => -1 (FAILED)[0m
+[0;32mI (49016) PROBE: CSI callback ENTERED #448, len=128, rssi=-56[0m
+[0;33mW (49026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49036) PROBE: publish #448 => -1 (FAILED)[0m
+[0;32mI (49046) PROBE: CSI callback ENTERED #449, len=256, rssi=-54[0m
+[0;33mW (49046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49056) PROBE: publish #449 => -1 (FAILED)[0m
+[0;32mI (49066) PROBE: CSI callback ENTERED #450, len=256, rssi=-54[0m
+[0;32mI (49066) CSI: cb fired 450 times, len=256, rssi=-54[0m
+[0;33mW (49076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49076) PROBE: publish #450 => -1 (FAILED)[0m
+[0;32mI (49116) PROBE: CSI callback ENTERED #451, len=256, rssi=-54[0m
+[0;33mW (49116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49116) PROBE: publish #451 => -1 (FAILED)[0m
+[0;32mI (49136) PROBE: CSI callback ENTERED #452, len=256, rssi=-54[0m
+[0;33mW (49136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49136) PROBE: publish #452 => -1 (FAILED)[0m
+[0;32mI (49146) PROBE: CSI callback ENTERED #453, len=256, rssi=-54[0m
+[0;33mW (49156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49156) PROBE: publish #453 => -1 (FAILED)[0m
+[0;32mI (49186) PROBE: CSI callback ENTERED #454, len=256, rssi=-55[0m
+[0;33mW (49196) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49196) PROBE: publish #454 => -1 (FAILED)[0m
+[0;32mI (49206) PROBE: CSI callback ENTERED #455, len=256, rssi=-54[0m
+[0;33mW (49206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49206) PROBE: publish #455 => -1 (FAILED)[0m
+[0;32mI (49226) PROBE: CSI callback ENTERED #456, len=256, rssi=-55[0m
+[0;33mW (49226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49226) PROBE: publish #456 => -1 (FAILED)[0m
+[0;32mI (49236) PROBE: CSI callback ENTERED #457, len=128, rssi=-57[0m
+[0;33mW (49246) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49246) PROBE: publish #457 => -1 (FAILED)[0m
+[0;32mI (49276) PROBE: CSI callback ENTERED #458, len=256, rssi=-55[0m
+[0;33mW (49276) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49276) PROBE: publish #458 => -1 (FAILED)[0m
+[0;32mI (49276) PROBE: CSI callback ENTERED #459, len=128, rssi=-57[0m
+[0;33mW (49286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49296) PROBE: publish #459 => -1 (FAILED)[0m
+[0;32mI (49316) PROBE: CSI callback ENTERED #460, len=256, rssi=-55[0m
+[0;33mW (49326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49326) PROBE: publish #460 => -1 (FAILED)[0m
+[0;32mI (49336) PROBE: CSI callback ENTERED #461, len=256, rssi=-55[0m
+[0;33mW (49336) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49336) PROBE: publish #461 => -1 (FAILED)[0m
+[0;32mI (49346) PROBE: CSI callback ENTERED #462, len=256, rssi=-56[0m
+[0;33mW (49356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49356) PROBE: publish #462 => -1 (FAILED)[0m
+[0;32mI (49396) PROBE: CSI callback ENTERED #463, len=256, rssi=-55[0m
+[0;33mW (49406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49406) PROBE: publish #463 => -1 (FAILED)[0m
+[0;32mI (49416) PROBE: CSI callback ENTERED #464, len=256, rssi=-55[0m
+[0;33mW (49416) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49416) PROBE: publish #464 => -1 (FAILED)[0m
+[0;32mI (49436) PROBE: CSI callback ENTERED #465, len=256, rssi=-55[0m
+[0;33mW (49436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49446) PROBE: publish #465 => -1 (FAILED)[0m
+[0;32mI (49466) PROBE: CSI callback ENTERED #466, len=256, rssi=-55[0m
+[0;33mW (49466) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49466) PROBE: publish #466 => -1 (FAILED)[0m
+[0;32mI (49476) PROBE: CSI callback ENTERED #467, len=128, rssi=-57[0m
+[0;33mW (49486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49486) PROBE: publish #467 => -1 (FAILED)[0m
+[0;32mI (49516) PROBE: CSI callback ENTERED #468, len=256, rssi=-55[0m
+[0;33mW (49516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49516) PROBE: publish #468 => -1 (FAILED)[0m
+[0;32mI (49526) PROBE: CSI callback ENTERED #469, len=256, rssi=-55[0m
+[0;33mW (49536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49536) PROBE: publish #469 => -1 (FAILED)[0m
+[0;32mI (49546) PROBE: CSI callback ENTERED #470, len=256, rssi=-56[0m
+[0;33mW (49546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49556) PROBE: publish #470 => -1 (FAILED)[0m
+[0;32mI (49566) PROBE: CSI callback ENTERED #471, len=256, rssi=-54[0m
+[0;33mW (49566) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49576) PROBE: publish #471 => -1 (FAILED)[0m
+[0;32mI (49606) PROBE: CSI callback ENTERED #472, len=256, rssi=-54[0m
+[0;33mW (49606) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49606) PROBE: publish #472 => -1 (FAILED)[0m
+[0;32mI (49616) PROBE: CSI callback ENTERED #473, len=256, rssi=-54[0m
+[0;33mW (49626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49626) PROBE: publish #473 => -1 (FAILED)[0m
+[0;32mI (49636) PROBE: CSI callback ENTERED #474, len=256, rssi=-53[0m
+[0;33mW (49636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49646) PROBE: publish #474 => -1 (FAILED)[0m
+[0;32mI (49676) PROBE: CSI callback ENTERED #475, len=256, rssi=-53[0m
+[0;33mW (49676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49676) PROBE: publish #475 => -1 (FAILED)[0m
+[0;32mI (49716) PROBE: CSI callback ENTERED #476, len=256, rssi=-54[0m
+[0;33mW (49716) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49716) PROBE: publish #476 => -1 (FAILED)[0m
+[0;32mI (49726) PROBE: CSI callback ENTERED #477, len=256, rssi=-53[0m
+[0;33mW (49726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49736) PROBE: publish #477 => -1 (FAILED)[0m
+[0;32mI (49746) PROBE: CSI callback ENTERED #478, len=256, rssi=-54[0m
+[0;33mW (49756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49756) PROBE: publish #478 => -1 (FAILED)[0m
+[0;32mI (49766) PROBE: CSI callback ENTERED #479, len=256, rssi=-53[0m
+[0;33mW (49766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49776) PROBE: publish #479 => -1 (FAILED)[0m
+[0;32mI (49796) PROBE: CSI callback ENTERED #480, len=256, rssi=-54[0m
+[0;33mW (49796) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49796) PROBE: publish #480 => -1 (FAILED)[0m
+[0;32mI (49806) PROBE: CSI callback ENTERED #481, len=256, rssi=-54[0m
+[0;33mW (49816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49816) PROBE: publish #481 => -1 (FAILED)[0m
+[0;32mI (49836) PROBE: CSI callback ENTERED #482, len=256, rssi=-54[0m
+[0;33mW (49836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49836) PROBE: publish #482 => -1 (FAILED)[0m
+[0;32mI (49866) PROBE: CSI callback ENTERED #483, len=256, rssi=-54[0m
+[0;33mW (49866) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49866) PROBE: publish #483 => -1 (FAILED)[0m
+[0;32mI (49886) PROBE: CSI callback ENTERED #484, len=256, rssi=-55[0m
+[0;33mW (49886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49886) PROBE: publish #484 => -1 (FAILED)[0m
+[0;32mI (49936) PROBE: CSI callback ENTERED #485, len=256, rssi=-54[0m
+[0;33mW (49936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49936) PROBE: publish #485 => -1 (FAILED)[0m
+[0;32mI (49946) PROBE: CSI callback ENTERED #486, len=256, rssi=-54[0m
+[0;33mW (49946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (49956) PROBE: publish #486 => -1 (FAILED)[0m
+[0;32mI (50026) PROBE: CSI callback ENTERED #487, len=256, rssi=-53[0m
+[0;33mW (50026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (50026) PROBE: publish #487 => -1 (FAILED)[0m
+[0;32mI (50126) PROBE: CSI callback ENTERED #488, len=256, rssi=-54[0m
+[0;31mE (55126) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (55126) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (55126) mqtt_client: Error transport connect[0m
+[0;31mE (55126) MQTT: ERROR type=1[0m
+[0;33mW (55126) MQTT: DISCONNECTED from broker[0m
+[0;33mW (55136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55146) PROBE: publish #488 => -1 (FAILED)[0m
+[0;32mI (55346) PROBE: CSI callback ENTERED #489, len=256, rssi=-54[0m
+[0;33mW (55346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55346) PROBE: publish #489 => -1 (FAILED)[0m
+[0;32mI (55356) PROBE: CSI callback ENTERED #490, len=256, rssi=-54[0m
+[0;33mW (55356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55366) PROBE: publish #490 => -1 (FAILED)[0m
+[0;32mI (55386) PROBE: CSI callback ENTERED #491, len=256, rssi=-54[0m
+[0;33mW (55386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55386) PROBE: publish #491 => -1 (FAILED)[0m
+[0;32mI (55396) PROBE: CSI callback ENTERED #492, len=128, rssi=-60[0m
+[0;33mW (55406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55406) PROBE: publish #492 => -1 (FAILED)[0m
+[0;32mI (55436) PROBE: CSI callback ENTERED #493, len=256, rssi=-54[0m
+[0;33mW (55436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55436) PROBE: publish #493 => -1 (FAILED)[0m
+[0;32mI (55446) PROBE: CSI callback ENTERED #494, len=256, rssi=-54[0m
+[0;33mW (55446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55456) PROBE: publish #494 => -1 (FAILED)[0m
+[0;32mI (55486) PROBE: CSI callback ENTERED #495, len=256, rssi=-54[0m
+[0;33mW (55486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55486) PROBE: publish #495 => -1 (FAILED)[0m
+[0;32mI (55516) PROBE: CSI callback ENTERED #496, len=256, rssi=-54[0m
+[0;33mW (55516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55526) PROBE: publish #496 => -1 (FAILED)[0m
+[0;32mI (55536) PROBE: CSI callback ENTERED #497, len=256, rssi=-54[0m
+[0;33mW (55536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55536) PROBE: publish #497 => -1 (FAILED)[0m
+[0;32mI (55566) PROBE: CSI callback ENTERED #498, len=256, rssi=-54[0m
+[0;33mW (55566) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55566) PROBE: publish #498 => -1 (FAILED)[0m
+[0;32mI (55596) PROBE: CSI callback ENTERED #499, len=256, rssi=-54[0m
+[0;33mW (55596) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55596) PROBE: publish #499 => -1 (FAILED)[0m
+[0;32mI (55596) PROBE: CSI callback ENTERED #500, len=128, rssi=-61[0m
+[0;32mI (55606) CSI: cb fired 500 times, len=128, rssi=-61[0m
+[0;33mW (55616) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55616) PROBE: publish #500 => -1 (FAILED)[0m
+[0;32mI (55636) PROBE: CSI callback ENTERED #501, len=256, rssi=-54[0m
+[0;33mW (55636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55636) PROBE: publish #501 => -1 (FAILED)[0m
+[0;32mI (55666) PROBE: CSI callback ENTERED #502, len=256, rssi=-54[0m
+[0;33mW (55676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55676) PROBE: publish #502 => -1 (FAILED)[0m
+[0;32mI (55706) PROBE: CSI callback ENTERED #503, len=256, rssi=-54[0m
+[0;33mW (55706) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55706) PROBE: publish #503 => -1 (FAILED)[0m
+[0;32mI (55726) PROBE: CSI callback ENTERED #504, len=256, rssi=-54[0m
+[0;33mW (55726) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55726) PROBE: publish #504 => -1 (FAILED)[0m
+[0;32mI (55746) PROBE: CSI callback ENTERED #505, len=256, rssi=-53[0m
+[0;33mW (55756) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55756) PROBE: publish #505 => -1 (FAILED)[0m
+[0;32mI (55786) PROBE: CSI callback ENTERED #506, len=256, rssi=-54[0m
+[0;33mW (55786) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55786) PROBE: publish #506 => -1 (FAILED)[0m
+[0;32mI (55796) PROBE: CSI callback ENTERED #507, len=256, rssi=-54[0m
+[0;33mW (55796) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55806) PROBE: publish #507 => -1 (FAILED)[0m
+[0;32mI (55816) PROBE: CSI callback ENTERED #508, len=256, rssi=-54[0m
+[0;33mW (55816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55826) PROBE: publish #508 => -1 (FAILED)[0m
+[0;32mI (55836) PROBE: CSI callback ENTERED #509, len=256, rssi=-54[0m
+[0;33mW (55836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55846) PROBE: publish #509 => -1 (FAILED)[0m
+[0;32mI (55866) PROBE: CSI callback ENTERED #510, len=256, rssi=-55[0m
+[0;33mW (55866) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55866) PROBE: publish #510 => -1 (FAILED)[0m
+[0;32mI (55876) PROBE: CSI callback ENTERED #511, len=256, rssi=-54[0m
+[0;33mW (55886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55886) PROBE: publish #511 => -1 (FAILED)[0m
+[0;32mI (55906) PROBE: CSI callback ENTERED #512, len=256, rssi=-54[0m
+[0;33mW (55906) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55906) PROBE: publish #512 => -1 (FAILED)[0m
+[0;32mI (55926) PROBE: CSI callback ENTERED #513, len=256, rssi=-54[0m
+[0;33mW (55926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55936) PROBE: publish #513 => -1 (FAILED)[0m
+[0;32mI (55936) PROBE: CSI callback ENTERED #514, len=256, rssi=-54[0m
+[0;33mW (55946) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55946) PROBE: publish #514 => -1 (FAILED)[0m
+[0;32mI (55966) PROBE: CSI callback ENTERED #515, len=256, rssi=-54[0m
+[0;33mW (55966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55966) PROBE: publish #515 => -1 (FAILED)[0m
+[0;32mI (55986) PROBE: CSI callback ENTERED #516, len=256, rssi=-55[0m
+[0;33mW (55986) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (55986) PROBE: publish #516 => -1 (FAILED)[0m
+[0;32mI (55996) PROBE: CSI callback ENTERED #517, len=256, rssi=-54[0m
+[0;33mW (56006) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56006) PROBE: publish #517 => -1 (FAILED)[0m
+[0;32mI (56016) PROBE: CSI callback ENTERED #518, len=128, rssi=-61[0m
+[0;33mW (56026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56026) PROBE: publish #518 => -1 (FAILED)[0m
+[0;32mI (56046) PROBE: CSI callback ENTERED #519, len=256, rssi=-54[0m
+[0;33mW (56046) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56046) PROBE: publish #519 => -1 (FAILED)[0m
+[0;32mI (56076) PROBE: CSI callback ENTERED #520, len=256, rssi=-54[0m
+[0;33mW (56076) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56076) PROBE: publish #520 => -1 (FAILED)[0m
+[0;32mI (56106) PROBE: CSI callback ENTERED #521, len=256, rssi=-54[0m
+[0;33mW (56116) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56116) PROBE: publish #521 => -1 (FAILED)[0m
+[0;32mI (56136) PROBE: CSI callback ENTERED #522, len=256, rssi=-54[0m
+[0;33mW (56136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56136) PROBE: publish #522 => -1 (FAILED)[0m
+[0;32mI (56156) PROBE: CSI callback ENTERED #523, len=256, rssi=-54[0m
+[0;33mW (56156) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56156) PROBE: publish #523 => -1 (FAILED)[0m
+[0;32mI (56186) PROBE: CSI callback ENTERED #524, len=256, rssi=-54[0m
+[0;33mW (56186) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56186) PROBE: publish #524 => -1 (FAILED)[0m
+[0;32mI (56196) PROBE: CSI callback ENTERED #525, len=128, rssi=-60[0m
+[0;33mW (56206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56206) PROBE: publish #525 => -1 (FAILED)[0m
+[0;32mI (56216) PROBE: CSI callback ENTERED #526, len=256, rssi=-54[0m
+[0;33mW (56226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56226) PROBE: publish #526 => -1 (FAILED)[0m
+[0;32mI (56236) PROBE: CSI callback ENTERED #527, len=256, rssi=-54[0m
+[0;33mW (56236) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56246) PROBE: publish #527 => -1 (FAILED)[0m
+[0;32mI (56266) PROBE: CSI callback ENTERED #528, len=256, rssi=-54[0m
+[0;33mW (56276) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56276) PROBE: publish #528 => -1 (FAILED)[0m
+[0;32mI (56286) PROBE: CSI callback ENTERED #529, len=256, rssi=-54[0m
+[0;33mW (56286) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56296) PROBE: publish #529 => -1 (FAILED)[0m
+[0;32mI (56306) PROBE: CSI callback ENTERED #530, len=256, rssi=-54[0m
+[0;33mW (56306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56316) PROBE: publish #530 => -1 (FAILED)[0m
+[0;32mI (56326) PROBE: CSI callback ENTERED #531, len=256, rssi=-54[0m
+[0;33mW (56326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56326) PROBE: publish #531 => -1 (FAILED)[0m
+[0;32mI (56336) PROBE: CSI callback ENTERED #532, len=256, rssi=-54[0m
+[0;33mW (56346) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56346) PROBE: publish #532 => -1 (FAILED)[0m
+[0;32mI (56366) PROBE: CSI callback ENTERED #533, len=256, rssi=-54[0m
+[0;33mW (56366) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56366) PROBE: publish #533 => -1 (FAILED)[0m
+[0;32mI (56386) PROBE: CSI callback ENTERED #534, len=256, rssi=-54[0m
+[0;33mW (56396) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56396) PROBE: publish #534 => -1 (FAILED)[0m
+[0;32mI (56396) PROBE: CSI callback ENTERED #535, len=128, rssi=-59[0m
+[0;33mW (56406) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56416) PROBE: publish #535 => -1 (FAILED)[0m
+[0;32mI (56426) PROBE: CSI callback ENTERED #536, len=256, rssi=-54[0m
+[0;33mW (56426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56436) PROBE: publish #536 => -1 (FAILED)[0m
+[0;32mI (56446) PROBE: CSI callback ENTERED #537, len=256, rssi=-53[0m
+[0;33mW (56446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56446) PROBE: publish #537 => -1 (FAILED)[0m
+[0;32mI (56476) PROBE: CSI callback ENTERED #538, len=256, rssi=-54[0m
+[0;33mW (56476) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56476) PROBE: publish #538 => -1 (FAILED)[0m
+[0;32mI (56486) PROBE: CSI callback ENTERED #539, len=256, rssi=-55[0m
+[0;33mW (56486) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56496) PROBE: publish #539 => -1 (FAILED)[0m
+[0;32mI (56506) PROBE: CSI callback ENTERED #540, len=256, rssi=-53[0m
+[0;33mW (56516) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56516) PROBE: publish #540 => -1 (FAILED)[0m
+[0;32mI (56526) PROBE: CSI callback ENTERED #541, len=256, rssi=-53[0m
+[0;33mW (56526) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56536) PROBE: publish #541 => -1 (FAILED)[0m
+[0;32mI (56546) PROBE: CSI callback ENTERED #542, len=256, rssi=-55[0m
+[0;33mW (56546) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56546) PROBE: publish #542 => -1 (FAILED)[0m
+[0;32mI (56566) PROBE: CSI callback ENTERED #543, len=256, rssi=-53[0m
+[0;33mW (56566) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56566) PROBE: publish #543 => -1 (FAILED)[0m
+[0;32mI (56586) PROBE: CSI callback ENTERED #544, len=256, rssi=-53[0m
+[0;33mW (56596) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56596) PROBE: publish #544 => -1 (FAILED)[0m
+[0;32mI (56626) PROBE: CSI callback ENTERED #545, len=256, rssi=-53[0m
+[0;33mW (56626) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56626) PROBE: publish #545 => -1 (FAILED)[0m
+[0;32mI (56646) PROBE: CSI callback ENTERED #546, len=256, rssi=-54[0m
+[0;33mW (56646) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56646) PROBE: publish #546 => -1 (FAILED)[0m
+[0;32mI (56656) PROBE: CSI callback ENTERED #547, len=128, rssi=-59[0m
+[0;33mW (56656) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56666) PROBE: publish #547 => -1 (FAILED)[0m
+[0;32mI (56686) PROBE: CSI callback ENTERED #548, len=256, rssi=-54[0m
+[0;33mW (56686) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56696) PROBE: publish #548 => -1 (FAILED)[0m
+[0;32mI (56716) PROBE: CSI callback ENTERED #549, len=256, rssi=-54[0m
+[0;33mW (56716) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56716) PROBE: publish #549 => -1 (FAILED)[0m
+[0;32mI (56726) PROBE: CSI callback ENTERED #550, len=256, rssi=-54[0m
+[0;32mI (56726) CSI: cb fired 550 times, len=256, rssi=-54[0m
+[0;33mW (56736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56746) PROBE: publish #550 => -1 (FAILED)[0m
+[0;32mI (56766) PROBE: CSI callback ENTERED #551, len=256, rssi=-54[0m
+[0;33mW (56766) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56766) PROBE: publish #551 => -1 (FAILED)[0m
+[0;32mI (56796) PROBE: CSI callback ENTERED #552, len=256, rssi=-54[0m
+[0;33mW (56796) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56796) PROBE: publish #552 => -1 (FAILED)[0m
+[0;32mI (56816) PROBE: CSI callback ENTERED #553, len=256, rssi=-54[0m
+[0;33mW (56816) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56816) PROBE: publish #553 => -1 (FAILED)[0m
+[0;32mI (56826) PROBE: CSI callback ENTERED #554, len=256, rssi=-54[0m
+[0;33mW (56836) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56836) PROBE: publish #554 => -1 (FAILED)[0m
+[0;32mI (56876) PROBE: CSI callback ENTERED #555, len=256, rssi=-54[0m
+[0;33mW (56886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56886) PROBE: publish #555 => -1 (FAILED)[0m
+[0;32mI (56916) PROBE: CSI callback ENTERED #556, len=256, rssi=-53[0m
+[0;33mW (56916) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56916) PROBE: publish #556 => -1 (FAILED)[0m
+[0;32mI (56926) PROBE: CSI callback ENTERED #557, len=256, rssi=-53[0m
+[0;33mW (56936) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56936) PROBE: publish #557 => -1 (FAILED)[0m
+[0;32mI (56966) PROBE: CSI callback ENTERED #558, len=256, rssi=-53[0m
+[0;33mW (56966) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56966) PROBE: publish #558 => -1 (FAILED)[0m
+[0;32mI (56976) PROBE: CSI callback ENTERED #559, len=128, rssi=-57[0m
+[0;33mW (56976) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (56986) PROBE: publish #559 => -1 (FAILED)[0m
+[0;32mI (56996) PROBE: CSI callback ENTERED #560, len=256, rssi=-53[0m
+[0;33mW (57006) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57006) PROBE: publish #560 => -1 (FAILED)[0m
+[0;32mI (57026) PROBE: CSI callback ENTERED #561, len=256, rssi=-55[0m
+[0;33mW (57036) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57036) PROBE: publish #561 => -1 (FAILED)[0m
+[0;32mI (57126) PROBE: CSI callback ENTERED #562, len=256, rssi=-53[0m
+[0;33mW (57136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57136) PROBE: publish #562 => -1 (FAILED)[0m
+[0;32mI (57136) PROBE: CSI callback ENTERED #563, len=128, rssi=-59[0m
+[0;33mW (57146) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57146) PROBE: publish #563 => -1 (FAILED)[0m
+[0;32mI (57226) PROBE: CSI callback ENTERED #564, len=256, rssi=-53[0m
+[0;33mW (57226) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57226) PROBE: publish #564 => -1 (FAILED)[0m
+[0;32mI (57326) PROBE: CSI callback ENTERED #565, len=256, rssi=-53[0m
+[0;33mW (57326) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57326) PROBE: publish #565 => -1 (FAILED)[0m
+[0;32mI (57426) PROBE: CSI callback ENTERED #566, len=256, rssi=-53[0m
+[0;33mW (57426) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57426) PROBE: publish #566 => -1 (FAILED)[0m
+[0;32mI (57526) PROBE: CSI callback ENTERED #567, len=256, rssi=-53[0m
+[0;33mW (57536) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57536) PROBE: publish #567 => -1 (FAILED)[0m
+[0;32mI (57636) PROBE: CSI callback ENTERED #568, len=256, rssi=-53[0m
+[0;33mW (57636) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57636) PROBE: publish #568 => -1 (FAILED)[0m
+[0;32mI (57726) PROBE: CSI callback ENTERED #569, len=256, rssi=-53[0m
+[0;33mW (57736) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57736) PROBE: publish #569 => -1 (FAILED)[0m
+[0;32mI (57826) PROBE: CSI callback ENTERED #570, len=256, rssi=-53[0m
+[0;33mW (57826) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57826) PROBE: publish #570 => -1 (FAILED)[0m
+[0;32mI (57926) PROBE: CSI callback ENTERED #571, len=256, rssi=-54[0m
+[0;33mW (57926) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (57926) PROBE: publish #571 => -1 (FAILED)[0m
+[0;32mI (58026) PROBE: CSI callback ENTERED #572, len=256, rssi=-54[0m
+[0;33mW (58026) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (58026) PROBE: publish #572 => -1 (FAILED)[0m
+[0;32mI (58126) PROBE: CSI callback ENTERED #573, len=256, rssi=-52[0m
+[0;33mW (58136) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (58136) PROBE: publish #573 => -1 (FAILED)[0m
+[0;32mI (58156) PROBE: CSI callback ENTERED #574, len=256, rssi=-54[0m
+[0;31mE (63156) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (63156) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (63156) mqtt_client: Error transport connect[0m
+[0;31mE (63156) MQTT: ERROR type=1[0m
+[0;33mW (63156) MQTT: DISCONNECTED from broker[0m
+[0;33mW (63166) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63176) PROBE: publish #574 => -1 (FAILED)[0m
+[0;32mI (63196) PROBE: CSI callback ENTERED #575, len=256, rssi=-52[0m
+[0;33mW (63206) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63206) PROBE: publish #575 => -1 (FAILED)[0m
+[0;32mI (63216) PROBE: CSI callback ENTERED #576, len=256, rssi=-52[0m
+[0;33mW (63216) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63226) PROBE: publish #576 => -1 (FAILED)[0m
+[0;32mI (63386) PROBE: CSI callback ENTERED #577, len=256, rssi=-51[0m
+[0;33mW (63386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63386) PROBE: publish #577 => -1 (FAILED)[0m
+[0;32mI (63426) PROBE: CSI callback ENTERED #578, len=128, rssi=-52[0m
+[0;33mW (63436) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63436) PROBE: publish #578 => -1 (FAILED)[0m
+[0;32mI (63586) PROBE: CSI callback ENTERED #579, len=128, rssi=-59[0m
+[0;33mW (63586) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63586) PROBE: publish #579 => -1 (FAILED)[0m
+[0;32mI (63676) PROBE: CSI callback ENTERED #580, len=128, rssi=-59[0m
+[0;33mW (63676) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63676) PROBE: publish #580 => -1 (FAILED)[0m
+[0;32mI (63786) PROBE: CSI callback ENTERED #581, len=128, rssi=-59[0m
+[0;33mW (63786) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (63786) PROBE: publish #581 => -1 (FAILED)[0m
+[0;32mI (64256) PROBE: CSI callback ENTERED #582, len=128, rssi=-59[0m
+[0;33mW (64266) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (64266) PROBE: publish #582 => -1 (FAILED)[0m
+[0;32mI (64306) PROBE: CSI callback ENTERED #583, len=128, rssi=-59[0m
+[0;33mW (64306) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (64306) PROBE: publish #583 => -1 (FAILED)[0m
+[0;32mI (64496) PROBE: CSI callback ENTERED #584, len=128, rssi=-59[0m
+[0;33mW (64496) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (64496) PROBE: publish #584 => -1 (FAILED)[0m
+[0;32mI (64886) PROBE: CSI callback ENTERED #585, len=128, rssi=-59[0m
+[0;33mW (64886) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (64886) PROBE: publish #585 => -1 (FAILED)[0m
+[0;32mI (66626) MQTT: CONNECTED to broker[0m
+[0;32mI (66656) PROBE: CSI callback ENTERED #586, len=128, rssi=-59[0m
+[0;32mI (66666) PROBE: publish #586 => 0 (ok)[0m
+[0;32mI (66866) PROBE: CSI callback ENTERED #587, len=128, rssi=-58[0m
+[0;32mI (66866) PROBE: publish #587 => 0 (ok)[0m
+[0;32mI (67976) PROBE: CSI callback ENTERED #588, len=128, rssi=-56[0m
+[0;32mI (67976) PROBE: publish #588 => 0 (ok)[0m
+[0;32mI (68586) PROBE: CSI callback ENTERED #589, len=128, rssi=-53[0m
+[0;32mI (68586) PROBE: publish #589 => 0 (ok)[0m
+[0;32mI (72266) PROBE: CSI callback ENTERED #590, len=128, rssi=-57[0m
+[0;32mI (72266) PROBE: publish #590 => 0 (ok)[0m
+[0;32mI (72576) PROBE: CSI callback ENTERED #591, len=128, rssi=-58[0m
+[0;32mI (72576) PROBE: publish #591 => 0 (ok)[0m
+[0;32mI (73066) PROBE: CSI callback ENTERED #592, len=128, rssi=-58[0m
+[0;32mI (73066) PROBE: publish #592 => 0 (ok)[0m
+[0;32mI (74606) PROBE: CSI callback ENTERED #593, len=128, rssi=-58[0m
+[0;32mI (74616) PROBE: publish #593 => 0 (ok)[0m
+[0;32mI (75786) PROBE: CSI callback ENTERED #594, len=128, rssi=-59[0m
+[0;32mI (75786) PROBE: publish #594 => 0 (ok)[0m
+[0;32mI (76566) PROBE: CSI callback ENTERED #595, len=128, rssi=-60[0m
+[0;32mI (76566) PROBE: publish #595 => 0 (ok)[0m
+[0;32mI (76706) PROBE: CSI callback ENTERED #596, len=128, rssi=-60[0m
+[0;32mI (76706) PROBE: publish #596 => 0 (ok)[0m
+[0;32mI (76776) PROBE: CSI callback ENTERED #597, len=128, rssi=-59[0m
+[0;32mI (76776) PROBE: publish #597 => 0 (ok)[0m
+[0;32mI (77066) PROBE: CSI callback ENTERED #598, len=128, rssi=-59[0m
+[0;32mI (77066) PROBE: publish #598 => 0 (ok)[0m
+[0;32mI (77786) PROBE: CSI callback ENTERED #599, len=128, rssi=-57[0m
+[0;32mI (77786) PROBE: publish #599 => 0 (ok)[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1d854h (120916) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=0002d87c vaddr=3ffb0000 size=0279ch ( 10140) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=97d68h (621928) map[0m
+[0;32mI (365) esp_image: segment 3: paddr=000c7d90 vaddr=3ffb279c size=015bch (  5564) load[0m
+[0;32mI (367) esp_image: segment 4: paddr=000c9354 vaddr=40080000 size=1729ch ( 94876) load[0m
+[0;32mI (419) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (419) boot: Disabling RNG early entropy source...[0m
+[0;32mI (431) cpu_start: Multicore app[0m
+[0;32mI (440) cpu_start: Pro cpu start user code[0m
+[0;32mI (440) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (440) cpu_start: Application information:[0m
+[0;32mI (443) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (450) cpu_start: App version:      1[0m
+[0;32mI (454) cpu_start: Compile time:     Jun 26 2026 16:01:12[0m
+[0;32mI (460) cpu_start: ELF file SHA256:  06b5f08a3...[0m
+[0;32mI (466) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (470) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (475) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (480) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (485) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (492) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (498) heap_init: At 3FFB8278 len 00027D88 (159 KiB): DRAM[0m
+[0;32mI (504) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (510) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (517) heap_init: At 4009729C len 00008D64 (35 KiB): IRAM[0m
+[0;32mI (525) spi_flash: detected chip: generic[0m
+[0;32mI (528) spi_flash: flash io: dio[0m
+[0;33mW (532) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (546) main_task: Started on CPU0[0m
+[0;32mI (556) main_task: Calling app_main()[0m
+[0;32mI (586) wifi:wifi driver task: 3ffc02c0, prio:23, stack:6656, core=0[0m
+[0;32mI (596) wifi:wifi firmware version: e851349[0m
+[0;32mI (596) wifi:wifi certification version: v7.0[0m
+[0;32mI (596) wifi:config NVS flash: enabled[0m
+[0;32mI (596) wifi:config nano formating: disabled[0m
+[0;32mI (596) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (606) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (606) wifi:Init management short buffer num: 32[0m
+[0;32mI (616) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (616) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (626) wifi:Init static rx buffer num: 10[0m
+[0;32mI (626) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (626) wifi_init: rx ba win: 6[0m
+[0;32mI (636) wifi_init: tcpip mbox: 32[0m
+[0;32mI (636) wifi_init: udp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp mbox: 6[0m
+[0;32mI (646) wifi_init: tcp tx win: 5760[0m
+[0;32mI (646) wifi_init: tcp rx win: 5760[0m
+[0;32mI (656) wifi_init: tcp mss: 1440[0m
+[0;32mI (656) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (666) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (666) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (676) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (676) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (776) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (776) wifi:enable tsf[0m
+[0;32mI (776) PROBE: EVENT: STA_START[0m
+[0;32mI (786) main_task: Returned from app_main()[0m
+[0;33mW (3196) PROBE: EVENT: STA_DISCONNECTED retry=0[0m
+[0;32mI (3216) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (3216) wifi:state: init -> auth (b0)[0m
+[0;32mI (3226) wifi:state: auth -> assoc (0)[0m
+[0;32mI (3236) wifi:state: assoc -> run (10)[0m
+[0;32mI (3306) wifi:connected with 4223PSTS, aid = 17, channel 11, BW20, bssid = 4c:49:68:d0:9b:0c[0m
+[0;32mI (3306) wifi:security: WPA2-PSK, phy: bgn, rssi: -71[0m
+[0;32mI (3306) wifi:pm start, type: 0[0m
+
+[0;32mI (3306) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3346) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (3406) wifi:<ba-add>idx:0 (ifx:0, 4c:49:68:d0:9b:0c), tid:0, ssn:0, winSize:64[0m
+[0;32mI (4316) esp_netif_handlers: sta ip: 192.168.110.51, mask: 255.255.255.0, gw: 192.168.110.1[0m
+[0;32mI (4316) PROBE: EVENT: GOT_IP[0m
+[0;32mI (4316) WIFI: got ip:192.168.110.51[0m
+[0;32mI (4316) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (4326) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (4326) MQTT: MQTT client started (after IP)[0m
+[0;32mI (4356) wifi:<ba-add>idx:1 (ifx:0, 4c:49:68:d0:9b:0c), tid:7, ssn:5, winSize:64[0m
+[0;32mI (4366) PROBE: CSI callback ENTERED #1, len=256, rssi=-66[0m
+[0;31mE (9346) esp-tls: [sock=55] select() timeout[0m
+[0;31mE (9346) transport_base: Failed to open a new connection: 32774[0m
+[0;31mE (9346) mqtt_client: Error transport connect[0m
+[0;31mE (9346) MQTT: ERROR type=1[0m
+[0;33mW (9346) MQTT: DISCONNECTED from broker[0m
+[0;33mW (9356) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9366) PROBE: publish #1 => -1 (FAILED)[0m
+[0;32mI (9446) PROBE: CSI callback ENTERED #2, len=256, rssi=-67[0m
+[0;33mW (9446) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (9446) PROBE: publish #2 => -1 (FAILED)[0m
+[0;32mI (11066) PROBE: CSI callback ENTERED #3, len=128, rssi=-66[0m
+[0;33mW (11066) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (11076) PROBE: publish #3 => -1 (FAILED)[0m
+[0;32mI (11386) PROBE: CSI callback ENTERED #4, len=128, rssi=-65[0m
+[0;33mW (11386) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (11386) PROBE: publish #4 => -1 (FAILED)[0m
+[0;32mI (12416) MQTT: CONNECTED to broker[0m
+[0;32mI (14666) PROBE: CSI callback ENTERED #5, len=128, rssi=-63[0m
+[0;32mI (14666) PROBE: publish #5 => 0 (ok)[0m
+[0;32mI (18666) PROBE: CSI callback ENTERED #6, len=128, rssi=-63[0m
+[0;32mI (18676) PROBE: publish #6 => 0 (ok)[0m
+[0;32mI (21946) PROBE: CSI callback ENTERED #7, len=128, rssi=-64[0m
+[0;32mI (21946) PROBE: publish #7 => 0 (ok)[0m
+[0;32mI (22856) PROBE: CSI callback ENTERED #8, len=128, rssi=-64[0m
+[0;32mI (22866) PROBE: publish #8 => 0 (ok)[0m
+[0;32mI (23266) PROBE: CSI callback ENTERED #9, len=128, rssi=-64[0m
+[0;32mI (23266) PROBE: publish #9 => 0 (ok)[0m
+[0;32mI (24186) PROBE: CSI callback ENTERED #10, len=128, rssi=-64[0m
+[0;32mI (24186) PROBE: publish #10 => 0 (ok)[0m
+[0;32mI (28176) PROBE: CSI callback ENTERED #11, len=128, rssi=-64[0m
+[0;32mI (28176) PROBE: publish #11 => 0 (ok)[0m
+[0;32mI (33176) PROBE: CSI callback ENTERED #12, len=128, rssi=-63[0m
+[0;32mI (33176) PROBE: publish #12 => 0 (ok)[0m
+[0;32mI (34856) PROBE: CSI callback ENTERED #13, len=128, rssi=-63[0m
+[0;32mI (34866) PROBE: publish #13 => 0 (ok)[0m
+[0;32mI (47456) PROBE: CSI callback ENTERED #14, len=128, rssi=-62[0m
+[0;32mI (47456) PROBE: publish #14 => 0 (ok)[0m
+[0;32mI (49376) PROBE: CSI callback ENTERED #15, len=128, rssi=-60[0m
+[0;32mI (49376) PROBE: publish #15 => 0 (ok)[0m
+[0;32mI (63766) PROBE: CSI callback ENTERED #16, len=128, rssi=-59[0m
+[0;32mI (63776) PROBE: publish #16 => 0 (ok)[0m
+[0;32mI (64036) PROBE: CSI callback ENTERED #17, len=128, rssi=-59[0m
+[0;32mI (64046) PROBE: publish #17 => 0 (ok)[0m
