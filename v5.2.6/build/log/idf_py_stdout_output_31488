@@ -1,0 +1,550 @@
+PI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15632
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (31) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Jun 26 2026 16:35:46[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v3.1[0m
+[0;32mI (39) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (44) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (84) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (92) boot: End of partition table[0m
+[0;32mI (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1dce0h (122080) map[0m
+[0;32mI (146) esp_image: segment 1: paddr=0002dd08 vaddr=3ffb0000 size=02310h (  8976) load[0m
+[0;32mI (150) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=9a920h (633120) map[0m
+[0;32mI (369) esp_image: segment 3: paddr=000ca948 vaddr=3ffb2310 size=01a58h (  6744) load[0m
+[0;32mI (372) esp_image: segment 4: paddr=000cc3a8 vaddr=40080000 size=1729ch ( 94876) load[0m
+[0;32mI (423) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (423) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (444) cpu_start: Pro cpu start user code[0m
+[0;32mI (444) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (444) cpu_start: Application information:[0m
+[0;32mI (447) cpu_start: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (454) cpu_start: App version:      de77edc-dirty[0m
+[0;32mI (459) cpu_start: Compile time:     Jul 20 2026 11:04:24[0m
+[0;32mI (465) cpu_start: ELF file SHA256:  765e1a755...[0m
+[0;32mI (471) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (476) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (480) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (485) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (490) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (497) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (503) heap_init: At 3FFB8298 len 00027D68 (159 KiB): DRAM[0m
+[0;32mI (509) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (516) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (522) heap_init: At 4009729C len 00008D64 (35 KiB): IRAM[0m
+[0;32mI (530) spi_flash: detected chip: generic[0m
+[0;32mI (533) spi_flash: flash io: dio[0m
+[0;33mW (537) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (551) main_task: Started on CPU0[0m
+[0;32mI (561) main_task: Calling app_main()[0m
+[0;32mI (591) wifi:wifi driver task: 3ffc0384, prio:23, stack:6656, core=0[0m
+[0;32mI (601) wifi:wifi firmware version: e851349[0m
+[0;32mI (601) wifi:wifi certification version: v7.0[0m
+[0;32mI (601) wifi:config NVS flash: enabled[0m
+[0;32mI (601) wifi:config nano formating: disabled[0m
+[0;32mI (611) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (611) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (611) wifi:Init management short buffer num: 32[0m
+[0;32mI (621) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (621) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (631) wifi:Init static rx buffer num: 10[0m
+[0;32mI (631) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (641) wifi_init: rx ba win: 6[0m
+[0;32mI (641) wifi_init: tcpip mbox: 32[0m
+[0;32mI (641) wifi_init: udp mbox: 6[0m
+[0;32mI (651) wifi_init: tcp mbox: 6[0m
+[0;32mI (651) wifi_init: tcp tx win: 5760[0m
+[0;32mI (651) wifi_init: tcp rx win: 5760[0m
+[0;32mI (661) wifi_init: tcp mss: 1440[0m
+[0;32mI (661) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (671) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (671) WIFI: Loaded credentials from NVS: ssid=4223PSTS[0m
+[0;33mW (681) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (691) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (691) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (781) wifi:mode : sta (8c:94:df:46:0f:68)[0m
+[0;32mI (781) wifi:enable tsf[0m
+[0;32mI (791) PROBE: EVENT: STA_START[0m
+[0;32mI (791) main_task: Returned from app_main()[0m
+[0;32mI (801) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (801) wifi:state: init -> auth (b0)[0m
+[0;32mI (811) wifi:state: auth -> assoc (0)[0m
+[0;32mI (841) wifi:state: assoc -> run (10)[0m
+[0;32mI (871) wifi:connected with 4223PSTS, aid = 20, channel 11, BW20, bssid = 4c:49:68:d0:9b:0c[0m
+[0;32mI (871) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (881) wifi:pm start, type: 0[0m
+
+[0;32mI (881) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (901) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (911) wifi:<ba-add>idx:0 (ifx:0, 4c:49:68:d0:9b:0c), tid:0, ssn:0, winSize:64[0m
+[0;32mI (1891) esp_netif_handlers: sta ip: 192.168.110.51, mask: 255.255.255.0, gw: 192.168.110.1[0m
+[0;32mI (1891) PROBE: EVENT: GOT_IP[0m
+[0;32mI (1891) WIFI: got ip:192.168.110.51[0m
+[0;32mI (1891) CSI: filtering CSI to gateway BSSID 4c:49:68:d0:9b:0c[0m
+[0;32mI (1901) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (1901) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (1911) MQTT: MQTT client started (after IP)[0m
+[0;32mI (1931) wifi:<ba-add>idx:1 (ifx:0, 4c:49:68:d0:9b:0c), tid:7, ssn:6, winSize:64[0m
+[0;32mI (2511) MQTT: CONNECTED to broker[0m
+[0;32mI (3081) CSI: batches=20 (60 samps) ret=0 q=0[0m
+[0;32mI (3581) CSI: batches=40 (120 samps) ret=0 q=0[0m
+[0;32mI (4131) CSI: batches=60 (180 samps) ret=0 q=0[0m
+[0;32mI (5791) CSI: batches=80 (240 samps) ret=0 q=47[0m
+[0;32mI (6181) CSI: batches=100 (300 samps) ret=0 q=11[0m
+[0;32mI (7481) CSI: batches=120 (360 samps) ret=0 q=0[0m
+[0;32mI (8691) CSI: batches=140 (420 samps) ret=0 q=1[0m
+[0;32mI (9621) CSI: batches=160 (480 samps) ret=0 q=0[0m
+[0;32mI (12771) CSI: batches=180 (540 samps) ret=0 q=55[0m
+[0;32mI (13271) CSI: batches=200 (600 samps) ret=0 q=12[0m
+[0;32mI (18091) CSI: batches=220 (660 samps) ret=0 q=47[0m
+[0;32mI (18661) CSI: batches=240 (720 samps) ret=0 q=21[0m
+[0;32mI (19101) CSI: batches=260 (780 samps) ret=0 q=0[0m
+[0;32mI (19731) CSI: batches=280 (840 samps) ret=0 q=0[0m
+[0;32mI (21491) CSI: batches=300 (900 samps) ret=0 q=5[0m
+[0;32mI (22221) CSI: batches=320 (960 samps) ret=0 q=1[0m
+[0;32mI (25481) CSI: batches=340 (1020 samps) ret=0 q=55[0m
+[0;32mI (26101) CSI: batches=360 (1080 samps) ret=0 q=29[0m
+[0;32mI (29631) CSI: batches=380 (1140 samps) ret=0 q=45[0m
+[0;32mI (40781) CSI: batches=400 (1200 samps) ret=0 q=60[0m
+[0;32mI (41141) CSI: batches=420 (1260 samps) ret=0 q=32[0m
+[0;32mI (42481) CSI: batches=440 (1320 samps) ret=0 q=0[0m
+[0;32mI (43061) CSI: batches=460 (1380 samps) ret=0 q=0[0m
+[0;32mI (43591) CSI: batches=480 (1440 samps) ret=0 q=2[0m
+[0;32mI (44051) CSI: batches=500 (1500 samps) ret=0 q=0[0m
+[0;32mI (44821) CSI: batches=520 (1560 samps) ret=0 q=2[0m
+[0;32mI (45221) CSI: batches=540 (1620 samps) ret=0 q=0[0m
+[0;32mI (45671) CSI: batches=560 (1680 samps) ret=0 q=1[0m
+[0;32mI (46141) CSI: batches=580 (1740 samps) ret=0 q=0[0m
+[0;32mI (46761) CSI: batches=600 (1800 samps) ret=0 q=0[0m
+[0;32mI (47381) CSI: batches=620 (1860 samps) ret=0 q=1[0m
+[0;32mI (48001) CSI: batches=640 (1920 samps) ret=0 q=1[0m
+[0;32mI (48511) CSI: batches=660 (1980 samps) ret=0 q=2[0m
+[0;32mI (48951) CSI: batches=680 (2040 samps) ret=0 q=0[0m
+[0;32mI (49371) CSI: batches=700 (2100 samps) ret=0 q=1[0m
+[0;32mI (49831) CSI: batches=720 (2160 samps) ret=0 q=0[0m
+[0;32mI (50351) CSI: batches=740 (2220 samps) ret=0 q=0[0m
+[0;32mI (50941) CSI: batches=760 (2280 samps) ret=0 q=0[0m
+[0;32mI (51651) CSI: batches=780 (2340 samps) ret=0 q=1[0m
+[0;32mI (53011) CSI: batches=800 (2400 samps) ret=0 q=0[0m
+[0;32mI (58001) CSI: batches=820 (2460 samps) ret=0 q=33[0m
+[0;32mI (59571) CSI: batches=840 (2520 samps) ret=0 q=38[0m
+[0;32mI (61021) CSI: batches=860 (2580 samps) ret=0 q=37[0m
+[0;32mI (61301) CSI: batches=880 (2640 samps) ret=0 q=9[0m
+[0;32mI (61771) CSI: batches=900 (2700 samps) ret=0 q=0[0m
+[0;32mI (62451) CSI: batches=920 (2760 samps) ret=0 q=1[0m
+[0;32mI (63991) CSI: batches=940 (2820 samps) ret=0 q=0[0m
+[0;32mI (64371) CSI: batches=960 (2880 samps) ret=0 q=0[0m
+[0;32mI (64881) CSI: batches=980 (2940 samps) ret=0 q=1[0m
+[0;32mI (66921) CSI: batches=1000 (3000 samps) ret=0 q=0[0m
+[0;32mI (67631) CSI: batches=1020 (3060 samps) ret=0 q=2[0m
+[0;32mI (68061) CSI: batches=1040 (3120 samps) ret=0 q=1[0m
+[0;32mI (68651) CSI: batches=1060 (3180 samps) ret=0 q=2[0m
+[0;32mI (68991) CSI: batches=1080 (3240 samps) ret=0 q=2[0m
+[0;32mI (69591) CSI: batches=1100 (3300 samps) ret=0 q=0[0m
+[0;32mI (72341) CSI: batches=1120 (3360 samps) ret=0 q=28[0m
+[0;32mI (72861) CSI: batches=1140 (3420 samps) ret=0 q=0[0m
+[0;32mI (74331) CSI: batches=1160 (3480 samps) ret=0 q=1[0m
+[0;32mI (74661) CSI: batches=1180 (3540 samps) ret=0 q=2[0m
+[0;32mI (75041) CSI: batches=1200 (3600 samps) ret=0 q=1[0m
+[0;32mI (75521) CSI: batches=1220 (3660 samps) ret=0 q=0[0m
+[0;32mI (76361) CSI: batches=1240 (3720 samps) ret=0 q=1[0m
+[0;32mI (78501) CSI: batches=1260 (3780 samps) ret=0 q=16[0m
+[0;32mI (78861) CSI: batches=1280 (3840 samps) ret=0 q=0[0m
+[0;32mI (79321) CSI: batches=1300 (3900 samps) ret=0 q=0[0m
+[0;32mI (79931) CSI: batches=1320 (3960 samps) ret=0 q=1[0m
+[0;32mI (80601) CSI: batches=1340 (4020 samps) ret=0 q=0[0m
+[0;32mI (82611) CSI: batches=1360 (4080 samps) ret=0 q=0[0m
+[0;32mI (84751) CSI: batches=1380 (4140 samps) ret=0 q=52[0m
+[0;32mI (85651) CSI: batches=1400 (4200 samps) ret=0 q=20[0m
+[0;32mI (88831) CSI: batches=1420 (4260 samps) ret=0 q=53[0m
+[0;32mI (90581) CSI: batches=1440 (4320 samps) ret=0 q=43[0m
+[0;32mI (91471) CSI: batches=1460 (4380 samps) ret=0 q=0[0m
+[0;32mI (92161) CSI: batches=1480 (4440 samps) ret=0 q=0[0m
+[0;32mI (92841) CSI: batches=1500 (4500 samps) ret=0 q=0[0m
+[0;32mI (93581) CSI: batches=1520 (4560 samps) ret=0 q=0[0m
+[0;32mI (94351) CSI: batches=1540 (4620 samps) ret=0 q=0[0m
+[0;32mI (95071) CSI: batches=1560 (4680 samps) ret=0 q=0[0m
+[0;32mI (95891) CSI: batches=1580 (4740 samps) ret=0 q=2[0m
+[0;32mI (96991) CSI: batches=1600 (4800 samps) ret=0 q=2[0m
+[0;32mI (97861) CSI: batches=1620 (4860 samps) ret=0 q=1[0m
+[0;32mI (99731) CSI: batches=1640 (4920 samps) ret=0 q=59[0m
+[0;32mI (103111) CSI: batches=1660 (4980 samps) ret=0 q=50[0m
+[0;32mI (103351) CSI: batches=1680 (5040 samps) ret=0 q=23[0m
+[0;32mI (103681) CSI: batches=1700 (5100 samps) ret=0 q=2[0m
+[0;32mI (104291) CSI: batches=1720 (5160 samps) ret=0 q=0[0m
+[0;32mI (104851) CSI: batches=1740 (5220 samps) ret=0 q=1[0m
+[0;32mI (105391) CSI: batches=1760 (5280 samps) ret=0 q=0[0m
+[0;32mI (106151) CSI: batches=1780 (5340 samps) ret=0 q=1[0m
+[0;32mI (106781) CSI: batches=1800 (5400 samps) ret=0 q=1[0m
+[0;32mI (107311) CSI: batches=1820 (5460 samps) ret=0 q=0[0m
+[0;32mI (107851) CSI: batches=1840 (5520 samps) ret=0 q=1[0m
+[0;32mI (113851) CSI: batches=1860 (5580 samps) ret=0 q=62[0m
+[0;32mI (114321) CSI: batches=1880 (5640 samps) ret=0 q=35[0m
+[0;32mI (115201) CSI: batches=1900 (5700 samps) ret=0 q=9[0m
+[0;32mI (116201) CSI: batches=1920 (5760 samps) ret=0 q=1[0m
+[0;32mI (116891) CSI: batches=1940 (5820 samps) ret=0 q=2[0m
+[0;32mI (117331) CSI: batches=1960 (5880 samps) ret=0 q=0[0m
+[0;32mI (119031) CSI: batches=1980 (5940 samps) ret=0 q=0[0m
+[0;32mI (119711) CSI: batches=2000 (6000 samps) ret=0 q=0[0m
+[0;32mI (120401) CSI: batches=2020 (6060 samps) ret=0 q=2[0m
+[0;32mI (121291) CSI: batches=2040 (6120 samps) ret=0 q=2[0m
+[0;32mI (122161) CSI: batches=2060 (6180 samps) ret=0 q=0[0m
+[0;32mI (122831) CSI: batches=2080 (6240 samps) ret=0 q=1[0m
+[0;32mI (123551) CSI: batches=2100 (6300 samps) ret=0 q=2[0m
+[0;32mI (124361) CSI: batches=2120 (6360 samps) ret=0 q=0[0m
+[0;32mI (125311) CSI: batches=2140 (6420 samps) ret=0 q=5[0m
+[0;32mI (126111) CSI: batches=2160 (6480 samps) ret=0 q=0[0m
+[0;32mI (126831) CSI: batches=2180 (6540 samps) ret=0 q=2[0m
+[0;32mI (127671) CSI: batches=2200 (6600 samps) ret=0 q=1[0m
+[0;32mI (128501) CSI: batches=2220 (6660 samps) ret=0 q=0[0m
+[0;32mI (129181) CSI: batches=2240 (6720 samps) ret=0 q=2[0m
+[0;32mI (129591) CSI: batches=2260 (6780 samps) ret=0 q=1[0m
+[0;32mI (130221) CSI: batches=2280 (6840 samps) ret=0 q=0[0m
+[0;32mI (130861) CSI: batches=2300 (6900 samps) ret=0 q=2[0m
+[0;32mI (132531) CSI: batches=2320 (6960 samps) ret=0 q=1[0m
+[0;32mI (132971) CSI: batches=2340 (7020 samps) ret=0 q=4[0m
+[0;32mI (133621) CSI: batches=2360 (7080 samps) ret=0 q=0[0m
+[0;32mI (134151) CSI: batches=2380 (7140 samps) ret=0 q=0[0m
+[0;32mI (134551) CSI: batches=2400 (7200 samps) ret=0 q=0[0m
+[0;32mI (135011) CSI: batches=2420 (7260 samps) ret=0 q=0[0m
+[0;32mI (135651) CSI: batches=2440 (7320 samps) ret=0 q=1[0m
+[0;32mI (136071) CSI: batches=2460 (7380 samps) ret=0 q=3[0m
+[0;32mI (136621) CSI: batches=2480 (7440 samps) ret=0 q=0[0m
+[0;32mI (138411) CSI: batches=2500 (7500 samps) ret=0 q=2[0m
+[0;32mI (139141) CSI: batches=2520 (7560 samps) ret=0 q=0[0m
+[0;32mI (139951) CSI: batches=2540 (7620 samps) ret=0 q=0[0m
+[0;32mI (140561) CSI: batches=2560 (7680 samps) ret=0 q=1[0m
+[0;32mI (140991) CSI: batches=2580 (7740 samps) ret=0 q=1[0m
+[0;32mI (141581) CSI: batches=2600 (7800 samps) ret=0 q=2[0m
+[0;32mI (142091) CSI: batches=2620 (7860 samps) ret=0 q=2[0m
+[0;32mI (142541) CSI: batches=2640 (7920 samps) ret=0 q=1[0m
+[0;32mI (142951) CSI: batches=2660 (7980 samps) ret=0 q=2[0m
+[0;32mI (143441) CSI: batches=2680 (8040 samps) ret=0 q=2[0m
+[0;32mI (143871) CSI: batches=2700 (8100 samps) ret=0 q=0[0m
+[0;32mI (144391) CSI: batches=2720 (8160 samps) ret=0 q=0[0m
+[0;32mI (145041) CSI: batches=2740 (8220 samps) ret=0 q=1[0m
+[0;32mI (145811) CSI: batches=2760 (8280 samps) ret=0 q=0[0m
+[0;32mI (146491) CSI: batches=2780 (8340 samps) ret=0 q=0[0m
+[0;32mI (147211) CSI: batches=2800 (8400 samps) ret=0 q=0[0m
+[0;32mI (147791) CSI: batches=2820 (8460 samps) ret=0 q=0[0m
+[0;32mI (148331) CSI: batches=2840 (8520 samps) ret=0 q=0[0m
+[0;32mI (148951) CSI: batches=2860 (8580 samps) ret=0 q=0[0m
+[0;32mI (149581) CSI: batches=2880 (8640 samps) ret=0 q=0[0m
+[0;32mI (150441) CSI: batches=2900 (8700 samps) ret=0 q=2[0m
+[0;32mI (151101) CSI: batches=2920 (8760 samps) ret=0 q=1[0m
+[0;32mI (153781) CSI: batches=2940 (8820 samps) ret=0 q=60[0m
+[0;32mI (158421) CSI: batches=2960 (8880 samps) ret=0 q=46[0m
+[0;32mI (159001) CSI: batches=2980 (8940 samps) ret=0 q=24[0m
+[0;32mI (159651) CSI: batches=3000 (9000 samps) ret=0 q=2[0m
+[0;32mI (160151) CSI: batches=3020 (9060 samps) ret=0 q=0[0m
+[0;32mI (160851) CSI: batches=3040 (9120 samps) ret=0 q=5[0m
+[0;32mI (161421) CSI: batches=3060 (9180 samps) ret=0 q=0[0m
+[0;32mI (162061) CSI: batches=3080 (9240 samps) ret=0 q=2[0m
+[0;32mI (162631) CSI: batches=3100 (9300 samps) ret=0 q=2[0m
+[0;32mI (164311) CSI: batches=3120 (9360 samps) ret=0 q=57[0m
+[0;32mI (164641) CSI: batches=3140 (9420 samps) ret=0 q=31[0m
+[0;32mI (165221) CSI: batches=3160 (9480 samps) ret=0 q=1[0m
+[0;32mI (166291) CSI: batches=3180 (9540 samps) ret=0 q=0[0m
+[0;32mI (166971) CSI: batches=3200 (9600 samps) ret=0 q=0[0m
+[0;32mI (167411) CSI: batches=3220 (9660 samps) ret=0 q=1[0m
+[0;32mI (167891) CSI: batches=3240 (9720 samps) ret=0 q=0[0m
+[0;32mI (168441) CSI: batches=3260 (9780 samps) ret=0 q=1[0m
+[0;32mI (168981) CSI: batches=3280 (9840 samps) ret=0 q=2[0m
+[0;32mI (169391) CSI: batches=3300 (9900 samps) ret=0 q=0[0m
+[0;32mI (170051) CSI: batches=3320 (9960 samps) ret=0 q=0[0m
+[0;32mI (170821) CSI: batches=3340 (10020 samps) ret=0 q=0[0m
+[0;32mI (171461) CSI: batches=3360 (10080 samps) ret=0 q=0[0m
+[0;32mI (172101) CSI: batches=3380 (10140 samps) ret=0 q=1[0m
+[0;32mI (172601) CSI: batches=3400 (10200 samps) ret=0 q=0[0m
+[0;32mI (173121) CSI: batches=3420 (10260 samps) ret=0 q=0[0m
+[0;32mI (173691) CSI: batches=3440 (10320 samps) ret=0 q=2[0m
+[0;32mI (174431) CSI: batches=3460 (10380 samps) ret=0 q=1[0m
+[0;32mI (174961) CSI: batches=3480 (10440 samps) ret=0 q=0[0m
+[0;32mI (175561) CSI: batches=3500 (10500 samps) ret=0 q=1[0m
+[0;32mI (176091) CSI: batches=3520 (10560 samps) ret=0 q=1[0m
+[0;32mI (176761) CSI: batches=3540 (10620 samps) ret=0 q=0[0m
+[0;32mI (177271) CSI: batches=3560 (10680 samps) ret=0 q=1[0m
+[0;32mI (177871) CSI: batches=3580 (10740 samps) ret=0 q=0[0m
+[0;32mI (178561) CSI: batches=3600 (10800 samps) ret=0 q=0[0m
+[0;32mI (179171) CSI: batches=3620 (10860 samps) ret=0 q=0[0m
+[0;32mI (179781) CSI: batches=3640 (10920 samps) ret=0 q=1[0m
+[0;32mI (180341) CSI: batches=3660 (10980 samps) ret=0 q=0[0m
+[0;32mI (180821) CSI: batches=3680 (11040 samps) ret=0 q=0[0m
+[0;32mI (181381) CSI: batches=3700 (11100 samps) ret=0 q=0[0m
+[0;32mI (182031) CSI: batches=3720 (11160 samps) ret=0 q=2[0m
+[0;32mI (182861) CSI: batches=3740 (11220 samps) ret=0 q=2[0m
+[0;32mI (183631) CSI: batches=3760 (11280 samps) ret=0 q=0[0m
+[0;32mI (184541) CSI: batches=3780 (11340 samps) ret=0 q=0[0m
+[0;32mI (185551) CSI: batches=3800 (11400 samps) ret=0 q=1[0m
+[0;32mI (186671) CSI: batches=3820 (11460 samps) ret=0 q=1[0m
+[0;32mI (190001) CSI: batches=3840 (11520 samps) ret=0 q=0[0m
+[0;32mI (196981) CSI: batches=3860 (11580 samps) ret=0 q=42[0m
+[0;32mI (199761) CSI: batches=3880 (11640 samps) ret=0 q=64[0m
+[0;32mI (200261) CSI: batches=3900 (11700 samps) ret=0 q=36[0m
+[0;32mI (203251) CSI: batches=3920 (11760 samps) ret=0 q=44[0m
+[0;32mI (206521) CSI: batches=3940 (11820 samps) ret=0 q=50[0m
+[0;32mI (207161) CSI: batches=3960 (11880 samps) ret=0 q=24[0m
+[0;32mI (207771) CSI: batches=3980 (11940 samps) ret=0 q=2[0m
+[0;32mI (208501) CSI: batches=4000 (12000 samps) ret=0 q=0[0m
+[0;32mI (209311) CSI: batches=4020 (12060 samps) ret=0 q=1[0m
+[0;32mI (210061) CSI: batches=4040 (12120 samps) ret=0 q=0[0m
+[0;32mI (210511) CSI: batches=4060 (12180 samps) ret=0 q=1[0m
+[0;32mI (211001) CSI: batches=4080 (12240 samps) ret=0 q=3[0m
+[0;32mI (211561) CSI: batches=4100 (12300 samps) ret=0 q=1[0m
+[0;32mI (212251) CSI: batches=4120 (12360 samps) ret=0 q=4[0m
+[0;32mI (212811) CSI: batches=4140 (12420 samps) ret=0 q=0[0m
+[0;32mI (213571) CSI: batches=4160 (12480 samps) ret=0 q=1[0m
+[0;32mI (214161) CSI: batches=4180 (12540 samps) ret=0 q=1[0m
+[0;32mI (214541) CSI: batches=4200 (12600 samps) ret=0 q=0[0m
+[0;32mI (215101) CSI: batches=4220 (12660 samps) ret=0 q=1[0m
+[0;32mI (215581) CSI: batches=4240 (12720 samps) ret=0 q=1[0m
+[0;32mI (216161) CSI: batches=4260 (12780 samps) ret=0 q=1[0m
+[0;32mI (216781) CSI: batches=4280 (12840 samps) ret=0 q=1[0m
+[0;32mI (217331) CSI: batches=4300 (12900 samps) ret=0 q=0[0m
+[0;32mI (217861) CSI: batches=4320 (12960 samps) ret=0 q=0[0m
+[0;32mI (218491) CSI: batches=4340 (13020 samps) ret=0 q=0[0m
+[0;32mI (219201) CSI: batches=4360 (13080 samps) ret=0 q=1[0m
+[0;32mI (219921) CSI: batches=4380 (13140 samps) ret=0 q=1[0m
+[0;32mI (220541) CSI: batches=4400 (13200 samps) ret=0 q=1[0m
+[0;32mI (221131) CSI: batches=4420 (13260 samps) ret=0 q=0[0m
+[0;32mI (221651) CSI: batches=4440 (13320 samps) ret=0 q=1[0m
+[0;32mI (222171) CSI: batches=4460 (13380 samps) ret=0 q=1[0m
+[0;32mI (222771) CSI: batches=4480 (13440 samps) ret=0 q=0[0m
+[0;32mI (223461) CSI: batches=4500 (13500 samps) ret=0 q=1[0m
+[0;32mI (224101) CSI: batches=4520 (13560 samps) ret=0 q=0[0m
+[0;32mI (224831) CSI: batches=4540 (13620 samps) ret=0 q=1[0m
+[0;32mI (226771) CSI: batches=4560 (13680 samps) ret=0 q=56[0m
+[0;32mI (227531) CSI: batches=4580 (13740 samps) ret=0 q=31[0m
+[0;32mI (228211) CSI: batches=4600 (13800 samps) ret=0 q=5[0m
+[0;32mI (228731) CSI: batches=4620 (13860 samps) ret=0 q=0[0m
+[0;32mI (230711) CSI: batches=4640 (13920 samps) ret=0 q=42[0m
+[0;32mI (231391) CSI: batches=4660 (13980 samps) ret=0 q=14[0m
+[0;32mI (232111) CSI: batches=4680 (14040 samps) ret=0 q=0[0m
+[0;32mI (232881) CSI: batches=4700 (14100 samps) ret=0 q=1[0m
+[0;32mI (233651) CSI: batches=4720 (14160 samps) ret=0 q=0[0m
+[0;32mI (234451) CSI: batches=4740 (14220 samps) ret=0 q=1[0m
+[0;32mI (235111) CSI: batches=4760 (14280 samps) ret=0 q=4[0m
+[0;32mI (235581) CSI: batches=4780 (14340 samps) ret=0 q=0[0m
+[0;32mI (236201) CSI: batches=4800 (14400 samps) ret=0 q=1[0m
+[0;32mI (236911) CSI: batches=4820 (14460 samps) ret=0 q=1[0m
+[0;32mI (237461) CSI: batches=4840 (14520 samps) ret=0 q=1[0m
+[0;32mI (238101) CSI: batches=4860 (14580 samps) ret=0 q=0[0m
+[0;32mI (238651) CSI: batches=4880 (14640 samps) ret=0 q=0[0m
+[0;32mI (239341) CSI: batches=4900 (14700 samps) ret=0 q=1[0m
+[0;32mI (239921) CSI: batches=4920 (14760 samps) ret=0 q=0[0m
+[0;32mI (240631) CSI: batches=4940 (14820 samps) ret=0 q=1[0m
+[0;32mI (241181) CSI: batches=4960 (14880 samps) ret=0 q=1[0m
+[0;32mI (241731) CSI: batches=4980 (14940 samps) ret=0 q=0[0m
+[0;32mI (242481) CSI: batches=5000 (15000 samps) ret=0 q=4[0m
+[0;32mI (243301) CSI: batches=5020 (15060 samps) ret=0 q=0[0m
+[0;32mI (244191) CSI: batches=5040 (15120 samps) ret=0 q=0[0m
+[0;32mI (244921) CSI: batches=5060 (15180 samps) ret=0 q=0[0m
+[0;32mI (245761) CSI: batches=5080 (15240 samps) ret=0 q=1[0m
+[0;32mI (246561) CSI: batches=5100 (15300 samps) ret=0 q=0[0m
+[0;32mI (247201) CSI: batches=5120 (15360 samps) ret=0 q=1[0m
+[0;32mI (248081) CSI: batches=5140 (15420 samps) ret=0 q=1[0m
+[0;32mI (249031) CSI: batches=5160 (15480 samps) ret=0 q=3[0m
+[0;32mI (249831) CSI: batches=5180 (15540 samps) ret=0 q=0[0m
+[0;32mI (250661) CSI: batches=5200 (15600 samps) ret=0 q=1[0m
+[0;32mI (252691) CSI: batches=5220 (15660 samps) ret=0 q=0[0m
+[0;32mI (253441) CSI: batches=5240 (15720 samps) ret=0 q=2[0m
+[0;32mI (254211) CSI: batches=5260 (15780 samps) ret=0 q=2[0m
+[0;32mI (254711) CSI: batches=5280 (15840 samps) ret=0 q=1[0m
+[0;32mI (255261) CSI: batches=5300 (15900 samps) ret=0 q=0[0m
+[0;32mI (255801) CSI: batches=5320 (15960 samps) ret=0 q=0[0m
+[0;32mI (262601) CSI: batches=5340 (16020 samps) ret=0 q=51[0m
+[0;32mI (263061) CSI: batches=5360 (16080 samps) ret=0 q=20[0m
+[0;32mI (263511) CSI: batches=5380 (16140 samps) ret=0 q=0[0m
+[0;32mI (264211) CSI: batches=5400 (16200 samps) ret=0 q=22[0m
+[0;32mI (265181) CSI: batches=5420 (16260 samps) ret=0 q=46[0m
+[0;32mI (268941) CSI: batches=5440 (16320 samps) ret=0 q=62[0m
+[0;32mI (273891) CSI: batches=5460 (16380 samps) ret=0 q=58[0m
+[0;32mI (275661) CSI: batches=5480 (16440 samps) ret=0 q=44[0m
+[0;32mI (279461) CSI: batches=5500 (16500 samps) ret=0 q=52[0m
+[0;32mI (281791) CSI: batches=5520 (16560 samps) ret=0 q=61[0m
+[0;32mI (282741) CSI: batches=5540 (16620 samps) ret=0 q=32[0m
+[0;32mI (283471) CSI: batches=5560 (16680 samps) ret=0 q=8[0m
+[0;32mI (284391) CSI: batches=5580 (16740 samps) ret=0 q=0[0m
+[0;32mI (285571) CSI: batches=5600 (16800 samps) ret=0 q=0[0m
+[0;32mI (287031) CSI: batches=5620 (16860 samps) ret=0 q=0[0m
+[0;32mI (287981) CSI: batches=5640 (16920 samps) ret=0 q=0[0m
+[0;32mI (288741) CSI: batches=5660 (16980 samps) ret=0 q=2[0m
+[0;32mI (289261) CSI: batches=5680 (17040 samps) ret=0 q=1[0m
+[0;32mI (289981) CSI: batches=5700 (17100 samps) ret=0 q=1[0m
+[0;32mI (290681) CSI: batches=5720 (17160 samps) ret=0 q=0[0m
+[0;32mI (291461) CSI: batches=5740 (17220 samps) ret=0 q=1[0m
+[0;32mI (292091) CSI: batches=5760 (17280 samps) ret=0 q=14[0m
+[0;32mI (292861) CSI: batches=5780 (17340 samps) ret=0 q=3[0m
+[0;32mI (296621) CSI: batches=5800 (17400 samps) ret=0 q=64[0m
+[0;32mI (297431) CSI: batches=5820 (17460 samps) ret=0 q=57[0m
+[0;32mI (297991) CSI: batches=5840 (17520 samps) ret=0 q=29[0m
+[0;32mI (298671) CSI: batches=5860 (17580 samps) ret=0 q=2[0m
+[0;32mI (299571) CSI: batches=5880 (17640 samps) ret=0 q=0[0m
+[0;32mI (301091) CSI: batches=5900 (17700 samps) ret=0 q=0[0m
+[0;32mI (302041) CSI: batches=5920 (17760 samps) ret=0 q=2[0m
+[0;32mI (302581) CSI: batches=5940 (17820 samps) ret=0 q=3[0m
+[0;32mI (303051) CSI: batches=5960 (17880 samps) ret=0 q=1[0m
+[0;32mI (303621) CSI: batches=5980 (17940 samps) ret=0 q=3[0m
+[0;32mI (304041) CSI: batches=6000 (18000 samps) ret=0 q=0[0m
+[0;32mI (304671) CSI: batches=6020 (18060 samps) ret=0 q=0[0m
+[0;32mI (305271) CSI: batches=6040 (18120 samps) ret=0 q=1[0m
+[0;32mI (306051) CSI: batches=6060 (18180 samps) ret=0 q=2[0m
+[0;32mI (306501) CSI: batches=6080 (18240 samps) ret=0 q=1[0m
+[0;32mI (306971) CSI: batches=6100 (18300 samps) ret=0 q=2[0m
+[0;32mI (307451) CSI: batches=6120 (18360 samps) ret=0 q=3[0m
+[0;32mI (308101) CSI: batches=6140 (18420 samps) ret=0 q=2[0m
+[0;32mI (308801) CSI: batches=6160 (18480 samps) ret=0 q=0[0m
+[0;32mI (309641) CSI: batches=6180 (18540 samps) ret=0 q=1[0m
+[0;32mI (310061) CSI: batches=6200 (18600 samps) ret=0 q=0[0m
+[0;32mI (310451) CSI: batches=6220 (18660 samps) ret=0 q=0[0m
+[0;32mI (310851) CSI: batches=6240 (18720 samps) ret=0 q=0[0m
+[0;32mI (311571) CSI: batches=6260 (18780 samps) ret=0 q=0[0m
+[0;32mI (312111) CSI: batches=6280 (18840 samps) ret=0 q=1[0m
+[0;32mI (312831) CSI: batches=6300 (18900 samps) ret=0 q=2[0m
+[0;32mI (313671) CSI: batches=6320 (18960 samps) ret=0 q=0[0m
+[0;32mI (314591) CSI: batches=6340 (19020 samps) ret=0 q=3[0m
+[0;32mI (315391) CSI: batches=6360 (19080 samps) ret=0 q=2[0m
+[0;32mI (316261) CSI: batches=6380 (19140 samps) ret=0 q=2[0m
+[0;32mI (316941) CSI: batches=6400 (19200 samps) ret=0 q=0[0m
+[0;32mI (317601) CSI: batches=6420 (19260 samps) ret=0 q=1[0m
+[0;32mI (318421) CSI: batches=6440 (19320 samps) ret=0 q=1[0m
+[0;32mI (319241) CSI: batches=6460 (19380 samps) ret=0 q=2[0m
+[0;32mI (319901) CSI: batches=6480 (19440 samps) ret=0 q=1[0m
+[0;32mI (320581) CSI: batches=6500 (19500 samps) ret=0 q=0[0m
+[0;32mI (321101) CSI: batches=6520 (19560 samps) ret=0 q=0[0m
+[0;32mI (321611) CSI: batches=6540 (19620 samps) ret=0 q=0[0m
+[0;32mI (322091) CSI: batches=6560 (19680 samps) ret=0 q=0[0m
+[0;32mI (322731) CSI: batches=6580 (19740 samps) ret=0 q=0[0m
+[0;32mI (323351) CSI: batches=6600 (19800 samps) ret=0 q=1[0m
+[0;32mI (324001) CSI: batches=6620 (19860 samps) ret=0 q=0[0m
+[0;32mI (324631) CSI: batches=6640 (19920 samps) ret=0 q=0[0m
+[0;32mI (325251) CSI: batches=6660 (19980 samps) ret=0 q=0[0m
+[0;32mI (326101) CSI: batches=6680 (20040 samps) ret=0 q=0[0m
+[0;32mI (327021) CSI: batches=6700 (20100 samps) ret=0 q=0[0m
+[0;32mI (330431) CSI: batches=6720 (20160 samps) ret=0 q=59[0m
+[0;32mI (332281) CSI: batches=6740 (20220 samps) ret=0 q=60[0m
+[0;32mI (337331) CSI: batches=6760 (20280 samps) ret=0 q=57[0m
+[0;32mI (338091) CSI: batches=6780 (20340 samps) ret=0 q=30[0m
+[0;32mI (338811) CSI: batches=6800 (20400 samps) ret=0 q=3[0m
+[0;32mI (339701) CSI: batches=6820 (20460 samps) ret=0 q=24[0m
+[0;32mI (340141) CSI: batches=6840 (20520 samps) ret=0 q=1[0m
+[0;32mI (341811) CSI: batches=6860 (20580 samps) ret=0 q=0[0m
+[0;32mI (342471) CSI: batches=6880 (20640 samps) ret=0 q=1[0m
+[0;32mI (343101) CSI: batches=6900 (20700 samps) ret=0 q=2[0m
+[0;32mI (343541) CSI: batches=6920 (20760 samps) ret=0 q=0[0m
+[0;32mI (343971) CSI: batches=6940 (20820 samps) ret=0 q=4[0m
+[0;32mI (344351) CSI: batches=6960 (20880 samps) ret=0 q=2[0m
+[0;32mI (344851) CSI: batches=6980 (20940 samps) ret=0 q=0[0m
+[0;32mI (345401) CSI: batches=7000 (21000 samps) ret=0 q=1[0m
+[0;32mI (346091) CSI: batches=7020 (21060 samps) ret=0 q=1[0m
+[0;32mI (346991) CSI: batches=7040 (21120 samps) ret=0 q=1[0m
+[0;32mI (347611) CSI: batches=7060 (21180 samps) ret=0 q=1[0m
+[0;32mI (348191) CSI: batches=7080 (21240 samps) ret=0 q=0[0m
+[0;32mI (348911) CSI: batches=7100 (21300 samps) ret=0 q=1[0m
+[0;32mI (349541) CSI: batches=7120 (21360 samps) ret=0 q=1[0m
+[0;32mI (350091) CSI: batches=7140 (21420 samps) ret=0 q=0[0m
+[0;32mI (350721) CSI: batches=7160 (21480 samps) ret=0 q=0[0m
+[0;32mI (351381) CSI: batches=7180 (21540 samps) ret=0 q=1[0m
+[0;32mI (352001) CSI: batches=7200 (21600 samps) ret=0 q=1[0m
+[0;32mI (352571) CSI: batches=7220 (21660 samps) ret=0 q=0[0m
+[0;32mI (353171) CSI: batches=7240 (21720 samps) ret=0 q=1[0m
+[0;32mI (353711) CSI: batches=7260 (21780 samps) ret=0 q=0[0m
+[0;32mI (354231) CSI: batches=7280 (21840 samps) ret=0 q=0[0m
+[0;32mI (354881) CSI: batches=7300 (21900 samps) ret=0 q=0[0m
+[0;32mI (355581) CSI: batches=7320 (21960 samps) ret=0 q=0[0m
+[0;32mI (356131) CSI: batches=7340 (22020 samps) ret=0 q=1[0m
+[0;32mI (357881) CSI: batches=7360 (22080 samps) ret=0 q=0[0m
+[0;32mI (358471) CSI: batches=7380 (22140 samps) ret=0 q=0[0m
+[0;32mI (359991) CSI: batches=7400 (22200 samps) ret=0 q=38[0m
+[0;32mI (360401) CSI: batches=7420 (22260 samps) ret=0 q=10[0m
+[0;32mI (361371) CSI: batches=7440 (22320 samps) ret=0 q=2[0m
+[0;32mI (362351) CSI: batches=7460 (22380 samps) ret=0 q=0[0m
+[0;32mI (363371) CSI: batches=7480 (22440 samps) ret=0 q=2[0m
+[0;32mI (364541) CSI: batches=7500 (22500 samps) ret=0 q=7[0m
+[0;32mI (367401) CSI: batches=7520 (22560 samps) ret=0 q=42[0m
+[0;32mI (368281) CSI: batches=7540 (22620 samps) ret=0 q=10[0m
+[0;32mI (369341) CSI: batches=7560 (22680 samps) ret=0 q=0[0m
+[0;32mI (371301) CSI: batches=7580 (22740 samps) ret=0 q=0[0m
+[0;32mI (372061) CSI: batches=7600 (22800 samps) ret=0 q=1[0m
+[0;32mI (372831) CSI: batches=7620 (22860 samps) ret=0 q=0[0m
+[0;32mI (373931) CSI: batches=7640 (22920 samps) ret=0 q=1[0m
+[0;32mI (374551) CSI: batches=7660 (22980 samps) ret=0 q=0[0m
+[0;32mI (375281) CSI: batches=7680 (23040 samps) ret=0 q=1[0m
+[0;32mI (375881) CSI: batches=7700 (23100 samps) ret=0 q=2[0m
+[0;32mI (376321) CSI: batches=7720 (23160 samps) ret=0 q=0[0m
+[0;32mI (376941) CSI: batches=7740 (23220 samps) ret=0 q=1[0m
+[0;32mI (377641) CSI: batches=7760 (23280 samps) ret=0 q=2[0m
+[0;32mI (378271) CSI: batches=7780 (23340 samps) ret=0 q=2[0m
+[0;32mI (378911) CSI: batches=7800 (23400 samps) ret=0 q=0[0m
+[0;32mI (380851) CSI: batches=7820 (23460 samps) ret=0 q=0[0m
+[0;32mI (381631) CSI: batches=7840 (23520 samps) ret=0 q=1[0m
+[0;32mI (382451) CSI: batches=7860 (23580 samps) ret=0 q=0[0m
+[0;32mI (383171) CSI: batches=7880 (23640 samps) ret=0 q=3[0m
+[0;32mI (384251) CSI: batches=7900 (23700 samps) ret=0 q=0[0m
+[0;32mI (386351) CSI: batches=7920 (23760 samps) ret=0 q=58[0m
+[0;32mI (387091) CSI: batches=7940 (23820 samps) ret=0 q=29[0m
+[0;32mI (387911) CSI: batches=7960 (23880 samps) ret=0 q=1[0m
+[0;32mI (388541) CSI: batches=7980 (23940 samps) ret=0 q=2[0m
+[0;32mI (388981) CSI: batches=8000 (24000 samps) ret=0 q=0[0m
+[0;32mI (389681) CSI: batches=8020 (24060 samps) ret=0 q=0[0m
+[0;32mI (390411) CSI: batches=8040 (24120 samps) ret=0 q=3[0m
+[0;32mI (391031) CSI: batches=8060 (24180 samps) ret=0 q=0[0m
+[0;32mI (391851) CSI: batches=8080 (24240 samps) ret=0 q=0[0m
+[0;32mI (393451) CSI: batches=8100 (24300 samps) ret=0 q=0[0m
+[0;32mI (393901) CSI: batches=8120 (24360 samps) ret=0 q=1[0m
+[0;32mI (394411) CSI: batches=8140 (24420 samps) ret=0 q=0[0m
+[0;32mI (394861) CSI: batches=8160 (24480 samps) ret=0 q=1[0m
+[0;32mI (395431) CSI: batches=8180 (24540 samps) ret=0 q=1[0m
+[0;32mI (395841) CSI: batches=8200 (24600 samps) ret=0 q=1[0m
+[0;32mI (396421) CSI: batches=8220 (24660 samps) ret=0 q=3[0m
+[0;32mI (396811) CSI: batches=8240 (24720 samps) ret=0 q=2[0m
+[0;32mI (397571) CSI: batches=8260 (24780 samps) ret=0 q=1[0m
+[0;32mI (398301) CSI: batches=8280 (24840 samps) ret=0 q=0[0m
+[0;32mI (398961) CSI: batches=8300 (24900 samps) ret=0 q=0[0m
+[0;32mI (399951) CSI: batches=8320 (24960 samps) ret=0 q=0[0m
+[0;32mI (401901) CSI: batches=8340 (25020 samps) ret=0 q=1[0m
+[0;32mI (402631) CSI: batches=8360 (25080 samps) ret=0 q=0[0m
+[0;32mI (404721) CSI: batches=8380 (25140 samps) ret=0 q=44[0m
+[0;32mI (410851) CSI: batches=8400 (25200 samps) ret=0 q=53[0m
+[0;32mI (411431) CSI: batches=8420 (25260 samps) ret=0 q=11[0m
+[0;32mI (412351) CSI: batches=8440 (25320 samps) ret=0 q=0[0m
+[0;32mI (413171) CSI: batches=8460 (25380 samps) ret=0 q=2[0m
+[0;32mI (415091) CSI: batches=8480 (25440 samps) ret=0 q=0[0m
+[0;32mI (415721) CSI: batches=8500 (25500 samps) ret=0 q=0[0m
+[0;32mI (417651) CSI: batches=8520 (25560 samps) ret=0 q=42[0m
+[0;32mI (418281) CSI: batches=8540 (25620 samps) ret=0 q=16[0m
+[0;32mI (419141) CSI: batches=8560 (25680 samps) ret=0 q=0[0m
+[0;32mI (419721) CSI: batches=8580 (25740 samps) ret=0 q=1[0m
+[0;32mI (420311) CSI: batches=8600 (25800 samps) ret=0 q=0[0m
+[0;32mI (420891) CSI: batches=8620 (25860 samps) ret=0 q=1[0m
+[0;32mI (421451) CSI: batches=8640 (25920 samps) ret=0 q=3[0m
+[0;32mI (422351) CSI: batches=8660 (25980 samps) ret=0 q=2[0m
+[0;32mI (422781) CSI: batches=8680 (26040 samps) ret=0 q=1[0m
+[0;32mI (423391) CSI: batches=8700 (26100 samps) ret=0 q=2[0m
+[0;32mI (423921) CSI: batches=8720 (26160 samps) ret=0 q=1[0m
+[0;32mI (424541) CSI: batches=8740 (26220 samps) ret=0 q=0[0m
+[0;32mI (425181) CSI: batches=8760 (26280 samps) ret=0 q=0[0m
+[0;32mI (425691) CSI: batches=8780 (26340 samps) ret=0 q=1[0m
+[0;32mI (426581) CSI: batches=8800 (26400 samps) ret=0 q=3[0m
+[0;32mI (427021) CSI: batches=8820 (26460 samps) ret=0 q=2[0m
+[0;32mI (427631) CSI: batches=8840 (26520 samps) ret=0 q=0[0m
