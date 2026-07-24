@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-D:/vital_signs_monitoring_sys/build/CMakeFiles/bootloader
-D:/vital_signs_monitoring_sys/build/CMakeFiles/bootloader.rule
-D:/vital_signs_monitoring_sys/build/CMakeFiles/bootloader-complete.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-D:/vital_signs_monitoring_sys/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/CMakeFiles/bootloader
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/CMakeFiles/bootloader.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/CMakeFiles/bootloader-complete.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

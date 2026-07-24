@@ -1,0 +1,7 @@
+"-specs=C:/vital_signs_monitoring_sys/vital_signs_monitoring_sys/v6.0.2/build/bootloader/specs/picolibc.specs"
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+-fno-rtti

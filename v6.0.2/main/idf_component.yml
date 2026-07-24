@@ -3,6 +3,10 @@ dependencies:
   ## Required IDF version
   idf:
     version: '>=4.1.0'
+  ## In ESP-IDF v6.0.x, mqtt and cjson moved out of built-in components
+  ## into the ESP Component Registry (managed components).
+  espressif/mqtt: "^1.0.0"
+  espressif/cjson: "^1.7.19"
   # # Put list of dependencies here
   # # For components maintained by Espressif:
   # component: "~1.0.0"

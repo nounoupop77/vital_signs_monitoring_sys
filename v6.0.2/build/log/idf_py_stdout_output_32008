@@ -1,0 +1,95 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\vital_signs_monitoring_sys\vital_signs_monitoring_sys\v6.0.2\build\vital_signs_monitoring_sys.elf C:\vital_signs_monitoring_sys\vital_signs_monitoring_sys\v6.0.2\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jul 24 2026 14:47:41[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2091ch (133404) map[0m
+[0;32mI (134) esp_image: segment 1: paddr=00030944 vaddr=3ffb0000 size=04590h ( 17808) load[0m
+[0;32mI (141) esp_image: segment 2: paddr=00034edc vaddr=40080000 size=0b13ch ( 45372) load[0m
+[0;32mI (160) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=a1e80h (663168) map[0m
+[0;32mI (396) esp_image: segment 4: paddr=000e1ea8 vaddr=4008b13c size=0a7a8h ( 42920) load[0m
+[0;32mI (414) esp_image: segment 5: paddr=000ec658 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (425) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (425) boot: Disabling RNG early entropy source...[0m
+[0;32mI (436) cpu_start: Multicore app[0m
+[0;32mI (444) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (444) cpu_start: Pro cpu start user code[0m
+[0;32mI (444) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (449) app_init: Application information:[0m
+[0;32mI (454) app_init: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (460) app_init: App version:      cb5bd50-dirty[0m
+[0;32mI (466) app_init: Compile time:     Jul 24 2026 14:47:30[0m
+[0;32mI (472) app_init: ELF file SHA256:  2dff484ea...[0m
+[0;32mI (477) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (482) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (487) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (492) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (497) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (504) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (510) heap_init: At 3FFB8FF8 len 00027008 (156 KiB): DRAM[0m
+[0;32mI (516) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (522) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (529) heap_init: At 400958E4 len 0000A71C (41 KiB): IRAM[0m
+[0;32mI (536) spi_flash: detected chip: generic[0m
+[0;32mI (540) spi_flash: flash io: dio[0m
+[0;33mW (543) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (558) main_task: Started on CPU0[0m
+[0;32mI (558) main_task: Calling app_main()[0m
+[0;32mI (608) wifi:wifi driver task: 3ffc093c, prio:23, stack:6656, core=0[0m
+[0;32mI (618) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (618) wifi:wifi certification version: v7.0[0m
+[0;32mI (618) wifi:config NVS flash: enabled[0m
+[0;32mI (618) wifi:config nano formatting: disabled[0m
+[0;32mI (628) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (628) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (638) wifi:Init management short buffer num: 32[0m
+[0;32mI (638) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (648) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (648) wifi:Init static rx buffer num: 10[0m
+[0;32mI (648) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (658) wifi_init: rx ba win: 6[0m
+[0;32mI (658) wifi_init: accept mbox: 6[0m
+[0;32mI (668) wifi_init: tcpip mbox: 32[0m
+[0;32mI (668) wifi_init: udp mbox: 6[0m
+[0;32mI (668) wifi_init: tcp mbox: 6[0m
+[0;32mI (678) wifi_init: tcp tx win: 5760[0m
+[0;32mI (678) wifi_init: tcp rx win: 5760[0m
+[0;32mI (688) wifi_init: tcp mss: 1440[0m
+[0;32mI (688) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (688) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (698) WIFI: NVS open failed, using defaults[0m
+[0;33mW (698) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (738) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (738) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (818) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (838) wifi:mode : sta (8c:94:df:60:d3:3c)[0m
+[0;32mI (838) wifi:enable tsf[0m
+[0;32mI (838) PROBE: EVENT: STA_START[0m
+[0;32mI (848) main_task: Returned from app_main()[0m
+[0;33mW (3258) PROBE: EVENT: STA_DISCONNECTED retry=0[0m
+[0;33mW (5678) PROBE: EVENT: STA_DISCONNECTED retry=1[0m
+[0;33mW (8098) PROBE: EVENT: STA_DISCONNECTED retry=2[0m
+[0;33mW (10518) PROBE: EVENT: STA_DISCONNECTED retry=3[0m
+[0;33mW (12938) PROBE: EVENT: STA_DISCONNECTED retry=4[0m
+[0;33mW (15358) PROBE: EVENT: STA_DISCONNECTED retry=5[0m
