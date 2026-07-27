@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -17,15 +17,15 @@
 
 /* ═══ WiFi Configuration ═══ */
 /* defaults used when NVS has no saved credentials */
-#define WIFI_DEFAULT_SSID "4223PSTS"
-#define WIFI_DEFAULT_PASS "1234567890"
+#define WIFI_DEFAULT_SSID "testformqtt"
+#define WIFI_DEFAULT_PASS "hopesuccess"
 #define WIFI_MAX_RETRY   5
 #define WIFI_NVS_NS      "wifi_cred"
 #define WIFI_NVS_KEY_SSID "ssid"
 #define WIFI_NVS_KEY_PASS "pass"
 
 /* ═══ MQTT Configuration ═══ */
-#define MQTT_BROKER  "mqtt://xg-6.frp.one:63992"
+#define MQTT_BROKER  "mqtt://192.168.8.150:1883"
 #define MQTT_CLIENT  "esp32-csi-001"
 #define MQTT_TOPIC   "me41004/csi"
 /* ESP32 subscribes here to receive WiFi config from GUI */
@@ -39,7 +39,20 @@ static esp_mqtt_client_handle_t mqtt_client = NULL;
 #define CSI_QUEUE_LEN   16
 #define CSI_SEND_STACK  6144
 #define MAX_CSI_BYTES   512
-#define MIN_PUBLISH_GAP_MS 20
+
+/* ═══ Adaptive publish throttle (rate-adaptive core) ═══
+ * Instead of a fixed MIN_PUBLISH_GAP_MS, the gap floats between MIN and MAX
+ * based on how fast the network can drain the queue (qdepth).
+ *   - qdepth low  -> network is fast -> shrink gap toward MIN (full speed)
+ *   - qdepth high -> network is slow -> grow gap toward MAX (drop more)
+ *   - publish error or near-full queue -> back off fast (big step up)
+ * This keeps the connection alive on ANY network without manual tuning. */
+#define MIN_PUBLISH_GAP_MS  20     /* fastest  ~50 Hz (good network ceiling) */
+#define MAX_PUBLISH_GAP_MS  80     /* slowest  ~12 Hz (bad network floor)    */
+#define GAP_BACKOFF_STEP    5      /* ms added per back-off tick (fast)      */
+#define GAP_RECOVERY_STEP   1      /* ms removed per recovery tick (slow)    */
+#define QD_HIGH_WATER      12      /* queue depth that triggers back-off     */
+#define QD_LOW_WATER        4      /* queue depth that allows recovery       */
 
 static QueueHandle_t csi_queue = NULL;
 static volatile bool mqtt_connected_flag = false;
@@ -256,17 +269,40 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     }
 }
 
+/* ──────────────────────────────────────────────
+ * Adaptive CSI sender task
+ *
+ * The publish gap (gap_ms) self-tunes to whatever the current network can
+ * sustain, using the outgoing queue depth as a congestion signal:
+ *   - Queue draining well (qd <= LOW)  -> slowly speed up (shrink gap)
+ *   - Queue backing up   (qd >= HIGH)  -> quickly slow down (grow gap)
+ *   - Publish failed     (r < 0)       -> back off immediately
+ * The asymmetry (fast back-off, slow recovery) is deliberate and is the
+ * standard AIMD-style approach used by TCP: react aggressively to trouble,
+ * probe optimistically when healthy. This prevents the select() timeout
+ * disconnects seen on slow networks while still pushing full speed on fast
+ * networks. Excess CSI samples that arrive during a back-off are dropped
+ * locally (the `continue`), so they never stress the MQTT stack at all.
+ * ──────────────────────────────────────────────*/
 static void csi_sender_task(void *arg)
 {
     csi_sample_t s;
-    uint32_t published = 0;
+    uint32_t published = 0, skipped = 0;
     int64_t last_ms = 0;
+    uint32_t gap_ms = MIN_PUBLISH_GAP_MS;   /* dynamic, adapts to network */
 
     while (1) {
         if (xQueueReceive(csi_queue, &s, portMAX_DELAY) != pdPASS) continue;
 
         int64_t now_ms = esp_timer_get_time() / 1000;
-        if (last_ms != 0 && (now_ms - last_ms) < MIN_PUBLISH_GAP_MS) continue;
+
+        /* Local throttle: drop samples that arrive faster than gap_ms.
+         * Dropping here (before MQTT) is what keeps the TCP buffer from
+         * saturating and triggering select() timeout disconnects. */
+        if (last_ms != 0 && (now_ms - last_ms) < (int64_t)gap_ms) {
+            skipped++;
+            continue;
+        }
         last_ms = now_ms;
 
         char json[2048];
@@ -288,10 +324,24 @@ static void csi_sender_task(void *arg)
 
         if (mqtt_client && mqtt_connected_flag) {
             int r = esp_mqtt_client_publish(mqtt_client, MQTT_TOPIC, json, 0, 0, 0);
-            if ((++published % 50) == 0)
-                ESP_LOGI("CSI", "published=%lu last_ret=%d qdepth=%u",
-                         (unsigned long)published, r,
-                         (unsigned)uxQueueMessagesWaiting(csi_queue));
+            published++;
+
+            /* Adaptive feedback: steer gap_ms toward the network's sweet spot */
+            UBaseType_t qd = uxQueueMessagesWaiting(csi_queue);
+            if (r < 0 || qd >= QD_HIGH_WATER) {
+                /* Network can't keep up -> back off quickly */
+                gap_ms += GAP_BACKOFF_STEP;
+                if (gap_ms > MAX_PUBLISH_GAP_MS) gap_ms = MAX_PUBLISH_GAP_MS;
+            } else if (qd <= QD_LOW_WATER) {
+                /* Network has headroom -> recover speed slowly */
+                if (gap_ms > MIN_PUBLISH_GAP_MS) gap_ms -= GAP_RECOVERY_STEP;
+            }
+            /* Middle zone: hold steady, we've found this network's rate */
+
+            if ((published % 50) == 0)
+                ESP_LOGI("CSI", "published=%lu skip=%lu gap=%ums qd=%u",
+                         (unsigned long)published, (unsigned long)skipped,
+                         (unsigned)gap_ms, (unsigned)qd);
         }
     }
 }

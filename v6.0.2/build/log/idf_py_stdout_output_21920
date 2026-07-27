@@ -1,0 +1,741 @@
+Command: C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe C:\esp\v6.0.2\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 C:\vital_signs_monitoring_sys\vital_signs_monitoring_sys\v6.0.2\build\vital_signs_monitoring_sys.elf C:\vital_signs_monitoring_sys\vital_signs_monitoring_sys\v6.0.2\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\tools\python\v6.0.2\venv\Scripts\python.exe' 'C:\esp\v6.0.2\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15820
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.0.2 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jul 24 2026 14:47:41[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=2091ch (133404) map[0m
+[0;32mI (134) esp_image: segment 1: paddr=00030944 vaddr=3ffb0000 size=04590h ( 17808) load[0m
+[0;32mI (141) esp_image: segment 2: paddr=00034edc vaddr=40080000 size=0b13ch ( 45372) load[0m
+[0;32mI (160) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=a1e80h (663168) map[0m
+[0;32mI (396) esp_image: segment 4: paddr=000e1ea8 vaddr=4008b13c size=0a7a8h ( 42920) load[0m
+[0;32mI (414) esp_image: segment 5: paddr=000ec658 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (425) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (425) boot: Disabling RNG early entropy source...[0m
+[0;32mI (436) cpu_start: Multicore app[0m
+[0;32mI (444) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (444) cpu_start: Pro cpu start user code[0m
+[0;32mI (444) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (449) app_init: Application information:[0m
+[0;32mI (454) app_init: Project name:     vital_signs_monitoring_sys[0m
+[0;32mI (460) app_init: App version:      1c8eca8-dirty[0m
+[0;32mI (466) app_init: Compile time:     Jul 24 2026 16:05:46[0m
+[0;32mI (472) app_init: ELF file SHA256:  d60e910ab...[0m
+[0;32mI (477) app_init: ESP-IDF:          v6.0.2[0m
+[0;32mI (482) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (487) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (492) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (497) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (504) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (510) heap_init: At 3FFB8FF8 len 00027008 (156 KiB): DRAM[0m
+[0;32mI (516) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (522) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (529) heap_init: At 400958E4 len 0000A71C (41 KiB): IRAM[0m
+[0;32mI (536) spi_flash: detected chip: generic[0m
+[0;32mI (540) spi_flash: flash io: dio[0m
+[0;33mW (543) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (558) main_task: Started on CPU0[0m
+[0;32mI (558) main_task: Calling app_main()[0m
+[0;32mI (608) wifi:wifi driver task: 3ffc08b8, prio:23, stack:6656, core=0[0m
+[0;32mI (618) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (618) wifi:wifi certification version: v7.0[0m
+[0;32mI (618) wifi:config NVS flash: enabled[0m
+[0;32mI (618) wifi:config nano formatting: disabled[0m
+[0;32mI (628) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (628) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (638) wifi:Init management short buffer num: 32[0m
+[0;32mI (638) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (648) wifi:Init static rx buffer size: 2212[0m
+[0;32mI (648) wifi:Init static rx buffer num: 10[0m
+[0;32mI (648) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (658) wifi_init: rx ba win: 6[0m
+[0;32mI (658) wifi_init: accept mbox: 6[0m
+[0;32mI (658) wifi_init: tcpip mbox: 32[0m
+[0;32mI (668) wifi_init: udp mbox: 6[0m
+[0;32mI (668) wifi_init: tcp mbox: 6[0m
+[0;32mI (678) wifi_init: tcp tx win: 5760[0m
+[0;32mI (678) wifi_init: tcp rx win: 5760[0m
+[0;32mI (678) wifi_init: tcp mss: 1440[0m
+[0;32mI (688) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (688) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (698) WIFI: NVS open failed, using defaults[0m
+[0;33mW (698) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (748) wifi:Set ps type: 0, coexist: 0[0m
+
+[0;32mI (748) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (828) wifi:mode : sta (8c:94:df:60:d3:3c)[0m
+[0;32mI (838) wifi:enable tsf[0m
+[0;32mI (838) PROBE: EVENT: STA_START[0m
+[0;32mI (838) main_task: Returned from app_main()[0m
+[0;32mI (1838) wifi:new:<7,0>, old:<1,0>, ap:<255,255>, sta:<7,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1838) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1848) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1858) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1888) wifi:connected with testformqtt, aid = 2, channel 7, BW20, bssid = 02:15:50:87:44:61[0m
+[0;32mI (1888) wifi:security: WPA2-PSK, phy: bgn, rssi: -51, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (1908) wifi:pm start, type: 0[0m
+
+[0;32mI (1908) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1958) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (1958) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (3138) esp_netif_handlers: sta ip: 192.168.8.151, mask: 255.255.255.0, gw: 192.168.8.1[0m
+[0;32mI (3138) PROBE: EVENT: GOT_IP[0m
+[0;32mI (3138) WIFI: got ip:192.168.8.151[0m
+[0;32mI (3138) PROBE: set_csi_config => ESP_OK[0m
+[0;32mI (3148) PROBE: set_csi(true) => ESP_OK[0m
+[0;32mI (3148) MQTT: MQTT client started (after IP)[0m
+[0;32mI (3198) wifi:<ba-add>idx:0 (ifx:0, 02:15:50:87:44:61), tid:6, ssn:1, winSize:64[0m
+[0;32mI (3198) wifi:<ba-add>idx:1 (ifx:0, 02:15:50:87:44:61), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3208) MQTT: CONNECTED to broker[0m
+[0;32mI (4598) CSI: published=50 last_ret=0 qdepth=0[0m
+[0;32mI (6048) CSI: published=100 last_ret=0 qdepth=0[0m
+[0;32mI (7498) CSI: published=150 last_ret=0 qdepth=0[0m
+[0;32mI (8908) CSI: published=200 last_ret=0 qdepth=0[0m
+[0;32mI (10268) CSI: published=250 last_ret=0 qdepth=1[0m
+[0;32mI (11668) CSI: published=300 last_ret=0 qdepth=1[0m
+[0;32mI (13118) CSI: published=350 last_ret=0 qdepth=0[0m
+[0;32mI (14508) CSI: published=400 last_ret=0 qdepth=0[0m
+[0;32mI (15998) CSI: published=450 last_ret=0 qdepth=0[0m
+[0;32mI (17408) CSI: published=500 last_ret=0 qdepth=1[0m
+[0;32mI (18738) CSI: published=550 last_ret=0 qdepth=1[0m
+[0;32mI (20208) CSI: published=600 last_ret=0 qdepth=0[0m
+[0;32mI (21608) CSI: published=650 last_ret=0 qdepth=0[0m
+[0;32mI (23008) CSI: published=700 last_ret=0 qdepth=0[0m
+[0;32mI (24448) CSI: published=750 last_ret=0 qdepth=0[0m
+[0;32mI (25918) CSI: published=800 last_ret=0 qdepth=1[0m
+[0;32mI (27388) CSI: published=850 last_ret=0 qdepth=1[0m
+[0;32mI (28958) CSI: published=900 last_ret=0 qdepth=0[0m
+[0;32mI (30398) CSI: published=950 last_ret=0 qdepth=1[0m
+[0;32mI (31758) CSI: published=1000 last_ret=0 qdepth=0[0m
+[0;32mI (33128) CSI: published=1050 last_ret=0 qdepth=0[0m
+[0;32mI (34548) CSI: published=1100 last_ret=0 qdepth=2[0m
+[0;32mI (35998) CSI: published=1150 last_ret=0 qdepth=1[0m
+[0;32mI (37428) CSI: published=1200 last_ret=0 qdepth=2[0m
+[0;32mI (38818) CSI: published=1250 last_ret=0 qdepth=1[0m
+[0;32mI (40338) CSI: published=1300 last_ret=0 qdepth=0[0m
+[0;32mI (41708) CSI: published=1350 last_ret=0 qdepth=1[0m
+[0;32mI (43128) CSI: published=1400 last_ret=0 qdepth=1[0m
+[0;32mI (44548) CSI: published=1450 last_ret=0 qdepth=1[0m
+[0;32mI (45908) CSI: published=1500 last_ret=0 qdepth=0[0m
+[0;32mI (47338) CSI: published=1550 last_ret=0 qdepth=0[0m
+[0;32mI (48788) CSI: published=1600 last_ret=0 qdepth=1[0m
+[0;32mI (50178) CSI: published=1650 last_ret=0 qdepth=1[0m
+[0;32mI (51668) CSI: published=1700 last_ret=0 qdepth=1[0m
+[0;32mI (53048) CSI: published=1750 last_ret=0 qdepth=0[0m
+[0;32mI (54498) CSI: published=1800 last_ret=0 qdepth=1[0m
+[0;32mI (56068) CSI: published=1850 last_ret=0 qdepth=3[0m
+[0;32mI (57498) CSI: published=1900 last_ret=0 qdepth=1[0m
+[0;32mI (58888) CSI: published=1950 last_ret=0 qdepth=2[0m
+[0;32mI (60318) CSI: published=2000 last_ret=0 qdepth=0[0m
+[0;32mI (61728) CSI: published=2050 last_ret=0 qdepth=0[0m
+[0;32mI (63168) CSI: published=2100 last_ret=0 qdepth=0[0m
+[0;32mI (64498) CSI: published=2150 last_ret=0 qdepth=1[0m
+[0;32mI (65898) CSI: published=2200 last_ret=0 qdepth=2[0m
+[0;32mI (67288) CSI: published=2250 last_ret=0 qdepth=1[0m
+[0;32mI (68698) CSI: published=2300 last_ret=0 qdepth=0[0m
+[0;32mI (70098) CSI: published=2350 last_ret=0 qdepth=1[0m
+[0;32mI (71498) CSI: published=2400 last_ret=0 qdepth=0[0m
+[0;32mI (72838) CSI: published=2450 last_ret=0 qdepth=0[0m
+[0;32mI (74268) CSI: published=2500 last_ret=0 qdepth=0[0m
+[0;32mI (75698) CSI: published=2550 last_ret=0 qdepth=1[0m
+[0;32mI (77078) CSI: published=2600 last_ret=0 qdepth=1[0m
+[0;32mI (78498) CSI: published=2650 last_ret=0 qdepth=1[0m
+[0;32mI (79818) CSI: published=2700 last_ret=0 qdepth=0[0m
+[0;32mI (81318) CSI: published=2750 last_ret=0 qdepth=1[0m
+[0;32mI (82718) CSI: published=2800 last_ret=0 qdepth=1[0m
+[0;32mI (84078) CSI: published=2850 last_ret=0 qdepth=1[0m
+[0;32mI (85528) CSI: published=2900 last_ret=0 qdepth=1[0m
+[0;32mI (87048) CSI: published=2950 last_ret=0 qdepth=1[0m
+[0;32mI (88498) CSI: published=3000 last_ret=0 qdepth=0[0m
+[0;32mI (89908) CSI: published=3050 last_ret=0 qdepth=1[0m
+[0;32mI (91398) CSI: published=3100 last_ret=0 qdepth=1[0m
+[0;32mI (92788) CSI: published=3150 last_ret=0 qdepth=1[0m
+[0;32mI (94358) CSI: published=3200 last_ret=0 qdepth=0[0m
+[0;32mI (95768) CSI: published=3250 last_ret=0 qdepth=0[0m
+[0;32mI (97178) CSI: published=3300 last_ret=0 qdepth=1[0m
+[0;32mI (98748) CSI: published=3350 last_ret=0 qdepth=0[0m
+[0;32mI (100308) CSI: published=3400 last_ret=0 qdepth=2[0m
+[0;32mI (101648) CSI: published=3450 last_ret=0 qdepth=1[0m
+[0;32mI (102988) CSI: published=3500 last_ret=0 qdepth=0[0m
+[0;32mI (104478) CSI: published=3550 last_ret=0 qdepth=1[0m
+[0;32mI (105888) CSI: published=3600 last_ret=0 qdepth=1[0m
+[0;32mI (107318) CSI: published=3650 last_ret=0 qdepth=1[0m
+[0;32mI (108908) CSI: published=3700 last_ret=0 qdepth=1[0m
+[0;32mI (110308) CSI: published=3750 last_ret=0 qdepth=1[0m
+[0;32mI (111738) CSI: published=3800 last_ret=0 qdepth=1[0m
+[0;32mI (113218) CSI: published=3850 last_ret=0 qdepth=1[0m
+[0;32mI (114628) CSI: published=3900 last_ret=0 qdepth=0[0m
+[0;32mI (116038) CSI: published=3950 last_ret=0 qdepth=2[0m
+[0;32mI (117378) CSI: published=4000 last_ret=0 qdepth=1[0m
+[0;32mI (118768) CSI: published=4050 last_ret=0 qdepth=0[0m
+[0;32mI (120118) CSI: published=4100 last_ret=0 qdepth=0[0m
+[0;32mI (121648) CSI: published=4150 last_ret=0 qdepth=4[0m
+[0;32mI (123088) CSI: published=4200 last_ret=0 qdepth=0[0m
+[0;32mI (124468) CSI: published=4250 last_ret=0 qdepth=0[0m
+[0;32mI (125858) CSI: published=4300 last_ret=0 qdepth=1[0m
+[0;32mI (127288) CSI: published=4350 last_ret=0 qdepth=0[0m
+[0;32mI (128648) CSI: published=4400 last_ret=0 qdepth=0[0m
+[0;32mI (129988) CSI: published=4450 last_ret=0 qdepth=0[0m
+[0;32mI (131438) CSI: published=4500 last_ret=0 qdepth=0[0m
+[0;32mI (132908) CSI: published=4550 last_ret=0 qdepth=1[0m
+[0;32mI (134358) CSI: published=4600 last_ret=0 qdepth=0[0m
+[0;32mI (135668) CSI: published=4650 last_ret=0 qdepth=1[0m
+[0;32mI (137098) CSI: published=4700 last_ret=0 qdepth=1[0m
+[0;32mI (138498) CSI: published=4750 last_ret=0 qdepth=2[0m
+[0;32mI (139888) CSI: published=4800 last_ret=0 qdepth=2[0m
+[0;32mI (141388) CSI: published=4850 last_ret=0 qdepth=1[0m
+[0;32mI (142858) CSI: published=4900 last_ret=0 qdepth=1[0m
+[0;32mI (144218) CSI: published=4950 last_ret=0 qdepth=0[0m
+[0;32mI (145588) CSI: published=5000 last_ret=0 qdepth=2[0m
+[0;32mI (147088) CSI: published=5050 last_ret=0 qdepth=2[0m
+[0;32mI (148638) CSI: published=5100 last_ret=0 qdepth=3[0m
+[0;32mI (150088) CSI: published=5150 last_ret=0 qdepth=3[0m
+[0;32mI (151718) CSI: published=5200 last_ret=0 qdepth=2[0m
+[0;32mI (153558) CSI: published=5250 last_ret=0 qdepth=0[0m
+[0;32mI (155758) CSI: published=5300 last_ret=0 qdepth=2[0m
+[0;32mI (159488) CSI: published=5350 last_ret=0 qdepth=2[0m
+[0;32mI (163588) CSI: published=5400 last_ret=0 qdepth=1[0m
+[0;32mI (164838) CSI: published=5450 last_ret=0 qdepth=3[0m
+[0;32mI (166018) CSI: published=5500 last_ret=0 qdepth=2[0m
+[0;32mI (167288) CSI: published=5550 last_ret=0 qdepth=0[0m
+[0;32mI (168478) CSI: published=5600 last_ret=0 qdepth=0[0m
+[0;32mI (169888) CSI: published=5650 last_ret=0 qdepth=0[0m
+[0;32mI (171348) CSI: published=5700 last_ret=0 qdepth=0[0m
+[0;32mI (172818) CSI: published=5750 last_ret=0 qdepth=0[0m
+[0;32mI (174238) CSI: published=5800 last_ret=0 qdepth=1[0m
+[0;32mI (175668) CSI: published=5850 last_ret=0 qdepth=0[0m
+[0;32mI (177078) CSI: published=5900 last_ret=0 qdepth=1[0m
+[0;32mI (178468) CSI: published=5950 last_ret=0 qdepth=0[0m
+[0;32mI (179938) CSI: published=6000 last_ret=0 qdepth=0[0m
+[0;32mI (181278) CSI: published=6050 last_ret=0 qdepth=1[0m
+[0;32mI (182638) CSI: published=6100 last_ret=0 qdepth=1[0m
+[0;32mI (183998) CSI: published=6150 last_ret=0 qdepth=1[0m
+[0;32mI (185378) CSI: published=6200 last_ret=0 qdepth=0[0m
+[0;32mI (186818) CSI: published=6250 last_ret=0 qdepth=0[0m
+[0;32mI (188278) CSI: published=6300 last_ret=0 qdepth=1[0m
+[0;32mI (189678) CSI: published=6350 last_ret=0 qdepth=0[0m
+[0;32mI (191058) CSI: published=6400 last_ret=0 qdepth=0[0m
+[0;32mI (192458) CSI: published=6450 last_ret=0 qdepth=0[0m
+[0;32mI (193898) CSI: published=6500 last_ret=0 qdepth=0[0m
+[0;32mI (195538) CSI: published=6550 last_ret=0 qdepth=0[0m
+[0;32mI (196948) CSI: published=6600 last_ret=0 qdepth=1[0m
+[0;32mI (198298) CSI: published=6650 last_ret=0 qdepth=0[0m
+[0;32mI (199768) CSI: published=6700 last_ret=0 qdepth=0[0m
+[0;32mI (201178) CSI: published=6750 last_ret=0 qdepth=3[0m
+[0;32mI (202658) CSI: published=6800 last_ret=0 qdepth=0[0m
+[0;32mI (204058) CSI: published=6850 last_ret=0 qdepth=0[0m
+[0;32mI (205498) CSI: published=6900 last_ret=0 qdepth=1[0m
+[0;32mI (206978) CSI: published=6950 last_ret=0 qdepth=0[0m
+[0;32mI (208468) CSI: published=7000 last_ret=0 qdepth=1[0m
+[0;32mI (209828) CSI: published=7050 last_ret=0 qdepth=2[0m
+[0;32mI (211208) CSI: published=7100 last_ret=0 qdepth=1[0m
+[0;32mI (212678) CSI: published=7150 last_ret=0 qdepth=0[0m
+[0;32mI (214098) CSI: published=7200 last_ret=0 qdepth=2[0m
+[0;32mI (215638) CSI: published=7250 last_ret=0 qdepth=2[0m
+[0;32mI (217488) CSI: published=7300 last_ret=0 qdepth=2[0m
+[0;32mI (219448) CSI: published=7350 last_ret=0 qdepth=1[0m
+[0;32mI (220698) CSI: published=7400 last_ret=0 qdepth=1[0m
+[0;32mI (222168) CSI: published=7450 last_ret=0 qdepth=0[0m
+[0;32mI (223718) CSI: published=7500 last_ret=0 qdepth=0[0m
+[0;32mI (225248) CSI: published=7550 last_ret=0 qdepth=1[0m
+[0;32mI (226688) CSI: published=7600 last_ret=0 qdepth=0[0m
+[0;32mI (228138) CSI: published=7650 last_ret=0 qdepth=0[0m
+[0;32mI (229658) CSI: published=7700 last_ret=0 qdepth=1[0m
+[0;32mI (231088) CSI: published=7750 last_ret=0 qdepth=1[0m
+[0;32mI (232518) CSI: published=7800 last_ret=0 qdepth=0[0m
+[0;32mI (233968) CSI: published=7850 last_ret=0 qdepth=0[0m
+[0;32mI (235378) CSI: published=7900 last_ret=0 qdepth=1[0m
+[0;32mI (236798) CSI: published=7950 last_ret=0 qdepth=0[0m
+[0;32mI (238278) CSI: published=8000 last_ret=0 qdepth=1[0m
+[0;32mI (239798) CSI: published=8050 last_ret=0 qdepth=0[0m
+[0;32mI (241198) CSI: published=8100 last_ret=0 qdepth=0[0m
+[0;32mI (242638) CSI: published=8150 last_ret=0 qdepth=3[0m
+[0;32mI (244508) CSI: published=8200 last_ret=0 qdepth=1[0m
+[0;32mI (246158) CSI: published=8250 last_ret=0 qdepth=2[0m
+[0;32mI (247678) CSI: published=8300 last_ret=0 qdepth=1[0m
+[0;32mI (249098) CSI: published=8350 last_ret=0 qdepth=1[0m
+[0;32mI (250548) CSI: published=8400 last_ret=0 qdepth=0[0m
+[0;32mI (252078) CSI: published=8450 last_ret=0 qdepth=0[0m
+[0;32mI (253598) CSI: published=8500 last_ret=0 qdepth=2[0m
+[0;32mI (255068) CSI: published=8550 last_ret=0 qdepth=0[0m
+[0;32mI (256538) CSI: published=8600 last_ret=0 qdepth=0[0m
+[0;32mI (258108) CSI: published=8650 last_ret=0 qdepth=2[0m
+[0;32mI (259568) CSI: published=8700 last_ret=0 qdepth=0[0m
+[0;32mI (261158) CSI: published=8750 last_ret=0 qdepth=0[0m
+[0;32mI (262618) CSI: published=8800 last_ret=0 qdepth=2[0m
+[0;32mI (264108) CSI: published=8850 last_ret=0 qdepth=1[0m
+[0;32mI (265478) CSI: published=8900 last_ret=0 qdepth=2[0m
+[0;32mI (267138) CSI: published=8950 last_ret=0 qdepth=0[0m
+[0;32mI (268548) CSI: published=9000 last_ret=0 qdepth=2[0m
+[0;32mI (270028) CSI: published=9050 last_ret=0 qdepth=1[0m
+[0;32mI (271568) CSI: published=9100 last_ret=0 qdepth=0[0m
+[0;32mI (272978) CSI: published=9150 last_ret=0 qdepth=2[0m
+[0;32mI (274468) CSI: published=9200 last_ret=0 qdepth=0[0m
+[0;32mI (275878) CSI: published=9250 last_ret=0 qdepth=0[0m
+[0;32mI (277398) CSI: published=9300 last_ret=0 qdepth=2[0m
+[0;32mI (278818) CSI: published=9350 last_ret=0 qdepth=0[0m
+[0;32mI (280428) CSI: published=9400 last_ret=0 qdepth=0[0m
+[0;32mI (281888) CSI: published=9450 last_ret=0 qdepth=3[0m
+[0;32mI (283388) CSI: published=9500 last_ret=0 qdepth=0[0m
+[0;32mI (284858) CSI: published=9550 last_ret=0 qdepth=0[0m
+[0;32mI (286368) CSI: published=9600 last_ret=0 qdepth=2[0m
+[0;32mI (287918) CSI: published=9650 last_ret=0 qdepth=2[0m
+[0;32mI (289358) CSI: published=9700 last_ret=0 qdepth=2[0m
+[0;32mI (290938) CSI: published=9750 last_ret=0 qdepth=1[0m
+[0;32mI (292528) CSI: published=9800 last_ret=0 qdepth=2[0m
+[0;32mI (294168) CSI: published=9850 last_ret=0 qdepth=2[0m
+[0;32mI (295928) CSI: published=9900 last_ret=0 qdepth=2[0m
+[0;32mI (297338) CSI: published=9950 last_ret=0 qdepth=0[0m
+[0;32mI (298788) CSI: published=10000 last_ret=0 qdepth=0[0m
+[0;32mI (300138) CSI: published=10050 last_ret=0 qdepth=0[0m
+[0;32mI (301518) CSI: published=10100 last_ret=0 qdepth=1[0m
+[0;32mI (302948) CSI: published=10150 last_ret=0 qdepth=1[0m
+[0;32mI (304388) CSI: published=10200 last_ret=0 qdepth=2[0m
+[0;32mI (305758) CSI: published=10250 last_ret=0 qdepth=0[0m
+[0;32mI (307158) CSI: published=10300 last_ret=0 qdepth=0[0m
+[0;32mI (308548) CSI: published=10350 last_ret=0 qdepth=0[0m
+[0;32mI (309988) CSI: published=10400 last_ret=0 qdepth=0[0m
+[0;32mI (311368) CSI: published=10450 last_ret=0 qdepth=0[0m
+[0;32mI (312838) CSI: published=10500 last_ret=0 qdepth=1[0m
+[0;32mI (314298) CSI: published=10550 last_ret=0 qdepth=0[0m
+[0;32mI (315738) CSI: published=10600 last_ret=0 qdepth=1[0m
+[0;32mI (317248) CSI: published=10650 last_ret=0 qdepth=2[0m
+[0;32mI (318678) CSI: published=10700 last_ret=0 qdepth=1[0m
+[0;32mI (320268) CSI: published=10750 last_ret=0 qdepth=0[0m
+[0;32mI (321668) CSI: published=10800 last_ret=0 qdepth=1[0m
+[0;32mI (323188) CSI: published=10850 last_ret=0 qdepth=1[0m
+[0;32mI (324548) CSI: published=10900 last_ret=0 qdepth=0[0m
+[0;32mI (325998) CSI: published=10950 last_ret=0 qdepth=0[0m
+[0;32mI (327518) CSI: published=11000 last_ret=0 qdepth=0[0m
+[0;32mI (329028) CSI: published=11050 last_ret=0 qdepth=1[0m
+[0;32mI (330428) CSI: published=11100 last_ret=0 qdepth=1[0m
+[0;32mI (331868) CSI: published=11150 last_ret=0 qdepth=0[0m
+[0;32mI (333308) CSI: published=11200 last_ret=0 qdepth=0[0m
+[0;32mI (334818) CSI: published=11250 last_ret=0 qdepth=0[0m
+[0;32mI (336408) CSI: published=11300 last_ret=0 qdepth=2[0m
+[0;32mI (337808) CSI: published=11350 last_ret=0 qdepth=0[0m
+[0;32mI (339338) CSI: published=11400 last_ret=0 qdepth=0[0m
+[0;32mI (340758) CSI: published=11450 last_ret=0 qdepth=2[0m
+[0;32mI (342238) CSI: published=11500 last_ret=0 qdepth=1[0m
+[0;32mI (343688) CSI: published=11550 last_ret=0 qdepth=1[0m
+[0;32mI (345168) CSI: published=11600 last_ret=0 qdepth=3[0m
+[0;32mI (346618) CSI: published=11650 last_ret=0 qdepth=0[0m
+[0;32mI (348128) CSI: published=11700 last_ret=0 qdepth=3[0m
+[0;32mI (350018) CSI: published=11750 last_ret=0 qdepth=3[0m
+[0;32mI (353918) CSI: published=11800 last_ret=0 qdepth=0[0m
+[0;32mI (355878) CSI: published=11850 last_ret=0 qdepth=2[0m
+[0;32mI (357048) CSI: published=11900 last_ret=0 qdepth=3[0m
+[0;32mI (358258) CSI: published=11950 last_ret=0 qdepth=1[0m
+[0;32mI (359628) CSI: published=12000 last_ret=0 qdepth=0[0m
+[0;32mI (361018) CSI: published=12050 last_ret=0 qdepth=0[0m
+[0;32mI (362458) CSI: published=12100 last_ret=0 qdepth=1[0m
+[0;32mI (363918) CSI: published=12150 last_ret=0 qdepth=0[0m
+[0;32mI (365328) CSI: published=12200 last_ret=0 qdepth=1[0m
+[0;32mI (366748) CSI: published=12250 last_ret=0 qdepth=0[0m
+[0;32mI (368248) CSI: published=12300 last_ret=0 qdepth=0[0m
+[0;32mI (369738) CSI: published=12350 last_ret=0 qdepth=1[0m
+[0;32mI (371118) CSI: published=12400 last_ret=0 qdepth=0[0m
+[0;32mI (372568) CSI: published=12450 last_ret=0 qdepth=0[0m
+[0;32mI (374008) CSI: published=12500 last_ret=0 qdepth=0[0m
+[0;32mI (375418) CSI: published=12550 last_ret=0 qdepth=1[0m
+[0;32mI (376968) CSI: published=12600 last_ret=0 qdepth=0[0m
+[0;32mI (378458) CSI: published=12650 last_ret=0 qdepth=0[0m
+[0;32mI (379958) CSI: published=12700 last_ret=0 qdepth=0[0m
+[0;32mI (381408) CSI: published=12750 last_ret=0 qdepth=2[0m
+[0;32mI (382818) CSI: published=12800 last_ret=0 qdepth=0[0m
+[0;32mI (384238) CSI: published=12850 last_ret=0 qdepth=1[0m
+[0;32mI (385638) CSI: published=12900 last_ret=0 qdepth=1[0m
+[0;32mI (387178) CSI: published=12950 last_ret=0 qdepth=0[0m
+[0;32mI (388628) CSI: published=13000 last_ret=0 qdepth=2[0m
+[0;32mI (390068) CSI: published=13050 last_ret=0 qdepth=0[0m
+[0;32mI (391558) CSI: published=13100 last_ret=0 qdepth=1[0m
+[0;32mI (393188) CSI: published=13150 last_ret=0 qdepth=0[0m
+[0;32mI (394608) CSI: published=13200 last_ret=0 qdepth=3[0m
+[0;32mI (396118) CSI: published=13250 last_ret=0 qdepth=0[0m
+[0;32mI (397558) CSI: published=13300 last_ret=0 qdepth=0[0m
+[0;32mI (399008) CSI: published=13350 last_ret=0 qdepth=2[0m
+[0;32mI (400438) CSI: published=13400 last_ret=0 qdepth=0[0m
+[0;32mI (402038) CSI: published=13450 last_ret=0 qdepth=0[0m
+[0;32mI (403538) CSI: published=13500 last_ret=0 qdepth=0[0m
+[0;32mI (404998) CSI: published=13550 last_ret=0 qdepth=0[0m
+[0;32mI (406448) CSI: published=13600 last_ret=0 qdepth=1[0m
+[0;32mI (408048) CSI: published=13650 last_ret=0 qdepth=2[0m
+[0;32mI (409488) CSI: published=13700 last_ret=0 qdepth=0[0m
+[0;32mI (410998) CSI: published=13750 last_ret=0 qdepth=1[0m
+[0;32mI (412568) CSI: published=13800 last_ret=0 qdepth=1[0m
+[0;32mI (414338) CSI: published=13850 last_ret=0 qdepth=2[0m
+[0;32mI (415998) CSI: published=13900 last_ret=0 qdepth=2[0m
+[0;32mI (417648) CSI: published=13950 last_ret=0 qdepth=2[0m
+[0;32mI (419478) CSI: published=14000 last_ret=0 qdepth=1[0m
+[0;32mI (423678) CSI: published=14050 last_ret=0 qdepth=1[0m
+[0;32mI (425228) CSI: published=14100 last_ret=0 qdepth=2[0m
+[0;32mI (426738) CSI: published=14150 last_ret=0 qdepth=0[0m
+[0;32mI (428128) CSI: published=14200 last_ret=0 qdepth=3[0m
+[0;32mI (429628) CSI: published=14250 last_ret=0 qdepth=3[0m
+[0;32mI (430988) CSI: published=14300 last_ret=0 qdepth=2[0m
+[0;32mI (432448) CSI: published=14350 last_ret=0 qdepth=0[0m
+[0;32mI (433768) CSI: published=14400 last_ret=0 qdepth=0[0m
+[0;32mI (435288) CSI: published=14450 last_ret=0 qdepth=0[0m
+[0;32mI (436708) CSI: published=14500 last_ret=0 qdepth=1[0m
+[0;32mI (438468) CSI: published=14550 last_ret=0 qdepth=2[0m
+[0;32mI (440058) CSI: published=14600 last_ret=0 qdepth=1[0m
+[0;32mI (441518) CSI: published=14650 last_ret=0 qdepth=1[0m
+[0;32mI (443168) CSI: published=14700 last_ret=0 qdepth=3[0m
+[0;32mI (444588) CSI: published=14750 last_ret=0 qdepth=0[0m
+[0;32mI (446038) CSI: published=14800 last_ret=0 qdepth=1[0m
+[0;32mI (449618) CSI: published=14850 last_ret=0 qdepth=3[0m
+[0;32mI (450988) CSI: published=14900 last_ret=0 qdepth=0[0m
+[0;32mI (452268) CSI: published=14950 last_ret=0 qdepth=3[0m
+[0;32mI (453738) CSI: published=15000 last_ret=0 qdepth=1[0m
+[0;32mI (455238) CSI: published=15050 last_ret=0 qdepth=2[0m
+[0;32mI (456718) CSI: published=15100 last_ret=0 qdepth=0[0m
+[0;32mI (458438) CSI: published=15150 last_ret=0 qdepth=3[0m
+[0;32mI (459868) CSI: published=15200 last_ret=0 qdepth=0[0m
+[0;32mI (461238) CSI: published=15250 last_ret=0 qdepth=0[0m
+[0;32mI (462838) CSI: published=15300 last_ret=0 qdepth=6[0m
+[0;32mI (464438) CSI: published=15350 last_ret=0 qdepth=1[0m
+[0;32mI (465898) CSI: published=15400 last_ret=0 qdepth=3[0m
+[0;32mI (467428) CSI: published=15450 last_ret=0 qdepth=2[0m
+[0;32mI (469038) CSI: published=15500 last_ret=0 qdepth=2[0m
+[0;32mI (473838) CSI: published=15550 last_ret=0 qdepth=2[0m
+[0;32mI (475918) CSI: published=15600 last_ret=0 qdepth=4[0m
+[0;32mI (477278) CSI: published=15650 last_ret=0 qdepth=2[0m
+[0;32mI (478938) CSI: published=15700 last_ret=0 qdepth=3[0m
+[0;32mI (482128) CSI: published=15750 last_ret=0 qdepth=2[0m
+[0;32mI (484258) CSI: published=15800 last_ret=0 qdepth=0[0m
+[0;32mI (485548) CSI: published=15850 last_ret=0 qdepth=3[0m
+[0;32mI (486838) CSI: published=15900 last_ret=0 qdepth=2[0m
+[0;32mI (488158) CSI: published=15950 last_ret=0 qdepth=1[0m
+[0;32mI (489578) CSI: published=16000 last_ret=0 qdepth=2[0m
+[0;32mI (491058) CSI: published=16050 last_ret=0 qdepth=0[0m
+[0;32mI (492378) CSI: published=16100 last_ret=0 qdepth=1[0m
+[0;32mI (493848) CSI: published=16150 last_ret=0 qdepth=2[0m
+[0;32mI (495588) CSI: published=16200 last_ret=0 qdepth=3[0m
+[0;32mI (497278) CSI: published=16250 last_ret=0 qdepth=1[0m
+[0;32mI (498658) CSI: published=16300 last_ret=0 qdepth=1[0m
+[0;32mI (500338) CSI: published=16350 last_ret=0 qdepth=0[0m
+[0;32mI (502038) CSI: published=16400 last_ret=0 qdepth=1[0m
+[0;32mI (503678) CSI: published=16450 last_ret=0 qdepth=3[0m
+[0;32mI (505208) CSI: published=16500 last_ret=0 qdepth=4[0m
+[0;32mI (506728) CSI: published=16550 last_ret=0 qdepth=1[0m
+[0;32mI (508378) CSI: published=16600 last_ret=0 qdepth=2[0m
+[0;32mI (509848) CSI: published=16650 last_ret=0 qdepth=1[0m
+[0;32mI (511468) CSI: published=16700 last_ret=0 qdepth=0[0m
+[0;32mI (512898) CSI: published=16750 last_ret=0 qdepth=2[0m
+[0;32mI (514528) CSI: published=16800 last_ret=0 qdepth=4[0m
+[0;32mI (516058) CSI: published=16850 last_ret=0 qdepth=2[0m
+[0;32mI (517538) CSI: published=16900 last_ret=0 qdepth=1[0m
+[0;32mI (518998) CSI: published=16950 last_ret=0 qdepth=0[0m
+[0;32mI (520468) CSI: published=17000 last_ret=0 qdepth=1[0m
+[0;32mI (521838) CSI: published=17050 last_ret=0 qdepth=0[0m
+[0;32mI (523308) CSI: published=17100 last_ret=0 qdepth=0[0m
+[0;32mI (524738) CSI: published=17150 last_ret=0 qdepth=0[0m
+[0;32mI (526318) CSI: published=17200 last_ret=0 qdepth=2[0m
+[0;32mI (527998) CSI: published=17250 last_ret=0 qdepth=1[0m
+[0;32mI (529778) CSI: published=17300 last_ret=0 qdepth=2[0m
+[0;32mI (531288) CSI: published=17350 last_ret=0 qdepth=1[0m
+[0;32mI (534488) CSI: published=17400 last_ret=0 qdepth=1[0m
+[0;32mI (536088) CSI: published=17450 last_ret=0 qdepth=2[0m
+[0;32mI (537488) CSI: published=17500 last_ret=0 qdepth=3[0m
+[0;32mI (538948) CSI: published=17550 last_ret=0 qdepth=0[0m
+[0;32mI (540538) CSI: published=17600 last_ret=0 qdepth=4[0m
+[0;32mI (541868) CSI: published=17650 last_ret=0 qdepth=2[0m
+[0;32mI (543318) CSI: published=17700 last_ret=0 qdepth=1[0m
+[0;32mI (545818) CSI: published=17750 last_ret=0 qdepth=0[0m
+[0;32mI (548348) CSI: published=17800 last_ret=0 qdepth=3[0m
+[0;32mI (549878) CSI: published=17850 last_ret=0 qdepth=0[0m
+[0;32mI (551568) CSI: published=17900 last_ret=0 qdepth=1[0m
+[0;32mI (552848) CSI: published=17950 last_ret=0 qdepth=5[0m
+[0;32mI (554298) CSI: published=18000 last_ret=0 qdepth=2[0m
+[0;32mI (555718) CSI: published=18050 last_ret=0 qdepth=2[0m
+[0;32mI (557208) CSI: published=18100 last_ret=0 qdepth=0[0m
+[0;32mI (558668) CSI: published=18150 last_ret=0 qdepth=4[0m
+[0;32mI (560058) CSI: published=18200 last_ret=0 qdepth=0[0m
+[0;32mI (561848) CSI: published=18250 last_ret=0 qdepth=1[0m
+[0;32mI (565278) CSI: published=18300 last_ret=0 qdepth=2[0m
+[0;32mI (566638) CSI: published=18350 last_ret=0 qdepth=0[0m
+[0;32mI (567988) CSI: published=18400 last_ret=0 qdepth=2[0m
+[0;32mI (569438) CSI: published=18450 last_ret=0 qdepth=0[0m
+[0;32mI (570958) CSI: published=18500 last_ret=0 qdepth=1[0m
+[0;32mI (572408) CSI: published=18550 last_ret=0 qdepth=3[0m
+[0;32mI (573818) CSI: published=18600 last_ret=0 qdepth=1[0m
+[0;32mI (575228) CSI: published=18650 last_ret=0 qdepth=2[0m
+[0;32mI (576648) CSI: published=18700 last_ret=0 qdepth=1[0m
+[0;32mI (578058) CSI: published=18750 last_ret=0 qdepth=0[0m
+[0;32mI (579508) CSI: published=18800 last_ret=0 qdepth=1[0m
+[0;32mI (580928) CSI: published=18850 last_ret=0 qdepth=1[0m
+[0;32mI (582408) CSI: published=18900 last_ret=0 qdepth=0[0m
+[0;32mI (583868) CSI: published=18950 last_ret=0 qdepth=0[0m
+[0;32mI (585508) CSI: published=19000 last_ret=0 qdepth=4[0m
+[0;32mI (586958) CSI: published=19050 last_ret=0 qdepth=1[0m
+[0;32mI (588468) CSI: published=19100 last_ret=0 qdepth=2[0m
+[0;32mI (590018) CSI: published=19150 last_ret=0 qdepth=0[0m
+[0;32mI (593578) CSI: published=19200 last_ret=0 qdepth=11[0m
+[0;32mI (597258) CSI: published=19250 last_ret=0 qdepth=1[0m
+[0;32mI (598948) CSI: published=19300 last_ret=0 qdepth=3[0m
+[0;32mI (600448) CSI: published=19350 last_ret=0 qdepth=1[0m
+[0;32mI (601988) CSI: published=19400 last_ret=0 qdepth=2[0m
+[0;32mI (603558) CSI: published=19450 last_ret=0 qdepth=0[0m
+[0;32mI (604978) CSI: published=19500 last_ret=0 qdepth=4[0m
+[0;32mI (606368) CSI: published=19550 last_ret=0 qdepth=1[0m
+[0;32mI (607788) CSI: published=19600 last_ret=0 qdepth=2[0m
+[0;32mI (609168) CSI: published=19650 last_ret=0 qdepth=0[0m
+[0;32mI (610638) CSI: published=19700 last_ret=0 qdepth=0[0m
+[0;32mI (612218) CSI: published=19750 last_ret=0 qdepth=2[0m
+[0;32mI (613758) CSI: published=19800 last_ret=0 qdepth=3[0m
+[0;32mI (615308) CSI: published=19850 last_ret=0 qdepth=0[0m
+[0;32mI (616868) CSI: published=19900 last_ret=0 qdepth=0[0m
+[0;32mI (618358) CSI: published=19950 last_ret=0 qdepth=1[0m
+[0;32mI (619728) CSI: published=20000 last_ret=0 qdepth=1[0m
+[0;32mI (621408) CSI: published=20050 last_ret=0 qdepth=0[0m
+[0;32mI (624848) CSI: published=20100 last_ret=0 qdepth=3[0m
+[0;32mI (626338) CSI: published=20150 last_ret=0 qdepth=0[0m
+[0;32mI (627918) CSI: published=20200 last_ret=0 qdepth=0[0m
+[0;32mI (629288) CSI: published=20250 last_ret=0 qdepth=2[0m
+[0;32mI (630728) CSI: published=20300 last_ret=0 qdepth=1[0m
+[0;32mI (632208) CSI: published=20350 last_ret=0 qdepth=2[0m
+[0;32mI (633628) CSI: published=20400 last_ret=0 qdepth=2[0m
+[0;32mI (635038) CSI: published=20450 last_ret=0 qdepth=1[0m
+[0;32mI (636548) CSI: published=20500 last_ret=0 qdepth=0[0m
+[0;32mI (638818) CSI: published=20550 last_ret=0 qdepth=0[0m
+[0;32mI (640658) CSI: published=20600 last_ret=0 qdepth=0[0m
+[0;32mI (642168) CSI: published=20650 last_ret=0 qdepth=0[0m
+[0;32mI (643578) CSI: published=20700 last_ret=0 qdepth=0[0m
+[0;32mI (645028) CSI: published=20750 last_ret=0 qdepth=0[0m
+[0;32mI (646498) CSI: published=20800 last_ret=0 qdepth=0[0m
+[0;32mI (648008) CSI: published=20850 last_ret=0 qdepth=0[0m
+[0;32mI (649398) CSI: published=20900 last_ret=0 qdepth=1[0m
+[0;32mI (650878) CSI: published=20950 last_ret=0 qdepth=0[0m
+[0;32mI (655108) CSI: published=21000 last_ret=0 qdepth=1[0m
+[0;32mI (656558) CSI: published=21050 last_ret=0 qdepth=2[0m
+[0;32mI (657888) CSI: published=21100 last_ret=0 qdepth=2[0m
+[0;32mI (659278) CSI: published=21150 last_ret=0 qdepth=0[0m
+[0;32mI (660698) CSI: published=21200 last_ret=0 qdepth=1[0m
+[0;32mI (662118) CSI: published=21250 last_ret=0 qdepth=0[0m
+[0;32mI (663548) CSI: published=21300 last_ret=0 qdepth=1[0m
+[0;32mI (665068) CSI: published=21350 last_ret=0 qdepth=2[0m
+[0;32mI (666628) CSI: published=21400 last_ret=0 qdepth=2[0m
+[0;32mI (668138) CSI: published=21450 last_ret=0 qdepth=3[0m
+[0;32mI (669568) CSI: published=21500 last_ret=0 qdepth=3[0m
+[0;32mI (670998) CSI: published=21550 last_ret=0 qdepth=1[0m
+[0;32mI (672438) CSI: published=21600 last_ret=0 qdepth=2[0m
+[0;32mI (673928) CSI: published=21650 last_ret=0 qdepth=1[0m
+[0;32mI (675538) CSI: published=21700 last_ret=0 qdepth=0[0m
+[0;32mI (676958) CSI: published=21750 last_ret=0 qdepth=1[0m
+[0;32mI (678388) CSI: published=21800 last_ret=0 qdepth=1[0m
+[0;32mI (679868) CSI: published=21850 last_ret=0 qdepth=1[0m
+[0;32mI (681348) CSI: published=21900 last_ret=0 qdepth=1[0m
+[0;32mI (682808) CSI: published=21950 last_ret=0 qdepth=0[0m
+[0;32mI (684208) CSI: published=22000 last_ret=0 qdepth=1[0m
+[0;32mI (685698) CSI: published=22050 last_ret=0 qdepth=0[0m
+[0;32mI (687168) CSI: published=22100 last_ret=0 qdepth=1[0m
+[0;32mI (688578) CSI: published=22150 last_ret=0 qdepth=2[0m
+[0;32mI (689958) CSI: published=22200 last_ret=0 qdepth=1[0m
+[0;32mI (691458) CSI: published=22250 last_ret=0 qdepth=1[0m
+[0;32mI (692968) CSI: published=22300 last_ret=0 qdepth=1[0m
+[0;32mI (694428) CSI: published=22350 last_ret=0 qdepth=1[0m
+[0;32mI (695838) CSI: published=22400 last_ret=0 qdepth=0[0m
+[0;32mI (697238) CSI: published=22450 last_ret=0 qdepth=0[0m
+[0;32mI (698648) CSI: published=22500 last_ret=0 qdepth=1[0m
+[0;32mI (700108) CSI: published=22550 last_ret=0 qdepth=0[0m
+[0;32mI (701528) CSI: published=22600 last_ret=0 qdepth=0[0m
+[0;32mI (702988) CSI: published=22650 last_ret=0 qdepth=0[0m
+[0;32mI (704498) CSI: published=22700 last_ret=0 qdepth=3[0m
+[0;32mI (705858) CSI: published=22750 last_ret=0 qdepth=0[0m
+[0;32mI (707318) CSI: published=22800 last_ret=0 qdepth=0[0m
+[0;32mI (708818) CSI: published=22850 last_ret=0 qdepth=0[0m
+[0;32mI (710468) CSI: published=22900 last_ret=0 qdepth=0[0m
+[0;32mI (714138) CSI: published=22950 last_ret=0 qdepth=0[0m
+[0;32mI (716108) CSI: published=23000 last_ret=0 qdepth=0[0m
+[0;32mI (717578) CSI: published=23050 last_ret=0 qdepth=3[0m
+[0;32mI (718948) CSI: published=23100 last_ret=0 qdepth=2[0m
+[0;32mI (720318) CSI: published=23150 last_ret=0 qdepth=0[0m
+[0;32mI (721728) CSI: published=23200 last_ret=0 qdepth=1[0m
+[0;32mI (723138) CSI: published=23250 last_ret=0 qdepth=0[0m
+[0;32mI (724498) CSI: published=23300 last_ret=0 qdepth=1[0m
+[0;32mI (725918) CSI: published=23350 last_ret=0 qdepth=0[0m
+[0;32mI (727358) CSI: published=23400 last_ret=0 qdepth=0[0m
+[0;32mI (728718) CSI: published=23450 last_ret=0 qdepth=1[0m
+[0;32mI (730108) CSI: published=23500 last_ret=0 qdepth=0[0m
+[0;32mI (731518) CSI: published=23550 last_ret=0 qdepth=1[0m
+[0;32mI (732998) CSI: published=23600 last_ret=0 qdepth=0[0m
+[0;32mI (734438) CSI: published=23650 last_ret=0 qdepth=1[0m
+[0;32mI (735928) CSI: published=23700 last_ret=0 qdepth=0[0m
+[0;32mI (737298) CSI: published=23750 last_ret=0 qdepth=3[0m
+[0;32mI (738758) CSI: published=23800 last_ret=0 qdepth=0[0m
+[0;32mI (740218) CSI: published=23850 last_ret=0 qdepth=0[0m
+[0;32mI (741688) CSI: published=23900 last_ret=0 qdepth=0[0m
+[0;32mI (743218) CSI: published=23950 last_ret=0 qdepth=0[0m
+[0;32mI (744638) CSI: published=24000 last_ret=0 qdepth=1[0m
+[0;32mI (746038) CSI: published=24050 last_ret=0 qdepth=0[0m
+[0;32mI (747558) CSI: published=24100 last_ret=0 qdepth=0[0m
+[0;32mI (749108) CSI: published=24150 last_ret=0 qdepth=0[0m
+[0;32mI (750588) CSI: published=24200 last_ret=0 qdepth=0[0m
+[0;32mI (752028) CSI: published=24250 last_ret=0 qdepth=0[0m
+[0;32mI (753458) CSI: published=24300 last_ret=0 qdepth=1[0m
+[0;32mI (754888) CSI: published=24350 last_ret=0 qdepth=0[0m
+[0;32mI (756338) CSI: published=24400 last_ret=0 qdepth=0[0m
+[0;32mI (757738) CSI: published=24450 last_ret=0 qdepth=2[0m
+[0;32mI (759178) CSI: published=24500 last_ret=0 qdepth=3[0m
+[0;32mI (760578) CSI: published=24550 last_ret=0 qdepth=1[0m
+[0;32mI (761998) CSI: published=24600 last_ret=0 qdepth=1[0m
+[0;32mI (763488) CSI: published=24650 last_ret=0 qdepth=0[0m
+[0;32mI (765028) CSI: published=24700 last_ret=0 qdepth=0[0m
+[0;32mI (766418) CSI: published=24750 last_ret=0 qdepth=1[0m
+[0;32mI (767848) CSI: published=24800 last_ret=0 qdepth=1[0m
+[0;32mI (769338) CSI: published=24850 last_ret=0 qdepth=3[0m
+[0;32mI (770748) CSI: published=24900 last_ret=0 qdepth=2[0m
+[0;32mI (773608) CSI: published=24950 last_ret=0 qdepth=2[0m
+[0;32mI (775638) CSI: published=25000 last_ret=0 qdepth=1[0m
+[0;32mI (776928) CSI: published=25050 last_ret=0 qdepth=0[0m
+[0;32mI (778418) CSI: published=25100 last_ret=0 qdepth=2[0m
+[0;32mI (779858) CSI: published=25150 last_ret=0 qdepth=1[0m
+[0;32mI (781238) CSI: published=25200 last_ret=0 qdepth=0[0m
+[0;32mI (782698) CSI: published=25250 last_ret=0 qdepth=1[0m
+[0;32mI (784178) CSI: published=25300 last_ret=0 qdepth=1[0m
+[0;32mI (785568) CSI: published=25350 last_ret=0 qdepth=0[0m
+[0;32mI (786958) CSI: published=25400 last_ret=0 qdepth=0[0m
+[0;32mI (788428) CSI: published=25450 last_ret=0 qdepth=1[0m
+[0;32mI (789918) CSI: published=25500 last_ret=0 qdepth=1[0m
+[0;32mI (791288) CSI: published=25550 last_ret=0 qdepth=1[0m
+[0;32mI (792778) CSI: published=25600 last_ret=0 qdepth=3[0m
+[0;32mI (794218) CSI: published=25650 last_ret=0 qdepth=0[0m
+[0;32mI (795678) CSI: published=25700 last_ret=0 qdepth=0[0m
+[0;32mI (797178) CSI: published=25750 last_ret=0 qdepth=3[0m
+[0;32mI (798658) CSI: published=25800 last_ret=0 qdepth=0[0m
+[0;32mI (800408) CSI: published=25850 last_ret=0 qdepth=1[0m
+[0;32mI (801948) CSI: published=25900 last_ret=0 qdepth=0[0m
+[0;32mI (805428) CSI: published=25950 last_ret=0 qdepth=1[0m
+[0;32mI (806668) CSI: published=26000 last_ret=0 qdepth=6[0m
+[0;32mI (808118) CSI: published=26050 last_ret=0 qdepth=2[0m
+[0;32mI (809638) CSI: published=26100 last_ret=0 qdepth=0[0m
+[0;32mI (811108) CSI: published=26150 last_ret=0 qdepth=1[0m
+[0;32mI (812728) CSI: published=26200 last_ret=0 qdepth=2[0m
+[0;32mI (814118) CSI: published=26250 last_ret=0 qdepth=0[0m
+[0;32mI (815618) CSI: published=26300 last_ret=0 qdepth=1[0m
+[0;32mI (817178) CSI: published=26350 last_ret=0 qdepth=1[0m
+[0;32mI (818668) CSI: published=26400 last_ret=0 qdepth=2[0m
+[0;32mI (820178) CSI: published=26450 last_ret=0 qdepth=0[0m
+[0;32mI (821578) CSI: published=26500 last_ret=0 qdepth=0[0m
+[0;32mI (822968) CSI: published=26550 last_ret=0 qdepth=1[0m
+[0;32mI (824508) CSI: published=26600 last_ret=0 qdepth=1[0m
+[0;32mI (825898) CSI: published=26650 last_ret=0 qdepth=0[0m
+[0;32mI (827398) CSI: published=26700 last_ret=0 qdepth=0[0m
+[0;32mI (828878) CSI: published=26750 last_ret=0 qdepth=1[0m
+[0;32mI (830268) CSI: published=26800 last_ret=0 qdepth=0[0m
+[0;32mI (831788) CSI: published=26850 last_ret=0 qdepth=0[0m
+[0;32mI (835168) CSI: published=26900 last_ret=0 qdepth=0[0m
+[0;32mI (836438) CSI: published=26950 last_ret=0 qdepth=0[0m
+[0;32mI (837928) CSI: published=27000 last_ret=0 qdepth=0[0m
+[0;32mI (839428) CSI: published=27050 last_ret=0 qdepth=1[0m
+[0;32mI (840858) CSI: published=27100 last_ret=0 qdepth=0[0m
+[0;32mI (842318) CSI: published=27150 last_ret=0 qdepth=0[0m
+[0;32mI (843798) CSI: published=27200 last_ret=0 qdepth=1[0m
+[0;32mI (845288) CSI: published=27250 last_ret=0 qdepth=1[0m
+[0;32mI (846748) CSI: published=27300 last_ret=0 qdepth=0[0m
+[0;32mI (848188) CSI: published=27350 last_ret=0 qdepth=0[0m
+[0;32mI (849628) CSI: published=27400 last_ret=0 qdepth=2[0m
+[0;32mI (851048) CSI: published=27450 last_ret=0 qdepth=1[0m
+[0;32mI (852458) CSI: published=27500 last_ret=0 qdepth=1[0m
+[0;32mI (853938) CSI: published=27550 last_ret=0 qdepth=0[0m
+[0;32mI (855468) CSI: published=27600 last_ret=0 qdepth=0[0m
+[0;32mI (856968) CSI: published=27650 last_ret=0 qdepth=2[0m
+[0;32mI (858528) CSI: published=27700 last_ret=0 qdepth=2[0m
+[0;32mI (860078) CSI: published=27750 last_ret=0 qdepth=0[0m
+[0;32mI (861758) CSI: published=27800 last_ret=0 qdepth=1[0m
+[0;32mI (863398) CSI: published=27850 last_ret=0 qdepth=2[0m
+[0;32mI (864818) CSI: published=27900 last_ret=0 qdepth=0[0m
+[0;32mI (866318) CSI: published=27950 last_ret=0 qdepth=1[0m
+[0;32mI (867788) CSI: published=28000 last_ret=0 qdepth=1[0m
+[0;32mI (869328) CSI: published=28050 last_ret=0 qdepth=0[0m
+[0;32mI (870808) CSI: published=28100 last_ret=0 qdepth=0[0m
+[0;32mI (872208) CSI: published=28150 last_ret=0 qdepth=0[0m
+[0;32mI (873658) CSI: published=28200 last_ret=0 qdepth=2[0m
+[0;32mI (875158) CSI: published=28250 last_ret=0 qdepth=0[0m
+[0;32mI (876688) CSI: published=28300 last_ret=0 qdepth=1[0m
+[0;32mI (878158) CSI: published=28350 last_ret=0 qdepth=1[0m
+[0;32mI (879698) CSI: published=28400 last_ret=0 qdepth=2[0m
+[0;32mI (881128) CSI: published=28450 last_ret=0 qdepth=0[0m
+[0;32mI (882548) CSI: published=28500 last_ret=0 qdepth=1[0m
+[0;32mI (883908) CSI: published=28550 last_ret=0 qdepth=2[0m
+[0;32mI (885348) CSI: published=28600 last_ret=0 qdepth=0[0m
+[0;32mI (886778) CSI: published=28650 last_ret=0 qdepth=1[0m
+[0;32mI (888268) CSI: published=28700 last_ret=0 qdepth=1[0m
+[0;32mI (889748) CSI: published=28750 last_ret=0 qdepth=3[0m
+[0;32mI (891188) CSI: published=28800 last_ret=0 qdepth=0[0m
+[0;32mI (894598) CSI: published=28850 last_ret=0 qdepth=0[0m
+[0;32mI (895928) CSI: published=28900 last_ret=0 qdepth=0[0m
+[0;32mI (897268) CSI: published=28950 last_ret=0 qdepth=2[0m
+[0;32mI (898638) CSI: published=29000 last_ret=0 qdepth=0[0m
+[0;32mI (900078) CSI: published=29050 last_ret=0 qdepth=0[0m
+[0;32mI (901668) CSI: published=29100 last_ret=0 qdepth=1[0m
+[0;32mI (903228) CSI: published=29150 last_ret=0 qdepth=1[0m
+[0;32mI (905358) wifi:new:<7,1>, old:<7,0>, ap:<255,255>, sta:<7,1>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (906238) CSI: published=29200 last_ret=0 qdepth=2[0m
+[0;33mW (911258) transport_base: Poll timeout or error, errno=Success, fd=55, timeout_ms=5000[0m
+[0;31mE (911258) mqtt_client: Writing didn't complete in specified timeout: errno=0[0m
+[0;33mW (911258) MQTT: DISCONNECTED from broker[0m
+[0;33mW (911268) mqtt_client: Publish: Losing qos0 data when client not connected[0m
+[0;32mI (914338) MQTT: CONNECTED to broker[0m
+[0;32mI (916388) CSI: published=29250 last_ret=0 qdepth=0[0m
+[0;32mI (918478) CSI: published=29300 last_ret=0 qdepth=0[0m
+[0;32mI (920688) CSI: published=29350 last_ret=0 qdepth=3[0m
+[0;32mI (922828) CSI: published=29400 last_ret=0 qdepth=0[0m
+[0;32mI (925028) CSI: published=29450 last_ret=0 qdepth=0[0m
+[0;32mI (929648) CSI: published=29500 last_ret=0 qdepth=0[0m
+[0;32mI (931738) CSI: published=29550 last_ret=0 qdepth=1[0m
+[0;32mI (933878) CSI: published=29600 last_ret=0 qdepth=1[0m
+[0;32mI (935968) CSI: published=29650 last_ret=0 qdepth=0[0m
+[0;32mI (937978) CSI: published=29700 last_ret=0 qdepth=0[0m
+[0;32mI (939818) CSI: published=29750 last_ret=0 qdepth=0[0m
+[0;32mI (941048) CSI: published=29800 last_ret=0 qdepth=1[0m
+[0;32mI (942288) CSI: published=29850 last_ret=0 qdepth=0[0m
+[0;32mI (943518) CSI: published=29900 last_ret=0 qdepth=0[0m
+[0;32mI (944918) CSI: published=29950 last_ret=0 qdepth=1[0m
+[0;32mI (946068) CSI: published=30000 last_ret=0 qdepth=1[0m
+[0;32mI (947198) CSI: published=30050 last_ret=0 qdepth=0[0m
+[0;32mI (948348) CSI: published=30100 last_ret=0 qdepth=0[0m
+[0;32mI (949568) CSI: published=30150 last_ret=0 qdepth=0[0m
+[0;32mI (950968) CSI: published=30200 last_ret=0 qdepth=3[0m
+[0;32mI (952668) CSI: published=30250 last_ret=0 qdepth=1[0m
+[0;32mI (954468) CSI: published=30300 last_ret=0 qdepth=1[0m
+[0;32mI (956418) CSI: published=30350 last_ret=0 qdepth=2[0m
+[0;32mI (958468) CSI: published=30400 last_ret=0 qdepth=3[0m
+[0;32mI (960528) CSI: published=30450 last_ret=0 qdepth=0[0m
+[0;32mI (962498) CSI: published=30500 last_ret=0 qdepth=1[0m
+[0;32mI (964388) CSI: published=30550 last_ret=0 qdepth=0[0m
+[0;32mI (966328) CSI: published=30600 last_ret=0 qdepth=0[0m
+[0;32mI (968278) CSI: published=30650 last_ret=0 qdepth=0[0m
+[0;32mI (969508) CSI: published=30700 last_ret=0 qdepth=0[0m
+[0;32mI (970668) CSI: published=30750 last_ret=0 qdepth=1[0m
+[0;32mI (971868) CSI: published=30800 last_ret=0 qdepth=1[0m
+[0;32mI (972998) CSI: published=30850 last_ret=0 qdepth=1[0m
+[0;32mI (974178) CSI: published=30900 last_ret=0 qdepth=1[0m
+[0;32mI (975308) CSI: published=30950 last_ret=0 qdepth=1[0m
+[0;32mI (976638) CSI: published=31000 last_ret=0 qdepth=0[0m
+[0;32mI (978078) CSI: published=31050 last_ret=0 qdepth=1[0m
+[0;32mI (979478) CSI: published=31100 last_ret=0 qdepth=0[0m
+[0;32mI (980808) CSI: published=31150 last_ret=0 qdepth=0[0m
+[0;32mI (982308) CSI: published=31200 last_ret=0 qdepth=0[0m
+[0;32mI (984198) CSI: published=31250 last_ret=0 qdepth=2[0m
+[0;32mI (985978) CSI: published=31300 last_ret=0 qdepth=0[0m
+[0;32mI (987838) CSI: published=31350 last_ret=0 qdepth=0[0m

@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 """MQTT subscriber: receive CSI data -> filter -> FFT -> display HR/RR.
 
+Rate-adaptive version: the signal-processing math no longer assumes the
+ESP32 delivers a fixed 40 packets/sec. Every packet is timestamped, and
+each analysis window is resampled onto a uniform 40 Hz grid before
+filtering/FFT. This keeps HR/RR accurate whether packets arrive at
+28/s, 36/s, 40/s, or anywhere in between.
+
 Based on the ME41004 lab spec (PDF page 6):
   1. Parse CSI JSON, compute amplitude per subcarrier pair: |H| = sqrt(I^2 + Q^2)
   2. Average across subcarriers -> one amplitude sample per packet
@@ -11,9 +17,6 @@ Based on the ME41004 lab spec (PDF page 6):
        Respiration band: 0.1  - 0.5  Hz (6  - 30  br/min)
   5. Savitzky-Golay smoothing (window=11, order=3)
   6. Hanning window -> FFT -> peak detection -> bpm / brpm
-
-MODIFIED VERSION: also publishes results to topic me41004/vitals so the
-C# WPF GUI can subscribe and display them in real time.
 
 Usage:
     py csi_subscriber.py
@@ -42,11 +45,14 @@ except ImportError as e:
 
 
 # ---- Signal processing parameters (from lab spec) ----
-FS = 40            # Sampling frequency (Hz) - the ESP publish rate target
-BUFFER_SEC = 10      # Process data in 10-second windows
-BUF_SIZE = FS * BUFFER_SEC
+# FS is now the PROCESSING rate (uniform grid we resample onto), NOT an
+# assumption about the ESP32 publish rate. The actual packet rate is
+# measured from timestamps and can be anything ~20-50 Hz.
+FS = 40            # Processing/resampling grid frequency (Hz)
+BUFFER_SEC = 10    # Process data in 10-second windows
+BUF_SIZE = FS * BUFFER_SEC   # 400 points on the uniform grid
 
-# Bandpass filter coefficients (Butterworth, 4th order)
+# Bandpass filter coefficients (Butterworth, 4th order), designed once at FS
 b_hr, a_hr     = sig.butter(4, [0.8, 2.17], btype="band", fs=FS)   # heart rate
 b_resp, a_resp = sig.butter(4, [0.1, 0.5],  btype="band", fs=FS)   # respiration
 
@@ -67,12 +73,54 @@ def extract_amplitudes(csi_payload):
     return float(np.mean(amps)) if amps else 0.0
 
 
-# ---- ORIGINAL compute_rate (unchanged, kept for CSV output) ----
-def compute_rate(amplitudes, b, a, band_lo, band_hi):
-    """Filter -> smooth -> Hanning -> FFT -> peak in band -> bpm/brpm."""
-    if len(amplitudes) < BUF_SIZE:
+def resample_window(target_fs=FS, duration=BUFFER_SEC):
+    """Build a uniformly-sampled amplitude window from the most recent
+    `duration` seconds of real data.
+
+    This is the core of the rate-adaptive design. CSI packets are stamped
+    with wall-clock time when they arrive. We take every packet inside the
+    last `duration` seconds and linearly interpolate its amplitudes onto a
+    uniform grid of (target_fs * duration) points. Because the grid is
+    always uniform at FS Hz, the downstream Butterworth filters and FFT are
+    always given correctly-spaced samples regardless of whether packets
+    actually arrived at 28/s, 36/s, or 40/s.
+
+    Returns a numpy array of length BUF_SIZE, or None if there is not yet
+    enough data in the window."""
+    if len(CSI_BUF_TS) < 4:
         return None
-    x = np.array(amplitudes[-BUF_SIZE:])
+    ts = np.asarray(CSI_BUF_TS, dtype=float)
+    amp = np.asarray(CSI_BUF, dtype=float)
+    # Keep only the most recent `duration` seconds (by real time, not count).
+    t_end = ts[-1]
+    t_start = t_end - duration
+    mask = ts >= t_start
+    ts_w = ts[mask]
+    amp_w = amp[mask]
+    if len(ts_w) < 4:
+        return None
+    # np.interp requires strictly increasing x. Drop duplicate timestamps.
+    ok = np.concatenate(([True], np.diff(ts_w) > 1e-6))
+    ts_w = ts_w[ok]
+    amp_w = amp_w[ok]
+    if len(ts_w) < 4:
+        return None
+    # Shift so the window starts at t=0.
+    ts_rel = ts_w - ts_w[0]
+    n = target_fs * duration          # always 400 points
+    t_uniform = np.linspace(0, duration, n)
+    return np.interp(t_uniform, ts_rel, amp_w)
+
+
+# ---- compute_rate: now operates on the resampled uniform window ----
+def compute_rate(b, a, band_lo, band_hi):
+    """Filter -> smooth -> Hanning -> FFT -> peak in band -> bpm/brpm.
+
+    Uses resample_window() internally so the result is correct at any
+    real packet arrival rate."""
+    x = resample_window()
+    if x is None or len(x) < BUF_SIZE:
+        return None
     x_filt = sig.filtfilt(b, a, x)
     x_smooth = sig.savgol_filter(x_filt, 11, 3)
     window = np.hanning(len(x_smooth))
@@ -88,21 +136,21 @@ def compute_rate(amplitudes, b, a, band_lo, band_hi):
     return round(rate_hz * 60.0, 1)
 
 
-def compute_heart_rate(amplitudes):
-    return compute_rate(amplitudes, b_hr, a_hr, 0.8, 2.17)
+def compute_heart_rate():
+    return compute_rate(b_hr, a_hr, 0.8, 2.17)
 
 
-def compute_resp_rate(amplitudes):
-    return compute_rate(amplitudes, b_resp, a_resp, 0.1, 0.5)
+def compute_resp_rate():
+    return compute_rate(b_resp, a_resp, 0.1, 0.5)
 
 
 # === ADDED FOR C# GUI: same as compute_rate but also returns waveform + FFT ===
-def compute_rate_full(amplitudes, b, a, band_lo, band_hi):
+def compute_rate_full(b, a, band_lo, band_hi):
     """Like compute_rate, but also returns filtered waveform and FFT spectrum
-    so the C# GUI can plot them."""
-    if len(amplitudes) < BUF_SIZE:
+    so the C# GUI can plot them. Also rate-adaptive via resample_window()."""
+    x = resample_window()
+    if x is None or len(x) < BUF_SIZE:
         return None
-    x = np.array(amplitudes[-BUF_SIZE:])
     x_filt = sig.filtfilt(b, a, x)
     x_smooth = sig.savgol_filter(x_filt, 11, 3)
 
@@ -153,7 +201,8 @@ def publish_vitals(client, hr_data, rr_data, rssi):
 
 
 # ---- MQTT plumbing ----
-CSI_BUF = []   # rolling buffer of CSI amplitudes
+CSI_BUF = []        # rolling buffer of CSI amplitudes
+CSI_BUF_TS = []     # wall-clock timestamps aligned with CSI_BUF (rate-adaptive)
 raw_file = None
 csv_writer = None
 msg_count = 0
@@ -201,13 +250,20 @@ def on_message(client, userdata, msg):
         raw_file.write(json.dumps(payload) + "\n")
         raw_file.flush()
 
+    # Append amplitude AND its real arrival timestamp.
+    # The timestamp is what makes the analysis independent of packet rate.
     CSI_BUF.append(amp)
-    if len(CSI_BUF) > BUF_SIZE * 2:
+    CSI_BUF_TS.append(time.time())
+    # Keep enough history to always cover BUFFER_SEC even at low rates.
+    # BUF_SIZE*2 = 800 pts ~ 20s @ 40Hz or ~28s @ 28Hz, plenty of slack.
+    MAX_BUF = BUF_SIZE * 2
+    if len(CSI_BUF) > MAX_BUF:
         CSI_BUF.pop(0)
+        CSI_BUF_TS.pop(0)
 
-    # === ORIGINAL: compute rates for console + CSV ===
-    hr = compute_heart_rate(CSI_BUF)
-    rr = compute_resp_rate(CSI_BUF)
+    # === ORIGINAL: compute rates for console + CSV (now rate-adaptive) ===
+    hr = compute_heart_rate()
+    rr = compute_resp_rate()
 
     if hr is not None:
         print(f"[{now()}] Heart Rate: {hr:.1f} bpm   Resp: {rr if rr else '-'} br/min   (buf={len(CSI_BUF)})")
@@ -216,8 +272,8 @@ def on_message(client, userdata, msg):
 
     # === ADDED FOR C# GUI: compute full results and publish ===
     if hr is not None:
-        hr_full = compute_rate_full(CSI_BUF, b_hr, a_hr, 0.8, 2.17)
-        rr_full = compute_rate_full(CSI_BUF, b_resp, a_resp, 0.1, 0.5)
+        hr_full = compute_rate_full(b_hr, a_hr, 0.8, 2.17)
+        rr_full = compute_rate_full(b_resp, a_resp, 0.1, 0.5)
         if hr_full:
             publish_vitals(client, hr_full, rr_full, rssi)
             print(f"[{now()}] -> published to {VITALS_TOPIC}: HR={hr_full['rate']} RR={rr_full['rate'] if rr_full else '-'}")
@@ -226,7 +282,14 @@ def on_message(client, userdata, msg):
     if msg_count % 100 == 0:
         elapsed = time.time() - start_time
         rate = msg_count / elapsed if elapsed > 0 else 0
-        print(f"[{now()}] received {msg_count} packets, {rate:.1f} pkt/s, buf={len(CSI_BUF)}")
+        # Also report the instantaneous rate over the last window so you can
+        # see what the network is actually delivering.
+        inst = 0.0
+        if len(CSI_BUF_TS) >= 2:
+            span = CSI_BUF_TS[-1] - CSI_BUF_TS[0]
+            inst = (len(CSI_BUF_TS) / span) if span > 0 else 0.0
+        print(f"[{now()}] received {msg_count} packets, avg {rate:.1f} pkt/s, "
+              f"buf={len(CSI_BUF)} (~{inst:.1f} pkt/s in window)")
 
 
 def main():
@@ -260,7 +323,8 @@ def main():
     client.reconnect_delay_set(min_delay=2, max_delay=10)
 
     print(f"[{now()}] connecting to {args.broker}:{args.port} topic='{args.topic}'")
-    print(f"[{now()}] FS={FS}Hz  window={BUFFER_SEC}s  buf_size={BUF_SIZE}")
+    print(f"[{now()}] FS={FS}Hz (processing grid)  window={BUFFER_SEC}s  buf_size={BUF_SIZE}")
+    print(f"[{now()}] rate-adaptive: actual packet rate is measured, not assumed")
     print(f"[{now()}] raw  -> {RAW_PATH}")
     print(f"[{now()}] csv  -> {CSV_PATH}")
     print(f"[{now()}] vitals -> MQTT topic '{VITALS_TOPIC}' (for C# GUI)")
