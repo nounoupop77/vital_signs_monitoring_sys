@@ -1,0 +1,13 @@
+build/
+out/
+managed_components/
+sdkconfig
+sdkconfig.old
+**/bin/
+**/obj/
+.vs/
+**/.vs/
+.vscode/
+*.user
+*.suo
+*.log
