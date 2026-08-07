@@ -14,24 +14,26 @@
 #include "ping/ping_sock.h"
 #include "lwip/inet.h"
 #include "cJSON.h"
+#include "wifi_prov.h"
 
-/* ═══ WiFi Configuration ═══ */
+/* ===== WiFi Configuration ===== */
 /* defaults used when NVS has no saved credentials */
-#define WIFI_DEFAULT_SSID "testformqtt"
-#define WIFI_DEFAULT_PASS "hopesuccess"
+#define WIFI_DEFAULT_SSID "5G-tkshb_dhh"
+#define WIFI_DEFAULT_PASS "66668888"
 #define WIFI_MAX_RETRY   5
 #define WIFI_NVS_NS      "wifi_cred"
 #define WIFI_NVS_KEY_SSID "ssid"
 #define WIFI_NVS_KEY_PASS "pass"
+#define MQTT_NVS_KEY_BROKER "mqtt_broker"
 
-/* ═══ MQTT Configuration ═══ */
-#define MQTT_BROKER  "mqtt://192.168.8.150:1883"
+/* ===== MQTT Configuration ===== */
+#define MQTT_BROKER  "mqtt://172.20.10.5:1883"
 #define MQTT_CLIENT  "esp32-csi-001"
 #define MQTT_TOPIC   "me41004/csi"
 /* ESP32 subscribes here to receive WiFi config from GUI */
 #define MQTT_CONFIG_TOPIC "me41004/config"
 
-/* ═══ CSI Configuration ═══ */
+/* ===== CSI Configuration ===== */
 #define CSI_CHANNEL 0
 #define CSI_SECOND  WIFI_SECOND_CHAN_NONE
 
@@ -40,7 +42,7 @@ static esp_mqtt_client_handle_t mqtt_client = NULL;
 #define CSI_SEND_STACK  6144
 #define MAX_CSI_BYTES   512
 
-/* ═══ Adaptive publish throttle (rate-adaptive core) ═══
+/* ===== Adaptive publish throttle (rate-adaptive core) =====
  * Instead of a fixed MIN_PUBLISH_GAP_MS, the gap floats between MIN and MAX
  * based on how fast the network can drain the queue (qdepth).
  *   - qdepth low  -> network is fast -> shrink gap toward MIN (full speed)
@@ -70,17 +72,17 @@ static bool mqtt_started = false;
 static wifi_csi_config_t csi_cfg = {
     .lltf_en = 1,
     .htltf_en = 1,
-    .stbc_htltf2_en = 0,
+    .stbc_htltf2_en = 1,
     .ltf_merge_en = 1,
     .channel_filter_en = 0,
     .manu_scale = false,
     .shift = 0,
 };
 
-/* ──────────────────────────────────────────────
+/* =====================================================================
  * NVS WiFi credential storage
- * ──────────────────────────────────────────────*/
-static void load_wifi_from_nvs(char *ssid, size_t ssid_len,
+ * ====================================================================*/
+static bool load_wifi_from_nvs(char *ssid, size_t ssid_len,
                                 char *pass, size_t pass_len)
 {
     nvs_handle_t h;
@@ -89,22 +91,45 @@ static void load_wifi_from_nvs(char *ssid, size_t ssid_len,
         strncpy(ssid, WIFI_DEFAULT_SSID, ssid_len);
         strncpy(pass, WIFI_DEFAULT_PASS, pass_len);
         ESP_LOGW("WIFI", "NVS open failed, using defaults");
-        return;
+        return false;
     }
 
+    bool have_creds = true;
+
     size_t required = ssid_len;
-    if (nvs_get_str(h, WIFI_NVS_KEY_SSID, ssid, &required) != ESP_OK)
+    if (nvs_get_str(h, WIFI_NVS_KEY_SSID, ssid, &required) != ESP_OK) {
         strncpy(ssid, WIFI_DEFAULT_SSID, ssid_len);
+        have_creds = false;
+    }
 
     required = pass_len;
     if (nvs_get_str(h, WIFI_NVS_KEY_PASS, pass, &required) != ESP_OK)
         strncpy(pass, WIFI_DEFAULT_PASS, pass_len);
 
     nvs_close(h);
-    ESP_LOGI("WIFI", "Loaded credentials from NVS: ssid=%s", ssid);
+    ESP_LOGI("WIFI", "Loaded from NVS: ssid=%s have_creds=%d", ssid, have_creds);
+    return have_creds;
 }
 
-static void save_wifi_to_nvs(const char *ssid, const char *pass)
+
+/* Load MQTT broker URI from NVS; falls back to compiled default. */
+static void load_broker_from_nvs(char *broker, size_t broker_len)
+{
+    strncpy(broker, MQTT_BROKER, broker_len - 1);
+    broker[broker_len - 1] = '\0';
+
+    nvs_handle_t h;
+    if (nvs_open(WIFI_NVS_NS, NVS_READONLY, &h) != ESP_OK) return;
+
+    size_t required = broker_len;
+    if (nvs_get_str(h, MQTT_NVS_KEY_BROKER, broker, &required) != ESP_OK)
+        ESP_LOGW("MQTT", "No broker in NVS, using default %s", broker);
+    else
+        ESP_LOGI("MQTT", "Broker from NVS: %s", broker);
+
+    nvs_close(h);
+}
+void save_wifi_to_nvs(const char *ssid, const char *pass, const char *broker)
 {
     nvs_handle_t h;
     if (nvs_open(WIFI_NVS_NS, NVS_READWRITE, &h) != ESP_OK) {
@@ -113,14 +138,16 @@ static void save_wifi_to_nvs(const char *ssid, const char *pass)
     }
     nvs_set_str(h, WIFI_NVS_KEY_SSID, ssid);
     nvs_set_str(h, WIFI_NVS_KEY_PASS, pass);
+    if (broker && broker[0])
+        nvs_set_str(h, MQTT_NVS_KEY_BROKER, broker);
     nvs_commit(h);
     nvs_close(h);
     ESP_LOGI("WIFI", "Saved new WiFi credentials to NVS: ssid=%s", ssid);
 }
 
-/* ──────────────────────────────────────────────
+/* =====================================================================
  * Reconnect WiFi with new credentials
- * ──────────────────────────────────────────────*/
+ * ====================================================================*/
 static void reconnect_wifi(const char *ssid, const char *pass)
 {
     ESP_LOGI("WIFI", "Reconnecting to SSID=%s", ssid);
@@ -129,6 +156,7 @@ static void reconnect_wifi(const char *ssid, const char *pass)
     strncpy((char *)wifi_cfg.sta.ssid, ssid, sizeof(wifi_cfg.sta.ssid) - 1);
     strncpy((char *)wifi_cfg.sta.password, pass, sizeof(wifi_cfg.sta.password) - 1);
     wifi_cfg.sta.channel = CSI_CHANNEL;
+    wifi_cfg.sta.threshold.authmode = WIFI_AUTH_WPA_PSK;
 
     s_retry_count = 0;
     esp_wifi_disconnect();
@@ -136,10 +164,10 @@ static void reconnect_wifi(const char *ssid, const char *pass)
     esp_wifi_connect();
 }
 
-/* ──────────────────────────────────────────────
+/* =====================================================================
  * Parse incoming WiFi config JSON from MQTT
  *   expected: {"ssid":"...","password":"..."}
- * ──────────────────────────────────────────────*/
+ * ====================================================================*/
 static void handle_wifi_config_msg(const char *json_str, int len)
 {
     /* cJSON needs null-terminated string */
@@ -162,7 +190,7 @@ static void handle_wifi_config_msg(const char *json_str, int len)
         const char *ssid = j_ssid->valuestring;
         const char *pass = cJSON_IsString(j_pass) ? j_pass->valuestring : "";
 
-        save_wifi_to_nvs(ssid, pass);
+        save_wifi_to_nvs(ssid, pass, NULL);   /* MQTT path: broker unchanged */
         reconnect_wifi(ssid, pass);
     } else {
         ESP_LOGW("WIFI", "WiFi config JSON missing ssid");
@@ -171,9 +199,9 @@ static void handle_wifi_config_msg(const char *json_str, int len)
     cJSON_Delete(root);
 }
 
-/* ──────────────────────────────────────────────
+/* =====================================================================
  * MQTT event handler
- * ──────────────────────────────────────────────*/
+ * ====================================================================*/
 static void mqtt_event_handler(void *arg, esp_event_base_t base,
                                int32_t event_id, void *event_data)
 {
@@ -252,8 +280,27 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
     }
 }
 
+/* No-op promiscuous callback - required to enable promiscuous mode.
+ * CSI callback fires in parallel; we don't need packet content here. */
+static void wifi_promiscuous_cb(void *buf, wifi_promiscuous_pkt_type_t type)
+{
+    (void)buf;
+    (void)type;
+}
+
+/* CSI callback rate-limit: cap at ~50 Hz to prevent WiFi ISR / flash cache
+ * contention that can crash Core 0 (see RuView issue #396). */
+#define CSI_MIN_CB_INTERVAL_US  (20 * 1000)
+static int64_t s_last_cb_us = 0;
+
 static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     if (data == NULL || data->buf == NULL || csi_queue == NULL) return;
+
+    /* Drop excess callbacks beyond ~50 Hz before any processing */
+    int64_t now_us = esp_timer_get_time();
+    if ((now_us - s_last_cb_us) < CSI_MIN_CB_INTERVAL_US) return;
+    s_last_cb_us = now_us;
+
     if (data->len > MAX_CSI_BYTES) return;
 
     csi_sample_t s;
@@ -269,7 +316,7 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     }
 }
 
-/* ──────────────────────────────────────────────
+/* =====================================================================
  * Adaptive CSI sender task
  *
  * The publish gap (gap_ms) self-tunes to whatever the current network can
@@ -283,7 +330,7 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
  * disconnects seen on slow networks while still pushing full speed on fast
  * networks. Excess CSI samples that arrive during a back-off are dropped
  * locally (the `continue`), so they never stress the MQTT stack at all.
- * ──────────────────────────────────────────────*/
+ * ====================================================================*/
 static void csi_sender_task(void *arg)
 {
     csi_sample_t s;
@@ -309,10 +356,11 @@ static void csi_sender_task(void *arg)
         int off = snprintf(json, sizeof(json),
             "{\"mac\":\"" MACSTR "\",\"rssi\":%d,\"len\":%d,\"subcarriers\":[",
             MAC2STR(s.mac), s.rssi, s.len);
-        for (int i = 0; i + 1 < s.len; i += 2) {
-            int n = snprintf(json + off, sizeof(json) - off, "[%d,%d]%s",
-                             (int16_t)s.buf[i], (int16_t)s.buf[i + 1],
-                             (i + 2 < s.len) ? "," : "");
+       for (int i = 0; i + 1 < s.len; i += 2) {
+           int n = snprintf(json + off, sizeof(json) - off, "[%d,%d]%s",
+                             (int16_t)(int8_t)s.buf[i],
+                             (int16_t)(int8_t)s.buf[i + 1],
+                            (i + 2 < s.len) ? "," : "");
             if (n < 0 || (size_t)n >= sizeof(json) - off) break;
             off += n;
         }
@@ -351,26 +399,44 @@ void app_main(void) {
     esp_netif_init();
     esp_event_loop_create_default();
 
+    /* Check BOOT button BEFORE WiFi init (GPIO0 is a strapping pin,
+     * must be checked post-boot with a detection window) */
+    bool force_prov = prov_boot_button_held();
+
     /* Init WiFi in station mode */
     esp_netif_create_default_wifi_sta();
+    esp_netif_create_default_wifi_ap();   /* needed for provisioning SoftAP */
     esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID,
                                         &wifi_event_handler, NULL, NULL);
     esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP,
                                         &wifi_event_handler, NULL, NULL);
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     esp_wifi_init(&cfg);
-    esp_wifi_set_mode(WIFI_MODE_STA);
 
     /* Load WiFi credentials from NVS (falls back to defaults) */
     char wifi_ssid[33] = {0};
     char wifi_pass[65] = {0};
-    load_wifi_from_nvs(wifi_ssid, sizeof(wifi_ssid),
-                       wifi_pass, sizeof(wifi_pass));
+    bool have_creds = load_wifi_from_nvs(wifi_ssid, sizeof(wifi_ssid),
+                                            wifi_pass, sizeof(wifi_pass));
+
+
+    /* Load broker URI from NVS (falls back to compiled default) */
+    char mqtt_broker[128] = {0};
+    load_broker_from_nvs(mqtt_broker, sizeof(mqtt_broker));
+    /* No saved WiFi or BOOT button held -> start SoftAP provisioning portal */
+    if (!have_creds || force_prov) {
+        start_provisioning();
+        return;   /* provisioning tasks keep running after app_main exits */
+    }
+
+    /* ---- Normal station mode ---- */
+    esp_wifi_set_mode(WIFI_MODE_STA);
 
     wifi_config_t wifi_cfg = {0};
     strncpy((char *)wifi_cfg.sta.ssid, wifi_ssid, sizeof(wifi_cfg.sta.ssid) - 1);
     strncpy((char *)wifi_cfg.sta.password, wifi_pass, sizeof(wifi_cfg.sta.password) - 1);
     wifi_cfg.sta.channel = CSI_CHANNEL;
+    wifi_cfg.sta.threshold.authmode = WIFI_AUTH_WPA_PSK;
     esp_wifi_set_config(WIFI_IF_STA, &wifi_cfg);
 
     /* Enable CSI capture */
@@ -381,9 +447,18 @@ void app_main(void) {
     esp_wifi_set_ps(WIFI_PS_NONE);
     esp_wifi_start();
 
+    /* Enable promiscuous mode so CSI fires on ALL received OFDM frames
+     * (beacons, other stations' data), not just unicast to this device. */
+    esp_wifi_set_promiscuous(true);
+    esp_wifi_set_promiscuous_rx_cb(wifi_promiscuous_cb);
+    wifi_promiscuous_filter_t promisc_filter = {
+        .filter_mask = WIFI_PROMIS_FILTER_MASK_MGMT | WIFI_PROMIS_FILTER_MASK_DATA,
+    };
+    esp_wifi_set_promiscuous_filter(&promisc_filter);
+
     /* Init MQTT */
     esp_mqtt_client_config_t mqtt_cfg = {
-        .broker.address.uri = MQTT_BROKER,
+        .broker.address.uri = mqtt_broker,
         .credentials.client_id = MQTT_CLIENT,
         .network.timeout_ms = 5000,
         .network.reconnect_timeout_ms = 3000,

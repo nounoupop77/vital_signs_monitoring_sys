@@ -7,7 +7,7 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=d:\\vital_signs_monitoring_sys\\build"
+    "--compile-commands-dir=d:\\vital_signs_monitoring_sys\\v6.0.2\\build"
   ],
   "idf.portWin": "COM4"
 }

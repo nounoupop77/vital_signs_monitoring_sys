@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace VitalSignsMonitor.Resources;
 
 /// <summary>
-/// Lightweight i18n singleton (mirrors XtrayUserInterface's ResourceExtension pattern).
+/// Lightweight i18n singleton.
 /// Bind in XAML:  {Binding Source={x:Static res:ResourceExtension.Instance}, Path=SomeKey}
 /// Switch culture in code:  ResourceExtension.Instance.CurrentCulture = "en";
 /// </summary>
@@ -19,19 +19,23 @@ public sealed class ResourceExtension : INotifyPropertyChanged
     // ---- resource tables ----
     private static readonly Dictionary<string, string> Zh = new()
     {
-        // 固定标题，不随语言切换
-        ["AppTitle"]           = "Vital Sign Monitor System 生命体征监测器",
+        ["AppTitle"]           = "Vital Sign Monitor System",
 
-        ["StatusWaiting"]      = "等待数据...",
-        ["StatusConnected"]    = "已连接 - 等待数据 ({0}:{1})",
-        ["StatusConnectFail"]  = "连接失败: {0}",
-        ["StatusNotConnected"] = "未连接",
-        ["StatusMqttUpdated"]  = "MQTT 参数已更新，请点击[连接]",
-        ["StatusTrendCleared"] = "趋势数据已清除",
-        ["ScreenshotSaved"]    = "截图已保存到 {0}",
-        ["LogSaved"]           = "日志已保存到 {0}",
+        ["StatusWaiting"]      = "\u7b49\u5f85\u6570\u636e...",
+        ["StatusConnected"]    = "\u5df2\u8fde\u63a5 - \u7b49\u5f85\u6570\u636e ({0}:{1})",
+        ["StatusConnectFail"]  = "\u8fde\u63a5\u5931\u8d25: {0}",
+        ["StatusNotConnected"] = "\u672a\u8fde\u63a5",
+        ["StatusMqttUpdated"]  = "MQTT \u53c2\u6570\u5df2\u66f4\u65b0\uff0c\u8bf7\u70b9\u51fb[\u8fde\u63a5]",
+        ["StatusTrendCleared"] = "\u8d8b\u52bf\u6570\u636e\u5df2\u6e05\u9664",
+        ["ScreenshotSaved"]    = "\u622a\u56fe\u5df2\u4fdd\u5b58\u5230 {0}",
+        ["LogSaved"]           = "\u65e5\u5fd7\u5df2\u4fdd\u5b58\u5230 {0}",
+        ["FigureSaved"]        = "\u56fe\u8868\u5df2\u4fdd\u5b58\u5230 {0}",
+        ["DataExported"]       = "\u6570\u636e\u5df2\u5bfc\u51fa\u5230 {0}",
+        ["NoData"]             = "\u6682\u65e0\u6570\u636e\uff0c\u8bf7\u5148\u8fde\u63a5\u5e76\u91c7\u96c6",
+        ["SaveFolderMissing"]  = "\u4fdd\u5b58\u8def\u5f84\u4e3a\u7a7a\u6216\u4e0d\u5b58\u5728\uff0c\u5df2\u4f7f\u7528\u9ed8\u8ba4\u4f4d\u7f6e",
+        ["FolderCreated"]      = "\u5df2\u81ea\u52a8\u521b\u5efa\u4fdd\u5b58\u6587\u4ef6\u5939",
+        ["DataViewerEmpty"]    = "\u65e0\u6570\u636e\u53ef\u67e5\u770b",
 
-        // 科学/医学术语保持英文
         ["TimeDomain"]         = "Time Domain",
         ["FftSpectrum"]        = "FFT Spectrum",
         ["RespRate"]           = "Respiration Rate",
@@ -39,38 +43,63 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["RespLabel"]          = "RESPIRATION",
         ["HrLabel"]            = "HEART RATE",
 
-        ["WifiTab"]            = "WiFi 设置",
-        ["WifiName"]           = "WiFi 名称",
-        ["WifiPwd"]            = "WiFi 密码",
-        ["ApplyWifi"]          = "发送 WiFi 配置",
-        ["WifiSent"]           = "WiFi 配置已通过 MQTT 发送，ESP32 将重新连接",
-        ["WifiNotConnected"]   = "请先连接 MQTT 再发送 WiFi 配置",
+        ["WifiTab"]            = "WiFi \u8bbe\u7f6e",
+        ["WifiName"]           = "WiFi \u540d\u79f0",
+        ["WifiPwd"]            = "WiFi \u5bc6\u7801",
+        ["ApplyWifi"]          = "\u53d1\u9001 WiFi \u914d\u7f6e",
+        ["WifiSent"]           = "WiFi \u914d\u7f6e\u5df2\u901a\u8fc7 MQTT \u53d1\u9001\uff0cESP32 \u5c06\u91cd\u65b0\u8fde\u63a5",
+        ["WifiNotConnected"]   = "\u8bf7\u5148\u8fde\u63a5 MQTT \u518d\u53d1\u9001 WiFi \u914d\u7f6e",
 
-        ["MqttTab"]            = "MQTT 连接",
-        ["DisplayTab"]         = "显示设置",
-        ["DataTab"]            = "数据操作",
-        ["Broker"]             = "服务器",
-        ["Port"]               = "端口",
-        ["Topic"]              = "主题",
-        ["ApplyMqtt"]          = "应用 MQTT 设置",
-        ["HrUpper"]            = "心率上限",
-        ["RrUpper"]            = "呼吸上限",
-        ["ClearTrend"]         = "清除趋势数据",
-        ["ExportScreenshot"]   = "导出趋势截图",
-        ["SaveDataLog"]        = "保存数据日志",
-        ["ConnectMqtt"]        = "连接 MQTT",
-        ["Disconnect"]         = "断开连接",
-        ["Language"]           = "语言/Language",
-        ["Chinese"]            = "简体中文",
+        ["MqttTab"]            = "MQTT \u8fde\u63a5",
+        ["DisplayTab"]         = "\u663e\u793a\u8bbe\u7f6e",
+        ["DataTab"]            = "\u6570\u636e\u64cd\u4f5c",
+        ["Broker"]             = "\u670d\u52a1\u5668",
+        ["Port"]               = "\u7aef\u53e3",
+        ["Topic"]              = "\u4e3b\u9898",
+        ["ApplyMqtt"]          = "\u5e94\u7528 MQTT \u8bbe\u7f6e",
+        ["HrUpper"]            = "\u5fc3\u7387\u4e0a\u9650",
+        ["RrUpper"]            = "\u547c\u5438\u4e0a\u9650",
+        ["ClearTrend"]         = "\u6e05\u9664\u8d8b\u52bf\u6570\u636e",
+        ["ExportScreenshot"]   = "\u5bfc\u51fa\u8d8b\u52bf\u622a\u56fe",
+        ["SaveDataLog"]        = "\u4fdd\u5b58\u6570\u636e\u65e5\u5fd7",
+        ["SavePath"]           = "\u4fdd\u5b58\u8def\u5f84",
+        ["Browse"]             = "\u6d4f\u89c8...",
+        ["OpenDataViewer"]     = "\u6570\u636e\u67e5\u770b\u5668",
+        ["ViewerTitle"]        = "\u6570\u636e\u67e5\u770b\u5668 - Data Viewer",
+        ["SelectSignal"]       = "\u9009\u62e9\u4fe1\u53f7",
+        ["HeartRateSignal"]    = "\u5fc3\u7387\u8d8b\u52bf",
+        ["RespRateSignal"]     = "\u547c\u5438\u7387\u8d8b\u52bf",
+        ["RssiSignal"]         = "\u4fe1\u53f7\u5f3a\u5ea6 RSSI",
+        ["WaveformSignal"]     = "\u65f6\u57df\u6ce2\u5f62",
+        ["FftSignal"]          = "\u9891\u8c31 FFT",
+        ["ShowPoints"]         = "\u663e\u793a\u6570\u636e\u70b9",
+        ["SaveFigure"]         = "\u4fdd\u5b58\u56fe\u8868",
+        ["ExportData"]         = "\u5bfc\u51fa\u6570\u636e",
+        ["CloseBtn"]           = "\u5173\u95ed",
+        ["ColIndex"]           = "\u5e8f\u53f7",
+        ["ColTimestamp"]       = "\u65f6\u95f4\u6233",
+        ["ColHr"]              = "\u5fc3\u7387(bpm)",
+        ["ColRr"]              = "\u547c\u5438(rpm)",
+        ["ColRssi"]            = "RSSI(dBm)",
+        ["PointCount"]         = "\u5171 {0} \u4e2a\u6570\u636e\u70b9",
+        ["ConnectMqtt"]        = "\u8fde\u63a5 MQTT",
+        ["Disconnect"]         = "\u65ad\u5f00\u8fde\u63a5",
+        ["Language"]           = "\u8bed\u8a00/Language",
+        ["Chinese"]            = "\u7b80\u4f53\u4e2d\u6587",
         ["English"]            = "English",
         ["UnitRpm"]            = " rpm",
         ["UnitBpm"]            = " bpm",
+
+        ["SingleMode"]         = "\u5355\u4eba\u68c0\u6d4b",
+        ["MultiMode"]          = "\u591a\u4eba\u68c0\u6d4b",
+        ["DetectMode"]         = "\u68c0\u6d4b\u6a21\u5f0f",
+        ["PersonCount"]        = "\u68c0\u6d4b\u5230 {0} \u4eba",
+        ["NoPersons"]          = "\u6682\u65e0\u68c0\u6d4b\u76ee\u6807",
     };
 
     private static readonly Dictionary<string, string> En = new()
     {
-        // 固定标题，不随语言切换
-        ["AppTitle"]           = "Vital Sign Monitor System 生命体征监测器",
+        ["AppTitle"]           = "Vital Sign Monitor System",
 
         ["StatusWaiting"]      = "Waiting for data...",
         ["StatusConnected"]    = "Connected - waiting for data ({0}:{1})",
@@ -80,6 +109,12 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["StatusTrendCleared"] = "Trend data cleared.",
         ["ScreenshotSaved"]    = "Screenshots saved to {0}",
         ["LogSaved"]           = "Log saved to {0}",
+        ["FigureSaved"]        = "Figure saved to {0}",
+        ["DataExported"]       = "Data exported to {0}",
+        ["NoData"]             = "No data yet. Connect and acquire first.",
+        ["SaveFolderMissing"]  = "Save path missing or invalid, used default location",
+        ["FolderCreated"]      = "Save folder created",
+        ["DataViewerEmpty"]    = "No data to view",
 
         ["TimeDomain"]         = "Time Domain",
         ["FftSpectrum"]        = "FFT Spectrum",
@@ -107,13 +142,39 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["ClearTrend"]         = "Clear Trend Data",
         ["ExportScreenshot"]   = "Export Trend Screenshots",
         ["SaveDataLog"]        = "Save Data Log",
+        ["SavePath"]           = "Save Path",
+        ["Browse"]             = "Browse...",
+        ["OpenDataViewer"]     = "Data Viewer",
+        ["ViewerTitle"]        = "Data Viewer",
+        ["SelectSignal"]       = "Signal",
+        ["HeartRateSignal"]    = "Heart Rate Trend",
+        ["RespRateSignal"]     = "Respiration Rate Trend",
+        ["RssiSignal"]         = "RSSI Strength",
+        ["WaveformSignal"]     = "Time-Domain Waveform",
+        ["FftSignal"]          = "FFT Spectrum",
+        ["ShowPoints"]         = "Show Points",
+        ["SaveFigure"]         = "Save Figure",
+        ["ExportData"]         = "Export Data",
+        ["CloseBtn"]           = "Close",
+        ["ColIndex"]           = "Index",
+        ["ColTimestamp"]       = "Timestamp",
+        ["ColHr"]              = "HR (bpm)",
+        ["ColRr"]              = "RR (rpm)",
+        ["ColRssi"]            = "RSSI (dBm)",
+        ["PointCount"]         = "{0} data points",
         ["ConnectMqtt"]        = "Connect MQTT",
         ["Disconnect"]         = "Disconnect",
         ["Language"]           = "Language",
-        ["Chinese"]            = "简体中文",
+        ["Chinese"]            = "Chinese",
         ["English"]            = "English",
         ["UnitRpm"]            = " rpm",
         ["UnitBpm"]            = " bpm",
+
+        ["SingleMode"]         = "Single-Person",
+        ["MultiMode"]          = "Multi-Person",
+        ["DetectMode"]         = "Detection Mode",
+        ["PersonCount"]        = "{0} persons detected",
+        ["NoPersons"]          = "No targets detected",
     };
 
     private Dictionary<string, string> Active =>
@@ -164,6 +225,32 @@ public sealed class ResourceExtension : INotifyPropertyChanged
     public string ClearTrend         => this["ClearTrend"];
     public string ExportScreenshot   => this["ExportScreenshot"];
     public string SaveDataLog        => this["SaveDataLog"];
+    public string SavePath           => this["SavePath"];
+    public string Browse             => this["Browse"];
+    public string OpenDataViewer     => this["OpenDataViewer"];
+    public string ViewerTitle        => this["ViewerTitle"];
+    public string SelectSignal       => this["SelectSignal"];
+    public string HeartRateSignal    => this["HeartRateSignal"];
+    public string RespRateSignal     => this["RespRateSignal"];
+    public string RssiSignal         => this["RssiSignal"];
+    public string WaveformSignal     => this["WaveformSignal"];
+    public string FftSignal          => this["FftSignal"];
+    public string ShowPoints         => this["ShowPoints"];
+    public string SaveFigure         => this["SaveFigure"];
+    public string ExportData         => this["ExportData"];
+    public string CloseBtn           => this["CloseBtn"];
+    public string ColIndex           => this["ColIndex"];
+    public string ColTimestamp       => this["ColTimestamp"];
+    public string ColHr              => this["ColHr"];
+    public string ColRr              => this["ColRr"];
+    public string ColRssi            => this["ColRssi"];
+    public string PointCount         => this["PointCount"];
+    public string FigureSaved        => this["FigureSaved"];
+    public string DataExported       => this["DataExported"];
+    public string NoData             => this["NoData"];
+    public string SaveFolderMissing  => this["SaveFolderMissing"];
+    public string FolderCreated      => this["FolderCreated"];
+    public string DataViewerEmpty    => this["DataViewerEmpty"];
     public string ConnectMqtt        => this["ConnectMqtt"];
     public string Disconnect         => this["Disconnect"];
     public string Language           => this["Language"];
@@ -171,6 +258,11 @@ public sealed class ResourceExtension : INotifyPropertyChanged
     public string English            => this["English"];
     public string UnitRpm            => this["UnitRpm"];
     public string UnitBpm            => this["UnitBpm"];
+    public string SingleMode         => this["SingleMode"];
+    public string MultiMode          => this["MultiMode"];
+    public string DetectMode         => this["DetectMode"];
+    public string PersonCount        => this["PersonCount"];
+    public string NoPersons          => this["NoPersons"];
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

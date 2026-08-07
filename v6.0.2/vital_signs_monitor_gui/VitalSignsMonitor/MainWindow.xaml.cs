@@ -9,6 +9,7 @@ using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Microsoft.Win32;
 using MQTTnet;
 using MQTTnet.Client;
 using ScottPlot;
@@ -34,6 +35,36 @@ public partial class MainWindow : Window
    private readonly List<double> _waveHistory = new();
    private const int WaveLivePoints = 200;       // fixed-resolution live band (time domain)
 
+    // Full per-message records used by the Data Viewer (HR / RR / RSSI / timestamp).
+    private readonly List<VitalsData> _records = new();
+    private VitalsData? _latestSnapshot;          // newest waveform + FFT for the viewer
+
+    // ---- Multi-person detection mode ----
+    private bool _multiPersonMode = false;
+    private int _multiSample = 0;
+    // personId -> list of (sample, hr, rr) history
+    private readonly Dictionary<int, List<(int s, double hr, double rr)>> _persons = new();
+    private const int MultiMaxPoints = 40;  // rolling window per person
+    private System.Windows.Threading.DispatcherTimer? _mockTimer;
+
+    // Distinct colors for up to 8 persons
+    private static readonly ScottPlot.Color[] PersonColors = new[]
+    {
+        ScottPlot.Color.FromHex("#EF4444"),  // red
+        ScottPlot.Color.FromHex("#3B82F6"),  // blue
+        ScottPlot.Color.FromHex("#10B981"),  // green
+        ScottPlot.Color.FromHex("#F59E0B"),  // amber
+        ScottPlot.Color.FromHex("#8B5CF6"),  // purple
+        ScottPlot.Color.FromHex("#EC4899"),  // pink
+        ScottPlot.Color.FromHex("#14B8A6"),  // teal
+        ScottPlot.Color.FromHex("#F97316"),  // orange
+    };
+
+    // Persisted custom output folder for screenshots / logs.
+    private string _saveFolder = "";
+    private static readonly string SettingsPath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        "VitalSignsMonitor", "settings.json");
     // ---- ScottPlot colors (white theme) ----
     private static readonly ScottPlot.Color BgColor = ScottPlot.Color.FromHex("#FFFFFF");
     private static readonly ScottPlot.Color FgColor = ScottPlot.Color.FromHex("#6B7280");
@@ -53,6 +84,81 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         InitPlots();
+        LoadSaveFolder();
+    }
+
+    private void LoadSaveFolder()
+    {
+        try
+        {
+            if (File.Exists(SettingsPath))
+            {
+                using var doc = JsonDocument.Parse(File.ReadAllText(SettingsPath));
+                if (doc.RootElement.TryGetProperty("saveFolder", out var el))
+                    _saveFolder = el.GetString() ?? "";
+            }
+        }
+        catch { }
+
+        if (string.IsNullOrWhiteSpace(_saveFolder) || !Directory.Exists(_saveFolder))
+            _saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        SavePathInput.Text = _saveFolder;
+    }
+
+    private void PersistSaveFolder()
+    {
+        try
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(SettingsPath)!);
+            var json = JsonSerializer.Serialize(new { saveFolder = _saveFolder });
+            File.WriteAllText(SettingsPath, json);
+        }
+        catch { }
+    }
+
+    private void BrowseFolder_Click(object sender, RoutedEventArgs e)
+    {
+        var dlg = new OpenFolderDialog
+        {
+            Title = T["SavePath"],
+            InitialDirectory = Directory.Exists(_saveFolder) ? _saveFolder : ""
+        };
+
+        if (dlg.ShowDialog() == true && !string.IsNullOrWhiteSpace(dlg.FolderName))
+        {
+            _saveFolder = dlg.FolderName;
+            SavePathInput.Text = _saveFolder;
+            PersistSaveFolder();
+            StatusText.Text = T["SavePath"] + ": " + _saveFolder;
+        }
+    }
+
+    /// <summary>
+    /// Resolves the active output folder: the user-set path, auto-created if missing.
+    /// Falls back to My Documents when the chosen path is unusable.
+    /// </summary>
+    private string ResolveSaveFolder()
+    {
+        string folder = SavePathInput.Text.Trim();
+        if (string.IsNullOrWhiteSpace(folder)) folder = _saveFolder;
+
+        try
+        {
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+                StatusText.Text = T["FolderCreated"];
+            }
+            _saveFolder = folder;
+            return folder;
+        }
+        catch
+        {
+            StatusText.Text = T["SaveFolderMissing"];
+            _saveFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            return _saveFolder;
+        }
     }
 
 
@@ -61,10 +167,10 @@ public partial class MainWindow : Window
     // ============================================================
    private void InitPlots()
    {
-       ConfigurePlotStyle(TimeDomainPlot.Plot, T["TimeDomain"], "Time (s)", "Amplitude");
-       ConfigurePlotStyle(FftPlot.Plot, T["FftSpectrum"], "Frequency (Hz)", "Magnitude");
-       ConfigurePlotStyle(RespTrendPlot.Plot, T["RespRate"], "Sample #", "Rate (rpm)");
-       ConfigurePlotStyle(HrTrendPlot.Plot, T["HrRate"], "Sample #", "Rate (bpm)");
+       ConfigurePlotStyle(TimeDomainPlot.Plot, "Time Domain", "Time (s)", "Amplitude");
+       ConfigurePlotStyle(FftPlot.Plot, "FFT Spectrum", "Frequency (Hz)", "Magnitude");
+       ConfigurePlotStyle(RespTrendPlot.Plot, "Respiration Rate", "Sample #", "Rate (rpm)");
+       ConfigurePlotStyle(HrTrendPlot.Plot, "Heart Rate", "Sample #", "Rate (bpm)");
 
        // X axis initial limits
        TimeDomainPlot.Plot.Axes.SetLimitsX(0, 1);
@@ -169,19 +275,19 @@ public partial class MainWindow : Window
 
    private void RefreshPlotLabels()
    {
-       TimeDomainPlot.Plot.Title(T["TimeDomain"]);
+       TimeDomainPlot.Plot.Title("Time Domain");
        TimeDomainPlot.Plot.XLabel("");
        TimeDomainPlot.Plot.YLabel("Amplitude");
 
-       FftPlot.Plot.Title(T["FftSpectrum"]);
+       FftPlot.Plot.Title("FFT Spectrum");
        FftPlot.Plot.XLabel("Frequency (Hz)");
        FftPlot.Plot.YLabel("Magnitude");
 
-       RespTrendPlot.Plot.Title(T["RespRate"]);
+       RespTrendPlot.Plot.Title("Respiration Rate");
        RespTrendPlot.Plot.XLabel("");
        RespTrendPlot.Plot.YLabel("Rate (rpm)");
 
-       HrTrendPlot.Plot.Title(T["HrRate"]);
+       HrTrendPlot.Plot.Title("Heart Rate");
        HrTrendPlot.Plot.XLabel("");
        HrTrendPlot.Plot.YLabel("Rate (bpm)");
 
@@ -330,6 +436,11 @@ public partial class MainWindow : Window
 
     private void UpdatePlots(VitalsData data)
     {
+        // Keep a full record for the Data Viewer and remember the latest waveform/FFT snapshot.
+        if (_multiPersonMode) return;  // multi mode uses its own data source
+        _records.Add(data);
+        _latestSnapshot = data;
+
         RespValue.Text = data.Rr.ToString("F0");
         HrValue.Text = data.Hr.ToString("F0");
 
@@ -397,6 +508,170 @@ public partial class MainWindow : Window
     }
 
 
+
+
+    // ============================================================
+    // Detection mode switching (single / multi person)
+    // ============================================================
+    private void ModeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        // Avoid firing during initial XAML load
+        if (!IsLoaded) return;
+
+        bool wasMulti = _multiPersonMode;
+        _multiPersonMode = ModeSelector.SelectedIndex == 1;
+
+        if (_multiPersonMode && !wasMulti)
+        {
+            // Switching TO multi-person mode
+            ClearMultiPerson();
+            StartMockMultiData();
+            StatusText.Text = T["MultiMode"];
+        }
+        else if (!_multiPersonMode && wasMulti)
+        {
+            // Switching back to single-person mode
+            StopMockMultiData();
+            ClearMultiPerson();
+            // Reset single-person charts
+            InitPlots();
+            StatusText.Text = T["SingleMode"];
+        }
+    }
+
+    private void ClearMultiPerson()
+    {
+        _persons.Clear();
+        _multiSample = 0;
+        RespTrendPlot.Plot.Clear();
+        HrTrendPlot.Plot.Clear();
+        RespTrendPlot.Refresh();
+        HrTrendPlot.Refresh();
+        RespValue.Text = "--";
+        HrValue.Text = "--";
+    }
+
+    // ---- Mock data generator (replace with real MQTT data later) ----
+    private void StartMockMultiData()
+    {
+        _mockTimer = new System.Windows.Threading.DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(1000)
+        };
+        _mockTimer.Tick += MockMultiData_Tick;
+        _mockTimer.Start();
+        ESP_LOG("MULTI", "Mock multi-person data started");
+    }
+
+    private void StopMockMultiData()
+    {
+        if (_mockTimer != null)
+        {
+            _mockTimer.Stop();
+            _mockTimer = null;
+        }
+    }
+
+    private void MockMultiData_Tick(object? sender, EventArgs e)
+    {
+        _multiSample++;
+        var rand = Random.Shared;
+
+        // Simulate 3-5 persons with varying HR/RR
+        int personCount = 4;
+        for (int pid = 0; pid < personCount; pid++)
+        {
+            if (!_persons.ContainsKey(pid))
+            {
+                // Initialize each person with a baseline
+                _persons[pid] = new List<(int, double, double)>();
+                _persons[pid].Add((_multiSample, 60 + pid * 5 + rand.NextDouble() * 10,
+                                   12 + pid * 2 + rand.NextDouble() * 4));
+            }
+
+            var hist = _persons[pid];
+            var last = hist[^1];
+            // Small random walk for HR and RR
+            double newHr = Math.Clamp(last.hr + (rand.NextDouble() - 0.5) * 4, 50, 110);
+            double newRr = Math.Clamp(last.rr + (rand.NextDouble() - 0.5) * 2, 8, 30);
+            hist.Add((_multiSample, newHr, newRr));
+
+            // Rolling window
+            if (hist.Count > MultiMaxPoints) hist.RemoveAt(0);
+        }
+
+        // Update the scatter plots
+        DrawMultiPersonScatter();
+
+        FooterText.Text = string.Format(T["PersonCount"], personCount);
+    }
+
+    private void DrawMultiPersonScatter()
+    {
+        // ---- HR scatter ----
+        {
+            var plt = HrTrendPlot.Plot;
+            plt.Clear();
+            plt.Title("Heart Rate (Multi)");
+            plt.XLabel("Sample #");
+            plt.YLabel("HR (bpm)");
+            foreach (var kvp in _persons)
+            {
+                int pid = kvp.Key;
+                var hist = kvp.Value;
+                if (hist.Count == 0) continue;
+                double[] xs = hist.Select(h => (double)h.s).ToArray();
+                double[] ys = hist.Select(h => h.hr).ToArray();
+                var sp = plt.Add.Scatter(xs, ys);
+                sp.Color = PersonColors[pid % PersonColors.Length];
+                sp.LineWidth = 0;          // points only, no connecting line
+                sp.MarkerSize = 8;
+                sp.LegendText = $"P{pid + 1}";
+            }
+            plt.ShowLegend();
+            plt.Axes.AutoScale();
+            HrTrendPlot.Refresh();
+        }
+
+        // ---- RR scatter ----
+        {
+            var plt = RespTrendPlot.Plot;
+            plt.Clear();
+            plt.Title("Respiration Rate (Multi)");
+            plt.XLabel("Sample #");
+            plt.YLabel("RR (rpm)");
+            foreach (var kvp in _persons)
+            {
+                int pid = kvp.Key;
+                var hist = kvp.Value;
+                if (hist.Count == 0) continue;
+                double[] xs = hist.Select(h => (double)h.s).ToArray();
+                double[] ys = hist.Select(h => h.rr).ToArray();
+                var sp = plt.Add.Scatter(xs, ys);
+                sp.Color = PersonColors[pid % PersonColors.Length];
+                sp.LineWidth = 0;
+                sp.MarkerSize = 8;
+                sp.LegendText = $"P{pid + 1}";
+            }
+            plt.ShowLegend();
+            plt.Axes.AutoScale();
+            RespTrendPlot.Refresh();
+        }
+
+        // Average HR/RR for the top-right readouts
+        if (_persons.Count > 0)
+        {
+            double avgHr = _persons.Values.SelectMany(h => h).DefaultIfEmpty().Average(h => h.hr);
+            double avgRr = _persons.Values.SelectMany(h => h).DefaultIfEmpty().Average(h => h.rr);
+            HrValue.Text = avgHr.ToString("F0");
+            RespValue.Text = avgRr.ToString("F0");
+        }
+    }
+
+    private static void ESP_LOG(string tag, string msg)
+    {
+        System.Diagnostics.Debug.WriteLine($"[{tag}] {msg}");
+    }
     // ============================================================
     // Button handlers
     // ============================================================
@@ -419,7 +694,10 @@ public partial class MainWindow : Window
         _hrHistory.Clear();
         _respHistory.Clear();
         _waveHistory.Clear();
+        _records.Clear();
+        _latestSnapshot = null;
 
+        ClearMultiPerson();
         TimeDomainPlot.Plot.Clear();
         FftPlot.Plot.Clear();
         RespTrendPlot.Plot.Clear();
@@ -441,7 +719,7 @@ public partial class MainWindow : Window
     private void ExportScreenshot_Click(object sender, RoutedEventArgs e)
     {
         Button_Disable((Button)sender, 5000);
-        string dir = AppDomain.CurrentDomain.BaseDirectory;
+        string dir = ResolveSaveFolder();
         TimeDomainPlot.Plot.SavePng(Path.Combine(dir, "time_domain.png"), 600, 400);
         FftPlot.Plot.SavePng(Path.Combine(dir, "fft_spectrum.png"), 600, 400);
         RespTrendPlot.Plot.SavePng(Path.Combine(dir, "resp_trend.png"), 600, 400);
@@ -449,20 +727,44 @@ public partial class MainWindow : Window
         StatusText.Text = string.Format(T["ScreenshotSaved"], dir);
     }
 
+    /// <summary>
+    /// Opens a MATLAB-style figure window: selectable signal plot, raw data table,
+    /// plus save-figure and export-CSV actions.
+    /// </summary>
+    private void OpenDataViewer_Click(object sender, RoutedEventArgs e)
+    {
+        if (_records.Count == 0)
+        {
+            StatusText.Text = T["NoData"];
+            return;
+        }
+
+        var viewer = new DataViewerWindow(_records, _latestSnapshot)
+        {
+            Owner = this
+        };
+        viewer.ShowDialog();
+    }
+
     private void ExportLog_Click(object sender, RoutedEventArgs e)
     {
         Button_Disable((Button)sender, 5000);
-        string dir = AppDomain.CurrentDomain.BaseDirectory;
+
+        if (_records.Count == 0)
+        {
+            StatusText.Text = T["NoData"];
+            return;
+        }
+
+        string dir = ResolveSaveFolder();
         string path = Path.Combine(dir, $"vitals_log_{DateTime.Now:yyyyMMdd_HHmmss}.csv");
 
         using var sw = new StreamWriter(path);
-        sw.WriteLine("index,heart_rate,resp_rate");
-        int max = Math.Max(_hrHistory.Count, _respHistory.Count);
-        for (int i = 0; i < max; i++)
+        sw.WriteLine("index,timestamp,heart_rate,resp_rate,rssi_dbm");
+        for (int i = 0; i < _records.Count; i++)
         {
-            double hr = i < _hrHistory.Count ? _hrHistory[i] : 0;
-            double rr = i < _respHistory.Count ? _respHistory[i] : 0;
-            sw.WriteLine($"{i},{hr:F1},{rr:F1}");
+            var d = _records[i];
+            sw.WriteLine($"{i},{d.Ts},{d.Hr:F1},{d.Rr:F1},{d.Rssi}");
         }
 
         StatusText.Text = string.Format(T["LogSaved"], path);
