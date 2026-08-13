@@ -16,7 +16,7 @@
 #include "cJSON.h"
 #include "wifi_prov.h"
 
-/* ===== WiFi Configuration ===== */
+    /* ===== WiFi Configuration ===== */
 /* defaults used when NVS has no saved credentials */
 #define WIFI_DEFAULT_SSID "5G-tkshb_dhh"
 #define WIFI_DEFAULT_PASS "66668888"
@@ -447,14 +447,13 @@ void app_main(void) {
     esp_wifi_set_ps(WIFI_PS_NONE);
     esp_wifi_start();
 
-    /* Enable promiscuous mode so CSI fires on ALL received OFDM frames
-     * (beacons, other stations' data), not just unicast to this device. */
-    esp_wifi_set_promiscuous(true);
-    esp_wifi_set_promiscuous_rx_cb(wifi_promiscuous_cb);
-    wifi_promiscuous_filter_t promisc_filter = {
-        .filter_mask = WIFI_PROMIS_FILTER_MASK_MGMT | WIFI_PROMIS_FILTER_MASK_DATA,
-    };
-    esp_wifi_set_promiscuous_filter(&promisc_filter);
+    /* Promiscuous mode DISABLED. With it on, CSI fired for ALL OFDM frames
+    * on channel 6 (beacons, other stations' data from ~16 nearby devices),
+    * which mixed unrelated transmitters into the amplitude buffer and
+    * produced the multi-peak FFT noise. Now CSI fires only on frames
+    * addressed to this device, i.e. the ping/reply traffic with the
+    * gateway (start_ping_to_gateway at ~50 Hz), which is a single clean
+    * link for vital-signs detection. */
 
     /* Init MQTT */
     esp_mqtt_client_config_t mqtt_cfg = {

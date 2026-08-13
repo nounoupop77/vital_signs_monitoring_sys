@@ -1,7 +1,7 @@
 {
   "idf.currentSetup": "C:\\esp\\v6.0.2\\esp-idf",
   "idf.customExtraVars": {
-    "IDF_TARGET": "esp32"
+    "IDF_TARGET": "esp32s3"
   },
   "clangd.path": "C:\\Espressif\\tools\\esp-clang\\esp-20.1.1_20250829\\esp-clang\\bin\\clangd.exe",
   "clangd.arguments": [
@@ -9,5 +9,8 @@
     "--query-driver=**",
     "--compile-commands-dir=d:\\vital_signs_monitoring_sys\\v6.0.2\\build"
   ],
-  "idf.portWin": "COM4"
+  "idf.portWin": "COM4",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ]
 }
