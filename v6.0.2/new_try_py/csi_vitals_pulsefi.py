@@ -74,6 +74,11 @@ b_rr, a_rr = sig.butter(BUTTER_ORDER, list(RR_BAND), btype="band", fs=FS)
 
 VITALS_TOPIC = "me41004/vitals"
 
+# ---- debug switch: True prints per-packet / per-estimate diagnostics ----
+# Enable with --debug on the command line (or set CSI_DEBUG=1 in the env).
+DEBUG = os.environ.get("CSI_DEBUG", "0") == "1"
+ESTIMATE_EVERY = 1          # run full estimate() only every N packets
+
 # ---- rolling buffers: one amplitude sample per packet + its timestamp ----
 AMP_BUF = deque()             # float amplitude (Step-1 output) per packet
 AMP_BUF_TS = deque()          # wall-clock timestamp per packet
@@ -116,8 +121,9 @@ def accept_mac(payload):
         total = sum(v["count"] for v in mac_stats.values())
         if total >= MAC_LOCK_MIN:
             target_mac = max(mac_stats, key=lambda m: mac_stats[m]["count"])
-            print(f"[{now()}] MAC LOCKED -> {target_mac} "
-                  f"({mac_stats[target_mac]['count']}/{total} pkts)")
+            if DEBUG:
+                print(f"[{now()}] MAC LOCKED -> {target_mac} "
+                      f"({mac_stats[target_mac]['count']}/{total} pkts)")
         return True                 # during accumulation, accept everything
     return mac == target_mac
 
@@ -423,7 +429,7 @@ def handle_packet(payload, mqtt_client=None):
     # Step 1 happens here: amplitude extraction, one float per packet.
     amp = step1_amplitude(payload)
     if amp is None:
-        if msg_count % 200 == 1:
+        if DEBUG and msg_count % 200 == 1:
             print(f"[{now()}] skip malformed packet #{msg_count}")
         return
     rssi = payload.get("rssi", 0)
@@ -438,11 +444,12 @@ def handle_packet(payload, mqtt_client=None):
         AMP_BUF.popleft()
         AMP_BUF_TS.popleft()
 
-    est = estimate()
+    est = estimate() if msg_count % ESTIMATE_EVERY == 0 else None
     if est is not None and est.get("hr") is not None:
-        print(f"[{now()}] HR={est['hr']:.1f} bpm (SNR {est['snr_hr']})  "
-              f"RR={est['rr']} br/min (SNR {est['snr_rr']})  "
-              f"buf={len(AMP_BUF)}")
+        if DEBUG:
+            print(f"[{now()}] HR={est['hr']:.1f} bpm (SNR {est['snr_hr']})  "
+                  f"RR={est['rr']} br/min (SNR {est['snr_rr']})  "
+                  f"buf={len(AMP_BUF)}")
         if csv_writer:
             csv_writer.writerow([datetime.now().isoformat(timespec='seconds'),
                                  est["hr"],
@@ -455,7 +462,7 @@ def handle_packet(payload, mqtt_client=None):
     if est is not None and analysis_log is not None and msg_count % log_every == 0:
         write_analysis(est, rssi)
 
-    if msg_count % 100 == 0:
+    if DEBUG and msg_count % 100 == 0:
         elapsed = time.time() - start_time
         rate = msg_count / elapsed if elapsed > 0 else 0
         print(f"[{now()}] {msg_count} pkts, avg {rate:.1f} pkt/s, "
@@ -492,7 +499,7 @@ def replay(path, rate):
                 AMP_BUF.popleft()
                 AMP_BUF_TS.popleft()
             est = estimate()
-            if est is not None and est.get("hr") is not None:
+            if DEBUG and est is not None and est.get("hr") is not None:
                 print(f"[replay] HR={est['hr']:.1f} bpm (SNR {est['snr_hr']})  "
                       f"RR={est['rr']} br/min (SNR {est['snr_rr']})  "
                       f"buf={len(AMP_BUF)}")
@@ -543,7 +550,18 @@ def main():
                    help="log one snapshot every N packets (default 10)")
     p.add_argument("--mac", default=None,
                    help="only process packets from this MAC (auto-detect if omitted)")
+    p.add_argument("--debug", action="store_true",
+                   help="enable per-packet / per-estimate diagnostic prints")
+    p.add_argument("--estimate-every", type=int, default=1,
+                   help="run the full estimate() every N packets (1 = every packet; "
+                        "raising this cuts CPU a lot since estimate() is the "
+                        "expensive part)")
     args = p.parse_args()
+    global ESTIMATE_EVERY
+    ESTIMATE_EVERY = max(1, args.estimate_every)
+    if args.debug:
+        global DEBUG
+        DEBUG = True
     participant_id = args.participant
     log_every = max(1, args.log_every)
     if args.mac:

@@ -16,6 +16,12 @@
 #include "cJSON.h"
 #include "wifi_prov.h"
 
+/* ===== Debug switch =====
+ * Set to 1 to enable diagnostic counters and per-packet logs.
+ * Keep 0 in production: the stats log does a large snprintf every 50
+ * packets and the MQTT DATA log fires on every received message. */
+#define CSI_DEBUG 0
+
     /* ===== WiFi Configuration ===== */
 /* defaults used when NVS has no saved credentials */
 #define WIFI_DEFAULT_SSID "5G-tkshb_dhh"
@@ -71,6 +77,7 @@ static volatile bool mqtt_connected_flag = false;
 
 /* CSI timing diagnostics. Updated from different tasks, but aligned 32-bit
  * reads are sufficient for the periodic operational log. */
+#if CSI_DEBUG
 static volatile uint32_t s_cb_total = 0;
 static volatile uint32_t s_cb_too_soon = 0;
 static volatile uint32_t s_cb_oversize = 0;
@@ -80,6 +87,7 @@ static volatile uint32_t s_q_failed = 0;
 static volatile uint32_t s_sender_dequeued = 0;
 static volatile uint32_t s_send_no_mqtt = 0;
 static volatile uint32_t s_publish_fail = 0;
+#endif /* CSI_DEBUG */
 
 typedef struct {
     uint8_t  mac[6];
@@ -241,7 +249,9 @@ static void mqtt_event_handler(void *arg, esp_event_base_t base,
         mqtt_connected_flag = false;
         break;
     case MQTT_EVENT_DATA:
+#if CSI_DEBUG
         ESP_LOGI("MQTT", "DATA topic=%.*s", ev->topic_len, ev->topic);
+#endif
         if (ev->topic_len == strlen(MQTT_CONFIG_TOPIC) &&
             strncmp(ev->topic, MQTT_CONFIG_TOPIC, ev->topic_len) == 0)
         {
@@ -321,18 +331,24 @@ static int64_t s_last_cb_us = 0;
 
 static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     if (data == NULL || data->buf == NULL || csi_queue == NULL) return;
+#if CSI_DEBUG
     s_cb_total++;
+#endif
 
     /* Drop excess callbacks beyond ~50 Hz before any processing */
     int64_t now_us = esp_timer_get_time();
     if ((now_us - s_last_cb_us) < CSI_MIN_CB_INTERVAL_US) {
+#if CSI_DEBUG
         s_cb_too_soon++;
+#endif
         return;
     }
     s_last_cb_us = now_us;
 
     if (data->len > MAX_CSI_BYTES) {
+#if CSI_DEBUG
         s_cb_oversize++;
+#endif
         return;
     }
 
@@ -347,13 +363,19 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
         csi_sample_t drop;
         xQueueReceive(csi_queue, &drop, 0);
         if (xQueueSendToBack(csi_queue, &s, 0) == pdPASS) {
+#if CSI_DEBUG
             s_q_replaced++;
-        } else {
-            s_q_failed++;
+#endif
+            return;
         }
+#if CSI_DEBUG
+        s_q_failed++;
+#endif
         return;
     }
+#if CSI_DEBUG
     s_cb_accepted++;
+#endif
 }
 
 /* =====================================================================
@@ -374,14 +396,18 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
 static void csi_sender_task(void *arg)
 {
     csi_sample_t s;
+#if CSI_DEBUG
     uint32_t published = 0, skipped = 0;
+#endif
     bool have_last_ts = false;
     int64_t last_sample_ms = 0;
     uint32_t gap_ms = MIN_PUBLISH_GAP_MS;   /* dynamic, adapts to network */
 
     while (1) {
         if (xQueueReceive(csi_queue, &s, portMAX_DELAY) != pdPASS) continue;
+#if CSI_DEBUG
         s_sender_dequeued++;
+#endif
 
         /* Throttle on capture time. Using wall-clock send time here mixes MQTT
          * latency jitter into the effective CSI sampling grid. */
@@ -391,7 +417,9 @@ static void csi_sender_task(void *arg)
          * Dropping here (before MQTT) is what keeps the TCP buffer from
          * saturating and triggering select() timeout disconnects. */
         if (have_last_ts && (sample_ms - last_sample_ms) < (int64_t)gap_ms) {
+#if CSI_DEBUG
             skipped++;
+#endif
             continue;
         }
         have_last_ts = true;
@@ -418,9 +446,13 @@ static void csi_sender_task(void *arg)
         if (mqtt_client && mqtt_connected_flag) {
             int r = esp_mqtt_client_publish(mqtt_client, MQTT_TOPIC, json, 0, 0, 0);
             if (r < 0) {
+#if CSI_DEBUG
                 s_publish_fail++;
+#endif
             }
+#if CSI_DEBUG
             published++;
+#endif
 
             /* Adaptive feedback: steer gap_ms toward the network's sweet spot */
             UBaseType_t qd = uxQueueMessagesWaiting(csi_queue);
@@ -434,6 +466,7 @@ static void csi_sender_task(void *arg)
             }
             /* Middle zone: hold steady, we've found this network's rate */
 
+#if CSI_DEBUG
             if ((published % 50) == 0)
                 ESP_LOGI("CSI",
                          "mode=%s rate=%dHz pub=%lu fail=%lu sskip=%lu "
@@ -447,9 +480,12 @@ static void csi_sender_task(void *arg)
                          (unsigned long)s_cb_oversize, (unsigned long)s_q_replaced,
                          (unsigned long)s_q_failed, (unsigned long)s_send_no_mqtt,
                          (unsigned)gap_ms, (unsigned)qd);
+#endif
         }
         else {
+#if CSI_DEBUG
             s_send_no_mqtt++;
+#endif
         }
     }
 }
