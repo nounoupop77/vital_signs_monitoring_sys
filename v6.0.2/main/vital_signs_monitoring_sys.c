@@ -38,9 +38,14 @@
 #define CSI_SECOND  WIFI_SECOND_CHAN_NONE
 
 static esp_mqtt_client_handle_t mqtt_client = NULL;
-#define CSI_QUEUE_LEN   16
+#define CSI_QUEUE_LEN   32
 #define CSI_SEND_STACK  6144
 #define MAX_CSI_BYTES   512
+
+/* ===== Fixed-rate CSI experiment =====
+ * Set to 0 to restore the adaptive 20-80 ms publish behaviour. */
+#define CSI_FIXED_RATE_HZ 32
+#define CSI_FIXED_MODE    1
 
 /* ===== Adaptive publish throttle (rate-adaptive core) =====
  * Instead of a fixed MIN_PUBLISH_GAP_MS, the gap floats between MIN and MAX
@@ -49,8 +54,13 @@ static esp_mqtt_client_handle_t mqtt_client = NULL;
  *   - qdepth high -> network is slow -> grow gap toward MAX (drop more)
  *   - publish error or near-full queue -> back off fast (big step up)
  * This keeps the connection alive on ANY network without manual tuning. */
+#if CSI_FIXED_MODE
+#define MIN_PUBLISH_GAP_MS  (1000 / CSI_FIXED_RATE_HZ)
+#define MAX_PUBLISH_GAP_MS  MIN_PUBLISH_GAP_MS
+#else
 #define MIN_PUBLISH_GAP_MS  20     /* fastest  ~50 Hz (good network ceiling) */
 #define MAX_PUBLISH_GAP_MS  80     /* slowest  ~12 Hz (bad network floor)    */
+#endif
 #define GAP_BACKOFF_STEP    5      /* ms added per back-off tick (fast)      */
 #define GAP_RECOVERY_STEP   1      /* ms removed per recovery tick (slow)    */
 #define QD_HIGH_WATER      12      /* queue depth that triggers back-off     */
@@ -59,10 +69,23 @@ static esp_mqtt_client_handle_t mqtt_client = NULL;
 static QueueHandle_t csi_queue = NULL;
 static volatile bool mqtt_connected_flag = false;
 
+/* CSI timing diagnostics. Updated from different tasks, but aligned 32-bit
+ * reads are sufficient for the periodic operational log. */
+static volatile uint32_t s_cb_total = 0;
+static volatile uint32_t s_cb_too_soon = 0;
+static volatile uint32_t s_cb_oversize = 0;
+static volatile uint32_t s_cb_accepted = 0;
+static volatile uint32_t s_q_replaced = 0;
+static volatile uint32_t s_q_failed = 0;
+static volatile uint32_t s_sender_dequeued = 0;
+static volatile uint32_t s_send_no_mqtt = 0;
+static volatile uint32_t s_publish_fail = 0;
+
 typedef struct {
     uint8_t  mac[6];
     int8_t   rssi;
     uint16_t len;
+    int64_t  ts_us;
     uint8_t  buf[MAX_CSI_BYTES];
 } csi_sample_t;
 
@@ -238,9 +261,9 @@ static void start_ping_to_gateway(esp_netif_ip_info_t *ip_info)
     esp_ping_config_t ping_cfg = ESP_PING_DEFAULT_CONFIG();
     ping_cfg.target_addr.u_addr.ip4.addr = ip_info->gw.addr;
     ping_cfg.target_addr.type = ESP_IPADDR_TYPE_V4;
-    ping_cfg.interval_ms  = 20;
+    ping_cfg.interval_ms  = 10;
     ping_cfg.count        = 0;
-    ping_cfg.timeout_ms   = 1000;
+    ping_cfg.timeout_ms   = 25;//1000/40=25ms for 40Hz ping
 
     esp_ping_handle_t ping;
     esp_ping_new_session(&ping_cfg, NULL, &ping);
@@ -288,22 +311,33 @@ static void wifi_promiscuous_cb(void *buf, wifi_promiscuous_pkt_type_t type)
     (void)type;
 }
 
-/* CSI callback rate-limit: cap at ~50 Hz to prevent WiFi ISR / flash cache
- * contention that can crash Core 0 (see RuView issue #396). */
+/* CSI callback rate-limit: protects Core 0 from callback bursts. */
+#if CSI_FIXED_MODE
+#define CSI_MIN_CB_INTERVAL_US  ((1000000 + CSI_FIXED_RATE_HZ - 1) / CSI_FIXED_RATE_HZ)
+#else
 #define CSI_MIN_CB_INTERVAL_US  (20 * 1000)
+#endif
 static int64_t s_last_cb_us = 0;
 
 static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     if (data == NULL || data->buf == NULL || csi_queue == NULL) return;
+    s_cb_total++;
 
     /* Drop excess callbacks beyond ~50 Hz before any processing */
     int64_t now_us = esp_timer_get_time();
-    if ((now_us - s_last_cb_us) < CSI_MIN_CB_INTERVAL_US) return;
+    if ((now_us - s_last_cb_us) < CSI_MIN_CB_INTERVAL_US) {
+        s_cb_too_soon++;
+        return;
+    }
     s_last_cb_us = now_us;
 
-    if (data->len > MAX_CSI_BYTES) return;
+    if (data->len > MAX_CSI_BYTES) {
+        s_cb_oversize++;
+        return;
+    }
 
     csi_sample_t s;
+    s.ts_us = now_us;
     memcpy(s.mac, data->mac, 6);
     s.rssi = data->rx_ctrl.rssi;
     s.len  = data->len;
@@ -312,8 +346,14 @@ static void wifi_csi_cb(void *ctx, wifi_csi_info_t *data) {
     if (xQueueSendToBack(csi_queue, &s, 0) != pdPASS) {
         csi_sample_t drop;
         xQueueReceive(csi_queue, &drop, 0);
-        xQueueSendToBack(csi_queue, &s, 0);
+        if (xQueueSendToBack(csi_queue, &s, 0) == pdPASS) {
+            s_q_replaced++;
+        } else {
+            s_q_failed++;
+        }
+        return;
     }
+    s_cb_accepted++;
 }
 
 /* =====================================================================
@@ -335,27 +375,32 @@ static void csi_sender_task(void *arg)
 {
     csi_sample_t s;
     uint32_t published = 0, skipped = 0;
-    int64_t last_ms = 0;
+    bool have_last_ts = false;
+    int64_t last_sample_ms = 0;
     uint32_t gap_ms = MIN_PUBLISH_GAP_MS;   /* dynamic, adapts to network */
 
     while (1) {
         if (xQueueReceive(csi_queue, &s, portMAX_DELAY) != pdPASS) continue;
+        s_sender_dequeued++;
 
-        int64_t now_ms = esp_timer_get_time() / 1000;
+        /* Throttle on capture time. Using wall-clock send time here mixes MQTT
+         * latency jitter into the effective CSI sampling grid. */
+        int64_t sample_ms = s.ts_us / 1000;
 
         /* Local throttle: drop samples that arrive faster than gap_ms.
          * Dropping here (before MQTT) is what keeps the TCP buffer from
          * saturating and triggering select() timeout disconnects. */
-        if (last_ms != 0 && (now_ms - last_ms) < (int64_t)gap_ms) {
+        if (have_last_ts && (sample_ms - last_sample_ms) < (int64_t)gap_ms) {
             skipped++;
             continue;
         }
-        last_ms = now_ms;
+        have_last_ts = true;
+        last_sample_ms = sample_ms;
 
         char json[2048];
         int off = snprintf(json, sizeof(json),
-            "{\"mac\":\"" MACSTR "\",\"rssi\":%d,\"len\":%d,\"subcarriers\":[",
-            MAC2STR(s.mac), s.rssi, s.len);
+            "{\"ts_us\":%lld,\"mac\":\"" MACSTR "\",\"rssi\":%d,\"len\":%d,\"subcarriers\":[",
+            (long long)s.ts_us, MAC2STR(s.mac), s.rssi, s.len);
        for (int i = 0; i + 1 < s.len; i += 2) {
            int n = snprintf(json + off, sizeof(json) - off, "[%d,%d]%s",
                              (int16_t)(int8_t)s.buf[i],
@@ -372,6 +417,9 @@ static void csi_sender_task(void *arg)
 
         if (mqtt_client && mqtt_connected_flag) {
             int r = esp_mqtt_client_publish(mqtt_client, MQTT_TOPIC, json, 0, 0, 0);
+            if (r < 0) {
+                s_publish_fail++;
+            }
             published++;
 
             /* Adaptive feedback: steer gap_ms toward the network's sweet spot */
@@ -387,9 +435,21 @@ static void csi_sender_task(void *arg)
             /* Middle zone: hold steady, we've found this network's rate */
 
             if ((published % 50) == 0)
-                ESP_LOGI("CSI", "published=%lu skip=%lu gap=%ums qd=%u",
-                         (unsigned long)published, (unsigned long)skipped,
+                ESP_LOGI("CSI",
+                         "mode=%s rate=%dHz pub=%lu fail=%lu sskip=%lu "
+                         "deq=%lu cb=%lu cbok=%lu cbskip=%lu big=%lu qrep=%lu qfail=%lu "
+                         "nomqtt=%lu gap=%ums qd=%u",
+                         CSI_FIXED_MODE ? "fixed" : "adaptive", CSI_FIXED_RATE_HZ,
+                         (unsigned long)published, (unsigned long)s_publish_fail,
+                         (unsigned long)skipped, (unsigned long)s_sender_dequeued,
+                         (unsigned long)s_cb_total, (unsigned long)s_cb_accepted,
+                         (unsigned long)s_cb_too_soon,
+                         (unsigned long)s_cb_oversize, (unsigned long)s_q_replaced,
+                         (unsigned long)s_q_failed, (unsigned long)s_send_no_mqtt,
                          (unsigned)gap_ms, (unsigned)qd);
+        }
+        else {
+            s_send_no_mqtt++;
         }
     }
 }
