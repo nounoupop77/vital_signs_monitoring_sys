@@ -19,7 +19,7 @@ namespace VitalSignsMonitor;
 
 public partial class MainWindow : Window
 {
-    private const string WifiConfigTopic = "me41004/config";
+    private const string WifiStatusTopic = "me41004/status";
 
     private IMqttClient? _mqtt;
     private MqttClientOptions? _options;
@@ -39,32 +39,23 @@ public partial class MainWindow : Window
     private readonly List<VitalsData> _records = new();
     private VitalsData? _latestSnapshot;          // newest waveform + FFT for the viewer
 
-    // ---- Multi-person detection mode ----
-    private bool _multiPersonMode = false;
-    private int _multiSample = 0;
-    // personId -> list of (sample, hr, rr) history
-    private readonly Dictionary<int, List<(int s, double hr, double rr)>> _persons = new();
-    private const int MultiMaxPoints = 40;  // rolling window per person
-    private System.Windows.Threading.DispatcherTimer? _mockTimer;
-
-    // Distinct colors for up to 8 persons
-    private static readonly ScottPlot.Color[] PersonColors = new[]
-    {
-        ScottPlot.Color.FromHex("#EF4444"),  // red
-        ScottPlot.Color.FromHex("#3B82F6"),  // blue
-        ScottPlot.Color.FromHex("#10B981"),  // green
-        ScottPlot.Color.FromHex("#F59E0B"),  // amber
-        ScottPlot.Color.FromHex("#8B5CF6"),  // purple
-        ScottPlot.Color.FromHex("#EC4899"),  // pink
-        ScottPlot.Color.FromHex("#14B8A6"),  // teal
-        ScottPlot.Color.FromHex("#F97316"),  // orange
-    };
-
-    // Persisted custom output folder for screenshots / logs.
+    // Persisted user preferences: save folder + last MQTT connection.
     private string _saveFolder = "";
     private static readonly string SettingsPath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
         "VitalSignsMonitor", "settings.json");
+    private static readonly JsonSerializerOptions SettingsJsonOpts = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+    };
+
+    private sealed class AppSettings
+    {
+        public string SaveFolder { get; set; } = "";
+        public string Broker { get; set; } = "";
+        public string Port { get; set; } = "";
+        public string Topic { get; set; } = "";
+    }
     // ---- ScottPlot colors (white theme) ----
     private static readonly ScottPlot.Color BgColor = ScottPlot.Color.FromHex("#FFFFFF");
     private static readonly ScottPlot.Color FgColor = ScottPlot.Color.FromHex("#6B7280");
@@ -84,18 +75,25 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         InitPlots();
-        LoadSaveFolder();
+        LoadSettings();
     }
 
-    private void LoadSaveFolder()
+    private void LoadSettings()
     {
         try
         {
             if (File.Exists(SettingsPath))
             {
-                using var doc = JsonDocument.Parse(File.ReadAllText(SettingsPath));
-                if (doc.RootElement.TryGetProperty("saveFolder", out var el))
-                    _saveFolder = el.GetString() ?? "";
+                var s = JsonSerializer.Deserialize<AppSettings>(
+                    File.ReadAllText(SettingsPath), SettingsJsonOpts);
+                if (s != null)
+                {
+                    _saveFolder = s.SaveFolder;
+                    // Empty entries keep the factory defaults from the XAML.
+                    if (!string.IsNullOrWhiteSpace(s.Broker)) BrokerInput.Text = s.Broker;
+                    if (!string.IsNullOrWhiteSpace(s.Port)) PortInput.Text = s.Port;
+                    if (!string.IsNullOrWhiteSpace(s.Topic)) TopicInput.Text = s.Topic;
+                }
             }
         }
         catch { }
@@ -106,12 +104,18 @@ public partial class MainWindow : Window
         SavePathInput.Text = _saveFolder;
     }
 
-    private void PersistSaveFolder()
+    private void PersistSettings()
     {
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(SettingsPath)!);
-            var json = JsonSerializer.Serialize(new { saveFolder = _saveFolder });
+            var json = JsonSerializer.Serialize(new AppSettings
+            {
+                SaveFolder = _saveFolder,
+                Broker = BrokerInput.Text.Trim(),
+                Port = PortInput.Text.Trim(),
+                Topic = TopicInput.Text.Trim(),
+            }, SettingsJsonOpts);
             File.WriteAllText(SettingsPath, json);
         }
         catch { }
@@ -129,7 +133,7 @@ public partial class MainWindow : Window
         {
             _saveFolder = dlg.FolderName;
             SavePathInput.Text = _saveFolder;
-            PersistSaveFolder();
+            PersistSettings();
             StatusText.Text = T["SavePath"] + ": " + _saveFolder;
         }
     }
@@ -304,34 +308,6 @@ public partial class MainWindow : Window
 
 
     // ============================================================
-    // WiFi config -- publish to ESP32 over MQTT
-    // ============================================================
-    private async void WifiSet_Click(object sender, RoutedEventArgs e)
-    {
-        Button_Disable(ApplyWifiBtn, 3000);
-
-        if (!_isConnected || _mqtt == null || !_mqtt.IsConnected)
-        {
-            StatusText.Text = T["WifiNotConnected"];
-            return;
-        }
-
-        string ssid = WifiSsidInput.Text.Trim();
-        string pwd = WifiPwdInput.Password;
-
-        if (string.IsNullOrEmpty(ssid))
-        {
-            StatusText.Text = T["WifiName"] + " ?";
-            return;
-        }
-
-        string json = JsonSerializer.Serialize(new { ssid, password = pwd });
-        await _mqtt.PublishStringAsync(WifiConfigTopic, json);
-        StatusText.Text = T["WifiSent"];
-    }
-
-
-    // ============================================================
     // Connect / Disconnect MQTT
     // ============================================================
     private async void ConnectBtn_Click(object sender, RoutedEventArgs e)
@@ -385,10 +361,15 @@ public partial class MainWindow : Window
                 .WithTopic(topic)
                 .WithAtMostOnceQoS()
                 .Build());
+            await _mqtt.SubscribeAsync(new MqttTopicFilterBuilder()
+                .WithTopic(WifiStatusTopic)
+                .WithAtMostOnceQoS()
+                .Build());
 
             _isConnected = true;
             UpdateConnectButton();
             StatusText.Text = string.Format(T["StatusConnected"], broker, port);
+            PersistSettings();
         }
         catch (Exception ex)
         {
@@ -420,8 +401,16 @@ public partial class MainWindow : Window
     // ============================================================
     private Task OnMqttMessage(MqttApplicationMessageReceivedEventArgs e)
     {
-        _messageCount++;
+        string topic = e.ApplicationMessage.Topic;
         string json = Encoding.UTF8.GetString(e.ApplicationMessage.PayloadSegment);
+
+        if (topic == WifiStatusTopic)
+        {
+            HandleWifiStatus(json);
+            return Task.CompletedTask;
+        }
+
+        _messageCount++;
 
         try
         {
@@ -434,10 +423,28 @@ public partial class MainWindow : Window
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Updates the read-only WiFi tab with the ESP32's current connection info.
+    /// </summary>
+    private void HandleWifiStatus(string json)
+    {
+        try
+        {
+            var s = JsonSerializer.Deserialize<WifiStatusData>(json);
+            if (s == null) return;
+            Dispatcher.Invoke(() =>
+            {
+                WifiSsidDisplay.Text = string.IsNullOrEmpty(s.Ssid) ? T["StatusNotConnected"] : s.Ssid;
+                WifiIpDisplay.Text = string.IsNullOrEmpty(s.Ip) ? "--" : s.Ip;
+                WifiRssiDisplay.Text = $"{s.Rssi} dBm";
+            });
+        }
+        catch (JsonException) { }
+    }
+
     private void UpdatePlots(VitalsData data)
     {
         // Keep a full record for the Data Viewer and remember the latest waveform/FFT snapshot.
-        if (_multiPersonMode) return;  // multi mode uses its own data source
         _records.Add(data);
         _latestSnapshot = data;
 
@@ -511,168 +518,6 @@ public partial class MainWindow : Window
 
 
     // ============================================================
-    // Detection mode switching (single / multi person)
-    // ============================================================
-    private void ModeSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        // Avoid firing during initial XAML load
-        if (!IsLoaded) return;
-
-        bool wasMulti = _multiPersonMode;
-        _multiPersonMode = ModeSelector.SelectedIndex == 1;
-
-        if (_multiPersonMode && !wasMulti)
-        {
-            // Switching TO multi-person mode
-            ClearMultiPerson();
-            StartMockMultiData();
-            StatusText.Text = T["MultiMode"];
-        }
-        else if (!_multiPersonMode && wasMulti)
-        {
-            // Switching back to single-person mode
-            StopMockMultiData();
-            ClearMultiPerson();
-            // Reset single-person charts
-            InitPlots();
-            StatusText.Text = T["SingleMode"];
-        }
-    }
-
-    private void ClearMultiPerson()
-    {
-        _persons.Clear();
-        _multiSample = 0;
-        RespTrendPlot.Plot.Clear();
-        HrTrendPlot.Plot.Clear();
-        RespTrendPlot.Refresh();
-        HrTrendPlot.Refresh();
-        RespValue.Text = "--";
-        HrValue.Text = "--";
-    }
-
-    // ---- Mock data generator (replace with real MQTT data later) ----
-    private void StartMockMultiData()
-    {
-        _mockTimer = new System.Windows.Threading.DispatcherTimer
-        {
-            Interval = TimeSpan.FromMilliseconds(1000)
-        };
-        _mockTimer.Tick += MockMultiData_Tick;
-        _mockTimer.Start();
-        ESP_LOG("MULTI", "Mock multi-person data started");
-    }
-
-    private void StopMockMultiData()
-    {
-        if (_mockTimer != null)
-        {
-            _mockTimer.Stop();
-            _mockTimer = null;
-        }
-    }
-
-    private void MockMultiData_Tick(object? sender, EventArgs e)
-    {
-        _multiSample++;
-        var rand = Random.Shared;
-
-        // Simulate 3-5 persons with varying HR/RR
-        int personCount = 4;
-        for (int pid = 0; pid < personCount; pid++)
-        {
-            if (!_persons.ContainsKey(pid))
-            {
-                // Initialize each person with a baseline
-                _persons[pid] = new List<(int, double, double)>();
-                _persons[pid].Add((_multiSample, 60 + pid * 5 + rand.NextDouble() * 10,
-                                   12 + pid * 2 + rand.NextDouble() * 4));
-            }
-
-            var hist = _persons[pid];
-            var last = hist[^1];
-            // Small random walk for HR and RR
-            double newHr = Math.Clamp(last.hr + (rand.NextDouble() - 0.5) * 4, 50, 110);
-            double newRr = Math.Clamp(last.rr + (rand.NextDouble() - 0.5) * 2, 8, 30);
-            hist.Add((_multiSample, newHr, newRr));
-
-            // Rolling window
-            if (hist.Count > MultiMaxPoints) hist.RemoveAt(0);
-        }
-
-        // Update the scatter plots
-        DrawMultiPersonScatter();
-
-        FooterText.Text = string.Format(T["PersonCount"], personCount);
-    }
-
-    private void DrawMultiPersonScatter()
-    {
-        // ---- HR scatter ----
-        {
-            var plt = HrTrendPlot.Plot;
-            plt.Clear();
-            plt.Title("Heart Rate (Multi)");
-            plt.XLabel("Sample #");
-            plt.YLabel("HR (bpm)");
-            foreach (var kvp in _persons)
-            {
-                int pid = kvp.Key;
-                var hist = kvp.Value;
-                if (hist.Count == 0) continue;
-                double[] xs = hist.Select(h => (double)h.s).ToArray();
-                double[] ys = hist.Select(h => h.hr).ToArray();
-                var sp = plt.Add.Scatter(xs, ys);
-                sp.Color = PersonColors[pid % PersonColors.Length];
-                sp.LineWidth = 0;          // points only, no connecting line
-                sp.MarkerSize = 8;
-                sp.LegendText = $"P{pid + 1}";
-            }
-            plt.ShowLegend();
-            plt.Axes.AutoScale();
-            HrTrendPlot.Refresh();
-        }
-
-        // ---- RR scatter ----
-        {
-            var plt = RespTrendPlot.Plot;
-            plt.Clear();
-            plt.Title("Respiration Rate (Multi)");
-            plt.XLabel("Sample #");
-            plt.YLabel("RR (rpm)");
-            foreach (var kvp in _persons)
-            {
-                int pid = kvp.Key;
-                var hist = kvp.Value;
-                if (hist.Count == 0) continue;
-                double[] xs = hist.Select(h => (double)h.s).ToArray();
-                double[] ys = hist.Select(h => h.rr).ToArray();
-                var sp = plt.Add.Scatter(xs, ys);
-                sp.Color = PersonColors[pid % PersonColors.Length];
-                sp.LineWidth = 0;
-                sp.MarkerSize = 8;
-                sp.LegendText = $"P{pid + 1}";
-            }
-            plt.ShowLegend();
-            plt.Axes.AutoScale();
-            RespTrendPlot.Refresh();
-        }
-
-        // Average HR/RR for the top-right readouts
-        if (_persons.Count > 0)
-        {
-            double avgHr = _persons.Values.SelectMany(h => h).DefaultIfEmpty().Average(h => h.hr);
-            double avgRr = _persons.Values.SelectMany(h => h).DefaultIfEmpty().Average(h => h.rr);
-            HrValue.Text = avgHr.ToString("F0");
-            RespValue.Text = avgRr.ToString("F0");
-        }
-    }
-
-    private static void ESP_LOG(string tag, string msg)
-    {
-        System.Diagnostics.Debug.WriteLine($"[{tag}] {msg}");
-    }
-    // ============================================================
     // Button handlers
     // ============================================================
     private async void ApplyMqtt_Click(object sender, RoutedEventArgs e)
@@ -686,6 +531,7 @@ public partial class MainWindow : Window
             UpdateConnectButton();
         }
 
+        PersistSettings();
         StatusText.Text = T["StatusMqttUpdated"];
     }
 
@@ -697,7 +543,6 @@ public partial class MainWindow : Window
         _records.Clear();
         _latestSnapshot = null;
 
-        ClearMultiPerson();
         TimeDomainPlot.Plot.Clear();
         FftPlot.Plot.Clear();
         RespTrendPlot.Plot.Clear();
@@ -802,4 +647,12 @@ public class VitalsData
     [JsonPropertyName("time_wave")] public double[]? TimeWave { get; set; }
     [JsonPropertyName("fft_freq")] public double[]? FftFreq { get; set; }
     [JsonPropertyName("fft_mag")] public double[]? FftMag { get; set; }
+}
+
+// ---- ESP32 WiFi status model (me41004/status) ----
+public class WifiStatusData
+{
+    [JsonPropertyName("ssid")] public string Ssid { get; set; } = "";
+    [JsonPropertyName("ip")] public string Ip { get; set; } = "";
+    [JsonPropertyName("rssi")] public int Rssi { get; set; }
 }

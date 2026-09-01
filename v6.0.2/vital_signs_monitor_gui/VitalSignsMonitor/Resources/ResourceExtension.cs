@@ -43,12 +43,11 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["RespLabel"]          = "RESPIRATION",
         ["HrLabel"]            = "HEART RATE",
 
-        ["WifiTab"]            = "WiFi \u8bbe\u7f6e",
-        ["WifiName"]           = "WiFi \u540d\u79f0",
-        ["WifiPwd"]            = "WiFi \u5bc6\u7801",
-        ["ApplyWifi"]          = "\u53d1\u9001 WiFi \u914d\u7f6e",
-        ["WifiSent"]           = "WiFi \u914d\u7f6e\u5df2\u901a\u8fc7 MQTT \u53d1\u9001\uff0cESP32 \u5c06\u91cd\u65b0\u8fde\u63a5",
-        ["WifiNotConnected"]   = "\u8bf7\u5148\u8fde\u63a5 MQTT \u518d\u53d1\u9001 WiFi \u914d\u7f6e",
+        ["WifiTab"]            = "WiFi \u72b6\u6001",
+        ["WifiSsid"]           = "\u5f53\u524d WiFi",
+        ["WifiIp"]             = "IP \u5730\u5740",
+        ["WifiRssi"]           = "\u4fe1\u53f7\u5f3a\u5ea6",
+        ["WifiHint"]           = "\u663e\u793a ESP32 \u5f53\u524d\u8fde\u63a5\u7684 WiFi\uff0c\u8fde\u63a5\u540e\u81ea\u52a8\u66f4\u65b0\uff1b\u5982\u9700\u66f4\u6539 WiFi\uff0c\u8bf7\u5728\u5f00\u673a\u65f6\u6309\u4f4f BOOT \u952e\u8fdb\u5165\u914d\u7f51\u9875",
 
         ["MqttTab"]            = "MQTT \u8fde\u63a5",
         ["DisplayTab"]         = "\u663e\u793a\u8bbe\u7f6e",
@@ -89,12 +88,6 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["English"]            = "English",
         ["UnitRpm"]            = " rpm",
         ["UnitBpm"]            = " bpm",
-
-        ["SingleMode"]         = "\u5355\u4eba\u68c0\u6d4b",
-        ["MultiMode"]          = "\u591a\u4eba\u68c0\u6d4b",
-        ["DetectMode"]         = "\u68c0\u6d4b\u6a21\u5f0f",
-        ["PersonCount"]        = "\u68c0\u6d4b\u5230 {0} \u4eba",
-        ["NoPersons"]          = "\u6682\u65e0\u68c0\u6d4b\u76ee\u6807",
     };
 
     private static readonly Dictionary<string, string> En = new()
@@ -123,12 +116,11 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["RespLabel"]          = "RESPIRATION",
         ["HrLabel"]            = "HEART RATE",
 
-        ["WifiTab"]            = "WiFi Settings",
-        ["WifiName"]           = "WiFi SSID",
-        ["WifiPwd"]            = "WiFi Password",
-        ["ApplyWifi"]          = "Send WiFi Config",
-        ["WifiSent"]           = "WiFi config sent via MQTT, ESP32 will reconnect",
-        ["WifiNotConnected"]   = "Connect to MQTT first before sending WiFi config",
+        ["WifiTab"]            = "WiFi Status",
+        ["WifiSsid"]           = "Current WiFi",
+        ["WifiIp"]             = "IP Address",
+        ["WifiRssi"]           = "Signal Strength",
+        ["WifiHint"]           = "Shows the WiFi the ESP32 is currently connected to; updates automatically. To change WiFi, hold BOOT during power-up to open the setup portal.",
 
         ["MqttTab"]            = "MQTT Connection",
         ["DisplayTab"]         = "Display Settings",
@@ -169,12 +161,6 @@ public sealed class ResourceExtension : INotifyPropertyChanged
         ["English"]            = "English",
         ["UnitRpm"]            = " rpm",
         ["UnitBpm"]            = " bpm",
-
-        ["SingleMode"]         = "Single-Person",
-        ["MultiMode"]          = "Multi-Person",
-        ["DetectMode"]         = "Detection Mode",
-        ["PersonCount"]        = "{0} persons detected",
-        ["NoPersons"]          = "No targets detected",
     };
 
     private Dictionary<string, string> Active =>
@@ -208,11 +194,10 @@ public sealed class ResourceExtension : INotifyPropertyChanged
     public string RespLabel          => this["RespLabel"];
     public string HrLabel            => this["HrLabel"];
     public string WifiTab            => this["WifiTab"];
-    public string WifiName           => this["WifiName"];
-    public string WifiPwd            => this["WifiPwd"];
-    public string ApplyWifi          => this["ApplyWifi"];
-    public string WifiSent           => this["WifiSent"];
-    public string WifiNotConnected   => this["WifiNotConnected"];
+    public string WifiSsid           => this["WifiSsid"];
+    public string WifiIp             => this["WifiIp"];
+    public string WifiRssi           => this["WifiRssi"];
+    public string WifiHint           => this["WifiHint"];
     public string MqttTab            => this["MqttTab"];
     public string DisplayTab         => this["DisplayTab"];
     public string DataTab            => this["DataTab"];
@@ -258,11 +243,6 @@ public sealed class ResourceExtension : INotifyPropertyChanged
     public string English            => this["English"];
     public string UnitRpm            => this["UnitRpm"];
     public string UnitBpm            => this["UnitBpm"];
-    public string SingleMode         => this["SingleMode"];
-    public string MultiMode          => this["MultiMode"];
-    public string DetectMode         => this["DetectMode"];
-    public string PersonCount        => this["PersonCount"];
-    public string NoPersons          => this["NoPersons"];
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

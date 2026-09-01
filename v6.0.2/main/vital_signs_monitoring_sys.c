@@ -13,7 +13,6 @@
 #include "esp_timer.h"
 #include "ping/ping_sock.h"
 #include "lwip/inet.h"
-#include "cJSON.h"
 #include "wifi_prov.h"
 
 /* ===== Debug switch =====
@@ -36,8 +35,8 @@
 #define MQTT_BROKER  "mqtt://172.20.10.5:1883"
 #define MQTT_CLIENT  "esp32-csi-001"
 #define MQTT_TOPIC   "me41004/csi"
-/* ESP32 subscribes here to receive WiFi config from GUI */
-#define MQTT_CONFIG_TOPIC "me41004/config"
+/* ESP32 publishes its current WiFi connection info here for the GUI */
+#define MQTT_STATUS_TOPIC "me41004/status"
 
 /* ===== CSI Configuration ===== */
 #define CSI_CHANNEL 0
@@ -177,57 +176,35 @@ void save_wifi_to_nvs(const char *ssid, const char *pass, const char *broker)
 }
 
 /* =====================================================================
- * Reconnect WiFi with new credentials
+ * Publish current WiFi connection info for the GUI.
+ * Retained, so a GUI that connects later immediately sees the latest state.
  * ====================================================================*/
-static void reconnect_wifi(const char *ssid, const char *pass)
+static void publish_wifi_status(void)
 {
-    ESP_LOGI("WIFI", "Reconnecting to SSID=%s", ssid);
+    if (mqtt_client == NULL || !mqtt_connected_flag) return;
 
-    wifi_config_t wifi_cfg = {0};
-    strncpy((char *)wifi_cfg.sta.ssid, ssid, sizeof(wifi_cfg.sta.ssid) - 1);
-    strncpy((char *)wifi_cfg.sta.password, pass, sizeof(wifi_cfg.sta.password) - 1);
-    wifi_cfg.sta.channel = CSI_CHANNEL;
-    wifi_cfg.sta.threshold.authmode = WIFI_AUTH_WPA_PSK;
-
-    s_retry_count = 0;
-    esp_wifi_disconnect();
-    esp_wifi_set_config(WIFI_IF_STA, &wifi_cfg);
-    esp_wifi_connect();
-}
-
-/* =====================================================================
- * Parse incoming WiFi config JSON from MQTT
- *   expected: {"ssid":"...","password":"..."}
- * ====================================================================*/
-static void handle_wifi_config_msg(const char *json_str, int len)
-{
-    /* cJSON needs null-terminated string */
-    char *buf = malloc(len + 1);
-    if (!buf) return;
-    memcpy(buf, json_str, len);
-    buf[len] = '\0';
-
-    cJSON *root = cJSON_Parse(buf);
-    free(buf);
-    if (!root) {
-        ESP_LOGE("WIFI", "Failed to parse WiFi config JSON");
-        return;
+    char ssid[33] = "";
+    int rssi = 0;
+    wifi_ap_record_t ap;
+    if (esp_wifi_sta_get_ap_info(&ap) == ESP_OK) {
+        strncpy(ssid, (const char *)ap.ssid, sizeof(ssid) - 1);
+        ssid[sizeof(ssid) - 1] = '\0';
+        rssi = ap.rssi;
     }
 
-    cJSON *j_ssid = cJSON_GetObjectItem(root, "ssid");
-    cJSON *j_pass = cJSON_GetObjectItem(root, "password");
-
-    if (cJSON_IsString(j_ssid) && j_ssid->valuestring[0] != '\0') {
-        const char *ssid = j_ssid->valuestring;
-        const char *pass = cJSON_IsString(j_pass) ? j_pass->valuestring : "";
-
-        save_wifi_to_nvs(ssid, pass, NULL);   /* MQTT path: broker unchanged */
-        reconnect_wifi(ssid, pass);
-    } else {
-        ESP_LOGW("WIFI", "WiFi config JSON missing ssid");
+    char ip[16] = "";
+    esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
+    if (netif != NULL) {
+        esp_netif_ip_info_t ip_info;
+        if (esp_netif_get_ip_info(netif, &ip_info) == ESP_OK)
+            snprintf(ip, sizeof(ip), IPSTR, IP2STR(&ip_info.ip));
     }
 
-    cJSON_Delete(root);
+    char json[128];
+    snprintf(json, sizeof(json),
+             "{\"ssid\":\"%s\",\"ip\":\"%s\",\"rssi\":%d}", ssid, ip, rssi);
+    esp_mqtt_client_publish(mqtt_client, MQTT_STATUS_TOPIC, json, 0, 0, 1);
+    ESP_LOGI("WIFI", "Published WiFi status: %s", json);
 }
 
 /* =====================================================================
@@ -241,22 +218,11 @@ static void mqtt_event_handler(void *arg, esp_event_base_t base,
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI("MQTT", "CONNECTED to broker");
         mqtt_connected_flag = true;
-        /* subscribe to WiFi config topic */
-        esp_mqtt_client_subscribe(mqtt_client, MQTT_CONFIG_TOPIC, 1);
+        publish_wifi_status();
         break;
     case MQTT_EVENT_DISCONNECTED:
         ESP_LOGW("MQTT", "DISCONNECTED from broker");
         mqtt_connected_flag = false;
-        break;
-    case MQTT_EVENT_DATA:
-#if CSI_DEBUG
-        ESP_LOGI("MQTT", "DATA topic=%.*s", ev->topic_len, ev->topic);
-#endif
-        if (ev->topic_len == strlen(MQTT_CONFIG_TOPIC) &&
-            strncmp(ev->topic, MQTT_CONFIG_TOPIC, ev->topic_len) == 0)
-        {
-            handle_wifi_config_msg(ev->data, ev->data_len);
-        }
         break;
     case MQTT_EVENT_ERROR:
         ESP_LOGE("MQTT", "ERROR type=%d", ev->error_handle->error_type);
@@ -310,6 +276,9 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
             mqtt_started = true;
             ESP_LOGI("MQTT", "MQTT client started (after IP)");
         }
+
+        /* Refresh the GUI's WiFi view (covers a reconnect where MQTT stayed up) */
+        publish_wifi_status();
     }
 }
 

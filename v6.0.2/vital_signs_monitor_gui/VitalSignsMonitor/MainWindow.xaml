@@ -67,14 +67,6 @@
 <TextBlock DockPanel.Dock="Left" x:Name="StatusText"
 		   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=StatusNotConnected}"
 		   Style="{StaticResource SecondaryText}" VerticalAlignment="Center"/>
-<StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
-	<TextBlock Style="{StaticResource SecondaryText}" VerticalAlignment="Center" Margin="0,0,6,0"
-			   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=DetectMode}"/>
-	<ComboBox x:Name="ModeSelector" Width="120" SelectedIndex="0" SelectionChanged="ModeSelector_SelectionChanged">
-		<ComboBoxItem Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=SingleMode}"/>
-		<ComboBoxItem Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=MultiMode}"/>
-	</ComboBox>
-</StackPanel>
 </DockPanel>
 		</Border>
 
@@ -152,29 +144,35 @@
 					</UniformGrid>
 
 					<TabControl Grid.Row="1" Background="White" BorderBrush="#D1D5DB" BorderThickness="1" Padding="0">
-						<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiTab}" Foreground="#374151">
-							<Grid Margin="6">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="36"/>
-									<RowDefinition Height="36"/>
-									<RowDefinition Height="*"/>
-									<RowDefinition Height="38"/>
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="Auto"/>
-									<ColumnDefinition Width="*"/>
-								</Grid.ColumnDefinitions>
-								<Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
-									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiName}"/>
-								<TextBox x:Name="WifiSsidInput" Margin="4" Grid.Row="0" Grid.Column="1"/>
-								<Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
-									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiPwd}"/>
-								<PasswordBox x:Name="WifiPwdInput" Margin="4" Grid.Row="1" Grid.Column="1"/>
-								<Button x:Name="ApplyWifiBtn"
-										Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=ApplyWifi}"
-										Grid.Row="3" Grid.ColumnSpan="2" Margin="4" Click="WifiSet_Click"/>
-							</Grid>
-						</TabItem>
+							<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiTab}" Foreground="#374151">
+								<Grid Margin="6">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="36"/>
+										<RowDefinition Height="36"/>
+										<RowDefinition Height="36"/>
+										<RowDefinition Height="*"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
+										   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiSsid}"/>
+									<TextBox x:Name="WifiSsidDisplay" Text="--" IsReadOnly="True" Background="#F9FAFB"
+											 Margin="4" Grid.Row="0" Grid.Column="1"/>
+									<Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
+										   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiIp}"/>
+									<TextBox x:Name="WifiIpDisplay" Text="--" IsReadOnly="True" Background="#F9FAFB"
+											 Margin="4" Grid.Row="1" Grid.Column="1"/>
+									<Label Style="{StaticResource InputLabel}" Grid.Row="2" Grid.Column="0"
+										   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiRssi}"/>
+									<TextBox x:Name="WifiRssiDisplay" Text="--" IsReadOnly="True" Background="#F9FAFB"
+											 Margin="4" Grid.Row="2" Grid.Column="1"/>
+									<TextBlock Style="{StaticResource SecondaryText}" Grid.Row="3" Grid.Column="0"
+											   Grid.ColumnSpan="2" Margin="4,2" TextWrapping="Wrap"
+											   Text="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=WifiHint}"/>
+								</Grid>
+							</TabItem>
 						<TabItem Header="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=MqttTab}" Foreground="#374151">
 							<Grid Margin="6">
 								<Grid.RowDefinitions>
@@ -190,7 +188,7 @@
 								</Grid.ColumnDefinitions>
 								<Label Style="{StaticResource InputLabel}" Grid.Row="0" Grid.Column="0"
 									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Broker}"/>
-								<TextBox x:Name="BrokerInput" Text="192.168.110.68" Margin="4" Grid.Row="0" Grid.Column="1"/>
+								<TextBox x:Name="BrokerInput" Text="192.168.1.100" Margin="4" Grid.Row="0" Grid.Column="1"/>
 								<Label Style="{StaticResource InputLabel}" Grid.Row="1" Grid.Column="0"
 									   Content="{Binding Source={x:Static res:ResourceExtension.Instance}, Path=Port}"/>
 								<TextBox x:Name="PortInput" Text="1883" Margin="4" Grid.Row="1" Grid.Column="1"/>

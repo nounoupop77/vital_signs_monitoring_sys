@@ -11,3 +11,7 @@ sdkconfig.old
 *.user
 *.suo
 *.log
+vital_signs_monitor_gui/
+new_try_py/
+espnow_csi/
+**/published_gui/*.exe
