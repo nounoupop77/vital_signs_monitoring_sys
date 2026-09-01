@@ -14,4 +14,3 @@ sdkconfig.old
 vital_signs_monitor_gui/
 new_try_py/
 espnow_csi/
-**/published_gui/*.exe
